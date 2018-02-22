@@ -16,18 +16,18 @@
         </xsd:schema>
    </grammars>
    <resources>
-      <resource path="/authorise3d">
-         <method name="POST" soa:wsdlOperation="authorise3d">
+      <resource path="/">
+         <method name="POST" soa:wsdlOperation="authorise_int">
             <request>
-               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"/>
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
             </request>
             <response status="200">
-               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"/>
             </response>
          </method>
       </resource>
-      <resource path="/">
-         <method name="POST" soa:wsdlOperation="authorise_int">
+      <resource path="/authorise3d">
+         <method name="POST" soa:wsdlOperation="authorise3d_in">
             <request>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
             </request>

@@ -97,6 +97,17 @@
                     <xsl:value-of select="/ns0:Root-Element/ns0:pspReference"/>
                 </tns:hostTransactionId>
             </tns:authorizationResponse>
+            <ns2:additionalProperties>
+                <ns2:md>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:md"/>
+                </ns2:md>
+                <ns2:paRequest>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:paRequest"/>
+                </ns2:paRequest>
+                <ns2:issueURL>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:issuerUrl"/>
+                </ns2:issueURL>
+            </ns2:additionalProperties>
         </tns:Root-Element>
     </xsl:template>
 </xsl:stylesheet>

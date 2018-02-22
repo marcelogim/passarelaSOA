@@ -80,6 +80,14 @@
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>
+                <xsd:element name="additionalProperties">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="md" type="xsd:string"/>
+                            <xsd:element name="paResponse" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>

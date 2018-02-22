@@ -46,6 +46,9 @@
                     <xsd:complexType>
                         <xsd:sequence>
                             <xsd:element name="sampleProperty1" type="xsd:string"/>
+                            <xsd:element name="md" type="xsd:string"/>
+                            <xsd:element name="paRequest" type="xsd:string"/>                           
+                            <xsd:element name="issueURL" type="xsd:string"/>
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>

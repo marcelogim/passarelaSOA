@@ -38,7 +38,7 @@
     <!--User Editing allowed BELOW this line - DO NOT DELETE THIS LINE-->
     <xsl:template match="/">
         <tns:Root-Element>
-            <tns:origin_zip_code>04012080</tns:origin_zip_code>
+            <tns:origin_zip_code>13213070</tns:origin_zip_code>
             <tns:destination_zip_code>
                 <xsl:value-of select="/ns0:Root-Element/ns0:request/ns0:address/ns0:postalCode"/>
             </tns:destination_zip_code>

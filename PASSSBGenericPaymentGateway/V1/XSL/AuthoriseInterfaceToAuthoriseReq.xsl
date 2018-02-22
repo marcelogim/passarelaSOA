@@ -39,6 +39,11 @@
     <xsl:param name="merchantAccount"/>
     <xsl:template match="/">
         <tns:Root-Element>
+            <tns:additionalData>
+                <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'debit'">
+                    <tns:executeThreeD>true</tns:executeThreeD>
+                </xsl:if>
+            </tns:additionalData>
             <tns:amount>
                 <tns:currency>
                     <xsl:value-of select="/ns0:Root-Element/ns0:currencyCode"/>
@@ -98,6 +103,12 @@
                     <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:lastName"/>
                 </tns:lastName>
             </tns:shopperName>
+            <tns:md>
+                <xsl:value-of select="/ns0:Root-Element/ns0:additionalProperties/ns0:md"/>
+            </tns:md>
+            <tns:paResponse>
+                <xsl:value-of select="/ns0:Root-Element/ns0:additionalProperties/ns0:paResponse"/>
+            </tns:paResponse>
             <tns:merchantAccount>
                 <xsl:value-of select="$merchantAccount"/>
             </tns:merchantAccount>
