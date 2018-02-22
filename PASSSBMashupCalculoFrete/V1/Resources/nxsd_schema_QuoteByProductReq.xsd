@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/RestService_QuoteByProduct_request" targetNamespace="http://TargetNamespace.com/RestService_QuoteByProduct_request" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+  <xsd:element name="Root-Element">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="origin_zip_code" type="xsd:integer"/>
+            <xsd:element name="destination_zip_code" type="xsd:integer"/>
+            <xsd:element name="quoting_mode" type="xsd:string"/>
+            <xsd:element name="products" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="weight" type="xsd:integer"/>
+                     <xsd:element name="cost_of_goods" type="xsd:double"/>
+                     <xsd:element name="width" type="xsd:double"/>
+                     <xsd:element name="height" type="xsd:double"/>
+                     <xsd:element name="length" type="xsd:integer"/>
+                     <xsd:element name="quantity" type="xsd:integer"/>
+                     <xsd:element name="sku_id" type="xsd:string"/>
+                     <xsd:element name="product_category" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="additional_information">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="lead_time_business_days" type="xsd:integer"/>
+                     <xsd:element name="sales_channel" type="xsd:string"/>
+                     <xsd:element name="client_type" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="identification">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="session" type="xsd:string"/>
+                     <xsd:element name="ip" type="xsd:string"/>
+                     <xsd:element name="page_name" type="xsd:string"/>
+                     <xsd:element name="url" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=C:\Users\mgimenes\Downloads\1.json</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

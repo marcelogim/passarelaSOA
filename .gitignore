@@ -1,0 +1,4 @@
+.adf/META-INF/adf-config.xml
+*.jdb
+.data/00000000/je.lck
+*.lck

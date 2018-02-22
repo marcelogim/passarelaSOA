@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://TargetNamespace.com/RestService_QuoteByProduct_response"
+            targetNamespace="http://TargetNamespace.com/RestService_QuoteByProduct_response"
+            elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
+            nxsd:encoding="US-ASCII">
+   <xsd:element name="Root-Element">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="messages" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="type" type="xsd:string"/>
+                     <xsd:element name="text" type="xsd:string"/>
+                     <xsd:element name="key" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="content">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="origin_zip_code" type="xsd:integer"/>
+                     <xsd:element name="destination_zip_code" type="xsd:integer"/>
+                     <xsd:element name="platform" type="xsd:string"/>
+                     <xsd:element name="additional_information">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="extra_cost_absolute"/>
+                              <xsd:element name="lead_time_business_days" type="xsd:integer"/>
+                              <xsd:element name="free_shipping"/>
+                              <xsd:element name="extra_cost_percentage"/>
+                              <xsd:element name="tax_id"/>
+                              <xsd:element name="client_type" type="xsd:string"/>
+                              <xsd:element name="sales_channel" type="xsd:string"/>
+                              <xsd:element name="payment_type"/>
+                              <xsd:element name="is_state_tax_payer"/>
+                              <xsd:element name="shipped_date"/>
+                              <xsd:element name="calculate_estimated_date_exact"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="identification">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="session" type="xsd:string"/>
+                              <xsd:element name="ip" type="xsd:string"/>
+                              <xsd:element name="page_name" type="xsd:string"/>
+                              <xsd:element name="url" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="quoting_mode" type="xsd:string"/>
+                     <xsd:element name="id" type="xsd:integer"/>
+                     <xsd:element name="client_id" type="xsd:integer"/>
+                     <xsd:element name="created" type="xsd:integer"/>
+                     <xsd:element name="created_iso" type="xsd:string"/>
+                     <xsd:element name="delivery_options" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="delivery_method_id" type="xsd:integer"/>
+                              <xsd:element name="delivery_estimate_business_days" type="xsd:integer"/>
+                              <xsd:element name="provider_shipping_cost" type="xsd:double"/>
+                              <xsd:element name="final_shipping_cost" type="xsd:double"/>
+                              <xsd:element name="description" type="xsd:string"/>
+                              <xsd:element name="delivery_note"/>
+                              <xsd:element name="removed_by_return_modes" type="xsd:string"/>
+                              <xsd:element name="removed_by_quote_rules" type="xsd:string"/>
+                              <xsd:element name="cubic_weight" type="xsd:double"/>
+                              <xsd:element name="delivery_method_type" type="xsd:string"/>
+                              <xsd:element name="delivery_method_name" type="xsd:string"/>
+                              <xsd:element name="shown_to_client" type="xsd:string"/>
+                              <xsd:element name="pickup_enabled" type="xsd:string"/>
+                              <xsd:element name="logistic_provider_name" type="xsd:string"/>
+                              <xsd:element name="scheduling_enabled" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="volumes" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="weight" type="xsd:double"/>
+                              <xsd:element name="cost_of_goods" type="xsd:double"/>
+                              <xsd:element name="width" type="xsd:double"/>
+                              <xsd:element name="height" type="xsd:double"/>
+                              <xsd:element name="length" type="xsd:double"/>
+                              <xsd:element name="description" type="xsd:string"/>
+                              <xsd:element name="product_category" type="xsd:string"/>
+                              <xsd:element name="volume_type" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="cached" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="time" type="xsd:string"/>
+            <xsd:element name="timezone" type="xsd:string"/>
+            <xsd:element name="locale" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=C:\Users\mgimenes\Downloads\2.txt</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

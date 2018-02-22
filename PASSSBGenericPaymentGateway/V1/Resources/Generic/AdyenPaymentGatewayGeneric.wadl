@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:ns0="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"
+             xmlns="http://wadl.dev.java.net/2009/02">
+    <doc title="AdyenPaymentGatewayGeneric">RestService</doc>
+    <grammars>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"
+                        schemaLocation="nxsd_authorisePaymentReq.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"
+                        schemaLocation="nxsd_authorisePaymentResp.xsd"/>
+        </xsd:schema>
+    </grammars>
+    <resources>
+        <resource path="/authorise">
+            <method name="POST" soa:wsdlOperation="authorise">
+                <request>
+                    <representation mediaType="application/json" element="cns:Root-Element"
+                                    xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"/>
+                </request>
+                <response status="200">
+                    <representation mediaType="application/json" element="cns:Root-Element"
+                                    xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
+                </response>
+                <response status="401" soa:wsdlFaultName="fault1">
+                    <representation mediaType="application/json" element="cns:Root-Element"
+                                    xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
+                </response>
+                <response status="422" soa:wsdlFaultName="fault2">
+                    <representation mediaType="application/json" element="cns:Root-Element"
+                                    xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
+                </response>
+                <response status="403" soa:wsdlFaultName="fault2">
+                    <representation mediaType="application/json" element="cns:Root-Element"
+                                    xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="/authorise3d">
+            <method name="POST" soa:wsdlOperation="authorise3d">
+                <request>
+                    <representation mediaType="application/json" element="cns:Root-Element"
+                                    xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"/>
+                </request>
+                <response status="200">
+                    <representation mediaType="application/json" element="cns:Root-Element"
+                                    xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

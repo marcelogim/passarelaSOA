@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:inp1="http://TargetNamespace.com/RestService_QuoteByProduct_request" xmlns="http://wadl.dev.java.net/2009/02" xmlns:tns="http://TargetNamespace.com/IntelipostQuoteByProductBusiness_quote_request" xmlns:ns1="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_response" xmlns:ns0="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_request">
+   <doc title="IntelipostQuoteByProductPS">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/RestService_QuoteByProduct_request" schemaLocation="nxsd_schema_QuoteByProductReq.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/RestService_QuoteByProduct_response" schemaLocation="nxsd_schema_QuoteByProductRes.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_request" schemaLocation="nxsd_schema_InterfaceQuoteByProductReq.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_response" schemaLocation="nxsd_schema_InterfaceQuoteByProductRes.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/RestService_QuoteByProduct_response" schemaLocation="nxsd_schema_QuoteByProductRes.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="POST" soa:wsdlOperation="quote_by_product_in">
+            <request>
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_request"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_response"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault1">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_response"/>
+            </response>
+            <response status="401" soa:wsdlFaultName="fault2">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_response"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault3">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_response"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

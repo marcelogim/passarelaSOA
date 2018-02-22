@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="PASSSBMashupCalculoFrete/V1/Resources/IntelipostQuoteByProductBS"/>
+            <con:binding>
+                <con:name>IntelipostQuoteByProductBusiness_ptt-binding</con:name>
+                <con:namespace>http://xmlns.oracle.com/SBAplPassarela/PASSSBMashupCalculoFrete/IntelipostQuoteByProductBusiness</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-N3f57c7ff.14504e25.0.1617a427253.N7f5f">
+        <con:pipeline type="error" name="error-N3f57c7ff.14504e25.0.1617a427253.N7f5f">
+            <con:stage id="_StageId-N3f57c7ff.14504e25.0.1617a427253.N7f5e" name="Fault Intelipost">
+                <con:context>
+                    <con2:userNsDecl prefix="res" namespace="http://TargetNamespace.com/RestService_QuoteByProduct_response"/>
+                </con:context>
+                <con:actions>
+                    <con1:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-N3f57c7ff.14504e25.0.1617a427253.N7f5b</con2:id>
+                        <con1:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xsltTransform>
+                                <con2:resource ref="PASSSBMashupCalculoFrete/V1/XSL/ToFault"/>
+                                <con2:input>&lt;xml>&lt;/xml></con2:input>
+                                <con2:param name="status">
+                                    <con2:path>$body//res:status/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="type">
+                                    <con2:path>$body//res:type/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="text">
+                                    <con2:path>$body//res:text/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="key">
+                                    <con2:path>$body//res:key/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="time">
+                                    <con2:path>fn:current-dateTime()</con2:path>
+                                </con2:param>
+                                <con2:param name="timezone">
+                                    <con2:path>"BRT"</con2:path>
+                                </con2:param>
+                                <con2:param name="locale">
+                                    <con2:path>$body//res:locale/text()</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:replace>
+                    <con2:resume>
+                        <con2:id>_ActionId-N3f57c7ff.14504e25.0.1617a427253.N7f56</con2:id>
+                    </con2:resume>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:route-node name="IntelipostQuoteByProductBusiness" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                <con:context>
+                    <con2:userNsDecl prefix="res" namespace="http://TargetNamespace.com/RestService_QuoteByProduct_response"/>
+                    <con2:userNsDecl prefix="res1" namespace="http://TargetNamespace.com/RestService_QuoteByProduct_request"/>
+                    <con2:userNsDecl prefix="int" namespace="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_request"/>
+                </con:context>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>actionid-routeaction</con2:id>
+                        <con1:service ref="PASSSBMashupCalculoFrete/V1/BS/IntelipostQuoteByProductBS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>quote_by_product</con1:operation>
+                        <con1:outboundTransform>
+                            <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N7748</con2:id>
+                                <con3:location>
+                                    <con2:xpathText>.</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xsltTransform>
+                                        <con2:resource ref="PASSSBMashupCalculoFrete/V1/XSL/QuoteByProductInterfaceToQuoteByProductReq"/>
+                                        <con2:input>$body/int:Root-Element</con2:input>
+                                    </con2:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                            <con3:transport-headers copy-all="false" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.14504e25.0.1617a427253.N7f53</con2:id>
+                                <con3:header-set>outbound-request</con3:header-set>
+                                <con3:header value="expression" name="api-key">
+                                    <con2:xqueryText>dvm:lookup('PASSSBCommon/V1/DVM/ChaveIntelipost', 'key', 'api-key', 'value', '0')</con2:xqueryText>
+                                </con3:header>
+                            </con3:transport-headers>
+                        </con1:outboundTransform>
+                        <con1:responseTransform>
+                            <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N7744</con2:id>
+                                <con3:location>
+                                    <con2:xpathText>.</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xsltTransform>
+                                        <con2:resource ref="PASSSBMashupCalculoFrete/V1/XSL/QuoteByProductInterfaceToQuoteByProductRes"/>
+                                        <con2:input>$body/res:Root-Element</con2:input>
+                                    </con2:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:responseTransform>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>
