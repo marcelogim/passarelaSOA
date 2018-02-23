@@ -37,9 +37,15 @@
     </oracle-xsl-mapper:schema>
     <!--User Editing allowed BELOW this line - DO NOT DELETE THIS LINE-->
     <xsl:param name="merchantAccount"/>
+    <xsl:param name="cardencryptedjson"/>
     <xsl:template match="/">
         <tns:Root-Element>
             <tns:additionalData>
+              <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'card' or /ns0:Root-Element/ns0:paymentMethod = 'debit'">
+                <tns:card.encrypted.json>
+                    <xsl:value-of select="$cardencryptedjson"/>
+                </tns:card.encrypted.json>
+               </xsl:if> 
                 <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'debit'">
                     <tns:executeThreeD>true</tns:executeThreeD>
                 </xsl:if>
@@ -58,6 +64,12 @@
             <tns:shopperReference>
                 <xsl:value-of select="concat (/ns0:Root-Element/ns0:billingAddress/ns0:firstName, /ns0:Root-Element/ns0:billingAddress/ns0:lastName )"/>
             </tns:shopperReference>
+            <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'oneclick'">
+                <tns:selectedRecurringDetailReference>LATEST</tns:selectedRecurringDetailReference>
+                <tns:recurring>
+                    <tns:contract>ONECLICK</tns:contract>
+                </tns:recurring>
+            </xsl:if>
             <tns:billingAddress>
                 <tns:city>
                     <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:city"/>
@@ -65,6 +77,7 @@
                 <tns:country>
                     <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:country"/>
                 </tns:country>
+                <tns:houseNumberOrName>1</tns:houseNumberOrName>
                 <tns:postalCode>
                     <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:postalCode"/>
                 </tns:postalCode>
@@ -82,6 +95,7 @@
                 <tns:country>
                     <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:country"/>
                 </tns:country>
+                <tns:houseNumberOrName>1</tns:houseNumberOrName>
                 <tns:postalCode>
                     <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:postalCode"/>
                 </tns:postalCode>
@@ -95,6 +109,12 @@
             <tns:telephoneNumber>
                 <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber"/>
             </tns:telephoneNumber>
+            <tns:deliveryDate>
+                <xsl:value-of select="xp20:current-dateTime ( )"/>
+            </tns:deliveryDate>
+            <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'invoice'">
+                <tns:selectedBrand>boletobancario_santander</tns:selectedBrand>
+            </xsl:if>
             <tns:shopperName>
                 <tns:firstName>
                     <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:firstName"/>
@@ -104,11 +124,18 @@
                 </tns:lastName>
             </tns:shopperName>
             <tns:md>
-                <xsl:value-of select="/ns0:Root-Element/ns0:additionalProperties/ns0:md"/>
+                <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:md"/>
             </tns:md>
             <tns:paResponse>
-                <xsl:value-of select="/ns0:Root-Element/ns0:additionalProperties/ns0:paResponse"/>
+                <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:paResponse"/>
             </tns:paResponse>
+            <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'invoice'">
+                <tns:shopperStatement>Aceitar o pagamento até 15 dias após o vencimento; Não cobrar juros. Não
+                                      aceitar o pagamento com cheque</tns:shopperStatement>
+                <tns:socialSecurityNumber>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:shopperCPF"/>
+                </tns:socialSecurityNumber>
+            </xsl:if>
             <tns:merchantAccount>
                 <xsl:value-of select="$merchantAccount"/>
             </tns:merchantAccount>

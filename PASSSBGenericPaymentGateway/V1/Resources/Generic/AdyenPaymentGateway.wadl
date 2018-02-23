@@ -26,15 +26,5 @@
             </response>
          </method>
       </resource>
-      <resource path="/authorise3d">
-         <method name="POST" soa:wsdlOperation="authorise3d_in">
-            <request>
-               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
-            </request>
-            <response status="200">
-               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"/>
-            </response>
-         </method>
-      </resource>
    </resources>
 </application>

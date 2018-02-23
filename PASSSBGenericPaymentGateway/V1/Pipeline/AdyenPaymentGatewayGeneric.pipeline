@@ -74,6 +74,7 @@
                         <con:flow>
                             <con:route-node name="AdyenPaymentGatewayComplete3d" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
                                 <con:context>
+                                    <con2:userNsDecl prefix="ady2" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
                                     <con2:userNsDecl prefix="ady1" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
                                     <con2:userNsDecl prefix="ady" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorize_int_response"/>
                                 </con:context>
@@ -91,9 +92,12 @@
                                                 <con3:expr>
                                                     <con2:xsltTransform>
                                                         <con2:resource ref="PASSSBGenericPaymentGateway/V1/XSL/AuthoriseInterfaceToAuthoriseReq"/>
-                                                        <con2:input>$body/ady:Root-Element</con2:input>
+                                                        <con2:input>$body/ady2:Root-Element</con2:input>
                                                         <con2:param name="merchantAccount">
                                                             <con2:path>dvm:lookup('PASSSBCommon/V1/DVM/MerchantAccount', 'key', 'chave', 'value', '0')</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="cardencryptedjson">
+                                                            <con2:path>"adyenjs_0_1_20_1$ifPog5YlXoPVi9j1jJsnTUsZDwosu1XJqxdhahozMOWFYVzu/q+yQbZGodn+AaMmxE7bzAaQgN3vgrd9nLv0gtVzALMAR7AUFtaoKkkeIykD9iwCwgCQN18xLGjk24QS9hhPgPoPTnnqvdkzoEOWdQEl7CJ+WfOqnAAY6NEKfLpW+9hzeAooJU34EY30gsaKsfkwH8CSO7RqGbJwvgLvycokFRo5nlmxP1F84bSMfopJbxveigSiZW/6gc8t3ZLRrcZmYkxtXCj5tdlAKY6MLNyIoWvYq1voeuzJTJBR8QlZpcC0msjgq4+s7HwFiJKP3vdztQl1TFvatmq55EsjiA==$AXN9KsTDyAq6pyeCdfMH/w2Nx8aG8bj6DohX8ntWgNwgYiMASgzl4+cyjcAIGa4h/YDuZqlB8xVTTzB2Qtn/kgOQxYqJUX4IFzpDP+xvkA/Rmi52AdhxxA3HKpekpb7JZ3bJl15A/G12I9nOomX+qj7uP40dg+sVXYCjvnuFCvX/8Q4R1GnkKvkHn/kqJc3BmOZKzQC5vWKUFPdtXfoqSV1vhZqmdxo0x1SX78JLKcwTeCN1+R2UEyOKTRn3MmaZHudrK90BnG7PM2PmfnWQnKvhgOwFA/Xef0udxoverfIQSCRih7PEqZxugCJSteg20kif0UMYkRO7SCnF3X/osf2DGhinTeXU+7lu/s5pHMroP+H/u/U2Fm+/NzG9MfTgG6pX8P7mWRPgI7JyWNsnY7aJrXip6Ue0PU6pW/mf7Ghke7ObvSPoulSMxX7Qo7kpBaw/BuDMKZBjQZSQE+3gyoRpbvMmj2eoUvPP7VYeS6YHgo6pS8zIIM/Mutud7mnv6NCPiJc0KvK4nT5ZQ1tEb+nlyV7DIspsoO4kvJ59VdL8"</con2:path>
                                                         </con2:param>
                                                     </con2:xsltTransform>
                                                 </con3:expr>
@@ -110,7 +114,7 @@
                                                         <con2:resource ref="PASSSBGenericPaymentGateway/V1/XSL/AuthoriseInterfaceToAuthoriseRes"/>
                                                         <con2:input>$body/ady1:Root-Element</con2:input>
                                                         <con2:param name="bodyRequest">
-                                                            <con2:path>$body/ady:Root-Element</con2:path>
+                                                            <con2:path>$body/ady2:Root-Element</con2:path>
                                                         </con2:param>
                                                     </con2:xsltTransform>
                                                 </con3:expr>
@@ -125,6 +129,7 @@
                         <con:flow>
                             <con:route-node name="AdyenPaymentGatewayGeneric" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
                                 <con:context>
+                                    <con2:userNsDecl prefix="ady2" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
                                     <con2:userNsDecl prefix="ady1" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
                                     <con2:userNsDecl prefix="ady" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorize_int_response"/>
                                 </con:context>
@@ -134,6 +139,12 @@
                                         <con1:service ref="PASSSBGenericPaymentGateway/V1/BS/AdyenPaymentGatewayGeneric" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                                         <con1:operation>authorise</con1:operation>
                                         <con1:outboundTransform>
+                                            <con3:assign varName="bodyRequest" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                                <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N6ea5</con2:id>
+                                                <con3:expr>
+                                                    <con2:xqueryText>$body</con2:xqueryText>
+                                                </con3:expr>
+                                            </con3:assign>
                                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                                 <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N773e</con2:id>
                                                 <con3:location>
@@ -142,9 +153,12 @@
                                                 <con3:expr>
                                                     <con2:xsltTransform>
                                                         <con2:resource ref="PASSSBGenericPaymentGateway/V1/XSL/AuthoriseInterfaceToAuthoriseReq"/>
-                                                        <con2:input>$body/ady:Root-Element</con2:input>
+                                                        <con2:input>$body/ady2:Root-Element</con2:input>
                                                         <con2:param name="merchantAccount">
                                                             <con2:path>dvm:lookup('PASSSBCommon/V1/DVM/MerchantAccount', 'key', 'chave', 'value', '0')</con2:path>
+                                                        </con2:param>
+                                                        <con2:param name="cardencryptedjson">
+                                                            <con2:path>"adyenjs_0_1_20_1$ifPog5YlXoPVi9j1jJsnTUsZDwosu1XJqxdhahozMOWFYVzu/q+yQbZGodn+AaMmxE7bzAaQgN3vgrd9nLv0gtVzALMAR7AUFtaoKkkeIykD9iwCwgCQN18xLGjk24QS9hhPgPoPTnnqvdkzoEOWdQEl7CJ+WfOqnAAY6NEKfLpW+9hzeAooJU34EY30gsaKsfkwH8CSO7RqGbJwvgLvycokFRo5nlmxP1F84bSMfopJbxveigSiZW/6gc8t3ZLRrcZmYkxtXCj5tdlAKY6MLNyIoWvYq1voeuzJTJBR8QlZpcC0msjgq4+s7HwFiJKP3vdztQl1TFvatmq55EsjiA==$AXN9KsTDyAq6pyeCdfMH/w2Nx8aG8bj6DohX8ntWgNwgYiMASgzl4+cyjcAIGa4h/YDuZqlB8xVTTzB2Qtn/kgOQxYqJUX4IFzpDP+xvkA/Rmi52AdhxxA3HKpekpb7JZ3bJl15A/G12I9nOomX+qj7uP40dg+sVXYCjvnuFCvX/8Q4R1GnkKvkHn/kqJc3BmOZKzQC5vWKUFPdtXfoqSV1vhZqmdxo0x1SX78JLKcwTeCN1+R2UEyOKTRn3MmaZHudrK90BnG7PM2PmfnWQnKvhgOwFA/Xef0udxoverfIQSCRih7PEqZxugCJSteg20kif0UMYkRO7SCnF3X/osf2DGhinTeXU+7lu/s5pHMroP+H/u/U2Fm+/NzG9MfTgG6pX8P7mWRPgI7JyWNsnY7aJrXip6Ue0PU6pW/mf7Ghke7ObvSPoulSMxX7Qo7kpBaw/BuDMKZBjQZSQE+3gyoRpbvMmj2eoUvPP7VYeS6YHgo6pS8zIIM/Mutud7mnv6NCPiJc0KvK4nT5ZQ1tEb+nlyV7DIspsoO4kvJ59VdL8"</con2:path>
                                                         </con2:param>
                                                     </con2:xsltTransform>
                                                 </con3:expr>
@@ -161,7 +175,7 @@
                                                         <con2:resource ref="PASSSBGenericPaymentGateway/V1/XSL/AuthoriseInterfaceToAuthoriseRes"/>
                                                         <con2:input>$body/ady1:Root-Element</con2:input>
                                                         <con2:param name="bodyRequest">
-                                                            <con2:path>$body/ady:Root-Element</con2:path>
+                                                            <con2:path>$bodyRequest</con2:path>
                                                         </con2:param>
                                                     </con2:xsltTransform>
                                                 </con3:expr>

@@ -47,67 +47,109 @@
     <xsl:param name="bodyRequest"/>
     <xsl:template match="/">
         <tns:Root-Element>
-            <tns:orderId>
-                <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:orderId"/>
-            </tns:orderId>
-            <tns:currencyCode>
-                <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:currencyCode"/>
-            </tns:currencyCode>
-            <tns:transactionId>
-                <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionId"/>
-            </tns:transactionId>
-            <tns:paymentId>
-                <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:paymentId"/>
-            </tns:paymentId>
-            <tns:amount>
-                <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:amount"/>
-            </tns:amount>
-            <tns:transactionType>
-                <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionType"/>
-            </tns:transactionType>
-            <tns:hostTransactionTimestamp>
-                <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionTimestamp"/>
-            </tns:hostTransactionTimestamp>
-            <tns:transactionTimestamp>
-                <xsl:value-of select="/ns0:Root-Element/ns0:time"/>
-            </tns:transactionTimestamp>
-            <tns:paymentMethod>
-                <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:cardPaymentMethod"/>
-            </tns:paymentMethod>
-            <tns:gatewayId>
-                <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:gatewayId"/>
-            </tns:gatewayId>
-            <tns:siteId>
-                <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:siteId"/>
-            </tns:siteId>
-            <tns:authorizationResponse>
-                <tns:responseCode>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:resultCode"/>
-                </tns:responseCode>
-                <tns:responseReason>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:message"/>
-                </tns:responseReason>
-                <ns2:responseDescription>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:pspReference"/>
-                </ns2:responseDescription>
-                <tns:authorizationCode>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:authCode"/>
-                </tns:authorizationCode>
-                <tns:hostTransactionId>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:pspReference"/>
-                </tns:hostTransactionId>
-            </tns:authorizationResponse>
-            <ns2:additionalProperties>
-                <ns2:md>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:md"/>
-                </ns2:md>
-                <ns2:paRequest>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:paRequest"/>
-                </ns2:paRequest>
-                <ns2:issueURL>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:issuerUrl"/>
-                </ns2:issueURL>
-            </ns2:additionalProperties>
+            <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:orderId">
+                <tns:orderId>
+                    <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:orderId"/>
+                </tns:orderId>
+            </xsl:if>
+            <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:currencyCode">
+                <tns:currencyCode>
+                    <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:currencyCode"/>
+                </tns:currencyCode>
+            </xsl:if>
+            <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:transactionId">
+                <tns:transactionId>
+                    <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionId"/>
+                </tns:transactionId>
+            </xsl:if>
+            <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:paymentId">
+                <tns:paymentId>
+                    <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:paymentId"/>
+                </tns:paymentId>
+            </xsl:if>
+            <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:amount">
+                <tns:amount>
+                    <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:amount"/>
+                </tns:amount>
+            </xsl:if>
+            <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:transactionType">
+                <tns:transactionType>
+                    <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionType"/>
+                </tns:transactionType>
+            </xsl:if>
+            <ns2:hostTransactionTimestamp>
+                <xsl:value-of select="xp20:current-dateTime ( )"/>
+            </ns2:hostTransactionTimestamp>
+            <xsl:if test="/ns0:Root-Element/ns0:time">
+                <tns:transactionTimestamp>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:time"/>
+                </tns:transactionTimestamp>
+            </xsl:if>
+            <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:paymentMethod">
+                <tns:paymentMethod>
+                    <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:paymentMethod"/>
+                </tns:paymentMethod>
+            </xsl:if>
+            <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:gatewayId">
+                <tns:gatewayId>
+                    <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:gatewayId"/>
+                </tns:gatewayId>
+            </xsl:if>
+            <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:siteId">
+                <tns:siteId>
+                    <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:siteId"/>
+                </tns:siteId>
+            </xsl:if>
+         
+                <xsl:if test="/ns0:Root-Element/ns0:pspReference">
+                    <tns:authorizationResponse>
+                        <xsl:if test="/ns0:Root-Element/ns0:resultCode">
+                            <tns:responseCode>
+                                <xsl:value-of select="/ns0:Root-Element/ns0:resultCode"/>
+                            </tns:responseCode>
+                        </xsl:if>
+                        <xsl:if test="/ns0:Root-Element/ns0:message">
+                            <tns:responseReason>
+                                <xsl:value-of select="/ns0:Root-Element/ns0:message"/>
+                            </tns:responseReason>
+                        </xsl:if>
+                        <xsl:if test="/ns0:Root-Element/ns0:pspReference">
+                            <ns2:responseDescription>
+                                <xsl:value-of select="/ns0:Root-Element/ns0:pspReference"/>
+                            </ns2:responseDescription>
+                        </xsl:if>
+                        <xsl:if test="/ns0:Root-Element/ns0:authCode">
+                            <tns:authorizationCode>
+                                <xsl:value-of select="/ns0:Root-Element/ns0:authCode"/>
+                            </tns:authorizationCode>
+                        </xsl:if>
+                        <xsl:if test="/ns0:Root-Element/ns0:pspReference">
+                            <tns:hostTransactionId>
+                                <xsl:value-of select="/ns0:Root-Element/ns0:pspReference"/>
+                            </tns:hostTransactionId>
+                        </xsl:if>
+                    </tns:authorizationResponse>
+                </xsl:if>
+           
+            <xsl:if test="/ns0:Root-Element/ns0:md">
+                <ns2:additionalProperties>
+                    <xsl:if test="/ns0:Root-Element/ns0:md">
+                        <ns2:md>
+                            <xsl:value-of select="/ns0:Root-Element/ns0:md"/>
+                        </ns2:md>
+                    </xsl:if>
+                    <xsl:if test="/ns0:Root-Element/ns0:paRequest">
+                        <ns2:paRequest>
+                            <xsl:value-of select="/ns0:Root-Element/ns0:paRequest"/>
+                        </ns2:paRequest>
+                    </xsl:if>
+                    <xsl:if test="/ns0:Root-Element/ns0:issuerUrl">
+                        <ns2:issueURL>
+                            <xsl:value-of select="/ns0:Root-Element/ns0:issuerUrl"/>
+                        </ns2:issueURL>
+                    </xsl:if>
+                </ns2:additionalProperties>
+            </xsl:if>
         </tns:Root-Element>
     </xsl:template>
 </xsl:stylesheet>

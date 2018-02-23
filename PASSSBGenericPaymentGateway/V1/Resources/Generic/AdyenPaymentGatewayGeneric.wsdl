@@ -1,19 +1,35 @@
-<wsdl:definitions name="AdyenPaymentGatewayGeneric" targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBGenericPaymentGateway/AdyenPaymentGatewayGeneric" xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBGenericPaymentGateway/AdyenPaymentGatewayGeneric" xmlns:inp1="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request" xmlns:inp2="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:inp3="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request" xmlns:inp4="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response">
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="AdyenPaymentGatewayGeneric"
+     targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBGenericPaymentGateway/AdyenPaymentGatewayGeneric"
+     xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBGenericPaymentGateway/AdyenPaymentGatewayGeneric"
+     xmlns:inp1="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"
+     xmlns:inp2="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:inp3="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"
+     xmlns:inp4="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"
+    >
     <plnk:partnerLinkType name="AdyenPaymentGatewayGeneric">
         <plnk:role name="AdyenPaymentGatewayGenericProvider" portType="tns:AdyenPaymentGatewayGeneric_ptt"/>
     </plnk:partnerLinkType>
     <wsdl:types>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request" schemaLocation="nxsd_authorisePaymentReq.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"
+                 schemaLocation="nxsd_authorisePaymentReq.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response" schemaLocation="nxsd_authorisePaymentResp.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"
+                 schemaLocation="nxsd_authorisePaymentResp.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request" schemaLocation="nxsd_InterfaceAuthorisePaymentReq.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"
+                 schemaLocation="nxsd_InterfaceAuthorisePaymentReq.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response" schemaLocation="nxsd_InterfaceAuthorisePaymentRes.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"
+                 schemaLocation="nxsd_InterfaceAuthorisePaymentRes.xsd"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="authorise_inputMessage">

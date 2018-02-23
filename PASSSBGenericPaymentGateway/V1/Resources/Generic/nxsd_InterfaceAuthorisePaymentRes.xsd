@@ -24,9 +24,9 @@
                 <xsd:element name="currencyCode" type="xsd:string"/>
                 <xsd:element name="transactionId" type="xsd:string"/>
                 <xsd:element name="paymentId" type="xsd:string"/>
-                <xsd:element name="amount" type="xsd:integer"/>
-                <xsd:element name="transactionType" type="xsd:integer"/>
-                <xsd:element name="hostTransactionTimestamp" type="xsd:integer"/>
+                <xsd:element name="amount" type="xsd:string"/>
+                <xsd:element name="transactionType" type="xsd:string"/>
+                <xsd:element name="hostTransactionTimestamp" type="xsd:string"/>
                 <xsd:element name="transactionTimestamp" type="xsd:string"/>
                 <xsd:element name="paymentMethod" type="xsd:string"/>
                 <xsd:element name="gatewayId" type="xsd:string"/>
@@ -34,9 +34,9 @@
                 <xsd:element name="authorizationResponse">
                     <xsd:complexType>
                         <xsd:sequence>
-                            <xsd:element name="responseCode" type="xsd:integer"/>
-                            <xsd:element name="responseReason" type="xsd:integer"/>
-                            <xsd:element name="responseDescription" type="xsd:integer"/>
+                            <xsd:element name="responseCode" type="xsd:string"/>
+                            <xsd:element name="responseReason" type="xsd:string"/>
+                            <xsd:element name="responseDescription" type="xsd:string"/>
                             <xsd:element name="authorizationCode" type="xsd:string"/>
                             <xsd:element name="hostTransactionId" type="xsd:string"/>
                         </xsd:sequence>
