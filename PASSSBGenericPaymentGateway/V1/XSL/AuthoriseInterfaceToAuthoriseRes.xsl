@@ -108,51 +108,48 @@
                         </xsl:if>
                     </tns:authorizationResponse>
                 </xsl:if>
-           
-         
-                <ns2:additionalProperties>
-                    <xsl:if test="/ns0:Root-Element/ns0:md">
-                        <ns2:md>
-                            <xsl:value-of select="/ns0:Root-Element/ns0:md"/>
-                        </ns2:md>
-                    </xsl:if>
-                    <xsl:if test="/ns0:Root-Element/ns0:paRequest">
-                        <ns2:paRequest>
-                            <xsl:value-of select="/ns0:Root-Element/ns0:paRequest"/>
-                        </ns2:paRequest>
-                    </xsl:if>
-                    <xsl:if test="/ns0:Root-Element/ns0:issuerUrl">
-                        <ns2:issueURL>
-                            <xsl:value-of select="/ns0:Root-Element/ns0:issuerUrl"/>
-                        </ns2:issueURL>
-                    </xsl:if>
-                    <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.url">
-                        <ns2:boletobancario.url>
-                            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.url"/>
-                        </ns2:boletobancario.url>
-                    </xsl:if>
-                    <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.data">
-                        <ns2:boletobancario.data>
-                            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.data"/>
-                        </ns2:boletobancario.data>
-                    </xsl:if>
-                    <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.barCodeReference">
-                        <ns2:boletobancario.barCodeReference>
-                            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.barCodeReference"/>
-                        </ns2:boletobancario.barCodeReference>
-                    </xsl:if>
-                    <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.expirationDate">
-                        <ns2:boletobancario.expirationDate>
-                            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.expirationDate"/>
-                        </ns2:boletobancario.expirationDate>
-                    </xsl:if>
-                    <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate">
-                        <ns2:boletobancario.dueDate>
-                            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate"/>
-                        </ns2:boletobancario.dueDate>
-                    </xsl:if>
-                </ns2:additionalProperties>
-           
+            <ns2:additionalProperties>
+                <xsl:if test="/ns0:Root-Element/ns0:md">
+                    <ns2:md>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:md"/>
+                    </ns2:md>
+                </xsl:if>
+                <xsl:if test="/ns0:Root-Element/ns0:paRequest">
+                    <ns2:paRequest>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:paRequest"/>
+                    </ns2:paRequest>
+                </xsl:if>
+                <xsl:if test="/ns0:Root-Element/ns0:issuerUrl">
+                    <ns2:issueURL>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:issuerUrl"/>
+                    </ns2:issueURL>
+                </xsl:if>
+                <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.url">
+                    <ns2:boletobancario.url>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.url"/>
+                    </ns2:boletobancario.url>
+                </xsl:if>
+                <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.data">
+                    <ns2:boletobancario.data>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.data"/>
+                    </ns2:boletobancario.data>
+                </xsl:if>
+                <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.barCodeReference">
+                    <ns2:boletobancario.barCodeReference>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.barCodeReference"/>
+                    </ns2:boletobancario.barCodeReference>
+                </xsl:if>
+                <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.expirationDate">
+                    <ns2:boletobancario.expirationDate>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.expirationDate"/>
+                    </ns2:boletobancario.expirationDate>
+                </xsl:if>
+                <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate">
+                    <ns2:boletobancario.dueDate>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate"/>
+                    </ns2:boletobancario.dueDate>
+                </xsl:if>
+            </ns2:additionalProperties>
         </tns:Root-Element>
     </xsl:template>
 </xsl:stylesheet>
