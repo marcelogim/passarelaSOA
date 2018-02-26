@@ -1,36 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<xsl:stylesheet version="1.0"
-                xmlns:UUIDUserFunction="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.UUIDUserFunction"
-                xmlns:IsUserInGroupFunction="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.IsUserInGroupFunction"
-                xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
-                xmlns:IsUserInRoleFunction="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.IsUserInRoleFunction"
-                xmlns:ns0="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"
-                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
-                xmlns:DVMFunctions="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.functions.dvm.DVMFunctions"
-                xmlns:oracle-xsl-mapper="http://www.oracle.com/xsl/mapper/schemas"
-                xmlns:oraxsl="http://www.oracle.com/XSL/Transform/java"
-                xmlns:RuntimeTypeConversionFunctions="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.RuntimeTypeConversionFunctions"
-                xmlns:XrefFunctions="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.functions.xref.XrefFunctions"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:BasicCredentialsUserFunction="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.BasicCredentialsUserFunction"
-                xmlns:tns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"
-                exclude-result-prefixes="xsd oracle-xsl-mapper xsi xsl ns0 tns UUIDUserFunction IsUserInGroupFunction oraext IsUserInRoleFunction xp20 DVMFunctions oraxsl RuntimeTypeConversionFunctions XrefFunctions BasicCredentialsUserFunction"
-                xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd">
+<xsl:stylesheet version="1.0" exclude-result-prefixes="xsd oracle-xsl-mapper xsi xsl ns0 tns UUIDUserFunction IsUserInGroupFunction oraext IsUserInRoleFunction xp20 DVMFunctions oraxsl RuntimeTypeConversionFunctions XrefFunctions BasicCredentialsUserFunction" xmlns:UUIDUserFunction="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.UUIDUserFunction" xmlns:IsUserInGroupFunction="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.IsUserInGroupFunction" xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc" xmlns:IsUserInRoleFunction="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.IsUserInRoleFunction" xmlns:ns0="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20" xmlns:DVMFunctions="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.functions.dvm.DVMFunctions" xmlns:oracle-xsl-mapper="http://www.oracle.com/xsl/mapper/schemas" xmlns:oraxsl="http://www.oracle.com/XSL/Transform/java" xmlns:RuntimeTypeConversionFunctions="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.RuntimeTypeConversionFunctions" xmlns:XrefFunctions="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.functions.xref.XrefFunctions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:BasicCredentialsUserFunction="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.BasicCredentialsUserFunction" xmlns:tns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd">
     <oracle-xsl-mapper:schema>
         <!--SPECIFICATION OF MAP SOURCES AND TARGETS, DO NOT MODIFY.-->
         <oracle-xsl-mapper:mapSources>
             <oracle-xsl-mapper:source type="XSD">
                 <oracle-xsl-mapper:schema location="../Resources/Generic/nxsd_InterfaceAuthorisePaymentReq.xsd"/>
-                <oracle-xsl-mapper:rootElement name="Root-Element"
-                                               namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
+                <oracle-xsl-mapper:rootElement name="Root-Element" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
             </oracle-xsl-mapper:source>
         </oracle-xsl-mapper:mapSources>
         <oracle-xsl-mapper:mapTargets>
             <oracle-xsl-mapper:target type="XSD">
                 <oracle-xsl-mapper:schema location="../Resources/Generic/nxsd_authorisePaymentReq.xsd"/>
-                <oracle-xsl-mapper:rootElement name="Root-Element"
-                                               namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"/>
+                <oracle-xsl-mapper:rootElement name="Root-Element" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"/>
             </oracle-xsl-mapper:target>
         </oracle-xsl-mapper:mapTargets>
         <!--GENERATED BY ORACLE XSL MAPPER 12.2.1.2.0(XSLT Build 161003.0739.0018) AT [WED FEB 21 13:12:38 BRT 2018].-->
@@ -40,8 +20,7 @@
     <xsl:param name="cardencryptedjson"/>
     <xsl:template match="/">
         <tns:Root-Element>
-            <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'card' or /ns0:Root-Element/ns0:paymentMethod = 'debit' 
-            or /ns0:Root-Element/ns0:paymentMethod = 'storeCard' or /ns0:Root-Element/ns0:paymentMethod = 'oneclick'">
+            <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'card' or /ns0:Root-Element/ns0:paymentMethod = 'debit'              or /ns0:Root-Element/ns0:paymentMethod = 'storeCard' or /ns0:Root-Element/ns0:paymentMethod = 'oneclick'">
                 <tns:additionalData>
                     <tns:card.encrypted.json>
                         <xsl:value-of select="$cardencryptedjson"/>

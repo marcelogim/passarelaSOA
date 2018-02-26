@@ -11,8 +11,8 @@
 
     <modules>
         <module>System</module>
-        <module>PASSSBMashupCalculoFrete</module>
         <module>PASSSBGenericPaymentGateway</module>
+        <module>PASSSBMashupCalculoFrete</module>
         <module>PASSSBCommon</module>
     </modules>
 

@@ -1,20 +1,19 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
 <application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:inp1="http://TargetNamespace.com/RestService_QuoteByProduct_request" xmlns="http://wadl.dev.java.net/2009/02" xmlns:tns="http://TargetNamespace.com/IntelipostQuoteByProductBusiness_quote_request" xmlns:ns1="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_response" xmlns:ns0="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_request">
    <doc title="IntelipostQuoteByProductPS">RestService</doc>
    <grammars>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/RestService_QuoteByProduct_request" schemaLocation="nxsd_schema_QuoteByProductReq.xsd"/>
         </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/RestService_QuoteByProduct_response" schemaLocation="nxsd_schema_QuoteByProductRes.xsd"/>
         </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_request" schemaLocation="nxsd_schema_InterfaceQuoteByProductReq.xsd"/>
         </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/IntelipostQuoteByProductPS_quote_by_product_response" schemaLocation="nxsd_schema_InterfaceQuoteByProductRes.xsd"/>
         </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/RestService_QuoteByProduct_response" schemaLocation="nxsd_schema_QuoteByProductRes.xsd"/>
         </xsd:schema>
    </grammars>

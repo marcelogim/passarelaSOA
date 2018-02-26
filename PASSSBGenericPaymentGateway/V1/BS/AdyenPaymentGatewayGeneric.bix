@@ -3,7 +3,7 @@
     <con:coreEntry>
         <con:description>This service was created by the REST adapter</con:description>
         <con1:binding type="REST" xsi:type="con:RestBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config" xmlns:con1="http://xmlns.oracle.com/servicebus/business/config">
-              <con:wsdl ref="PASSSBGenericPaymentGateway/V1/Resources/Generic/AdyenPaymentGatewayGeneric"/>
+            <con:wsdl ref="PASSSBGenericPaymentGateway/V1/Resources/Generic/AdyenPaymentGatewayGeneric"/>
             <con:binding>
                 <con:name>AdyenPaymentGatewayGeneric_ptt-binding</con:name>
                 <con:namespace>http://xmlns.oracle.com/SBAplPassarela/PASSSBGenericPaymentGateway/AdyenPaymentGatewayGeneric</con:namespace>

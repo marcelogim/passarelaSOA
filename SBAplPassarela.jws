@@ -21,8 +21,8 @@
    </hash>
    <list n="contentSets">
       <string v="oracle.mds.internal.dt.ide.appresources.MDSAppResourceCSProvider/MDSAppContentSet"/>
-      <string v="oracle.jdeveloper.model.PathsConfiguration/ADFContentSet"/>
       <string v="oracle.jdeveloper.model.PathsConfiguration/ApplicationSrcContentSet"/>
+      <string v="oracle.jdeveloper.model.PathsConfiguration/ADFContentSet"/>
       <string v="oracle.jdeveloper.model.PathsConfiguration/ApplicationBuildToolContentSet"/>
       <string v="oracle.jdeveloper.model.PathsConfiguration/ResourceBundlesContentSet"/>
    </list>
@@ -48,6 +48,6 @@
       </hash>
    </hash>
    <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
-      <value n="configContextSessionName" v="OSB-IDE_build_1519330768817"/>
+      <value n="configContextSessionName" v="OSB-IDE_build_1519672084872"/>
    </hash>
 </jws:workspace>
