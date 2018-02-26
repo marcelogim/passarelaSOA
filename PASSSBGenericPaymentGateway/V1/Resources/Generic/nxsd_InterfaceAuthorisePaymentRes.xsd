@@ -7,6 +7,7 @@
     <xsd:element name="Root-Element">
         <xsd:complexType>
             <xsd:sequence>
+                 <xsd:element name="status" type="xsd:string"/>
                 <xsd:element name="messages" maxOccurs="unbounded">
                     <xsd:complexType>
                         <xsd:sequence>
@@ -16,7 +17,6 @@
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>
-                <xsd:element name="status" type="xsd:string"/>
                 <xsd:element name="time" type="xsd:string"/>
                 <xsd:element name="timezone" type="xsd:string"/>
                 <xsd:element name="locale" type="xsd:string"/>
@@ -49,6 +49,11 @@
                             <xsd:element name="md" type="xsd:string"/>
                             <xsd:element name="paRequest" type="xsd:string"/>                           
                             <xsd:element name="issueURL" type="xsd:string"/>
+                            <xsd:element name="boletobancario.url" type="xsd:string"/>
+                            <xsd:element name="boletobancario.data" type="xsd:string"/>
+                            <xsd:element name="boletobancario.barCodeReference" type="xsd:string"/>
+                            <xsd:element name="boletobancario.expirationDate" type="xsd:string"/>
+                            <xsd:element name="boletobancario.dueDate" type="xsd:string"/>
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>

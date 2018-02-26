@@ -40,98 +40,126 @@
     <xsl:param name="cardencryptedjson"/>
     <xsl:template match="/">
         <tns:Root-Element>
-            <tns:additionalData>
-              <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'card' or /ns0:Root-Element/ns0:paymentMethod = 'debit'">
-                <tns:card.encrypted.json>
-                    <xsl:value-of select="$cardencryptedjson"/>
-                </tns:card.encrypted.json>
-               </xsl:if> 
-                <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'debit'">
-                    <tns:executeThreeD>true</tns:executeThreeD>
-                </xsl:if>
-            </tns:additionalData>
-            <tns:amount>
-                <tns:currency>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:currencyCode"/>
-                </tns:currency>
-            </tns:amount>
-            <tns:reference>
-                <xsl:value-of select="/ns0:Root-Element/ns0:transactionId"/>
-            </tns:reference>
-            <tns:shopperEmail>
-                <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:email"/>
-            </tns:shopperEmail>
+            <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'card' or /ns0:Root-Element/ns0:paymentMethod = 'debit' 
+            or /ns0:Root-Element/ns0:paymentMethod = 'storeCard' or /ns0:Root-Element/ns0:paymentMethod = 'oneclick'">
+                <tns:additionalData>
+                    <tns:card.encrypted.json>
+                        <xsl:value-of select="$cardencryptedjson"/>
+                    </tns:card.encrypted.json>
+                    <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'debit'">
+                        <tns:executeThreeD>true</tns:executeThreeD>
+                    </xsl:if>
+                </tns:additionalData>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:amount">
+                <tns:amount>
+                    <xsl:if test="/ns0:Root-Element/ns0:amount">
+                        <tns:value>
+                            <xsl:value-of select="/ns0:Root-Element/ns0:amount"/>
+                        </tns:value>
+                    </xsl:if>
+                    <xsl:if test="/ns0:Root-Element/ns0:currencyCode">
+                        <tns:currency>
+                            <xsl:value-of select="/ns0:Root-Element/ns0:currencyCode"/>
+                        </tns:currency>
+                    </xsl:if>
+                </tns:amount>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:transactionId">
+                <tns:reference>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:transactionId"/>
+                </tns:reference>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:billingAddress/ns0:email">
+                <tns:shopperEmail>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:email"/>
+                </tns:shopperEmail>
+            </xsl:if>
             <tns:shopperReference>
                 <xsl:value-of select="concat (/ns0:Root-Element/ns0:billingAddress/ns0:firstName, /ns0:Root-Element/ns0:billingAddress/ns0:lastName )"/>
             </tns:shopperReference>
             <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'oneclick'">
                 <tns:selectedRecurringDetailReference>LATEST</tns:selectedRecurringDetailReference>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'oneclick' or /ns0:Root-Element/ns0:paymentMethod = 'storeCard' ">
                 <tns:recurring>
                     <tns:contract>ONECLICK</tns:contract>
                 </tns:recurring>
             </xsl:if>
-            <tns:billingAddress>
-                <tns:city>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:city"/>
-                </tns:city>
-                <tns:country>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:country"/>
-                </tns:country>
-                <tns:houseNumberOrName>1</tns:houseNumberOrName>
-                <tns:postalCode>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:postalCode"/>
-                </tns:postalCode>
-                <tns:stateOrProvince>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:state"/>
-                </tns:stateOrProvince>
-                <tns:street>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:address1"/>
-                </tns:street>
-            </tns:billingAddress>
-            <tns:deliveryAddress>
-                <tns:city>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:city"/>
-                </tns:city>
-                <tns:country>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:country"/>
-                </tns:country>
-                <tns:houseNumberOrName>1</tns:houseNumberOrName>
-                <tns:postalCode>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:postalCode"/>
-                </tns:postalCode>
-                <tns:stateOrProvince>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:state"/>
-                </tns:stateOrProvince>
-                <tns:street>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:address1"/>
-                </tns:street>
-            </tns:deliveryAddress>
-            <tns:telephoneNumber>
-                <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber"/>
-            </tns:telephoneNumber>
+            <xsl:if test="/ns0:Root-Element/ns0:billingAddress">
+                <tns:billingAddress>
+                    <tns:city>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:city"/>
+                    </tns:city>
+                    <tns:country>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:country"/>
+                    </tns:country>
+                    <tns:houseNumberOrName>1</tns:houseNumberOrName>
+                    <tns:postalCode>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:postalCode"/>
+                    </tns:postalCode>
+                    <tns:stateOrProvince>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:state"/>
+                    </tns:stateOrProvince>
+                    <tns:street>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:address1"/>
+                    </tns:street>
+                </tns:billingAddress>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:shippingAddress">
+                <tns:deliveryAddress>
+                    <tns:city>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:city"/>
+                    </tns:city>
+                    <tns:country>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:country"/>
+                    </tns:country>
+                    <tns:houseNumberOrName>1</tns:houseNumberOrName>
+                    <tns:postalCode>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:postalCode"/>
+                    </tns:postalCode>
+                    <tns:stateOrProvince>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:state"/>
+                    </tns:stateOrProvince>
+                    <tns:street>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:address1"/>
+                    </tns:street>
+                </tns:deliveryAddress>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber">
+                <tns:telephoneNumber>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber"/>
+                </tns:telephoneNumber>
+            </xsl:if>
             <tns:deliveryDate>
                 <xsl:value-of select="xp20:current-dateTime ( )"/>
             </tns:deliveryDate>
             <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'invoice'">
                 <tns:selectedBrand>boletobancario_santander</tns:selectedBrand>
             </xsl:if>
-            <tns:shopperName>
-                <tns:firstName>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:firstName"/>
-                </tns:firstName>
-                <tns:lastName>
-                    <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:lastName"/>
-                </tns:lastName>
-            </tns:shopperName>
-            <tns:md>
-                <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:md"/>
-            </tns:md>
-            <tns:paResponse>
-                <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:paResponse"/>
-            </tns:paResponse>
+            <xsl:if test="/ns0:Root-Element/ns0:billingAddress/ns0:firstName">
+                <tns:shopperName>
+                    <tns:firstName>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:firstName"/>
+                    </tns:firstName>
+                    <tns:lastName>
+                        <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:lastName"/>
+                    </tns:lastName>
+                </tns:shopperName>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:customProperties/ns0:md">
+                <tns:md>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:md"/>
+                </tns:md>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:customProperties/ns0:paResponse">
+                <tns:paResponse>
+                    <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:paResponse"/>
+                </tns:paResponse>
+            </xsl:if>
             <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'invoice'">
-                <tns:shopperStatement>Aceitar o pagamento até 15 dias após o vencimento; Não cobrar juros. Não
-                                      aceitar o pagamento com cheque</tns:shopperStatement>
+                <tns:shopperStatement>Aceitar o pagamento até 15 dias após o vencimento; Não cobrar juros. Não aceitar o
+                                      pagamento com cheque</tns:shopperStatement>
                 <tns:socialSecurityNumber>
                     <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:shopperCPF"/>
                 </tns:socialSecurityNumber>

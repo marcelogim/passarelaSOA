@@ -43,7 +43,15 @@
             <response status="200">
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
             </response>
-            
+            <response status="400" soa:wsdlFaultName="fault1">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
+            </response>
+            <response status="422" soa:wsdlFaultName="fault2">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
+            </response>
+            <response status="401" soa:wsdlFaultName="fault3">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
+            </response>
          </method>
       </resource>
    </resources>

@@ -62,6 +62,15 @@
     <wsdl:message name="authorise3d_outputMessage">
         <wsdl:part name="reply" element="inp2:Root-Element"/>
     </wsdl:message>
+    <wsdl:message name="authorise3d_fault1Message">
+        <wsdl:part name="fault_fault1" element="inp2:Root-Element"/>
+    </wsdl:message>
+    <wsdl:message name="authorise3d_fault2Message">
+        <wsdl:part name="fault_fault2" element="inp2:Root-Element"/>
+    </wsdl:message>
+    <wsdl:message name="authorise3d_fault3Message">
+        <wsdl:part name="fault_fault3" element="inp2:Root-Element"/>
+    </wsdl:message>
     <wsdl:portType name="AdyenPaymentGatewayGeneric_ptt">
         <wsdl:operation name="authorise">
             <wsdl:input message="tns:authorise_inputMessage"/>
@@ -80,6 +89,9 @@
         <wsdl:operation name="authorise3d">
             <wsdl:input message="tns:authorise3d_inputMessage"/>
             <wsdl:output message="tns:authorise3d_outputMessage"/>
+            <wsdl:fault name="fault1" message="tns:authorise3d_fault1Message"/>
+            <wsdl:fault name="fault2" message="tns:authorise3d_fault2Message"/>
+            <wsdl:fault name="fault3" message="tns:authorise3d_fault3Message"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="AdyenPaymentGatewayGeneric_ptt-binding" type="tns:AdyenPaymentGatewayGeneric_ptt">
