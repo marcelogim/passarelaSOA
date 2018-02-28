@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/OCCStockUpdate_updateInventory_request" targetNamespace="http://TargetNamespace.com/OCCStockUpdate_updateInventory_request" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="Root-Element">
+      <xsd:complexType>
+         <xsd:sequence>
+            
+            <xsd:element name="preorderThreshold" type="xsd:string"/>
+            <xsd:element name="backorderLevel" type="xsd:string"/>
+            <xsd:element name="preorderLevel" type="xsd:string"/>
+            <xsd:element name="locationId" type="xsd:string"/>
+            <xsd:element name="availabilityDate"  type="xsd:string"/>
+            <xsd:element name="backorderThreshold" type="xsd:string"/>
+            <xsd:element name="stockThreshold" type="xsd:string"/>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="stockLevel" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

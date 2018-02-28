@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="PASSSBCommon/V1/TokenManagement/resources/GetTokenCommerce"/>
+            <con:binding>
+                <con:name>GetTokenCommerce_ptt-binding</con:name>
+                <con:namespace>http://xmlns.oracle.com/SBAplPassarela/PASSSBCommon/GetTokenCommerce</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-N3f57c7ff.4d4a7fa1.0.161d3758410.N7ef4">
+        <con:pipeline type="error" name="error-N3f57c7ff.4d4a7fa1.0.161d3758410.N7ef4">
+            <con:stage id="_StageId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7e5c" name="Get Token Commerce Error" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                <con:context/>
+                <con:actions>
+                    <con1:resume>
+                        <con1:id>_ActionId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7e5b</con1:id>
+                        <con1:disabled>true</con1:disabled>
+                    </con1:resume>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:route-node name="GetTokenCommerce" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                <con:context/>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>actionid-routeaction</con2:id>
+                        <con1:service ref="PASSSBCommon/V1/TokenManagement/business/GetTokenCommerce" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation passThrough="true"/>
+                        <con1:outboundTransform>
+                            <con3:transport-headers copy-all="false" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7f8f</con2:id>
+                                <con3:header-set>outbound-request</con3:header-set>
+                                <con3:header value="expression" name="Authorization">
+                                    <con2:xqueryText>"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYmY4MmZhZC0zMDcxLTQwZjctODc5Ny1iN2M0M2JmYTIwNDIiLCJpc3MiOiJhcHBsaWNhdGlvbkF1dGgiLCJleHAiOjE1NTEzMDc0NjEsImlhdCI6MTUxOTc3MTQ2MX0=.7t0iT7JvosQ8owzcl+F6k4UOojqcYZ1gW9SfuZXyMr0="</con2:xqueryText>
+                                </con3:header>
+                                <con3:header value="expression" name="Content-Type">
+                                    <con2:xqueryText>'application/x-www-form-urlencoded'</con2:xqueryText>
+                                </con3:header>
+                            </con3:transport-headers>
+                            <con3:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7f8c</con4:id>
+                                <con3:location>
+                                    <con1:xpathText xmlns:con4="http://www.bea.com/wli/sb/stages/config">.</con1:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con4:xsltTransform xmlns:con4="http://www.bea.com/wli/sb/stages/config">
+                                        <con4:resource ref="PASSSBCommon/V1/TokenManagement/transformations/TransformToGetCommerceRequest"/>
+                                        <con4:input>$body</con4:input>
+                                        <con4:param name="grant_type">
+                                            <con4:path>'client_credentials'</con4:path>
+                                        </con4:param>
+                                    </con4:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:outboundTransform>
+                        <con1:responseTransform>
+                            <con3:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/typesystem/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7f58</con4:id>
+                                <con3:location>
+                                    <con4:xpathText xmlns:con4="http://www.bea.com/wli/sb/stages/config">.</con4:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con4:xsltTransform xmlns:con4="http://www.bea.com/wli/sb/stages/config">
+                                        <con4:resource ref="PASSSBCommon/V1/TokenManagement/transformations/TransformToGetCommerceResponse"/>
+                                        <con4:input>$body/*[1]</con4:input>
+                                    </con4:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:responseTransform>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

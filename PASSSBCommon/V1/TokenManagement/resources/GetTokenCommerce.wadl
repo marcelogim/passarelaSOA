@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="GetTokenCommerce">RestReference</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login" schemaLocation="../schemas/GetTokenCommerce.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/login">
+         <method name="POST" soa:wsdlOperation="getTokenCommerce">
+            <request>
+               <representation mediaType="application/x-www-form-urlencoded" element="cns:GetTokenCommerceRequest" xmlns:cns="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:GetTokenCommerceResponse" xmlns:cns="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

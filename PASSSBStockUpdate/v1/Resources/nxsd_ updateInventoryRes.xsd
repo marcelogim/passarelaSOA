@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://TargetNamespace.com/OCCStockUpdate_updateInventory_response"
+            targetNamespace="http://TargetNamespace.com/OCCStockUpdate_updateInventory_response"
+            elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
+            nxsd:encoding="US-ASCII">
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="status" type="xsd:string"/>
+        <xsd:element name="messages" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="type" type="xsd:string"/>
+              <xsd:element name="text" type="xsd:string"/>
+              <xsd:element name="key" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="preorderThreshold" type="xsd:string"/>
+        <xsd:element name="backorderLevel" type="xsd:string"/>
+        <xsd:element name="displayName" type="xsd:string"/>
+        <xsd:element name="availabilityDate" type="xsd:string"/>
+        <xsd:element name="stockThreshold" type="xsd:integer"/>
+        <xsd:element name="availabilityStatusMsg" type="xsd:string"/>
+        <xsd:element name="stockLevel" type="xsd:string"/>
+        <xsd:element name="availableToPromise" type="xsd:string"/>
+        <xsd:element name="skuNumber" type="xsd:string"/>
+        <xsd:element name="preorderLevel" type="xsd:string"/>
+        <xsd:element name="locationId" type="xsd:string"/>
+        <xsd:element name="inventoryId" type="xsd:string"/>
+        <xsd:element name="backorderThreshold" type="xsd:string"/>
+        <xsd:element name="links">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="rel" type="xsd:string"/>
+              <xsd:element name="href" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="availabilityStatus" type="xsd:integer"/>
+        <xsd:element name="locationInventoryInfo" type="xsd:string"/>
+        <xsd:element name="skuId" type="xsd:string"/>
+        <xsd:element name="time" type="xsd:string"/>
+        <xsd:element name="timezone" type="xsd:string"/>
+        <xsd:element name="locale" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

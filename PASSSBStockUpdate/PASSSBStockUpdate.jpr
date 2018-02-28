@@ -75,7 +75,7 @@
       <string v="oracle.jdeveloper.model.PathsConfiguration/cepContentSet"/>
       <string v="oracle.tip.tools.ide.ess.addin.ESSContentSetProvider/ess-content"/>
    </list>
-   <value n="defaultPackage" v="passsbcommon"/>
+   <value n="defaultPackage" v="passsbstockupdate"/>
    <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
       <hash n="adfmContentSet">
          <list n="pattern-filters"/>
@@ -106,6 +106,7 @@
          <string v="WSDL"/>
          <string v="WSPolicy"/>
          <string v="XML"/>
+         <string v="XML_SCHEMA"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
@@ -113,21 +114,21 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="Project1">
+         <hash n="PASSSBStockUpdate">
             <value n="profileClass" v="SbProjectDeployProfile"/>
-            <value n="profileName" v="Project1"/>
+            <value n="profileName" v="PASSSBStockUpdate"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="Project1"/>
+         <string v="PASSSBStockUpdate"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
       <url n="pomfileURL" path="pom.xml"/>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="SBAplPassarela-PASSSBCommon-webapp"/>
-      <value n="j2eeWebContextRoot" v="SBAplPassarela-PASSSBCommon-context-root"/>
+      <value n="j2eeWebAppName" v="SBAplPassarela-PASSSBStockUpdate-webapp"/>
+      <value n="j2eeWebContextRoot" v="SBAplPassarela-PASSSBStockUpdate-context-root"/>
       <hash n="webContentSet">
          <list n="pattern-filters"/>
          <list n="url-path">
@@ -201,4 +202,5 @@
          </list>
       </hash>
    </hash>
+   <value n="SOA_TRANSFORMATION_FOLDER_NAME" v="v1/XSL/"/>
 </jpr:project>

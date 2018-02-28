@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login"
+            targetNamespace="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="GetTokenCommerceResponse">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="access_token" type="xsd:string"/>
+            <xsd:element name="links">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="rel" type="xsd:string"/>
+                     <xsd:element name="href" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="token_type" type="xsd:string"/>
+            <xsd:element name="expires_in" type="xsd:integer"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+   
+    <xsd:element name="GetTokenCommerceRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="grant_type" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  
+    <xsd:element name="GetTokenCommerceServiceRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  
+  <xsd:element name="GetTokenCommerceServiceResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="access_token" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+   
+   
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

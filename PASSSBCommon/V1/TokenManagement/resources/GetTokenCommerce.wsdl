@@ -1,0 +1,44 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="GetTokenCommerce"
+     targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBCommon/GetTokenCommerce"
+     xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBCommon/GetTokenCommerce"
+     xmlns:inp1="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <plnk:partnerLinkType name="GetTokenCommerce">
+        <plnk:role name="GetTokenCommerceProvider" portType="tns:GetTokenCommerce_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login"
+                 schemaLocation="../schemas/GetTokenCommerce.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="getTokenCommerce_inputMessage">
+        <wsdl:part name="request" element="inp1:GetTokenCommerceRequest"/>
+    </wsdl:message>
+    <wsdl:message name="getTokenCommerce_outputMessage">
+        <wsdl:part name="reply" element="inp1:GetTokenCommerceResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="GetTokenCommerce_ptt">
+        <wsdl:operation name="getTokenCommerce">
+            <wsdl:input message="tns:getTokenCommerce_inputMessage"/>
+            <wsdl:output message="tns:getTokenCommerce_outputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GetTokenCommerce_ptt-binding" type="tns:GetTokenCommerce_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getTokenCommerce">
+            <soap:operation soapAction="getTokenCommerce"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
