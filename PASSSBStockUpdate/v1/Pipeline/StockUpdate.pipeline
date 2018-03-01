@@ -57,10 +57,6 @@
                     </con2:resume>
                 </con:actions>
             </con:stage>
-            <con:stage id="_StageId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7d58" name="Stage1">
-                <con:context/>
-                <con:actions/>
-            </con:stage>
         </con:pipeline>
         <con:flow>
             <con:route-node name="OCCStockUpdate" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
@@ -118,7 +114,7 @@
                                 </con3:location>
                                 <con3:where>after</con3:where>
                                 <con3:expr>
-                                    <con2:xqueryText>&lt;user-metadata name="_id" value="{$id}" xmlns="http//www.bea.com/wli/sb/transports" /></con2:xqueryText>
+                                    <con2:xqueryText>&lt;user-metadata name="id" value="{$id}" xmlns="http//www.bea.com/wli/sb/transports" /></con2:xqueryText>
                                 </con3:expr>
                             </con3:insert>
                         </con1:outboundTransform>

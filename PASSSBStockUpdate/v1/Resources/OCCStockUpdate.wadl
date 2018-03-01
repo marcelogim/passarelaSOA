@@ -13,7 +13,7 @@
       <resource path="/inventories/{id}">
          <method name="PUT" soa:wsdlOperation="updateInventory">
             <request>
-               <param name="id" style="template" soa:expression="$property._id" type="xsd:string"/>
+               <param name="id" style="template" soa:expression="$property.id" type="xsd:string"/>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStockUpdate_updateInventory_request"/>
             </request>
             <response status="200">
