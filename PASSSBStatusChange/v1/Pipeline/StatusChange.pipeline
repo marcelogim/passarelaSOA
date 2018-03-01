@@ -21,25 +21,33 @@
                 </con:context>
                 <con:actions>
                     <con1:replace varName="body" contents-only="true">
-                        <con2:id>_ActionId-N3f57c7ff.1c07cf6f.0.161e20df1c9.N7e62</con2:id>
+                        <con2:id>_ActionId-N3f57c7ff.1c07cf6f.0.161e20df1c9.N7de9</con2:id>
                         <con1:location>
                             <con2:xpathText>.</con2:xpathText>
                         </con1:location>
                         <con1:expr>
                             <con2:xsltTransform>
-                                <con2:resource ref="PASSSBStatusChange/v1/XSL/ToFault"/>
+                                <con2:resource ref="PASSSBStockUpdate/v1/XSL/ToFault"/>
                                 <con2:input>&lt;xml>&lt;/xml></con2:input>
                                 <con2:param name="status">
-                                    <con2:path>$body//fault:status</con2:path>
+                                    <con2:path>if (exists($body//fault:status)) then
+ $body//fault:status
+else("")</con2:path>
                                 </con2:param>
                                 <con2:param name="type">
-                                    <con2:path>$body//fault:type</con2:path>
+                                    <con2:path>if (exists($body//fault:type)) then
+ $body//fault:type
+else("")</con2:path>
                                 </con2:param>
                                 <con2:param name="text">
-                                    <con2:path>$body//fault:message</con2:path>
+                                    <con2:path>if (exists($body//fault:errors[1]//fault:message)) then
+ $body//fault:errors[1]//fault:message
+else("")</con2:path>
                                 </con2:param>
                                 <con2:param name="key">
-                                    <con2:path>$body//fault:errorCode</con2:path>
+                                    <con2:path>if (exists($body//fault:errorCode)) then
+ $body//fault:errorCode
+else("")</con2:path>
                                 </con2:param>
                                 <con2:param name="time">
                                     <con2:path>fn:current-dateTime()</con2:path>
@@ -70,6 +78,24 @@
                         <con1:service ref="PASSSBStatusChange/v1/BS/OCCStatusChange" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                         <con1:operation passThrough="true"/>
                         <con1:outboundTransform>
+                            <con3:assign varName="id" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.1c07cf6f.0.161e20df1c9.N7df3</con2:id>
+                                <con3:expr>
+                                    <con2:xqueryText>$inbound/ctx:transport/ctx:request/tp:user-metadata[@name="id"]/@value</con2:xqueryText>
+                                </con3:expr>
+                            </con3:assign>
+                            <con3:assign varName="idPayment" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.1c07cf6f.0.161e20df1c9.N7df1</con2:id>
+                                <con3:expr>
+                                    <con2:xqueryText>$inbound/ctx:transport/ctx:request/tp:user-metadata[@name="idPayment"]/@value</con2:xqueryText>
+                                </con3:expr>
+                            </con3:assign>
+                            <con3:assign varName="idShipping" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.1c07cf6f.0.161e20df1c9.N7def</con2:id>
+                                <con3:expr>
+                                    <con2:xqueryText>$inbound/ctx:transport/ctx:request/tp:user-metadata[@name="idShipping"]/@value</con2:xqueryText>
+                                </con3:expr>
+                            </con3:assign>
                             <con3:wsCallout xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                 <con2:id>_ActionId-N3f57c7ff.1c07cf6f.0.161e20df1c9.N7f6b</con2:id>
                                 <con3:service ref="PASSSBCommon/V1/TokenManagement/proxy/GetTokenCommerceLocal" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
@@ -98,7 +124,6 @@
                             </con5:transport-headers>
                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                 <con2:id>_ActionId-N3f57c7ff.1c07cf6f.0.161e20df1c9.N7f02</con2:id>
-                                <con2:disabled>true</con2:disabled>
                                 <con3:location>
                                     <con2:xpathText>.</con2:xpathText>
                                 </con3:location>
@@ -106,17 +131,26 @@
                                     <con2:xsltTransform>
                                         <con2:resource ref="PASSSBStatusChange/v1/XSL/UpdateStatusToUpdateStatus"/>
                                         <con2:input>$body/occ:Root-Element</con2:input>
+                                        <con2:param name="id">
+                                            <con2:path>$id</con2:path>
+                                        </con2:param>
+                                        <con2:param name="idPayment">
+                                            <con2:path>$idPayment</con2:path>
+                                        </con2:param>
+                                        <con2:param name="idShipping">
+                                            <con2:path>$idShipping</con2:path>
+                                        </con2:param>
                                     </con2:xsltTransform>
                                 </con3:expr>
                             </con3:replace>
                             <con3:insert varName="outbound" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
-                                <con2:id>_ActionId-N3f57c7ff.1c07cf6f.0.161e20df1c9.N7eff</con2:id>
+                                <con2:id>_ActionId-N3f57c7ff.1c07cf6f.0.161e20df1c9.N7e27</con2:id>
                                 <con3:location>
                                     <con2:xpathText>./ctx:transport/ctx:request/tp:headers</con2:xpathText>
                                 </con3:location>
                                 <con3:where>after</con3:where>
                                 <con3:expr>
-                                    <con2:xqueryText>&lt;user-metadata name="id" value="{$id}" xmlns="http//www.bea.com/wli/sb/transports" /></con2:xqueryText>
+                                    <con2:xqueryText>&lt;user-metadata  name="id" value="{$id}" xmlns="http://www.bea.com/wli/sb/transports"/></con2:xqueryText>
                                 </con3:expr>
                             </con3:insert>
                         </con1:outboundTransform>

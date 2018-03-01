@@ -1,13 +1,26 @@
-<wsdl:definitions name="OCCStatusChange" targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBStatusChange/OCCStatusChange" xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBStatusChange/OCCStatusChange" xmlns:inp1="http://TargetNamespace.com/OCCStatusChange_updateOrder_request" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:inp2="http://TargetNamespace.com/OCCStatusChange_updateOrder_response" xmlns:inp3="http://TargetNamespace.com/OCCStatusChange_updateOrder_fault1">
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="OCCStatusChange"
+     targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBStatusChange/OCCStatusChange"
+     xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBStatusChange/OCCStatusChange"
+     xmlns:inp1="http://TargetNamespace.com/OCCStatusChange_updateOrder_request"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:inp2="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"
+     xmlns:inp3="http://TargetNamespace.com/OCCStatusChange_updateOrder_fault1"
+    >
     <plnk:partnerLinkType name="OCCStatusChange">
         <plnk:role name="OCCStatusChangeProvider" portType="tns:OCCStatusChange_ptt"/>
     </plnk:partnerLinkType>
     <wsdl:types>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_request" schemaLocation="nxsd_updateStatusOrderReq.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_request"
+                 schemaLocation="nxsd_updateStatusOrderReq.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_response" schemaLocation="nxsd_updateStatusOrderRes.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"
+                 schemaLocation="nxsd_updateStatusOrderRes.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_fault1" schemaLocation="nxsd_FaultOCC.xsd"/>
@@ -31,10 +44,10 @@
     <wsdl:message name="updateOrderShipping_inputMessage">
         <wsdl:part name="request" element="inp1:Root-Element"/>
     </wsdl:message>
+    <wsdl:message name="Rest_EmptyMessage"/>
     <wsdl:message name="updateOrderPaymentShipping_inputMessage">
         <wsdl:part name="request" element="inp1:Root-Element"/>
     </wsdl:message>
-    <wsdl:message name="Rest_EmptyMessage"/>
     <wsdl:portType name="OCCStatusChange_ptt">
         <wsdl:operation name="updateOrder">
             <wsdl:input message="tns:updateOrder_inputMessage"/>

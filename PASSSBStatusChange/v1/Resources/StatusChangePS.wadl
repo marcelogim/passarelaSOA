@@ -16,7 +16,7 @@
       <resource path="/orders/{id}">
          <method name="PUT" soa:wsdlOperation="updateOrder">
             <request>
-               <param name="id" style="template" soa:expression="$msg.request/inp1:id" type="xsd:string"/>
+               <param name="id" style="template" soa:expression="$property.id" type="xsd:string"/>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_request"/>
             </request>
             <response status="200">
@@ -27,8 +27,8 @@
       <resource path="/orders/{id}/paymentGroups/{idPayment}">
          <method name="PUT" soa:wsdlOperation="updateOrderPayment">
             <request>
-               <param name="id" style="template" soa:expression="$msg.request/inp1:paymentGroups/inp1:id" type="xsd:string"/>
-               <param name="idPayment" style="template" soa:expression="$msg.request/inp1:paymentGroups/inp1:id" type="xsd:string"/>
+               <param name="id" style="template" soa:expression="$property.id" type="xsd:string"/>
+               <param name="idPayment" style="template" soa:expression="$property.idPayment" type="xsd:string"/>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_request"/>
             </request>
             <response status="200">
@@ -39,9 +39,9 @@
       <resource path="/orders/{id}/shippingGroups/{idShipping}">
          <method name="PUT" soa:wsdlOperation="updateOrderShipping">
             <request>
-               <param name="id" style="template" soa:expression="$msg.request/inp1:id" type="xsd:string"/>
+               <param name="id" style="template" soa:expression="$property.id" type="xsd:string"/>
                <param name="id" style="template" soa:expression="$msg.request/inp1:shippingGroups/inp1:id" type="xsd:string"/>
-               <param name="idShipping" style="template" soa:expression="$msg.request/inp1:shippingGroups/inp1:id" type="xsd:string"/>
+               <param name="idShipping" style="template" soa:expression="$property.idShipping" type="xsd:string"/>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_request"/>
             </request>
             <response status="200"/>
@@ -50,9 +50,9 @@
       <resource path="/orders/{id}/paymentGroups/{idPayment}/shippingGroups/{idShipping}">
          <method name="PUT" soa:wsdlOperation="updateOrderPaymentShipping">
             <request>
-               <param name="id" style="template" soa:expression="$msg.request/inp1:id" type="xsd:string"/>
-               <param name="idShipping" style="template" soa:expression="$msg.request/inp1:shippingGroups/inp1:id" type="xsd:string"/>
-               <param name="idPayment" style="template" soa:expression="$msg.request/inp1:paymentGroups/inp1:id" type="xsd:string"/>
+               <param name="id" style="template" soa:expression="$property.id" type="xsd:string"/>
+               <param name="idShipping" style="template" soa:expression="$property.idShipping" type="xsd:string"/>
+               <param name="idPayment" style="template" soa:expression="$property.idPayment" type="xsd:string"/>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_request"/>
             </request>
             <response status="200"/>
