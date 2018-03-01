@@ -13,11 +13,11 @@
         <dgm:operations/>
     </dgm:gService>
     <dgm:gReference name="GetTokenCommerceLocal">
-        <dgm:body borderWidth="2" arcRad="20" X="770" Y="26" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="760" Y="26" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="760" Y="19" width="156" height="68">
+        <dgm:shadow arcRad="20" X="750" Y="19" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="GetTokenCommerceLocal" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -25,11 +25,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="OCCStockUpdate">
-        <dgm:body borderWidth="2" arcRad="20" X="770" Y="114" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="760" Y="114" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="760" Y="107" width="156" height="68">
+        <dgm:shadow arcRad="20" X="750" Y="107" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="OCCStockUpdate" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -37,12 +37,12 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gComponent name="StockUpdate2">
-        <dgm:body borderWidth="2" arcRad="20" X="399" Y="54" width="130" height="86">
+        <dgm:body borderWidth="2" arcRad="20" X="394" Y="54" width="130" height="86">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="389" Y="47" width="150" height="102">
+        <dgm:shadow arcRad="20" X="384" Y="47" width="150" height="102">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -51,21 +51,21 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gWireLink source="StockUpdate" target="StockUpdate2/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="79" X2="389" Y2="79"/>
+        <dgm:gSegment X1="168" Y1="79" X2="384" Y2="79"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="StockUpdate2/proxyservice.1928352395.GetTokenCommerceLocal" target="GetTokenCommerceLocal" width="2">
-        <dgm:gSegment X1="539" Y1="79" X2="563" Y2="79"/>
-        <dgm:gSegment X1="563" Y1="79" X2="563" Y2="36"/>
-        <dgm:gSegment X1="563" Y1="36" X2="760" Y2="36"/>
+        <dgm:gSegment X1="534" Y1="79" X2="558" Y2="79"/>
+        <dgm:gSegment X1="558" Y1="79" X2="558" Y2="36"/>
+        <dgm:gSegment X1="558" Y1="36" X2="750" Y2="36"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="StockUpdate2/businessservice.-746238059.OCCStockUpdate" target="OCCStockUpdate" width="2">
-        <dgm:gSegment X1="539" Y1="104" X2="563" Y2="104"/>
-        <dgm:gSegment X1="563" Y1="104" X2="563" Y2="124"/>
-        <dgm:gSegment X1="563" Y1="124" X2="760" Y2="124"/>
+        <dgm:gSegment X1="534" Y1="104" X2="558" Y2="104"/>
+        <dgm:gSegment X1="558" Y1="104" X2="558" Y2="124"/>
+        <dgm:gSegment X1="558" Y1="124" X2="750" Y2="124"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>

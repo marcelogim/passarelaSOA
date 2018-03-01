@@ -30,6 +30,8 @@
       <hash><url n="URL" path="PASSSBCommon/PASSSBCommon.jpr"/></hash>
       <hash><url n="URL" path="PASSSBGenericPaymentGateway/PASSSBGenericPaymentGateway.jpr"/></hash>
       <hash><url n="URL" path="PASSSBMashupCalculoFrete/PASSSBMashupCalculoFrete.jpr"/></hash>
+      <hash><url n="URL" path="PASSSBQueryAccountBalance/PASSSBQueryAccountBalance.jpr"/></hash>
+      <hash><url n="URL" path="PASSSBStatusChange/PASSSBStatusChange.jpr"/></hash>
       <hash><url n="URL" path="PASSSBStockUpdate/PASSSBStockUpdate.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
