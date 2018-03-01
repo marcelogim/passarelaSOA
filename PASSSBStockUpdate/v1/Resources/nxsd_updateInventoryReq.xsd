@@ -3,7 +3,7 @@
    <xsd:element name="Root-Element">
       <xsd:complexType>
          <xsd:sequence>
-            
+            <xsd:element name="id" type="xsd:string"/>
             <xsd:element name="preorderThreshold" type="xsd:string"/>
             <xsd:element name="backorderLevel" type="xsd:string"/>
             <xsd:element name="preorderLevel" type="xsd:string"/>

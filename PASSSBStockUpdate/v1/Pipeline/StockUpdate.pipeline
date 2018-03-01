@@ -101,7 +101,6 @@
                             </con5:transport-headers>
                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                 <con2:id>_ActionId-N3f57c7ff.7705973b.0.161dd23300b.N7ff7</con2:id>
-                                <con2:disabled>true</con2:disabled>
                                 <con3:location>
                                     <con2:xpathText>.</con2:xpathText>
                                 </con3:location>
@@ -112,6 +111,16 @@
                                     </con2:xsltTransform>
                                 </con3:expr>
                             </con3:replace>
+                            <con3:insert varName="outbound" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.7705973b.0.161dd23300b.N7ff3</con2:id>
+                                <con3:location>
+                                    <con2:xpathText>./ctx:transport/ctx:request/tp:headers</con2:xpathText>
+                                </con3:location>
+                                <con3:where>after</con3:where>
+                                <con3:expr>
+                                    <con2:xqueryText>&lt;user-metadata name="_id" value="{$id}" xmlns="http//www.bea.com/wli/sb/transports" /></con2:xqueryText>
+                                </con3:expr>
+                            </con3:insert>
                         </con1:outboundTransform>
                         <con1:responseTransform/>
                     </con1:route>
