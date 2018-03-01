@@ -26,7 +26,7 @@
                         </con1:location>
                         <con1:expr>
                             <con2:xsltTransform>
-                                <con2:resource ref="PASSSBStockUpdate/v1/XSL/ToFaul"/>
+                                <con2:resource ref="PASSSBStockUpdate/v1/XSL/ToFault"/>
                                 <con2:input>&lt;xml>&lt;/xml></con2:input>
                                 <con2:param name="status">
                                     <con2:path>$body//status</con2:path>

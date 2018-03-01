@@ -1,20 +1,10 @@
-<?xml version= '1.0' encoding= 'UTF-8' ?>
-<wsdl:definitions
-     name="GetTokenCommerce"
-     targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBCommon/GetTokenCommerce"
-     xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBCommon/GetTokenCommerce"
-     xmlns:inp1="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login"
-     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
-     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-    >
+<wsdl:definitions name="GetTokenCommerce" targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBCommon/GetTokenCommerce" xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBCommon/GetTokenCommerce" xmlns:inp1="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
     <plnk:partnerLinkType name="GetTokenCommerce">
         <plnk:role name="GetTokenCommerceProvider" portType="tns:GetTokenCommerce_ptt"/>
     </plnk:partnerLinkType>
     <wsdl:types>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login"
-                 schemaLocation="../schemas/GetTokenCommerce.xsd"/>
+            <xsd:import namespace="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login" schemaLocation="../schemas/GetTokenCommerce.xsd"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="getTokenCommerce_inputMessage">

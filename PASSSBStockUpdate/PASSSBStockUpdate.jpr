@@ -114,13 +114,13 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="PASSSBStockUpdate">
+         <hash n="Project1">
             <value n="profileClass" v="SbProjectDeployProfile"/>
-            <value n="profileName" v="PASSSBStockUpdate"/>
+            <value n="profileName" v="Project1"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="PASSSBStockUpdate"/>
+         <string v="Project1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
@@ -202,5 +202,4 @@
          </list>
       </hash>
    </hash>
-   <value n="SOA_TRANSFORMATION_FOLDER_NAME" v="v1/XSL/"/>
 </jpr:project>

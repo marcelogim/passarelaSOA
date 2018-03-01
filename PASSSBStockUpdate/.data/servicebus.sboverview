@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ns:composite xmlns:ns="http://xmlns.oracle.com/sca/1.0">
-    <ns:reference>
-        <ns:interface src="ProxyService:PASSSBCommon/V1/TokenManagement/proxy/GetTokenCommerceLocal"/>
-    </ns:reference>
-    <ns:reference>
-        <ns:interface src="BusinessService:PASSSBStockUpdate/v1/BS/OCCStockUpdate"/>
-    </ns:reference>
-</ns:composite>
