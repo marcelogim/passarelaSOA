@@ -8,6 +8,9 @@
       <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/OCCStockUpdate_updateInventory_response" schemaLocation="nxsd_%20updateInventoryRes.xsd"/>
         </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/OCCStokUpdate_stokUpdate_fault1" schemaLocation="nxsd_FaultOCC.xsd"/>
+        </xsd:schema>
    </grammars>
    <resources>
       <resource path="/inventories/{id}">
@@ -18,6 +21,9 @@
             </request>
             <response status="200">
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStockUpdate_updateInventory_response"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault1">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStokUpdate_stokUpdate_fault1"/>
             </response>
          </method>
       </resource>

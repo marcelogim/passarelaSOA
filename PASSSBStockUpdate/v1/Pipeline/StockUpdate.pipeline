@@ -17,6 +17,7 @@
             <con:stage id="_StageId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7d22" name="Fault OCC Stock Update" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
                 <con:context>
                     <con2:userNsDecl prefix="res" namespace="http://TargetNamespace.com/RestService_QuoteByProduct_response"/>
+                    <con2:userNsDecl prefix="fault" namespace="http://TargetNamespace.com/OCCStokUpdate_stokUpdate_fault1"/>
                 </con:context>
                 <con:actions>
                     <con1:replace varName="body" contents-only="true">
@@ -29,16 +30,16 @@
                                 <con2:resource ref="PASSSBStockUpdate/v1/XSL/ToFault"/>
                                 <con2:input>&lt;xml>&lt;/xml></con2:input>
                                 <con2:param name="status">
-                                    <con2:path>$body//status</con2:path>
+                                    <con2:path>$body//fault:status</con2:path>
                                 </con2:param>
                                 <con2:param name="type">
-                                    <con2:path>$body//type</con2:path>
+                                    <con2:path>$body//fault:type</con2:path>
                                 </con2:param>
                                 <con2:param name="text">
-                                    <con2:path>$body//message</con2:path>
+                                    <con2:path>$body//fault:message</con2:path>
                                 </con2:param>
                                 <con2:param name="key">
-                                    <con2:path>$body//errorCode</con2:path>
+                                    <con2:path>$body//fault:errorCode</con2:path>
                                 </con2:param>
                                 <con2:param name="time">
                                     <con2:path>fn:current-dateTime()</con2:path>
