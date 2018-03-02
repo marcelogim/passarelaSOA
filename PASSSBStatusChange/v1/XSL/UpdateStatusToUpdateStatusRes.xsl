@@ -33,10 +33,6 @@
   <!--User Editing allowed BELOW this line - DO NOT DELETE THIS LINE-->
   <xsl:param name="message"/>
   <xsl:template match="/">
-    <tns:Root-Element>
-      <tns:message>
-        <xsl:value-of select="$message"/>
-      </tns:message>
-    </tns:Root-Element>
+  
   </xsl:template>
 </xsl:stylesheet>
