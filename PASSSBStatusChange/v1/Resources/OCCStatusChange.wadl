@@ -6,10 +6,8 @@
             <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_request" schemaLocation="nxsd_updateStatusOrderReq.xsd"/>
         </xsd:schema>
       <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_response" schemaLocation="nxsd_updateStatusOrderRes.xsd"/>
-        </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_fault1" schemaLocation="nxsd_FaultOCC.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"
+                        schemaLocation="nxsd_updateStatusOrderRes.xsd"/>
         </xsd:schema>
    </grammars>
    <resources>
@@ -19,9 +17,11 @@
                <param name="id" style="template" soa:expression="$property.id" type="xsd:string"/>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_request"/>
             </request>
-            <response status="200"/>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"/>
+            </response>
             <response status="400" soa:wsdlFaultName="fault1">
-               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_fault1"/>
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"/>
             </response>
          </method>
       </resource>

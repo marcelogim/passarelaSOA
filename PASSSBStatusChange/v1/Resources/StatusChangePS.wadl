@@ -8,9 +8,6 @@
       <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_response" schemaLocation="nxsd_updateStatusOrderRes.xsd"/>
         </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_fault1" schemaLocation="nxsd_FaultOCC.xsd"/>
-        </xsd:schema>
    </grammars>
    <resources>
       <resource path="/orders/{id}">
@@ -39,12 +36,14 @@
       <resource path="/orders/{id}/shippingGroups/{idShipping}">
          <method name="PUT" soa:wsdlOperation="updateOrderShipping">
             <request>
-               <param name="id" style="template" soa:expression="$property.id" type="xsd:string"/>
-               <param name="id" style="template" soa:expression="$msg.request/inp1:shippingGroups/inp1:id" type="xsd:string"/>
+              <param name="id" style="template" soa:expression="$property.id" type="xsd:string"/>
+               <param name="idPayment" style="template" soa:expression="$property.idPayment" type="xsd:string"/>
                <param name="idShipping" style="template" soa:expression="$property.idShipping" type="xsd:string"/>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_request"/>
             </request>
-            <response status="200"/>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"/>
+            </response>
          </method>
       </resource>
       <resource path="/orders/{id}/paymentGroups/{idPayment}/shippingGroups/{idShipping}">
@@ -55,7 +54,9 @@
                <param name="idPayment" style="template" soa:expression="$property.idPayment" type="xsd:string"/>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_request"/>
             </request>
-            <response status="200"/>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"/>
+            </response>
          </method>
       </resource>
    </resources>

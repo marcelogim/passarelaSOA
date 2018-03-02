@@ -24,32 +24,48 @@
  
    <xsl:template match="/">
       <ns0:Root-Element>
-         <ns0:id>
-            <xsl:value-of select="$id"/>
-         </ns0:id>
-         <ns0:state>
-            <xsl:value-of select="/ns0:Root-Element/ns0:state"/>
-         </ns0:state>
-         <xsl:for-each select="/ns0:Root-Element/ns0:paymentGroups">
-            <ns0:paymentGroups>
-               <ns0:id>
-                  <xsl:value-of select="$idPayment"/>
-               </ns0:id>
-               <ns0:state>
-                  <xsl:value-of select="ns0:state"/>
-               </ns0:state>
-            </ns0:paymentGroups>
-         </xsl:for-each>
-         <xsl:for-each select="/ns0:Root-Element/ns0:shippingGroups">
-            <ns0:shippingGroups>
-               <ns0:id>
-                  <xsl:value-of select="$idShipping"/>
-               </ns0:id>
-               <ns0:state>
-                  <xsl:value-of select="ns0:state"/>
-               </ns0:state>
-            </ns0:shippingGroups>
-         </xsl:for-each>
+         <xsl:if test="$id != ''">
+            <ns0:id>
+               <xsl:value-of select="$id"/>
+            </ns0:id>
+         </xsl:if>
+         <xsl:if test="/ns0:Root-Element/ns0:state != ''">
+            <ns0:state>
+               <xsl:value-of select="/ns0:Root-Element/ns0:state"/>
+            </ns0:state>
+         </xsl:if>
+         <xsl:if test="/ns0:Root-Element/ns0:paymentGroups">
+            <xsl:for-each select="/ns0:Root-Element/ns0:paymentGroups">
+               <ns0:paymentGroups>
+                  <xsl:if test="$idPayment != ''">
+                     <ns0:id>
+                        <xsl:value-of select="$idPayment"/>
+                     </ns0:id>
+                  </xsl:if>
+                  <xsl:if test="ns0:state != ''">
+                     <ns0:state>
+                        <xsl:value-of select="ns0:state"/>
+                     </ns0:state>
+                  </xsl:if>
+               </ns0:paymentGroups>
+            </xsl:for-each>
+         </xsl:if>
+         <xsl:if test="/ns0:Root-Element/ns0:shippingGroups">
+            <xsl:for-each select="/ns0:Root-Element/ns0:shippingGroups">
+               <ns0:shippingGroups>
+                  <xsl:if test="$idShipping != ''">
+                     <ns0:id>
+                        <xsl:value-of select="$idShipping"/>
+                     </ns0:id>
+                  </xsl:if>
+                  <xsl:if test="ns0:state != ''">
+                     <ns0:state>
+                        <xsl:value-of select="ns0:state"/>
+                     </ns0:state>
+                  </xsl:if>
+               </ns0:shippingGroups>
+            </xsl:for-each>
+         </xsl:if>
       </ns0:Root-Element>
    </xsl:template>
 </xsl:stylesheet>

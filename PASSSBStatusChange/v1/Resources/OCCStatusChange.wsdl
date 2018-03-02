@@ -7,8 +7,7 @@
      xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
      xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-     xmlns:inp2="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"
-     xmlns:inp3="http://TargetNamespace.com/OCCStatusChange_updateOrder_fault1"
+     xmlns:inp3="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"
     >
     <plnk:partnerLinkType name="OCCStatusChange">
         <plnk:role name="OCCStatusChangeProvider" portType="tns:OCCStatusChange_ptt"/>
@@ -22,15 +21,12 @@
             <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_response"
                  schemaLocation="nxsd_updateStatusOrderRes.xsd"/>
         </xsd:schema>
-        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/OCCStatusChange_updateOrder_fault1" schemaLocation="nxsd_FaultOCC.xsd"/>
-        </xsd:schema>
     </wsdl:types>
     <wsdl:message name="updateOrder_inputMessage">
         <wsdl:part name="request" element="inp1:Root-Element"/>
     </wsdl:message>
     <wsdl:message name="updateOrder_outputMessage">
-        <wsdl:part name="reply" element="inp2:Root-Element"/>
+        <wsdl:part name="reply" element="inp3:Root-Element"/>
     </wsdl:message>
     <wsdl:message name="updateOrder_fault1Message">
         <wsdl:part name="fault_fault1" element="inp3:Root-Element"/>
@@ -39,15 +35,21 @@
         <wsdl:part name="request" element="inp1:Root-Element"/>
     </wsdl:message>
     <wsdl:message name="updateOrderPayment_outputMessage">
-        <wsdl:part name="reply" element="inp2:Root-Element"/>
+        <wsdl:part name="reply" element="inp3:Root-Element"/>
     </wsdl:message>
     <wsdl:message name="updateOrderShipping_inputMessage">
         <wsdl:part name="request" element="inp1:Root-Element"/>
     </wsdl:message>
-    <wsdl:message name="Rest_EmptyMessage"/>
+    <wsdl:message name="updateOrderShipping_outputMessage">
+        <wsdl:part name="reply" element="inp3:Root-Element"/>
+    </wsdl:message>
     <wsdl:message name="updateOrderPaymentShipping_inputMessage">
         <wsdl:part name="request" element="inp1:Root-Element"/>
     </wsdl:message>
+    <wsdl:message name="updateOrderPaymentShipping_outputMessage">
+        <wsdl:part name="reply" element="inp3:Root-Element"/>
+    </wsdl:message>
+    <wsdl:message name="Rest_EmptyMessage"/>
     <wsdl:portType name="OCCStatusChange_ptt">
         <wsdl:operation name="updateOrder">
             <wsdl:input message="tns:updateOrder_inputMessage"/>
@@ -60,11 +62,11 @@
         </wsdl:operation>
         <wsdl:operation name="updateOrderShipping">
             <wsdl:input message="tns:updateOrderShipping_inputMessage"/>
-            <wsdl:output message="tns:Rest_EmptyMessage"/>
+            <wsdl:output message="tns:updateOrderShipping_outputMessage"/>
         </wsdl:operation>
         <wsdl:operation name="updateOrderPaymentShipping">
             <wsdl:input message="tns:updateOrderPaymentShipping_inputMessage"/>
-            <wsdl:output message="tns:Rest_EmptyMessage"/>
+            <wsdl:output message="tns:updateOrderPaymentShipping_outputMessage"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="OCCStatusChange_ptt-binding" type="tns:OCCStatusChange_ptt">
