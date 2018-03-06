@@ -4,10 +4,10 @@
     </plnk:partnerLinkType>
     <wsdl:types>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request" schemaLocation="../v1/Resources/nxsd_ProfileReq.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request" schemaLocation="nxsd_ProfileReq.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_response" schemaLocation="../v1/Resources/nxsd_ProfileRes.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_response" schemaLocation="nxsd_ProfileRes.xsd"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="update_shopper_inputMessage">

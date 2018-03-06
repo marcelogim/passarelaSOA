@@ -17,7 +17,7 @@
                 xmlns:tns="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"
                 xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
                 xmlns:ns1="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"
-                xmlns:ns2="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response">
+                xmlns:n2="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response">
   <oracle-xsl-mapper:schema>
     <!--SPECIFICATION OF MAP SOURCES AND TARGETS, DO NOT MODIFY.-->
     <oracle-xsl-mapper:mapSources>
@@ -46,6 +46,16 @@
   <xsl:param name="bodyRequest"/>
   <xsl:template match="/">
     <tns:Root-Element>
+      <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:locale">
+        <tns:locale>
+          <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:locale"/>
+        </tns:locale>
+      </xsl:if>
+      <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:referenceNumber">
+      <tns:referenceNumber>
+        <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:referenceNumber"/>
+      </tns:referenceNumber>
+      </xsl:if>
       <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:orderId">
         <tns:orderId>
           <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:orderId"/>
@@ -76,14 +86,12 @@
           <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionType"/>
         </tns:transactionType>
       </xsl:if>
-      <ns2:hostTransactionTimestamp>
-        <xsl:value-of select="xp20:current-dateTime ( )"/>
-      </ns2:hostTransactionTimestamp>
-      <xsl:if test="/ns0:Root-Element/ns0:time">
-        <tns:transactionTimestamp>
-          <xsl:value-of select="/ns0:Root-Element/ns0:time"/>
-        </tns:transactionTimestamp>
-      </xsl:if>
+      <tns:hostTransactionTimestamp>
+        <xsl:value-of select='xp20:format-dateTime (xp20:current-dateTime ( ), "[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]" )'/>
+      </tns:hostTransactionTimestamp>
+      <tns:transactionTimestamp>
+        <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionTimestamp"/>
+      </tns:transactionTimestamp>
       <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:paymentMethod">
         <tns:paymentMethod>
           <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:paymentMethod"/>
@@ -99,23 +107,37 @@
           <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:siteId"/>
         </tns:siteId>
       </xsl:if>
+      <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:channel">
+        <tns:channel>
+          <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:channel"/>
+        </tns:channel>
+      </xsl:if>
+      <tns:merchantTransactionTimestamp>
+        <xsl:value-of select='xp20:format-dateTime (xp20:current-dateTime ( ), "[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]" )'/>
+      </tns:merchantTransactionTimestamp>
+      <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:transactionId">
+        <tns:merchantTransactionId>
+          <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionId"/>
+        </tns:merchantTransactionId>
+      </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:pspReference">
         <tns:authorizationResponse>
-          <xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Authorised' and not($bodyRequest/ns1:Root-Element/ns1:gatewayId)">
+          <tns:responseCode>1000</tns:responseCode>
+          <!--<xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Authorised' and not($bodyRequest/ns1:Root-Element/ns1:gatewayId)">
             <tns:responseCode>1000</tns:responseCode>
-          </xsl:if>
-            <xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Authorised' and $bodyRequest/ns1:Root-Element/ns1:gatewayId">
+          </xsl:if>-->
+          <!--<xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Authorised' and $bodyRequest/ns1:Root-Element/ns1:gatewayId">
             <tns:responseCode>10000</tns:responseCode>
-          </xsl:if>
+          </xsl:if>-->
           <xsl:if test="/ns0:Root-Element/ns0:message">
             <tns:responseReason>
               <xsl:value-of select="/ns0:Root-Element/ns0:message"/>
             </tns:responseReason>
           </xsl:if>
-          <xsl:if test="/ns0:Root-Element/ns0:pspReference">
-            <ns2:responseDescription>
-              <xsl:value-of select="/ns0:Root-Element/ns0:pspReference"/>
-            </ns2:responseDescription>
+          <xsl:if test="/ns0:Root-Element/ns0:resultCode">
+            <tns:responseDescription>
+              <xsl:value-of select="/ns0:Root-Element/ns0:resultCode"/>
+            </tns:responseDescription>
           </xsl:if>
           <xsl:if test="/ns0:Root-Element/ns0:authCode">
             <tns:authorizationCode>
@@ -127,50 +149,93 @@
               <xsl:value-of select="/ns0:Root-Element/ns0:pspReference"/>
             </tns:hostTransactionId>
           </xsl:if>
+          <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:transactionId">
+            <tns:merchantTransactionId>
+              <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionId"/>
+            </tns:merchantTransactionId>
+          </xsl:if>
+          <!--<tns:merchantTransactionTimestamp>
+            <xsl:value-of select='xp20:format-dateTime (xp20:current-dateTime ( ), "[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]" )'/>
+          </tns:merchantTransactionTimestamp>-->
+          <xsl:if test="/ns0:Root-Element/ns0:authCode and $bodyRequest/ns1:Root-Element/ns1:channel = 'debit'">
+            <tns:authCode>
+              <xsl:value-of select="/ns0:Root-Element/ns0:authCode"/>
+            </tns:authCode>
+          </xsl:if>
+          <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:transactionId">
+            <tns:transactionId>
+              <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionId"/>
+            </tns:transactionId>
+          </xsl:if>
+          <!--<tns:transactionTimestamp>
+            <xsl:value-of select='xp20:format-dateTime (xp20:current-dateTime ( ), "[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]" )'/>
+          </tns:transactionTimestamp>-->
+          <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:paymentId">
+            <tns:paymentId>
+              <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:paymentId"/>
+            </tns:paymentId>
+          </xsl:if>
+          <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:paymentMethod">
+            <tns:paymentMethod>
+              <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:paymentMethod"/>
+            </tns:paymentMethod>
+          </xsl:if>
+          <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:gatewayId">
+            <tns:gatewayId>
+              <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:gatewayId"/>
+            </tns:gatewayId>
+          </xsl:if>
+          <tns:amount>
+            <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:amount"/>
+          </tns:amount>
         </tns:authorizationResponse>
       </xsl:if>
-      <ns2:additionalProperties>
-        <xsl:if test="/ns0:Root-Element/ns0:md">
-          <ns2:md>
-            <xsl:value-of select="/ns0:Root-Element/ns0:md"/>
-          </ns2:md>
-        </xsl:if>
-        <xsl:if test="/ns0:Root-Element/ns0:paRequest">
-          <ns2:paRequest>
-            <xsl:value-of select="/ns0:Root-Element/ns0:paRequest"/>
-          </ns2:paRequest>
-        </xsl:if>
-        <xsl:if test="/ns0:Root-Element/ns0:issuerUrl">
-          <ns2:issueURL>
-            <xsl:value-of select="/ns0:Root-Element/ns0:issuerUrl"/>
-          </ns2:issueURL>
-        </xsl:if>
-        <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.url">
-          <ns2:boletobancario.url>
-            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.url"/>
-          </ns2:boletobancario.url>
-        </xsl:if>
-        <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.data">
-          <ns2:boletobancario.data>
-            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.data"/>
-          </ns2:boletobancario.data>
-        </xsl:if>
-        <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.barCodeReference">
-          <ns2:boletobancario.barCodeReference>
-            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.barCodeReference"/>
-          </ns2:boletobancario.barCodeReference>
-        </xsl:if>
-        <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.expirationDate">
-          <ns2:boletobancario.expirationDate>
-            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.expirationDate"/>
-          </ns2:boletobancario.expirationDate>
-        </xsl:if>
-        <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate">
-          <ns2:boletobancario.dueDate>
-            <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate"/>
-          </ns2:boletobancario.dueDate>
-        </xsl:if>
-      </ns2:additionalProperties>
+      <xsl:if test="/ns0:Root-Element/ns0:md or /ns0:Root-Element/ns0:paRequest or /ns0:Root-Element/ns0:issuerUrl or /ns0:Root-Element/ns0:additionalData/ns0:boletobancario.url
+      /ns0:Root-Element/ns0:additionalData/ns0:boletobancario.data or /ns0:Root-Element/ns0:additionalData/ns0:boletobancario.barCodeReference or 
+      /ns0:Root-Element/ns0:additionalData/ns0:boletobancario.expirationDate or /ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate">
+        <tns:additionalProperties>
+          <xsl:if test="/ns0:Root-Element/ns0:md">
+            <tns:md>
+              <xsl:value-of select="/ns0:Root-Element/ns0:md"/>
+            </tns:md>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:paRequest">
+            <tns:paRequest>
+              <xsl:value-of select="/ns0:Root-Element/ns0:paRequest"/>
+            </tns:paRequest>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:issuerUrl">
+            <tns:issueURL>
+              <xsl:value-of select="/ns0:Root-Element/ns0:issuerUrl"/>
+            </tns:issueURL>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.url">
+            <tns:boletobancario.url>
+              <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.url"/>
+            </tns:boletobancario.url>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.data">
+            <tns:boletobancario.data>
+              <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.data"/>
+            </tns:boletobancario.data>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.barCodeReference">
+            <tns:boletobancario.barCodeReference>
+              <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.barCodeReference"/>
+            </tns:boletobancario.barCodeReference>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.expirationDate">
+            <tns:boletobancario.expirationDate>
+              <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.expirationDate"/>
+            </tns:boletobancario.expirationDate>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate">
+            <tns:boletobancario.dueDate>
+              <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate"/>
+            </tns:boletobancario.dueDate>
+          </xsl:if>
+        </tns:additionalProperties>
+      </xsl:if>
     </tns:Root-Element>
   </xsl:template>
 </xsl:stylesheet>

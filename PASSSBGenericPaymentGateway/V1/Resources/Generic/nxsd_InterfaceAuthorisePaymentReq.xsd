@@ -11,6 +11,7 @@
         <xsd:element name="currencyCode" type="xsd:string"/>
         <xsd:element name="paymentId" type="xsd:string"/>
         <xsd:element name="locale" type="xsd:string"/>
+         <xsd:element name="referenceNumber" type="xsd:string"/>        
         <xsd:element name="gatewaySettings">
           <xsd:complexType>
             <xsd:sequence>
