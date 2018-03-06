@@ -17,6 +17,7 @@
         <module>PASSSBStockUpdate</module>
         <module>PASSSBQueryAccountBalance</module>
         <module>PASSSBStatusChange</module>
+        <module>PASSSBUpdateShopper</module>
     </modules>
     <build>
         <plugins>

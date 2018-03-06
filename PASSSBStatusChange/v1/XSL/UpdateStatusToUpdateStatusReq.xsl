@@ -66,6 +66,11 @@
                </ns0:shippingGroups>
             </xsl:for-each>
          </xsl:if>
+         <xsl:if test="/ns0:Root-Element/ns0:notaFiscal">
+            <ns0:notaFiscal>
+               <xsl:value-of select="/ns0:Root-Element/ns0:notaFiscal"/>
+            </ns0:notaFiscal>
+         </xsl:if>
       </ns0:Root-Element>
    </xsl:template>
 </xsl:stylesheet>

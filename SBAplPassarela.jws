@@ -33,6 +33,7 @@
       <hash><url n="URL" path="PASSSBQueryAccountBalance/PASSSBQueryAccountBalance.jpr"/></hash>
       <hash><url n="URL" path="PASSSBStatusChange/PASSSBStatusChange.jpr"/></hash>
       <hash><url n="URL" path="PASSSBStockUpdate/PASSSBStockUpdate.jpr"/></hash>
+      <hash><url n="URL" path="PASSSBUpdateShopper/PASSSBUpdateShopper.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
