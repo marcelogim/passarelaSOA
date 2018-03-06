@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="PASSSBUpdateShopper/Resources/UpdateShoppersPS"/>
+            <con:binding>
+                <con:name>UpdateShoppersPS_ptt-binding</con:name>
+                <con:namespace>http://xmlns.oracle.com/SBAplPassarela/PASSSBUpdateShopper/UpdateShoppersPS</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-N3f57c7ff.N500a01d1.0.161f73beb20.N7ec5">
+        <con:pipeline type="error" name="error-N3f57c7ff.N500a01d1.0.161f73beb20.N7ec5">
+            <con:stage id="_StageId-N3f57c7ff.N500a01d1.0.161f73beb20.N7ec4" name="ErroUpdateShopperPMWeb">
+                <con:context>
+                    <con1:userNsDecl prefix="fault" namespace="http://TargetNamespace.com/ResponsysUpdateShopperBS_Fila_Contacts_List_response"/>
+                </con:context>
+                <con:actions>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                        <con2:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7e90</con2:id>
+                        <con1:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xsltTransform>
+                                <con2:resource ref="PASSSBUpdateShopper/v1/XSL/ToFault"/>
+                                <con2:input>&lt;xml>&lt;/xml></con2:input>
+                                <con2:param name="status">
+                                    <con2:path>'400'</con2:path>
+                                </con2:param>
+                                <con2:param name="type">
+                                    <con2:path>if (exists($body//fault:Code)) then
+ $body//fault:Code
+else("")</con2:path>
+                                </con2:param>
+                                <con2:param name="text">
+                                    <con2:path>if (exists($body//fault:Message)) then
+ $body//fault:Message
+else("")</con2:path>
+                                </con2:param>
+                                <con2:param name="key">
+                                    <con2:path>if (exists($body//fault:NativeMessage)) then
+ $body//fault:NativeMessage
+else("")</con2:path>
+                                </con2:param>
+                                <con2:param name="time">
+                                    <con2:path>fn:current-dateTime()</con2:path>
+                                </con2:param>
+                                <con2:param name="timezone">
+                                    <con2:path>"BRT"</con2:path>
+                                </con2:param>
+                                <con2:param name="locale">
+                                    <con2:path>"pt_br"</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con1:replace>
+                    <con2:resume xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                        <con2:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7e8d</con2:id>
+                    </con2:resume>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:route-node name="PMWeb">
+                <con:context>
+                    <con1:userNsDecl prefix="res" namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request"/>
+                    <con1:userNsDecl prefix="pm" namespace="http://TargetNamespace.com/GetTokenPMWeb_Authenticate_response"/>
+                </con:context>
+                <con:actions>
+                    <con2:route>
+                        <con1:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7f00</con1:id>
+                        <con2:service ref="PASSSBUpdateShopper/v1/BS/ResponsysUpdateShopperBS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con2:operation>Fila_Contacts_List</con2:operation>
+                        <con2:outboundTransform>
+                            <con3:wsCallout>
+                                <con1:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7efd</con1:id>
+                                <con3:service ref="PASSSBCommon/V1/TokenManagementPMWeb/proxy/GetTokenPMWeb" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                <con3:operation>Authenticate</con3:operation>
+                                <con3:request>
+                                    <con3:body wrapped="false">body</con3:body>
+                                </con3:request>
+                                <con3:response>
+                                    <con3:body wrapped="false">bodyResponse</con3:body>
+                                </con3:response>
+                                <con3:requestTransform/>
+                                <con3:responseTransform/>
+                            </con3:wsCallout>
+                            <con3:replace varName="body" contents-only="true">
+                                <con1:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7efa</con1:id>
+                                <con3:location>
+                                    <con1:xpathText>.</con1:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con1:xsltTransform>
+                                        <con1:resource ref="PASSSBUpdateShopper/v1/XSL/ProfileReqToFilaContactReq"/>
+                                        <con1:input>$body/res:Root-Element</con1:input>
+                                        <con1:param name="TokenPMWeb">
+                                            <con1:path>$bodyResponse//pm:AuthenticationToken</con1:path>
+                                        </con1:param>
+                                    </con1:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con2:outboundTransform>
+                        <con2:responseTransform>
+                            <con3:replace varName="body" contents-only="true">
+                                <con1:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7ef7</con1:id>
+                                <con3:location>
+                                    <con1:xpathText>.</con1:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con1:xsltTransform>
+                                        <con1:resource ref="PASSSBUpdateShopper/v1/XSL/ToProfileUpdate"/>
+                                        <con1:input>&lt;xml/></con1:input>
+                                    </con1:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con2:responseTransform>
+                    </con2:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

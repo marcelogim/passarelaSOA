@@ -103,7 +103,10 @@
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ServiceBusTechnology"/>
+         <string v="WSDL"/>
+         <string v="WSPolicy"/>
          <string v="XML"/>
+         <string v="XML_SCHEMA"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
@@ -182,6 +185,11 @@
    <hash n="oracle.sb.tooling.ide.core.projects.SbProjectSettings">
       <hash n="sbContentSet">
          <list n="pattern-filters">
+            <string v="-Resources/UpdateShopperPS.wsdl"/>
+            <string v="-v1/Resources/ResponsysUpdateShopperPS.wsdl"/>
+            <string v="-v1/Resources/ResponsysUpdateShopperPS.wadl"/>
+            <string v="-Resources/ResponsysUpdateShopperPS.wsdl"/>
+            <string v="-Resources/ResponsysUpdateShopperPS.wadl"/>
             <string v="-.data"/>
             <string v="-.settings"/>
             <string v="+**"/>
@@ -199,4 +207,5 @@
          </list>
       </hash>
    </hash>
+   <value n="SOA_TRANSFORMATION_FOLDER_NAME" v="v1/XSL/"/>
 </jpr:project>
