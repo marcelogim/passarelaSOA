@@ -20,6 +20,14 @@
                     <con2:userNsDecl prefix="ady" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
                 </con:context>
                 <con:actions>
+                    <con3:log xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                        <con2:id>_ActionId-N3f57c7ff.1db9da05.0.161fc928e0d.N7f93</con2:id>
+                        <con3:logLevel>error</con3:logLevel>
+                        <con3:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con3:expr>
+                        <con3:message>errro</con3:message>
+                    </con3:log>
                     <con1:replace varName="body" contents-only="true">
                         <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N792f</con2:id>
                         <con1:location>
@@ -229,6 +237,14 @@
                                             </con3:replace>
                                         </con1:outboundTransform>
                                         <con1:responseTransform>
+                                            <con3:log>
+                                                <con2:id>_ActionId-N3f57c7ff.1db9da05.0.161fc928e0d.N7ffe</con2:id>
+                                                <con3:logLevel>error</con3:logLevel>
+                                                <con3:expr>
+                                                    <con2:xqueryText>$body</con2:xqueryText>
+                                                </con3:expr>
+                                                <con3:message>initiate payment response 1</con3:message>
+                                            </con3:log>
                                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                                 <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N6e68</con2:id>
                                                 <con3:location>
@@ -244,6 +260,14 @@
                                                     </con2:xsltTransform>
                                                 </con3:expr>
                                             </con3:replace>
+                                            <con3:log>
+                                                <con2:id>_ActionId-N3f57c7ff.1db9da05.0.161fc928e0d.N7ff8</con2:id>
+                                                <con3:logLevel>error</con3:logLevel>
+                                                <con3:expr>
+                                                    <con2:xqueryText>$body</con2:xqueryText>
+                                                </con3:expr>
+                                                <con3:message>initiate payment response 2</con3:message>
+                                            </con3:log>
                                         </con1:responseTransform>
                                     </con1:route>
                                 </con:actions>
