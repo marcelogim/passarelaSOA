@@ -17,7 +17,9 @@
                 xmlns:tns="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"
                 xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
                 xmlns:ns1="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"
-                xmlns:n2="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response">
+                xmlns:n2="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"
+                 xmlns:xs1="http://www.w3.org/2001/XMLSchema">
+
   <oracle-xsl-mapper:schema>
     <!--SPECIFICATION OF MAP SOURCES AND TARGETS, DO NOT MODIFY.-->
     <oracle-xsl-mapper:mapSources>
@@ -44,6 +46,7 @@
   </oracle-xsl-mapper:schema>
   <!--User Editing allowed BELOW this line - DO NOT DELETE THIS LINE-->
   <xsl:param name="bodyRequest"/>
+  <xsl:param name="currentMileseconds"/>
   <xsl:template match="/">
     <tns:Root-Element>
       <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:locale">
@@ -86,9 +89,10 @@
           <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionType"/>
         </tns:transactionType>
       </xsl:if>
-      <tns:hostTransactionTimestamp>
-        <xsl:value-of select='xp20:format-dateTime (xp20:current-dateTime ( ), "[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]" )'/>
-      </tns:hostTransactionTimestamp>
+   
+      <!--<tns:hostTransactionTimestamp>
+        <xsl:value-of select='xp20:format-dateTime (xp20:current-dateTime ( ), "[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]+0000" )'/>
+      </tns:hostTransactionTimestamp>-->
       <tns:transactionTimestamp>
         <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionTimestamp"/>
       </tns:transactionTimestamp>
@@ -113,7 +117,7 @@
         </tns:channel>
       </xsl:if>
       <tns:merchantTransactionTimestamp>
-        <xsl:value-of select='xp20:format-dateTime (xp20:current-dateTime ( ), "[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]" )'/>
+        <xsl:value-of select="$currentMileseconds"/>
       </tns:merchantTransactionTimestamp>
       <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:transactionId">
         <tns:merchantTransactionId>

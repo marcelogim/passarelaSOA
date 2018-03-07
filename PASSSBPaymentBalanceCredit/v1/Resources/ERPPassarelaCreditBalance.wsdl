@@ -1,0 +1,42 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="ERPPassarelaCreditBalance"
+     targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBPaymentBalanceCredit/ERPPassarelaCreditBalance"
+     xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBPaymentBalanceCredit/ERPPassarelaCreditBalance"
+     xmlns:inp1="http://TargetNamespace.com/ERPPassarelaPaymentBalanceCredit_payment_balance_credit_request"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <plnk:partnerLinkType name="ERPPassarelaCreditBalance">
+        <plnk:role name="ERPPassarelaCreditBalanceProvider" portType="tns:ERPPassarelaCreditBalance_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/ERPPassarelaPaymentBalanceCredit_payment_balance_credit_request"
+                 schemaLocation="nxsd_PaymentBalanceCreditReq.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="balance_credit_inputMessage">
+        <wsdl:part name="request" element="inp1:Root-Element"/>
+    </wsdl:message>
+    <wsdl:message name="Rest_EmptyMessage"/>
+    <wsdl:portType name="ERPPassarelaCreditBalance_ptt">
+        <wsdl:operation name="balance_credit">
+            <wsdl:input message="tns:balance_credit_inputMessage"/>
+            <wsdl:output message="tns:Rest_EmptyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ERPPassarelaCreditBalance_ptt-binding" type="tns:ERPPassarelaCreditBalance_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="balance_credit">
+            <soap:operation soapAction="balance_credit"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

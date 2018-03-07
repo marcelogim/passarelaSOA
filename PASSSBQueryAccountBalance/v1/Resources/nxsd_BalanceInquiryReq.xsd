@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_request" targetNamespace="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_request" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="Root-Element">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="orderId" type="xsd:string"/>
+            <xsd:element name="profile">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="phoneNumber" type="xsd:string"/>
+                     <xsd:element name="id" type="xsd:string"/>
+                     <xsd:element name="email" type="xsd:string"/>
+                     <xsd:element name="dynamicProperties">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="label" type="xsd:string"/>
+                              <xsd:element name="id" type="xsd:string"/>
+                              <xsd:element name="value" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="channel" type="xsd:string"/>
+            <xsd:element name="locale" type="xsd:string"/>
+            <xsd:element name="transactionId" type="xsd:string"/>
+            <xsd:element name="transactionTimestamp" type="xsd:string"/>
+            <xsd:element name="transactionType" type="xsd:integer"/>
+            <xsd:element name="customProperties"/>
+            <xsd:element name="CPF" type="xsd:string"/>
+            <xsd:element name="paymentId" type="xsd:string"/>
+            <xsd:element name="gatewaySettings">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="paymentMethodTypes" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="paymentMethod" type="xsd:string"/>
+            <xsd:element name="shippingAddress"/>
+            <xsd:element name="siteId" type="xsd:string"/>
+            <xsd:element name="currencyCode" type="xsd:string"/>
+            <xsd:element name="gatewayId" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

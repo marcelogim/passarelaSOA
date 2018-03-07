@@ -18,6 +18,7 @@
         <module>PASSSBQueryAccountBalance</module>
         <module>PASSSBStatusChange</module>
         <module>PASSSBUpdateShopper</module>
+        <module>PASSSBPaymentBalanceCredit</module>
     </modules>
     <build>
         <plugins>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
-    <dgm:gService name="AdyenPaymentGateway">
+    <dgm:gService name="PaymentCreditBalancePS">
         <dgm:body borderWidth="2" arcRad="20" X="21" Y="41" width="137" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
@@ -8,11 +8,11 @@
         <dgm:shadow arcRad="20" X="11" Y="34" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
-        <dgm:outputPort name="AdyenPaymentGateway" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="PaymentCreditBalancePS" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="7" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gService>
-    <dgm:gReference name="AdyenPaymentGatewayGeneric2">
+    <dgm:gReference name="ERPPassarelaCreditBalance">
         <dgm:body borderWidth="2" arcRad="20" X="596" Y="41" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
@@ -20,11 +20,11 @@
         <dgm:shadow arcRad="20" X="586" Y="34" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
-        <dgm:inputPort name="AdyenPaymentGatewayGeneric2" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:inputPort name="ERPPassarelaCreditBalance" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="14" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gReference>
-    <dgm:gComponent name="AdyenPaymentGatewayGeneric">
+    <dgm:gComponent name="PaymentCreditBalance">
         <dgm:body borderWidth="2" arcRad="20" X="312" Y="26" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
@@ -34,15 +34,15 @@
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:outputPort name="businessservice.1569816203.AdyenPaymentGatewayGeneric" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="businessservice.-1123814107.ERPPassarelaCreditBalance" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
-    <dgm:gWireLink source="AdyenPaymentGateway" target="AdyenPaymentGatewayGeneric/__service__" width="2">
+    <dgm:gWireLink source="PaymentCreditBalancePS" target="PaymentCreditBalance/__service__" width="2">
         <dgm:gSegment X1="168" Y1="51" X2="302" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
-    <dgm:gWireLink source="AdyenPaymentGatewayGeneric/businessservice.1569816203.AdyenPaymentGatewayGeneric" target="AdyenPaymentGatewayGeneric2" width="2">
+    <dgm:gWireLink source="PaymentCreditBalance/businessservice.-1123814107.ERPPassarelaCreditBalance" target="ERPPassarelaCreditBalance" width="2">
         <dgm:gSegment X1="452" Y1="51" X2="586" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
