@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="PASSSBAbandonedCart/v1/Resources/AbandonedCart"/>
+            <con:binding>
+                <con:name>AbandonedCart_ptt-binding</con:name>
+                <con:namespace>http://xmlns.oracle.com/SBAplPassarela/PASSSBAbandonedCart/AbandonedCart</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-N3f57c7ff.N272c0a79.0.16201c57e2c.N7e61">
+        <con:pipeline type="error" name="error-N3f57c7ff.N272c0a79.0.16201c57e2c.N7e61">
+            <con:stage id="_StageId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7e2a" name="Fault AbandonedCartResponsys" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                <con:context>
+                    <con3:userNsDecl prefix="fault" namespace="http://TargetNamespace.com/AbandonedCart_idleCart_response" xmlns:con3="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:replace varName="body" contents-only="true">
+                        <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7e29</con3:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con3="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con3:xsltTransform xmlns:con3="http://www.bea.com/wli/sb/stages/config">
+                                <con3:resource ref="PASSSBAbandonedCart/v1/XSL/ToFault"/>
+                                <con3:input>&lt;xml>&lt;/xml></con3:input>
+                                <con3:param name="status">
+                                    <con3:path>if (exists($body//fault:status)) then
+ $body//fault:status
+else("")</con3:path>
+                                </con3:param>
+                                <con3:param name="type">
+                                    <con3:path>if (exists($body//fault:type)) then
+ $body//fault:type
+else("")</con3:path>
+                                </con3:param>
+                                <con3:param name="text">
+                                    <con3:path>if (exists($body//fault:errors[1]//fault:message)) then
+ $body//fault:errors[1]//fault:message
+else if (exists($body//fault:message)) then
+  $body//fault:message
+else($fault/ctx:reason/text())</con3:path>
+                                </con3:param>
+                                <con3:param name="key">
+                                    <con3:path>if (exists($body//fault:errorCode)) then
+ $body//fault:errorCode
+else("")</con3:path>
+                                </con3:param>
+                                <con3:param name="time">
+                                    <con3:path>fn:current-dateTime()</con3:path>
+                                </con3:param>
+                                <con3:param name="timezone">
+                                    <con3:path>"BRT"</con3:path>
+                                </con3:param>
+                                <con3:param name="locale">
+                                    <con3:path>"pt_br"</con3:path>
+                                </con3:param>
+                            </con3:xsltTransform>
+                        </con1:expr>
+                    </con1:replace>
+                    <con2:resume xmlns:con3="http://www.bea.com/wli/sb/stages/config">
+                        <con3:id>_ActionId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7e28</con3:id>
+                    </con2:resume>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:route-node name="AbandonedCartResponsys" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                <con:context>
+                    <con2:userNsDecl prefix="aban" namespace="http://TargetNamespace.com/AbandonedCart_idleCart_request"/>
+                    <con2:userNsDecl prefix="pm" namespace="http://TargetNamespace.com/GetTokenPMWeb_Authenticate_response"/>
+                </con:context>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>_ActionId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7f2e</con2:id>
+                        <con1:service ref="PASSSBAbandonedCart/v1/BS/ResponsysAbandonedCart" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>putEvent</con1:operation>
+                        <con1:outboundTransform>
+                            <con3:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7ec6</con4:id>
+                                <con3:service ref="PASSSBCommon/V1/TokenManagementPMWeb/proxy/GetTokenPMWeb" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                <con3:operation>Authenticate</con3:operation>
+                                <con3:request>
+                                    <con3:body wrapped="false">body</con3:body>
+                                </con3:request>
+                                <con3:response>
+                                    <con3:body wrapped="false">bodyResponse</con3:body>
+                                </con3:response>
+                                <con3:requestTransform/>
+                                <con3:responseTransform/>
+                            </con3:wsCallout>
+                            <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7f2b</con2:id>
+                                <con3:location>
+                                    <con2:xpathText>.</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xsltTransform>
+                                        <con2:resource ref="PASSSBAbandonedCart/v1/XSL/AbandonedCartReqToFilaAbandonoBrutoReq"/>
+                                        <con2:input>$body/aban:Root-Element</con2:input>
+                                        <con2:param name="TokenPMWeb">
+                                            <con2:path>$bodyResponse//pm:AuthenticationToken</con2:path>
+                                        </con2:param>
+                                    </con2:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:outboundTransform>
+                        <con1:responseTransform>
+                            <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7d5a</con2:id>
+                                <con3:location>
+                                    <con2:xpathText>.</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xsltTransform>
+                                        <con2:resource ref="PASSSBAbandonedCart/v1/XSL/ToAbandonedCartRes"/>
+                                        <con2:input>&lt;xml/></con2:input>
+                                    </con2:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:responseTransform>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_response" targetNamespace="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_response" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="Root-Element">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="OperationValue" type="xsd:string"/>
+            <xsd:element name="ServiceStatus">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Code" type="xsd:integer"/>
+                     <xsd:element name="Message" type="xsd:string"/>
+                     <xsd:element name="NativeMessage" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

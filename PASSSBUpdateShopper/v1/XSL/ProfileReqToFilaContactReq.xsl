@@ -79,8 +79,8 @@
             <tns:Value>
               <xsl:value-of select="/ns0:Root-Element/ns0:profile/ns0:dateOfBirth"/>
             </tns:Value>
-            <tns:Name>GENDER</tns:Name>
-            <tns:Value></tns:Value>
+            <!--<tns:Name>GENDER</tns:Name>
+            <tns:Value></tns:Value>-->
             <tns:Name>CITY_</tns:Name>
             <tns:Value>
               <xsl:value-of select="/ns0:Root-Element/ns0:profile/ns0:billingAddress/ns0:city"/>
@@ -89,14 +89,14 @@
             <tns:Value>
               <xsl:value-of select="/ns0:Root-Element/ns0:profile/ns0:billingAddress/ns0:state"/>
             </tns:Value>
-            <tns:Name>TAMANHO_CALCADO</tns:Name>
+            <!--<tns:Name>TAMANHO_CALCADO</tns:Name>
             <tns:Value></tns:Value>
             <tns:Name>TAMANHO_MANEQUIM</tns:Name>
             <tns:Value></tns:Value>
             <tns:Name>MOBILE_PERMISSION_STATUS_</tns:Name>
             <tns:Value></tns:Value>
             <tns:Name>LOJA</tns:Name>
-            <tns:Value></tns:Value>
+            <tns:Value></tns:Value>-->
             <tns:Name>IDADE</tns:Name>
             <tns:Value>
               <xsl:value-of select="xp20:year-from-dateTime (xp20:current-date ( )) - xp20:year-from-dateTime (/ns0:Root-Element/ns0:profile/ns0:dateOfBirth )"/>

@@ -19,6 +19,7 @@
         <module>PASSSBStatusChange</module>
         <module>PASSSBUpdateShopper</module>
         <module>PASSSBPaymentBalanceCredit</module>
+        <module>PASSSBAbandonedCart</module>
     </modules>
     <build>
         <plugins>
