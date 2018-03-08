@@ -67,7 +67,7 @@
         </tns:TableLists>
       </tns:DataLists>
       <tns:Token>
-        <xsl:value-of select="$token"/>
+        <xsl:value-of select="$TokenPMWeb"/>
       </tns:Token>
     </tns:Root-Element>
   </xsl:template>

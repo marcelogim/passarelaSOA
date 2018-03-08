@@ -26,12 +26,7 @@
         <oracle-xsl-mapper:rootElement name="Root-Element"
                                        namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request"/>
       </oracle-xsl-mapper:source>
-      <oracle-xsl-mapper:source type="XSD">
-        <oracle-xsl-mapper:schema location="../../../PASSSBCommon/V1/TokenManagementPMWeb/resources/nxsd_AuthenticateRes.xsd"/>
-        <oracle-xsl-mapper:rootElement name="Root-Element"
-                                       namespace="http://TargetNamespace.com/GetTokenPMWeb_Authenticate_response"/>
-        <oracle-xsl-mapper:param name="TokenPMWeb"/>
-      </oracle-xsl-mapper:source>
+
     </oracle-xsl-mapper:mapSources>
     <oracle-xsl-mapper:mapTargets>
       <oracle-xsl-mapper:target type="XSD">
@@ -54,7 +49,7 @@
         <tns:TableLists>
           <tns:ApplicationName>CONTACTS_LIST</tns:ApplicationName>
           <tns:TableKey>EMAIL_ADDRESS_</tns:TableKey>
-          <tns:TableType>L</tns:TableType>
+          <tns:TableType>C</tns:TableType>
           <tns:Folder>Sandbox_API</tns:Folder>
           <tns:Elements>
             <tns:Name>CUSTOMER_ID_</tns:Name>
@@ -128,7 +123,7 @@
         </tns:TableLists>
       </tns:DataLists>
       <tns:Token>
-        <xsl:value-of select="$TokenPMWeb/ns1:Root-Element/ns1:AuthenticationToken"/>
+        <xsl:value-of select="$TokenPMWeb"/>
       </tns:Token>
     </tns:Root-Element>
   </xsl:template>

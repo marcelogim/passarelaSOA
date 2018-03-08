@@ -145,6 +145,13 @@
           </tns:lastName>
         </tns:shopperName>
       </xsl:if>
+      <xsl:if test="/ns0:Root-Element/ns0:parcelas != ''">
+        <tns:installments>
+          <tns:value>
+            <xsl:value-of select="/ns0:Root-Element/ns0:parcelas"/>
+          </tns:value>
+        </tns:installments>
+      </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:customProperties/ns0:md">
         <tns:md>
           <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:md"/>

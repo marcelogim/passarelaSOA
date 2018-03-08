@@ -13,6 +13,20 @@
               <xsd:element name="card.encrypted.json" type="xsd:string"/>
               <xsd:element name="overwriteBrand" type="xsd:string"/>
               <xsd:element name="executeThreeD" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.itemID" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.productTitle" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.amountPerItem" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.currency" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.upc" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.sku" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.brand" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.manufacturer" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.category" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.color" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.size" type="xsd:string"/>
+              <xsd:element name="riskdata.basket.item1.quantity" type="xsd:string"/>
+              <xsd:element name="riskdata.shopperAccountCreationDate" type="xsd:string"/>
+              <xsd:element name="riskdata.deliveryMethod" type="xsd:string"/>
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>
@@ -83,11 +97,13 @@
           </xsd:complexType>
         </xsd:element>
         <xsd:element name="dateOfBirth" type="xsd:string"/>
+        <xsd:element name="nationality" type="xsd:string"/>
         <xsd:element name="shopperName">
           <xsd:complexType>
             <xsd:sequence>
               <xsd:element name="firstName" type="xsd:string"/>
               <xsd:element name="lastName" type="xsd:string"/>
+              <xsd:element name="gender" type="xsd:string"/>
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>

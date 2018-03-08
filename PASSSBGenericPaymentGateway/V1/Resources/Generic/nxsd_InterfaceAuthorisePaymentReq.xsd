@@ -11,7 +11,7 @@
         <xsd:element name="currencyCode" type="xsd:string"/>
         <xsd:element name="paymentId" type="xsd:string"/>
         <xsd:element name="locale" type="xsd:string"/>
-         <xsd:element name="referenceNumber" type="xsd:string"/>        
+        <xsd:element name="referenceNumber" type="xsd:string"/>
         <xsd:element name="gatewaySettings">
           <xsd:complexType>
             <xsd:sequence>
@@ -34,6 +34,7 @@
         </xsd:element>
         <xsd:element name="amount" type="xsd:integer"/>
         <xsd:element name="transactionType" type="xsd:integer"/>
+        <xsd:element name="parcelas" type="xsd:integer"/>
         <xsd:element name="transactionTimestamp" type="xsd:string"/>
         <xsd:element name="siteId" type="xsd:string"/>
         <xsd:element name="billingAddress">

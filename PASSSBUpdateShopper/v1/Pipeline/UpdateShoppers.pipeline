@@ -99,7 +99,7 @@ else("")</con2:path>
                                         <con1:resource ref="PASSSBUpdateShopper/v1/XSL/ProfileReqToFilaContactReq"/>
                                         <con1:input>$body/res:Root-Element</con1:input>
                                         <con1:param name="TokenPMWeb">
-                                            <con1:path>$bodyResponse//pm:AuthenticationToken</con1:path>
+                                            <con1:path>$bodyResponse/pm:AuthenticationToken</con1:path>
                                         </con1:param>
                                     </con1:xsltTransform>
                                 </con3:expr>

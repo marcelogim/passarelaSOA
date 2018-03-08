@@ -37,11 +37,11 @@
         <dgm:operations/>
     </dgm:gService>
     <dgm:gReference name="GetTokenCommerce3">
-        <dgm:body borderWidth="2" arcRad="20" X="862" Y="171" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="638" Y="171" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="852" Y="164" width="156" height="68">
+        <dgm:shadow arcRad="20" X="628" Y="164" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="GetTokenCommerce3" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -49,11 +49,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="GetTokenPMWeb3">
-        <dgm:body borderWidth="2" arcRad="20" X="862" Y="41" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="638" Y="41" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="852" Y="34" width="156" height="68">
+        <dgm:shadow arcRad="20" X="628" Y="34" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="GetTokenPMWeb3" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -61,12 +61,12 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gComponent name="GetTokenCommerce2">
-        <dgm:body borderWidth="2" arcRad="20" X="306" Y="167" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="241" Y="167" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="296" Y="160" width="150" height="77">
+        <dgm:shadow arcRad="20" X="231" Y="160" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -74,12 +74,12 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="GetTokenPMWeb2">
-        <dgm:body borderWidth="2" arcRad="20" X="584" Y="26" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="439" Y="26" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="574" Y="19" width="150" height="77">
+        <dgm:shadow arcRad="20" X="429" Y="19" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -89,31 +89,31 @@
     <dgm:gWireLink source="GetTokenCommerce" target="GetTokenCommerce2/__service__" width="2">
         <dgm:gSegment X1="168" Y1="225" X2="192" Y2="225"/>
         <dgm:gSegment X1="192" Y1="225" X2="192" Y2="192"/>
-        <dgm:gSegment X1="192" Y1="192" X2="296" Y2="192"/>
+        <dgm:gSegment X1="192" Y1="192" X2="231" Y2="192"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="GetTokenCommerceLocal" target="GetTokenCommerce2/__service__" width="2">
         <dgm:gSegment X1="168" Y1="137" X2="207" Y2="137"/>
         <dgm:gSegment X1="207" Y1="137" X2="207" Y2="192"/>
-        <dgm:gSegment X1="207" Y1="192" X2="296" Y2="192"/>
+        <dgm:gSegment X1="207" Y1="192" X2="231" Y2="192"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="GetTokenPMWeb" target="GetTokenPMWeb2/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="51" X2="574" Y2="51"/>
+        <dgm:gSegment X1="168" Y1="51" X2="429" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="GetTokenCommerce2/businessservice.-2097912189.GetTokenCommerce" target="GetTokenCommerce3" width="2">
-        <dgm:gSegment X1="446" Y1="192" X2="470" Y2="192"/>
-        <dgm:gSegment X1="470" Y1="192" X2="470" Y2="181"/>
-        <dgm:gSegment X1="470" Y1="181" X2="852" Y2="181"/>
+        <dgm:gSegment X1="381" Y1="192" X2="405" Y2="192"/>
+        <dgm:gSegment X1="405" Y1="192" X2="405" Y2="181"/>
+        <dgm:gSegment X1="405" Y1="181" X2="628" Y2="181"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="GetTokenPMWeb2/businessservice.-1305135708.GetTokenPMWeb" target="GetTokenPMWeb3" width="2">
-        <dgm:gSegment X1="724" Y1="51" X2="852" Y2="51"/>
+        <dgm:gSegment X1="579" Y1="51" X2="628" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>

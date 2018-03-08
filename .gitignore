@@ -11,3 +11,4 @@
 *.jdb
 .data/PASSSBPaymentBalanceCredit/00000000/je.lck
 *.lck
+.data/PASSSBCommon/00000000/00000000.jdb
