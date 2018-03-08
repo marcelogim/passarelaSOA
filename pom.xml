@@ -20,6 +20,7 @@
         <module>PASSSBUpdateShopper</module>
         <module>PASSSBPaymentBalanceCredit</module>
         <module>PASSSBAbandonedCart</module>
+        <module>PASSSBWebhookOrderSubmit</module>
     </modules>
     <build>
         <plugins>
