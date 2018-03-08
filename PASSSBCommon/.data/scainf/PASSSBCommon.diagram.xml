@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
+    <dgm:gService name="GetEnrichOrderProfilePS">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="301" width="137" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="11" Y="294" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="GetEnrichOrderProfilePS" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="7" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gService>
     <dgm:gService name="GetTokenCommerce">
         <dgm:body borderWidth="2" arcRad="20" X="21" Y="215" width="137" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
@@ -36,12 +48,36 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="7" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gService>
-    <dgm:gReference name="GetTokenCommerce3">
-        <dgm:body borderWidth="2" arcRad="20" X="638" Y="171" width="136" height="54">
+    <dgm:gReference name="GetTokenCommerceLocal2">
+        <dgm:body borderWidth="2" arcRad="20" X="836" Y="257" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="628" Y="164" width="156" height="68">
+        <dgm:shadow arcRad="20" X="826" Y="250" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="GetTokenCommerceLocal2" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="OCCGetProfileOrder">
+        <dgm:body borderWidth="2" arcRad="20" X="836" Y="345" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="826" Y="338" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="OCCGetProfileOrder" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="GetTokenCommerce3">
+        <dgm:body borderWidth="2" arcRad="20" X="836" Y="171" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="826" Y="164" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="GetTokenCommerce3" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -49,17 +85,31 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="GetTokenPMWeb3">
-        <dgm:body borderWidth="2" arcRad="20" X="638" Y="41" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="836" Y="41" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="628" Y="34" width="156" height="68">
+        <dgm:shadow arcRad="20" X="826" Y="34" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="GetTokenPMWeb3" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="14" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gReference>
+    <dgm:gComponent name="GetEnrichOrderProfile">
+        <dgm:body borderWidth="2" arcRad="20" X="638" Y="285" width="130" height="86">
+            <dgm:borderColor r="109" g="136" b="65"/>
+            <dgm:lightBgColor r="201" g="224" b="155"/>
+            <dgm:darkBgColor r="157" g="195" b="93"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="628" Y="278" width="150" height="102">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="proxyservice.1928352395.GetTokenCommerceLocal" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="businessservice.-1461324090.OCCGetProfileOrder" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
     <dgm:gComponent name="GetTokenCommerce2">
         <dgm:body borderWidth="2" arcRad="20" X="241" Y="167" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
@@ -86,6 +136,13 @@
         <dgm:outputPort name="businessservice.-1305135708.GetTokenPMWeb" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
+    <dgm:gWireLink source="GetEnrichOrderProfilePS" target="GetEnrichOrderProfile/__service__" width="2">
+        <dgm:gSegment X1="168" Y1="311" X2="604" Y2="311"/>
+        <dgm:gSegment X1="604" Y1="311" X2="604" Y2="310"/>
+        <dgm:gSegment X1="604" Y1="310" X2="628" Y2="310"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
     <dgm:gWireLink source="GetTokenCommerce" target="GetTokenCommerce2/__service__" width="2">
         <dgm:gSegment X1="168" Y1="225" X2="192" Y2="225"/>
         <dgm:gSegment X1="192" Y1="225" X2="192" Y2="192"/>
@@ -105,15 +162,29 @@
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
+    <dgm:gWireLink source="GetEnrichOrderProfile/proxyservice.1928352395.GetTokenCommerceLocal" target="GetTokenCommerceLocal2" width="2">
+        <dgm:gSegment X1="778" Y1="310" X2="802" Y2="310"/>
+        <dgm:gSegment X1="802" Y1="310" X2="802" Y2="267"/>
+        <dgm:gSegment X1="802" Y1="267" X2="826" Y2="267"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="GetEnrichOrderProfile/businessservice.-1461324090.OCCGetProfileOrder" target="OCCGetProfileOrder" width="2">
+        <dgm:gSegment X1="778" Y1="335" X2="802" Y2="335"/>
+        <dgm:gSegment X1="802" Y1="335" X2="802" Y2="355"/>
+        <dgm:gSegment X1="802" Y1="355" X2="826" Y2="355"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
     <dgm:gWireLink source="GetTokenCommerce2/businessservice.-2097912189.GetTokenCommerce" target="GetTokenCommerce3" width="2">
         <dgm:gSegment X1="381" Y1="192" X2="405" Y2="192"/>
         <dgm:gSegment X1="405" Y1="192" X2="405" Y2="181"/>
-        <dgm:gSegment X1="405" Y1="181" X2="628" Y2="181"/>
+        <dgm:gSegment X1="405" Y1="181" X2="826" Y2="181"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="GetTokenPMWeb2/businessservice.-1305135708.GetTokenPMWeb" target="GetTokenPMWeb3" width="2">
-        <dgm:gSegment X1="579" Y1="51" X2="628" Y2="51"/>
+        <dgm:gSegment X1="579" Y1="51" X2="826" Y2="51"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>

@@ -26,7 +26,9 @@
         </con:pipeline>
         <con:flow>
             <con:route-node name="GetTokenCommerce" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
-                <con:context/>
+                <con:context>
+                    <con2:userNsDecl prefix="log" namespace="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login"/>
+                </con:context>
                 <con:actions>
                     <con1:route>
                         <con2:id>actionid-routeaction</con2:id>

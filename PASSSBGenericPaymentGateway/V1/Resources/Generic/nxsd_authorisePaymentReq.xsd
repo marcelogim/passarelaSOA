@@ -27,6 +27,7 @@
               <xsd:element name="riskdata.basket.item1.quantity" type="xsd:string"/>
               <xsd:element name="riskdata.shopperAccountCreationDate" type="xsd:string"/>
               <xsd:element name="riskdata.deliveryMethod" type="xsd:string"/>
+              <xsd:element name="riskdata.origin" type="xsd:string"/>
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>

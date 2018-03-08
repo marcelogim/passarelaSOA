@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://TargetNamespace.com/OCCGetProfileOrder_profileRequest_response"
+            targetNamespace="http://TargetNamespace.com/OCCGetProfileOrder_profileRequest_response"
+            elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
+            nxsd:encoding="US-ASCII">
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="derivedPriceListGroup" type="xsd:string"/>
+        <xsd:element name="lastName" type="xsd:string"/>
+        <xsd:element name="gender" type="xsd:string"/>
+        <xsd:element name="catalog" type="xsd:string"/>
+        <xsd:element name="roles">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="function" type="xsd:string"/>
+              <xsd:element name="relativeTo">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="id" type="xsd:integer"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="repositoryId" type="xsd:integer"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="parentOrganization">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="name" type="xsd:string"/>
+              <xsd:element name="repositoryId" type="xsd:integer"/>
+              <xsd:element name="description" type="xsd:string"/>
+              <xsd:element name="active" type="xsd:string"/>
+              <xsd:element name="shippingAddress" type="xsd:string"/>
+              <xsd:element name="secondaryAddresses">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="firstName" type="xsd:string"/>
+                    <xsd:element name="lastName" type="xsd:string"/>
+                    <xsd:element name="country" type="xsd:string"/>
+                    <xsd:element name="phoneNumber" type="xsd:integer"/>
+                    <xsd:element name="city" type="xsd:string"/>
+                    <xsd:element name="address2" type="xsd:string"/>
+                    <xsd:element name="address1" type="xsd:string"/>
+                    <xsd:element name="postalCode" type="xsd:integer"/>
+                    <xsd:element name="repositoryId" type="xsd:integer"/>
+                    <xsd:element name="state" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="id" type="xsd:integer"/>
+              <xsd:element name="billingAddress" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="locale" type="xsd:string"/>
+        <xsd:element name="shippingSurchargePriceList"/>
+        <xsd:element name="profileType" type="xsd:string"/>
+        <xsd:element name="translations"/>
+        <xsd:element name="loyaltyPrograms" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="programName" type="xsd:string"/>
+              <xsd:element name="repositoryId" type="xsd:integer"/>
+              <xsd:element name="membershipId" type="xsd:string"/>
+              <xsd:element name="programId" type="xsd:string"/>
+              <xsd:element name="status" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="links">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="rel" type="xsd:string"/>
+              <xsd:element name="href" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="id" type="xsd:integer"/>
+        <xsd:element name="email" type="xsd:string"/>
+        <xsd:element name="derivedSalePriceList" type="xsd:string"/>
+        <xsd:element name="daytimeTelephoneNumber" type="xsd:string"/>
+        <xsd:element name="taxExempt" type="xsd:string"/>
+        <xsd:element name="receiveEmail" type="xsd:string"/>
+        <xsd:element name="priceListGroup" type="xsd:string"/>
+        <xsd:element name="active" type="xsd:string"/>
+        <xsd:element name="dateOfBirth" type="xsd:string"/>
+        <xsd:element name="firstName" type="xsd:string"/>
+        <xsd:element name="repositoryId" type="xsd:integer"/>
+        <xsd:element name="shippingAddress" type="xsd:string"/>
+        <xsd:element name="billingAddress" type="xsd:string"/>
+        <xsd:element name="userType" type="xsd:string"/>
+        <xsd:element name="derivedShippingSurchargePriceList"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>
