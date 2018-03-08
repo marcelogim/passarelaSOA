@@ -4,103 +4,110 @@
             targetNamespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"
             elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
             nxsd:encoding="US-ASCII">
-    <xsd:element name="Root-Element">
-        <xsd:complexType>
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="additionalData">
+          <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="additionalData">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="card.encrypted.json" type="xsd:string"/>
-                            <xsd:element name="overwriteBrand" type="xsd:string"/>
-                            <xsd:element name="executeThreeD" type="xsd:string"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="amount">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="value" type="xsd:integer"/>
-                            <xsd:element name="currency" type="xsd:string"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="additionalAmount">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="value" type="xsd:integer"/>
-                            <xsd:element name="currency" type="xsd:string"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="reference" type="xsd:string"/>
-                <xsd:element name="shopperEmail" type="xsd:string"/>
-                <xsd:element name="shopperIP" type="xsd:string"/>
-                <xsd:element name="shopperReference" type="xsd:string"/>
-                <xsd:element name="selectedRecurringDetailReference" type="xsd:string"/>
-                <xsd:element name="recurring">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="contract" type="xsd:string"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="billingAddress">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="city" type="xsd:string"/>
-                            <xsd:element name="country" type="xsd:string"/>
-                            <xsd:element name="houseNumberOrName" type="xsd:string"/>
-                            <xsd:element name="postalCode" type="xsd:string"/>
-                            <xsd:element name="stateOrProvince" type="xsd:string"/>
-                            <xsd:element name="street" type="xsd:string"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="deliveryAddress">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="city" type="xsd:string"/>
-                            <xsd:element name="country" type="xsd:string"/>
-                            <xsd:element name="houseNumberOrName" type="xsd:string"/>
-                            <xsd:element name="postalCode" type="xsd:string"/>
-                            <xsd:element name="stateOrProvince" type="xsd:string"/>
-                            <xsd:element name="street" type="xsd:string"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="deviceFingerprint" type="xsd:string"/>
-                <xsd:element name="telephoneNumber" type="xsd:string"/>
-                <xsd:element name="fraudOffset" type="xsd:int"/>
-                <xsd:element name="deliveryDate" type="xsd:string"/>
-                <xsd:element name="selectedBrand" type="xsd:string"/>
-                <xsd:element name="merchantOrderReference" type="xsd:string"/>
-                <xsd:element name="browserInfo">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="acceptHeader" type="xsd:string"/>
-                            <xsd:element name="userAgent" type="xsd:string"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="dateOfBirth" type="xsd:string"/>
-                <xsd:element name="shopperName">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="firstName" type="xsd:string"/>
-                            <xsd:element name="lastName" type="xsd:string"/>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-                <xsd:element name="md" type="xsd:string"/>
-                <xsd:element name="paResponse" type="xsd:string"/>
-                <xsd:element name="shopperStatement" type="xsd:string"/>
-                <xsd:element name="socialSecurityNumber" type="xsd:integer"/>
-                <xsd:element name="merchantAccount" type="xsd:string"/>
+              <xsd:element name="card.encrypted.json" type="xsd:string"/>
+              <xsd:element name="overwriteBrand" type="xsd:string"/>
+              <xsd:element name="executeThreeD" type="xsd:string"/>
             </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-    <xsd:annotation xmlns="">
-        <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
-        <xsd:appinfo>USEHEADER=false</xsd:appinfo>
-    </xsd:annotation>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="amount">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="value" type="xsd:integer"/>
+              <xsd:element name="currency" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="additionalAmount">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="value" type="xsd:integer"/>
+              <xsd:element name="currency" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="reference" type="xsd:string"/>
+        <xsd:element name="shopperEmail" type="xsd:string"/>
+        <xsd:element name="shopperIP" type="xsd:string"/>
+        <xsd:element name="shopperReference" type="xsd:string"/>
+        <xsd:element name="selectedRecurringDetailReference" type="xsd:string"/>
+        <xsd:element name="recurring">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="contract" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="billingAddress">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="city" type="xsd:string"/>
+              <xsd:element name="country" type="xsd:string"/>
+              <xsd:element name="houseNumberOrName" type="xsd:string"/>
+              <xsd:element name="postalCode" type="xsd:string"/>
+              <xsd:element name="stateOrProvince" type="xsd:string"/>
+              <xsd:element name="street" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="deliveryAddress">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="city" type="xsd:string"/>
+              <xsd:element name="country" type="xsd:string"/>
+              <xsd:element name="houseNumberOrName" type="xsd:string"/>
+              <xsd:element name="postalCode" type="xsd:string"/>
+              <xsd:element name="stateOrProvince" type="xsd:string"/>
+              <xsd:element name="street" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="deviceFingerprint" type="xsd:string"/>
+        <xsd:element name="telephoneNumber" type="xsd:string"/>
+        <xsd:element name="fraudOffset" type="xsd:int"/>
+        <xsd:element name="deliveryDate" type="xsd:string"/>
+        <xsd:element name="selectedBrand" type="xsd:string"/>
+        <xsd:element name="merchantOrderReference" type="xsd:string"/>
+        <xsd:element name="browserInfo">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="acceptHeader" type="xsd:string"/>
+              <xsd:element name="userAgent" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="dateOfBirth" type="xsd:string"/>
+        <xsd:element name="shopperName">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="firstName" type="xsd:string"/>
+              <xsd:element name="lastName" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="installments">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="value" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="md" type="xsd:string"/>
+        <xsd:element name="paResponse" type="xsd:string"/>
+        <xsd:element name="shopperStatement" type="xsd:string"/>
+        <xsd:element name="socialSecurityNumber" type="xsd:integer"/>
+        <xsd:element name="merchantAccount" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
 </xsd:schema>

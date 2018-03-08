@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://TargetNamespace.com/OCCWebhookFailedMessages_getFailedMessages_response"
+            targetNamespace="http://TargetNamespace.com/OCCWebhookFailedMessages_getFailedMessages_response"
+            elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
+            nxsd:encoding="US-ASCII">
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="total" type="xsd:integer"/>
+        <xsd:element name="totalResults" type="xsd:integer"/>
+        <xsd:element name="offset" type="xsd:integer"/>
+        <xsd:element name="limit" type="xsd:integer"/>
+        <xsd:element name="errorCode" type="xsd:string"/>
+        <xsd:element name="message" type="xsd:string"/>
+        <xsd:element name="type" type="xsd:string"/>
+        <xsd:element name="devMessage" type="xsd:string"/>
+        <xsd:element name="moreInfo" type="xsd:string"/>
+        <xsd:element name="errorPath" type="xsd:string"/>
+        <xsd:element name="errors">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="errorCode" type="xsd:string"/>
+              <xsd:element name="message" type="xsd:string"/>
+              <xsd:element name="devMessage" type="xsd:string"/>
+              <xsd:element name="moreInfo" type="xsd:string"/>
+              <xsd:element name="errorPath" type="xsd:string"/>
+              <xsd:element name="status" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="status" type="xsd:string"/>
+        <xsd:element name="sort">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="property" type="xsd:string"/>
+              <xsd:element name="order" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="items">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="remainingTargetUrls" maxOccurs="unbounded" type="xsd:string"/>
+              <xsd:element name="messageType" type="xsd:string"/>
+              <xsd:element name="lastErrorMessage" type="xsd:string"/>
+              <xsd:element name="savedTime" type="xsd:string"/>
+              <xsd:element name="resend" type="xsd:string"/>
+              <xsd:element name="serverType" type="xsd:string"/>
+              <xsd:element name="id" type="xsd:integer"/>
+              <xsd:element name="forwardMessage">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="orderId" type="xsd:string"/>
+                    <xsd:element name="parentSessionId" type="xsd:string"/>
+                    <xsd:element name="sessionId" type="xsd:string"/>
+                    <xsd:element name="source" type="xsd:string"/>
+                    <xsd:element name="type" type="xsd:string"/>
+                    <xsd:element name="userId"/>
+                    <xsd:element name="profileId" type="xsd:string"/>
+                    <xsd:element name="originalUserId"/>
+                    <xsd:element name="siteId"/>
+                    <xsd:element name="id" type="xsd:integer"/>
+                    <xsd:element name="originalId" type="xsd:integer"/>
+                    <xsd:element name="order">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="priceInfo">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="amount" type="xsd:double"/>
+                                <xsd:element name="total" type="xsd:double"/>
+                                <xsd:element name="shipping" type="xsd:integer"/>
+                                <xsd:element name="discountAmount" type="xsd:integer"/>
+                                <xsd:element name="tax" type="xsd:integer"/>
+                                <xsd:element name="rawSubtotal" type="xsd:double"/>
+                                <xsd:element name="currencyCode" type="xsd:string"/>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name="totalCommerceItemCount" type="xsd:integer"/>
+                          <xsd:element name="id" type="xsd:string"/>
+                          <xsd:element name="commerceItems">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="priceInfo">
+                                  <xsd:complexType>
+                                    <xsd:sequence>
+                                      <xsd:element name="amount" type="xsd:double"/>
+                                      <xsd:element name="currencyCode" type="xsd:string"/>
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="quantity" type="xsd:integer"/>
+                                <xsd:element name="productId" type="xsd:string"/>
+                                <xsd:element name="productDisplayName" type="xsd:string"/>
+                                <xsd:element name="id" type="xsd:string"/>
+                                <xsd:element name="catalogRefId" type="xsd:string"/>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="originalSource" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

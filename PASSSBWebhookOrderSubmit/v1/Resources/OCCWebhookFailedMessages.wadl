@@ -1,0 +1,38 @@
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://wadl.dev.java.net/2009/02" xmlns:ns0="http://TargetNamespace.com/OCCWebhookFailedMessages_updateFailedMessages_request">
+   <doc title="OCCWebhookFailedMessages">RestReference</doc>
+   <grammars>
+      <xsd:schema>
+            <xsd:import namespace="http://TargetNamespace.com/OCCWebhookFailedMessages_getFailedMessages_response" schemaLocation="nxsd_GetFailedMessagesRes.xsd"/>
+        </xsd:schema>
+      <xsd:schema>
+            <xsd:import namespace="http://TargetNamespace.com/OCCWebhookFailedMessages_updateFailedMessages_request" schemaLocation="nxsd_UpdateFailedMessagesReq.xsd"/>
+        </xsd:schema>
+      <xsd:schema>
+            <xsd:import namespace="http://TargetNamespace.com/OCCWebhookFailedMessages_updateFailedMessages_response" schemaLocation="nxsd_UpdateFailedMessagesRes.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/webhookFailedMessages">
+         <method name="GET" soa:wsdlOperation="getFailedMessages">
+            <request/>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCWebhookFailedMessages_getFailedMessages_response"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault1">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCWebhookFailedMessages_getFailedMessages_response"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/webhookFailedMessages/{id}">
+         <method name="PUT" soa:wsdlOperation="updateFailedMessages">
+            <request>
+               <param name="id" style="template" soa:expression="$property.id" type="xsd:string"/>
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCWebhookFailedMessages_updateFailedMessages_request"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCWebhookFailedMessages_updateFailedMessages_response"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>
