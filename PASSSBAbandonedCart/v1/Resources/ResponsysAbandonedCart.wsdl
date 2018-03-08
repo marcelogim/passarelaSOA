@@ -1,15 +1,25 @@
-<wsdl:definitions name="ResponsysAbandonedCart" targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBAbandonedCart/ResponsysAbandonedCart" xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBAbandonedCart/ResponsysAbandonedCart" xmlns:inp1="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_request" xmlns:inp2="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_response" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="ResponsysAbandonedCart"
+     targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBAbandonedCart/ResponsysAbandonedCart"
+     xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBAbandonedCart/ResponsysAbandonedCart"
+     xmlns:inp1="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_request"
+     xmlns:inp2="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_response"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
     <plnk:partnerLinkType name="ResponsysAbandonedCart">
         <plnk:role name="ResponsysAbandonedCartProvider" portType="tns:ResponsysAbandonedCart_ptt"/>
     </plnk:partnerLinkType>
     <wsdl:types>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_request"
-                        schemaLocation="nxsd_FilaAbandonoBrutoReq.xsd"/>
+                 schemaLocation="nxsd_FilaAbandonoBrutoReq.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_response"
-                        schemaLocation="nxsd_FilaAbandonoBrutoRes.xsd"/>
+                 schemaLocation="nxsd_FilaAbandonoBrutoRes.xsd"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="putEvent_inputMessage">

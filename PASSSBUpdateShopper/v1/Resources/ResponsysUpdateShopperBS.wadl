@@ -6,13 +6,12 @@
             <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperBS_Fila_Contacts_List_request" schemaLocation="nxsd_FilaContactsReq.xsd"/>
         </xsd:schema>
       <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperBS_Fila_Contacts_List_response"
-                        schemaLocation="nxsd_FilaContactRes.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperBS_Fila_Contacts_List_response" schemaLocation="nxsd_FilaContactRes.xsd"/>
         </xsd:schema>
    </grammars>
    <resources>
       <resource path="/v1/PutEvent">
-         <method name="PUT" soa:wsdlOperation="Fila_Contacts_List">
+         <method name="POST" soa:wsdlOperation="Fila_Contacts_List">
             <request>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/ResponsysUpdateShopperBS_Fila_Contacts_List_request"/>
             </request>

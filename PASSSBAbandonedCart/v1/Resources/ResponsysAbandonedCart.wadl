@@ -3,17 +3,15 @@
    <doc title="ResponsysAbandonedCart">RestReference</doc>
    <grammars>
       <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_request"
-                        schemaLocation="nxsd_FilaAbandonoBrutoReq.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_request" schemaLocation="nxsd_FilaAbandonoBrutoReq.xsd"/>
         </xsd:schema>
       <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_response"
-                        schemaLocation="nxsd_FilaAbandonoBrutoRes.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_response" schemaLocation="nxsd_FilaAbandonoBrutoRes.xsd"/>
         </xsd:schema>
    </grammars>
    <resources>
       <resource path="/v1/PutEvent">
-         <method name="PUT" soa:wsdlOperation="putEvent">
+         <method name="POST" soa:wsdlOperation="putEvent">
             <request>
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/ResponsysAbandonedCart_putEvent_request"/>
             </request>
