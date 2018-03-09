@@ -15,7 +15,8 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:BasicCredentialsUserFunction="http://www.oracle.com/XSL/Transform/java/com.bea.wli.sb.stages.functions.BasicCredentialsUserFunction"
                 xmlns:tns="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"
-                xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd">
+                xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
+                xmlns:ns1="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_response">
   <oracle-xsl-mapper:schema>
     <!--SPECIFICATION OF MAP SOURCES AND TARGETS, DO NOT MODIFY.-->
     <oracle-xsl-mapper:mapSources>
@@ -23,6 +24,12 @@
         <oracle-xsl-mapper:schema location="../Resources/Generic/nxsd_InterfaceAuthorisePaymentReq.xsd"/>
         <oracle-xsl-mapper:rootElement name="Root-Element"
                                        namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
+      </oracle-xsl-mapper:source>
+      <oracle-xsl-mapper:source type="XSD">
+        <oracle-xsl-mapper:schema location="../../../PASSSBCommon/V1/GetEnrichOrderProfileOCC/resources/nxsd_OrderProfileOCCRes.xsd"/>
+        <oracle-xsl-mapper:rootElement name="Root-Element"
+                                       namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_response"/>
+        <oracle-xsl-mapper:param name="profileOrder"/>
       </oracle-xsl-mapper:source>
     </oracle-xsl-mapper:mapSources>
     <oracle-xsl-mapper:mapTargets>
@@ -37,18 +44,67 @@
   <!--User Editing allowed BELOW this line - DO NOT DELETE THIS LINE-->
   <xsl:param name="merchantAccount"/>
   <xsl:param name="cardencryptedjson"/>
+  <xsl:param name="profileOrder"/>
   <xsl:template match="/">
     <tns:Root-Element>
-      <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'card' or /ns0:Root-Element/ns0:paymentMethod = 'debit'              or /ns0:Root-Element/ns0:paymentMethod = 'storeCard' or /ns0:Root-Element/ns0:paymentMethod = 'oneclick'">
-        <tns:additionalData>
+      <tns:additionalData>
+        <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'card' or /ns0:Root-Element/ns0:paymentMethod = 'debit'   
+      or /ns0:Root-Element/ns0:paymentMethod = 'storeCard' or /ns0:Root-Element/ns0:paymentMethod = 'oneclick'">
           <tns:card.encrypted.json>
             <xsl:value-of select="$cardencryptedjson"/>
           </tns:card.encrypted.json>
-          <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'debit'">
-            <tns:executeThreeD>true</tns:executeThreeD>
-          </xsl:if>
-        </tns:additionalData>
-      </xsl:if>
+        </xsl:if>
+        <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'debit'">
+          <tns:executeThreeD>true</tns:executeThreeD>
+        </xsl:if>
+        <xsl:for-each select="$profileOrder/ns1:Root-Element/ns1:commerceItems">
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.itemID>')"/>
+          <xsl:value-of select="ns1:productId"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.itemID>')"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.productTitle>')"/>
+          <xsl:value-of select="ns1:productDisplayName"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.productTitle>')"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.amountPerItem>')"/>
+          <xsl:value-of select="ns1:priceInfo/ns1:amount"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.amountPerItem>')"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.currency>')"/>
+          <xsl:value-of select="ns1:priceInfo/ns1:currencyCode"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.currency>')"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.sku>')"/>
+          <xsl:value-of select="ns1:catalogRefId"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.sku>')"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.quantity>')"/>
+          <xsl:value-of select="ns1:quantity"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.quantity>')"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.deliveryMethod>')"/>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingMethod"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.deliveryMethod>')"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.origin>')"/>
+          <xsl:value-of select="/ns0:Root-Element/ns0:channel"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.origin>')"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.cpf>')"/>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:CPF"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.cpf>')"/>
+        </xsl:for-each>
+      </tns:additionalData>
       <xsl:if test="/ns0:Root-Element/ns0:amount">
         <tns:amount>
           <xsl:if test="/ns0:Root-Element/ns0:amount">
@@ -135,6 +191,11 @@
       <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'invoice'">
         <tns:selectedBrand>boletobancario_santander</tns:selectedBrand>
       </xsl:if>
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:dateOfBirth">
+        <tns:dateOfBirth>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:dateOfBirth"/>
+        </tns:dateOfBirth>
+      </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:billingAddress/ns0:firstName">
         <tns:shopperName>
           <tns:firstName>
@@ -143,6 +204,9 @@
           <tns:lastName>
             <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:lastName"/>
           </tns:lastName>
+          <tns:gender>
+            <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:gender"/>
+          </tns:gender>
         </tns:shopperName>
       </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:parcelas != ''">
@@ -166,7 +230,7 @@
         <tns:shopperStatement>Aceitar o pagamento até 15 dias após o vencimento; Não cobrar juros. Não aceitar o
                               pagamento com cheque</tns:shopperStatement>
         <tns:socialSecurityNumber>
-          <xsl:value-of select="/ns0:Root-Element/ns0:customProperties/ns0:shopperCPF"/>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:CPF"/>
         </tns:socialSecurityNumber>
       </xsl:if>
       <tns:merchantAccount>

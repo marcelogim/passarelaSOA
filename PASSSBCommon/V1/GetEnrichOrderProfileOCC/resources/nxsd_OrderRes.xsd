@@ -255,7 +255,7 @@
         <xsd:element name="totalCommerceItemCount" type="xsd:integer"/>
         <xsd:element name="state" type="xsd:string"/>
         <xsd:element name="id" type="xsd:string"/>
-        <xsd:element name="commerceItems">
+         <xsd:element name="commerceItems" maxOccurs="unbounded" >
           <xsd:complexType>
             <xsd:sequence>
               <xsd:element name="deactivationDate" type="xsd:string"/>

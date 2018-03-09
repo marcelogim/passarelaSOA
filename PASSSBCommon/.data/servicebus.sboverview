@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ns:composite xmlns:ns="http://xmlns.oracle.com/sca/1.0">
     <ns:reference>
-        <ns:interface src="BusinessService:PASSSBCommon/OCCGetProfileOrder"/>
-    </ns:reference>
-    <ns:reference>
         <ns:interface src="ProxyService:PASSSBCommon/V1/TokenManagement/proxy/GetTokenCommerceLocal"/>
     </ns:reference>
     <ns:reference>
@@ -11,5 +8,8 @@
     </ns:reference>
     <ns:reference>
         <ns:interface src="BusinessService:PASSSBCommon/V1/TokenManagementPMWeb/business/GetTokenPMWeb"/>
+    </ns:reference>
+    <ns:reference>
+        <ns:interface src="BusinessService:PASSSBCommon/V1/GetEnrichOrderProfileOCC/business/OCCGetProfileOrder"/>
     </ns:reference>
 </ns:composite>

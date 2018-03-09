@@ -11,6 +11,7 @@
         <xsd:element name="lastName" type="xsd:string"/>
         <xsd:element name="gender" type="xsd:string"/>
         <xsd:element name="catalog" type="xsd:string"/>
+        <xsd:element name="CPF" type="xsd:string"/>
         <xsd:element name="roles">
           <xsd:complexType>
             <xsd:sequence>
@@ -56,9 +57,9 @@
           </xsd:complexType>
         </xsd:element>
         <xsd:element name="locale" type="xsd:string"/>
-        <xsd:element name="shippingSurchargePriceList"/>
+        <xsd:element name="shippingSurchargePriceList" type="xsd:string"/>
         <xsd:element name="profileType" type="xsd:string"/>
-        <xsd:element name="translations"/>
+        <xsd:element name="translations" type="xsd:string"/>
         <xsd:element name="loyaltyPrograms" maxOccurs="unbounded">
           <xsd:complexType>
             <xsd:sequence>
@@ -92,7 +93,7 @@
         <xsd:element name="shippingAddress" type="xsd:string"/>
         <xsd:element name="billingAddress" type="xsd:string"/>
         <xsd:element name="userType" type="xsd:string"/>
-        <xsd:element name="derivedShippingSurchargePriceList"/>
+        <xsd:element name="derivedShippingSurchargePriceList" type="xsd:string"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
