@@ -26,7 +26,6 @@
         <oracle-xsl-mapper:rootElement name="Root-Element"
                                        namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request"/>
       </oracle-xsl-mapper:source>
-
     </oracle-xsl-mapper:mapSources>
     <oracle-xsl-mapper:mapTargets>
       <oracle-xsl-mapper:target type="XSD">
@@ -47,7 +46,7 @@
       </tns:Event>
       <tns:DataLists>
         <tns:TableLists>
-          <tns:ApplicationName>CONTACTS_LIST</tns:ApplicationName>
+          <tns:ApplicationName>SANDBOX_CONTACTS_LIST</tns:ApplicationName>
           <tns:TableKey>EMAIL_ADDRESS_</tns:TableKey>
           <tns:TableType>C</tns:TableType>
           <tns:Folder>Sandbox_API</tns:Folder>
@@ -61,7 +60,12 @@
               <xsl:value-of select="/ns0:Root-Element/ns0:profile/ns0:email"/>
             </tns:Value>
             <tns:Name>EMAIL_PERMISSION_STATUS_</tns:Name>
-            <tns:Value></tns:Value>
+            <xsl:if test="/ns0:Root-Element/ns0:profile/ns0:sitePropertiesList/ns0:properties/ns0:receiveEmail = 'yes'">
+              <tns:Value>I</tns:Value>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:profile/ns0:sitePropertiesList/ns0:properties/ns0:receiveEmail != 'yes'">
+              <tns:Value>N</tns:Value>
+            </xsl:if>
             <tns:Name>FIRST_NAME</tns:Name>
             <tns:Value>
               <xsl:value-of select="/ns0:Root-Element/ns0:profile/ns0:firstName"/>
@@ -112,13 +116,9 @@
               <xsl:value-of select="/ns0:Root-Element/ns0:profile/ns0:billingAddress/ns0:phoneNumber"/>
             </tns:Value>
             <tns:Name>ORIGEM_WEB_SITE</tns:Name>
-            <tns:Value>
-              <xsl:value-of select="/ns0:Root-Element/ns0:profile/ns0:siteId"/>
-            </tns:Value>
+            <tns:Value>I</tns:Value>
             <tns:Name>TIPO_CADASTRO</tns:Name>
-            <tns:Value>
-              <xsl:value-of select="/ns0:Root-Element/ns0:type"/>
-            </tns:Value>
+            <tns:Value>I</tns:Value>
           </tns:Elements>
         </tns:TableLists>
       </tns:DataLists>

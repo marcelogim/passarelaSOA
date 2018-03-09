@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config">
     <con:coreEntry>
         <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
             <con:wsdl ref="PASSSBUpdateShopper/v1/Resources/UpdateShoppersPS"/>
@@ -89,6 +89,14 @@ else("")</con2:path>
                                 <con3:requestTransform/>
                                 <con3:responseTransform/>
                             </con3:wsCallout>
+                            <con4:log>
+                                <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7aa0</con1:id>
+                                <con4:logLevel>error</con4:logLevel>
+                                <con4:expr>
+                                    <con1:xqueryText>$bodyResponse/pm:AuthenticationToken/text()</con1:xqueryText>
+                                </con4:expr>
+                                <con4:message>token</con4:message>
+                            </con4:log>
                             <con3:replace varName="body" contents-only="true">
                                 <con1:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7efa</con1:id>
                                 <con3:location>
@@ -99,13 +107,29 @@ else("")</con2:path>
                                         <con1:resource ref="PASSSBUpdateShopper/v1/XSL/ProfileReqToFilaContactReq"/>
                                         <con1:input>$body/res:Root-Element</con1:input>
                                         <con1:param name="TokenPMWeb">
-                                            <con1:path>$bodyResponse/pm:AuthenticationToken</con1:path>
+                                            <con1:path>$bodyResponse/pm:AuthenticationToken/text()</con1:path>
                                         </con1:param>
                                     </con1:xsltTransform>
                                 </con3:expr>
                             </con3:replace>
+                            <con4:log>
+                                <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7a9d</con1:id>
+                                <con4:logLevel>error</con4:logLevel>
+                                <con4:expr>
+                                    <con1:xqueryText>$body</con1:xqueryText>
+                                </con4:expr>
+                                <con4:message>body Request</con4:message>
+                            </con4:log>
                         </con2:outboundTransform>
                         <con2:responseTransform>
+                            <con4:log>
+                                <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7a69</con1:id>
+                                <con4:logLevel>error</con4:logLevel>
+                                <con4:expr>
+                                    <con1:xqueryText>$body</con1:xqueryText>
+                                </con4:expr>
+                                <con4:message>body Response</con4:message>
+                            </con4:log>
                             <con3:replace varName="body" contents-only="true">
                                 <con1:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7ef7</con1:id>
                                 <con3:location>

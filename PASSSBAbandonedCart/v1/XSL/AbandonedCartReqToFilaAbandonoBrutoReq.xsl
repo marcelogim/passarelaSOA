@@ -46,7 +46,7 @@
       </tns:Event>
       <tns:DataLists>
         <tns:TableLists>
-          <tns:ApplicationName>SUP_ABANDONOBRUTO</tns:ApplicationName>
+          <tns:ApplicationName>SANDBOX_SUP_ABANDONOBRUTO</tns:ApplicationName>
           <tns:TableKey>DATAABANDONO;CUSTOMERID;SKU</tns:TableKey>
           <tns:TableType>S</tns:TableType>
           <tns:Folder>Sandbox_API</tns:Folder>

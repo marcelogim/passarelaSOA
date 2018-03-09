@@ -88,22 +88,13 @@
           <xsl:value-of select="ns1:quantity"/>
           <xsl:value-of disable-output-escaping="yes"
                         select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.quantity>')"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.deliveryMethod>')"/>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingMethod"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.deliveryMethod>')"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.origin>')"/>
-          <xsl:value-of select="/ns0:Root-Element/ns0:channel"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.origin>')"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.cpf>')"/>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:CPF"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.cpf>')"/>
         </xsl:for-each>
+        <tns:riskdata.deliveryMethod>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingMethod"/>
+        </tns:riskdata.deliveryMethod>
+        <tns:riskdata.origin>
+          <xsl:value-of select="/ns0:Root-Element/ns0:channel"/>
+        </tns:riskdata.origin>
       </tns:additionalData>
       <xsl:if test="/ns0:Root-Element/ns0:amount">
         <tns:amount>
@@ -130,7 +121,7 @@
         </tns:shopperEmail>
       </xsl:if>
       <tns:shopperReference>
-        <xsl:value-of select="concat (/ns0:Root-Element/ns0:billingAddress/ns0:firstName, /ns0:Root-Element/ns0:billingAddress/ns0:lastName )"/>
+        <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:profileId"/>
       </tns:shopperReference>
       <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'oneclick'">
         <tns:selectedRecurringDetailReference>LATEST</tns:selectedRecurringDetailReference>
@@ -182,7 +173,7 @@
       </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber">
         <tns:telephoneNumber>
-          <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber"/>
+          <xsl:value-of select="translate(/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber, '-', '' )"/>
         </tns:telephoneNumber>
       </xsl:if>
       <tns:deliveryDate>
@@ -229,10 +220,10 @@
       <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'invoice'">
         <tns:shopperStatement>Aceitar o pagamento até 15 dias após o vencimento; Não cobrar juros. Não aceitar o
                               pagamento com cheque</tns:shopperStatement>
-        <tns:socialSecurityNumber>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:CPF"/>
-        </tns:socialSecurityNumber>
       </xsl:if>
+      <tns:socialSecurityNumber>
+        <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:CPF"/>
+      </tns:socialSecurityNumber>
       <tns:merchantAccount>
         <xsl:value-of select="$merchantAccount"/>
       </tns:merchantAccount>
