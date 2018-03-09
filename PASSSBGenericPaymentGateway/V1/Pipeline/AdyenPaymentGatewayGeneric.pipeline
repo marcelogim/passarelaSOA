@@ -143,12 +143,6 @@
                                         <con1:service ref="PASSSBGenericPaymentGateway/V1/BS/AdyenPaymentGatewayGeneric" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                                         <con1:operation>authorise3d</con1:operation>
                                         <con1:outboundTransform>
-                                            <con3:assign varName="bodyRequest" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
-                                                <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N6ea2</con2:id>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$body</con2:xqueryText>
-                                                </con3:expr>
-                                            </con3:assign>
                                             <con3:javaCallout varName="encripedData" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                                 <con2:id>_ActionId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7ff5</con2:id>
                                                 <con3:archive ref="PASSSBCommon/V1/Jar/com.adyen.pojo-1.0-SNAPSHOT-jar-with-dependencies"/>
@@ -187,10 +181,10 @@
                                                             <con2:path>dvm:lookup('PASSSBCommon/V1/DVM/MerchantAccount', 'key', 'chave', 'value', '0')</con2:path>
                                                         </con2:param>
                                                         <con2:param name="cardencryptedjson">
-                                                            <con2:path>"adyenjs_0_1_20_1$mgbLy5nBsi9pwxpsw08ah5Pz4bIRsDZo3Wn4YskRUrBRdgFr4nQQaBQwOR25X5bm1pojLPqHyALNmYH2mPv0z+rVaLDmNN2+12MbqJWJL1Abbvd77495Nki626QjN1C5YbjSTSOBAiNcS0Rhrt/3SEdec9PmV8NI+lKCngE2PQNwSavRloB7BiQHJLwY4s8JlE9o/XxaKAar0NSrUpBUSuRgtlgpA7brbLx4cwlGfGbGYd/gpKN42GBbcErg90nY4v2qltq4lP3+eOmGf2XECXnGtwrpqb8/or5daLbFvdsEhcfMd65FJxVBU1lPg+2fqZML/E/M9MJ3PelqRavMjw==$8FAvHwBD7AHF2TZIKwwwWcaTBSkWwsZUhMCj8ebqnsOoP6o89HiLVRR/Dyt+FTbN7b2y32eADzKJTisPxioCTsX49682JLEtwssN2pN4KnaarBI4iYtVNehx7u2cNl349qz1UJzeihZudVs9qoYMnD0T4IMAAm9T3LuiC0I9fD7g3GA9ibVElm0HVV0uMxeHjpsTbEXnrSxyXg6Uuw99t7m8pEedXYGIp7z7qdu52nsR3De0/1BceLHE56h1GBFBkBPhRIheDe1alIzPQIlaJ2lU6p0tfdoZv7D4y+AXkkB1aeOzgy0pgo72Dmtft10PItYMET28bQAKL3+VnqbL8PYJvhi9Ttms4lLktoHKMY9uiCTICWxUkbgH9cuZhz+fMB8izgn/c6XjjOW5/gT/eYVpazdhFZ3sfjofGxBgxXzmi5r/LQbJAH2wzTiIHXshe1nBHKRI2+HgapQBq+OR6EQS5esjgcQVdSQW836S8ReDkoccefbUMusmFQO/jmYcdpD62uY80iax9KT/NOwMGLz2qfadAywZwZ9dXyhtxS3wmg+r0L0kWxwonEUoOcwcsQs7"</con2:path>
+                                                            <con2:path>$encripedData</con2:path>
                                                         </con2:param>
                                                         <con2:param name="profileOrder">
-                                                            <con2:path>$bodyRes/orpr:Root-Element</con2:path>
+                                                            <con2:path>$bodyRes</con2:path>
                                                         </con2:param>
                                                     </con2:xsltTransform>
                                                 </con3:expr>
@@ -283,24 +277,8 @@
                                                     </con2:xsltTransform>
                                                 </con3:expr>
                                             </con3:replace>
-                                            <con3:log>
-                                                <con2:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7f3b</con2:id>
-                                                <con3:logLevel>error</con3:logLevel>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$body</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:message>initiate payment</con3:message>
-                                            </con3:log>
                                         </con1:outboundTransform>
                                         <con1:responseTransform>
-                                            <con3:log>
-                                                <con2:id>_ActionId-N3f57c7ff.1db9da05.0.161fc928e0d.N7ffe</con2:id>
-                                                <con3:logLevel>error</con3:logLevel>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$body</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:message>initiate payment response 1</con3:message>
-                                            </con3:log>
                                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                                 <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N6e68</con2:id>
                                                 <con3:location>
@@ -319,14 +297,6 @@
                                                     </con2:xsltTransform>
                                                 </con3:expr>
                                             </con3:replace>
-                                            <con3:log>
-                                                <con2:id>_ActionId-N3f57c7ff.1db9da05.0.161fc928e0d.N7ff8</con2:id>
-                                                <con3:logLevel>error</con3:logLevel>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$body</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:message>initiate payment response 2</con3:message>
-                                            </con3:log>
                                         </con1:responseTransform>
                                     </con1:route>
                                 </con:actions>
