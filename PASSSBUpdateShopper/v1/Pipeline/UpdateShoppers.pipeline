@@ -16,7 +16,7 @@
         <con:pipeline type="error" name="error-N3f57c7ff.N500a01d1.0.161f73beb20.N7ec5">
             <con:stage id="_StageId-N3f57c7ff.N500a01d1.0.161f73beb20.N7ec4" name="ErroUpdateShopperPMWeb">
                 <con:context>
-                    <con1:userNsDecl prefix="fault" namespace="http://TargetNamespace.com/ResponsysUpdateShopperBS_Fila_Contacts_List_response"/>
+                    <con1:userNsDecl prefix="fault" namespace="http://TargetNamespace.com/ResponsysUpdateShopperBS_PutEvent_response"/>
                 </con:context>
                 <con:actions>
                     <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
@@ -67,15 +67,25 @@ else("")</con2:path>
         <con:flow>
             <con:route-node name="PMWeb">
                 <con:context>
-                    <con1:userNsDecl prefix="res" namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request"/>
+                    <con1:userNsDecl prefix="res" namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_response"/>
+                    <con1:userNsDecl prefix="res1" namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request"/>
                     <con1:userNsDecl prefix="pm" namespace="http://TargetNamespace.com/GetTokenPMWeb_Authenticate_response"/>
+                    <con1:userNsDecl prefix="req" namespace="http://TargetNamespace.com/ResponsysUpdateShopperBS_PutEvent_request"/>
                 </con:context>
                 <con:actions>
                     <con2:route>
                         <con1:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7f00</con1:id>
                         <con2:service ref="PASSSBUpdateShopper/v1/BS/ResponsysUpdateShopperBS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-                        <con2:operation>Fila_Contacts_List</con2:operation>
+                        <con2:operation>PutEvent</con2:operation>
                         <con2:outboundTransform>
+                            <con4:log>
+                                <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7a66</con1:id>
+                                <con4:logLevel>error</con4:logLevel>
+                                <con4:expr>
+                                    <con1:xqueryText>$body</con1:xqueryText>
+                                </con4:expr>
+                                <con4:message>bofy Req</con4:message>
+                            </con4:log>
                             <con3:wsCallout>
                                 <con1:id>_ActionId-N3f57c7ff.N500a01d1.0.161f73beb20.N7efd</con1:id>
                                 <con3:service ref="PASSSBCommon/V1/TokenManagementPMWeb/proxy/GetTokenPMWeb" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
@@ -105,18 +115,32 @@ else("")</con2:path>
                                 <con3:expr>
                                     <con1:xsltTransform>
                                         <con1:resource ref="PASSSBUpdateShopper/v1/XSL/ProfileReqToFilaContactReq"/>
-                                        <con1:input>$body/res:Root-Element</con1:input>
+                                        <con1:input>$body/res1:Root-Element</con1:input>
                                         <con1:param name="TokenPMWeb">
                                             <con1:path>$bodyResponse/pm:AuthenticationToken/text()</con1:path>
                                         </con1:param>
                                     </con1:xsltTransform>
                                 </con3:expr>
                             </con3:replace>
+                            <con3:nxsdTranslation>
+                                <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7a5b</con1:id>
+                                <con3:type>XML-To-Native</con3:type>
+                                <con3:sourceExpr>
+                                    <con1:xqueryText>$body/req:Root-Element</con1:xqueryText>
+                                </con3:sourceExpr>
+                                <con3:nxsd ref="PASSSBUpdateShopper/v1/Resources/nxsd_FilaContactsReq"/>
+                                <con3:schemaElement xmlns:res="http://TargetNamespace.com/ResponsysUpdateShopperBS_PutEvent_request">res:Root-Element</con3:schemaElement>
+                                <con3:assign-variable>body2</con3:assign-variable>
+                            </con3:nxsdTranslation>
+                            <con3:javaScript>
+                                <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7a58</con1:id>
+                                <con1:disabled>true</con1:disabled>
+                            </con3:javaScript>
                             <con4:log>
                                 <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7a9d</con1:id>
                                 <con4:logLevel>error</con4:logLevel>
                                 <con4:expr>
-                                    <con1:xqueryText>$body</con1:xqueryText>
+                                    <con1:xqueryText>$body2/ctx:binary-content/@ref</con1:xqueryText>
                                 </con4:expr>
                                 <con4:message>body Request</con4:message>
                             </con4:log>

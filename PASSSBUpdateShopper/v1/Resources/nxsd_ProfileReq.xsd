@@ -1,411 +1,416 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request" targetNamespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
-   <xsd:element name="Root-Element">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="profileId" type="xsd:string"/>
-            <xsd:element name="profile">
-               <xsd:complexType>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request"
+            targetNamespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request"
+            elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
+            nxsd:encoding="US-ASCII">
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="profileId" type="xsd:string"/>
+        <xsd:element name="profile">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="derivedPriceListGroup">
+                <xsd:complexType>
                   <xsd:sequence>
-                     <xsd:element name="derivedPriceListGroup">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="deleted" type="xsd:string"/>
-                              <xsd:element name="endDate" type="xsd:string"/>
-                              <xsd:element name="displayName" type="xsd:string"/>
-                              <xsd:element name="active" type="xsd:string"/>
-                              <xsd:element name="salePriceList">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="item-id" type="xsd:string"/>
-                                       <xsd:element name="itemAcl" type="xsd:string"/>
-                                       <xsd:element name="lastModifiedDate" type="xsd:string"/>
-                                       <xsd:element name="endDate" type="xsd:string"/>
-                                       <xsd:element name="displayName" type="xsd:string"/>
-                                       <xsd:element name="description" type="xsd:string"/>
-                                       <xsd:element name="id" type="xsd:string"/>
-                                       <xsd:element name="creationDate" type="xsd:string"/>
-                                       <xsd:element name="locale" type="xsd:string"/>
-                                       <xsd:element name="version" type="xsd:integer"/>
-                                       <xsd:element name="startDate" type="xsd:string"/>
-                                       <xsd:element name="basePriceList" type="xsd:string"/>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                              <xsd:element name="currency">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="symbol" type="xsd:string"/>
-                                       <xsd:element name="displayName" type="xsd:string"/>
-                                       <xsd:element name="fractionalDigits" type="xsd:integer"/>
-                                       <xsd:element name="currencyCode" type="xsd:string"/>
-                                       <xsd:element name="numericCode" type="xsd:string"/>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                              <xsd:element name="id" type="xsd:string"/>
-                              <xsd:element name="locale" type="xsd:string"/>
-                              <xsd:element name="shippingSurchargePriceList">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="item-id" type="xsd:string"/>
-                                       <xsd:element name="itemAcl" type="xsd:string"/>
-                                       <xsd:element name="lastModifiedDate" type="xsd:string"/>
-                                       <xsd:element name="endDate" type="xsd:string"/>
-                                       <xsd:element name="displayName" type="xsd:string"/>
-                                       <xsd:element name="description" type="xsd:string"/>
-                                       <xsd:element name="id" type="xsd:string"/>
-                                       <xsd:element name="creationDate" type="xsd:string"/>
-                                       <xsd:element name="locale" type="xsd:string"/>
-                                       <xsd:element name="version" type="xsd:integer"/>
-                                       <xsd:element name="startDate" type="xsd:string"/>
-                                       <xsd:element name="basePriceList" type="xsd:string"/>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                              <xsd:element name="startDate" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="decIsento" type="xsd:string"/>
-                     <xsd:element name="inscEstadual" type="xsd:integer"/>
-                     <xsd:element name="lastName" type="xsd:string"/>
-                     <xsd:element name="relativeTo">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="id" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="roles">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="function" type="xsd:string"/>
-                              <xsd:element name="repositoryId" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="razSocial" type="xsd:string"/>
-                     <xsd:element name="telContacto" type="xsd:string"/>
-                     <xsd:element name="locale" type="xsd:string"/>
-                     <xsd:element name="login" type="xsd:string"/>
-                     <xsd:element name="shippingSurchargePriceList">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="item-id" type="xsd:string"/>
-                              <xsd:element name="itemAcl" type="xsd:string"/>
-                              <xsd:element name="lastModifiedDate" type="xsd:string"/>
-                              <xsd:element name="endDate" type="xsd:string"/>
-                              <xsd:element name="displayName" type="xsd:string"/>
-                              <xsd:element name="description" type="xsd:string"/>
-                              <xsd:element name="id" type="xsd:string"/>
-                              <xsd:element name="creationDate" type="xsd:string"/>
-                              <xsd:element name="locale" type="xsd:string"/>
-                              <xsd:element name="version" type="xsd:integer"/>
-                              <xsd:element name="startDate" type="xsd:string"/>
-                              <xsd:element name="basePriceList" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="sitePropertiesList">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="site">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="id" type="xsd:string"/>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                              <xsd:element name="properties">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="receiveEmail" type="xsd:string"/>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="inscMunicipal" type="xsd:integer"/>
-                     <xsd:element name="profileType" type="xsd:string"/>
-                     <xsd:element name="loyaltyPrograms">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="programName" type="xsd:string"/>
-                              <xsd:element name="repositoryId" type="xsd:string"/>
-                              <xsd:element name="membershipId" type="xsd:string"/>
-                              <xsd:element name="programId" type="xsd:string"/>
-                              <xsd:element name="status" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="registrationDate" type="xsd:string"/>
-                     <xsd:element name="sessionOrganization">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="id" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="id" type="xsd:string"/>
-                     <xsd:element name="email" type="xsd:string"/>
-                     <xsd:element name="derivedSalePriceList">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="item-id" type="xsd:string"/>
-                              <xsd:element name="itemAcl" type="xsd:string"/>
-                              <xsd:element name="lastModifiedDate" type="xsd:string"/>
-                              <xsd:element name="endDate" type="xsd:string"/>
-                              <xsd:element name="displayName" type="xsd:string"/>
-                              <xsd:element name="description" type="xsd:string"/>
-                              <xsd:element name="id" type="xsd:string"/>
-                              <xsd:element name="creationDate" type="xsd:string"/>
-                              <xsd:element name="locale" type="xsd:string"/>
-                              <xsd:element name="version" type="xsd:integer"/>
-                              <xsd:element name="startDate" type="xsd:string"/>
-                              <xsd:element name="basePriceList" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="homeAddress">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="lastName" type="xsd:string"/>
-                              <xsd:element name="country" type="xsd:string"/>
-                              <xsd:element name="address3" type="xsd:string"/>
-                              <xsd:element name="address2" type="xsd:string"/>
-                              <xsd:element name="city" type="xsd:string"/>
-                              <xsd:element name="address1" type="xsd:string"/>
-                              <xsd:element name="prefix" type="xsd:string"/>
-                              <xsd:element name="companyName" type="xsd:string"/>
-                              <xsd:element name="postalCode" type="xsd:string"/>
-                              <xsd:element name="county" type="xsd:string"/>
-                              <xsd:element name="suffix" type="xsd:string"/>
-                              <xsd:element name="firstName" type="xsd:string"/>
-                              <xsd:element name="phoneNumber" type="xsd:string"/>
-                              <xsd:element name="item-id" type="xsd:string"/>
-                              <xsd:element name="repositoryId" type="xsd:string"/>
-                              <xsd:element name="faxNumber" type="xsd:string"/>
-                              <xsd:element name="middleName" type="xsd:string"/>
-                              <xsd:element name="state" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="daytimeTelephoneNumber" type="xsd:string"/>
-                     <xsd:element name="taxExempt" type="xsd:string"/>
-                     <xsd:element name="comments">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="owner" type="xsd:string"/>
-                              <xsd:element name="agent" type="xsd:string"/>
-                              <xsd:element name="item-id" type="xsd:string"/>
-                              <xsd:element name="comment" type="xsd:string"/>
-                              <xsd:element name="id" type="xsd:string"/>
-                              <xsd:element name="creationDate" type="xsd:string"/>
-                              <xsd:element name="version" type="xsd:integer"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="priceListGroup">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="deleted" type="xsd:string"/>
-                              <xsd:element name="endDate" type="xsd:string"/>
-                              <xsd:element name="displayName" type="xsd:string"/>
-                              <xsd:element name="listPriceList">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="item-id" type="xsd:string"/>
-                                       <xsd:element name="itemAcl" type="xsd:string"/>
-                                       <xsd:element name="lastModifiedDate" type="xsd:string"/>
-                                       <xsd:element name="endDate" type="xsd:string"/>
-                                       <xsd:element name="displayName" type="xsd:string"/>
-                                       <xsd:element name="description" type="xsd:string"/>
-                                       <xsd:element name="id" type="xsd:string"/>
-                                       <xsd:element name="creationDate" type="xsd:string"/>
-                                       <xsd:element name="locale" type="xsd:string"/>
-                                       <xsd:element name="version" type="xsd:integer"/>
-                                       <xsd:element name="startDate" type="xsd:string"/>
-                                       <xsd:element name="basePriceList" type="xsd:string"/>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                              <xsd:element name="active" type="xsd:string"/>
-                              <xsd:element name="salePriceList">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="item-id" type="xsd:string"/>
-                                       <xsd:element name="itemAcl" type="xsd:string"/>
-                                       <xsd:element name="lastModifiedDate" type="xsd:string"/>
-                                       <xsd:element name="endDate" type="xsd:string"/>
-                                       <xsd:element name="displayName" type="xsd:string"/>
-                                       <xsd:element name="description" type="xsd:string"/>
-                                       <xsd:element name="id" type="xsd:string"/>
-                                       <xsd:element name="creationDate" type="xsd:string"/>
-                                       <xsd:element name="locale" type="xsd:string"/>
-                                       <xsd:element name="version" type="xsd:integer"/>
-                                       <xsd:element name="startDate" type="xsd:string"/>
-                                       <xsd:element name="basePriceList" type="xsd:string"/>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                              <xsd:element name="currency">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="symbol" type="xsd:string"/>
-                                       <xsd:element name="displayName" type="xsd:string"/>
-                                       <xsd:element name="fractionalDigits" type="xsd:integer"/>
-                                       <xsd:element name="currencyCode" type="xsd:string"/>
-                                       <xsd:element name="numericCode" type="xsd:string"/>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                              <xsd:element name="id" type="xsd:string"/>
-                              <xsd:element name="locale" type="xsd:string"/>
-                              <xsd:element name="shippingSurchargePriceList">
-                                 <xsd:complexType>
-                                    <xsd:sequence>
-                                       <xsd:element name="item-id" type="xsd:string"/>
-                                       <xsd:element name="itemAcl" type="xsd:string"/>
-                                       <xsd:element name="lastModifiedDate" type="xsd:string"/>
-                                       <xsd:element name="endDate" type="xsd:string"/>
-                                       <xsd:element name="displayName" type="xsd:string"/>
-                                       <xsd:element name="description" type="xsd:string"/>
-                                       <xsd:element name="id" type="xsd:string"/>
-                                       <xsd:element name="creationDate" type="xsd:string"/>
-                                       <xsd:element name="locale" type="xsd:string"/>
-                                       <xsd:element name="version" type="xsd:integer"/>
-                                       <xsd:element name="startDate" type="xsd:string"/>
-                                       <xsd:element name="basePriceList" type="xsd:string"/>
-                                    </xsd:sequence>
-                                 </xsd:complexType>
-                              </xsd:element>
-                              <xsd:element name="startDate" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="receiveEmail" type="xsd:string"/>
-                     <xsd:element name="active" type="xsd:string"/>
-                     <xsd:element name="dateOfBirth" type="xsd:string"/>
-                     <xsd:element name="version" type="xsd:integer"/>
-                     <xsd:element name="birthDate" type="xsd:string"/>
-                     <xsd:element name="giftwraps" type="xsd:string"/>
-                     <xsd:element name="abandonedOrderCount" type="xsd:integer"/>
-                     <xsd:element name="firstName" type="xsd:string"/>
-                     <xsd:element name="cellphoneNotifications" type="xsd:string"/>
-                     <xsd:element name="CPF" type="xsd:string"/>
-                     <xsd:element name="siteId" type="xsd:string"/>
-                     <xsd:element name="shippingAddress">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="lastName" type="xsd:string"/>
-                              <xsd:element name="country" type="xsd:string"/>
-                              <xsd:element name="address3" type="xsd:string"/>
-                              <xsd:element name="address2" type="xsd:string"/>
-                              <xsd:element name="city" type="xsd:string"/>
-                              <xsd:element name="address1" type="xsd:string"/>
-                              <xsd:element name="prefix" type="xsd:string"/>
-                              <xsd:element name="companyName" type="xsd:string"/>
-                              <xsd:element name="postalCode" type="xsd:string"/>
-                              <xsd:element name="county" type="xsd:string"/>
-                              <xsd:element name="suffix" type="xsd:string"/>
-                              <xsd:element name="firstName" type="xsd:string"/>
-                              <xsd:element name="phoneNumber" type="xsd:string"/>
-                              <xsd:element name="item-id" type="xsd:string"/>
-                              <xsd:element name="repositoryId" type="xsd:string"/>
-                              <xsd:element name="faxNumber" type="xsd:string"/>
-                              <xsd:element name="middleName" type="xsd:string"/>
-                              <xsd:element name="state" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="currentOrganization">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="id" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="lastActivity" type="xsd:string"/>
-                     <xsd:element name="middleName" type="xsd:string"/>
-                     <xsd:element name="CNPJ" type="xsd:string"/>
-                     <xsd:element name="billingAddress">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="lastName" type="xsd:string"/>
-                              <xsd:element name="firstName" type="xsd:string"/>
-                              <xsd:element name="country" type="xsd:string"/>
-                              <xsd:element name="phoneNumber" type="xsd:string"/>
-                              <xsd:element name="address2" type="xsd:string"/>
-                              <xsd:element name="city" type="xsd:string"/>
-                              <xsd:element name="address1" type="xsd:string"/>
-                              <xsd:element name="postalCode" type="xsd:string"/>
-                              <xsd:element name="county" type="xsd:string"/>
-                              <xsd:element name="repositoryId" type="xsd:string"/>
-                              <xsd:element name="state" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="derivedShippingSurchargePriceList">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="item-id" type="xsd:string"/>
-                              <xsd:element name="itemAcl" type="xsd:string"/>
-                              <xsd:element name="lastModifiedDate" type="xsd:string"/>
-                              <xsd:element name="endDate" type="xsd:string"/>
-                              <xsd:element name="displayName" type="xsd:string"/>
-                              <xsd:element name="description" type="xsd:string"/>
-                              <xsd:element name="id" type="xsd:string"/>
-                              <xsd:element name="creationDate" type="xsd:string"/>
-                              <xsd:element name="locale" type="xsd:string"/>
-                              <xsd:element name="version" type="xsd:integer"/>
-                              <xsd:element name="startDate" type="xsd:string"/>
-                              <xsd:element name="basePriceList" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="secondaryOrganizations">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="id" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="telCelular" type="xsd:string"/>
-                     <xsd:element name="shippingAddresses">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="lastName" type="xsd:string"/>
-                              <xsd:element name="country" type="xsd:string"/>
-                              <xsd:element name="address3" type="xsd:string"/>
-                              <xsd:element name="address2" type="xsd:string"/>
-                              <xsd:element name="city" type="xsd:string"/>
-                              <xsd:element name="address1" type="xsd:string"/>
-                              <xsd:element name="prefix" type="xsd:string"/>
-                              <xsd:element name="postalCode" type="xsd:string"/>
-                              <xsd:element name="companyName" type="xsd:string"/>
-                              <xsd:element name="county" type="xsd:string"/>
-                              <xsd:element name="suffix" type="xsd:string"/>
-                              <xsd:element name="firstName" type="xsd:string"/>
-                              <xsd:element name="phoneNumber" type="xsd:string"/>
-                              <xsd:element name="item-id" type="xsd:string"/>
-                              <xsd:element name="repositoryId" type="xsd:string"/>
-                              <xsd:element name="faxNumber" type="xsd:string"/>
-                              <xsd:element name="middleName" type="xsd:string"/>
-                              <xsd:element name="state" type="xsd:string"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
+                    <xsd:element name="deleted" type="xsd:string"/>
+                    <xsd:element name="endDate" type="xsd:string"/>
+                    <xsd:element name="displayName" type="xsd:string"/>
+                    <xsd:element name="active" type="xsd:string"/>
+                    <xsd:element name="salePriceList">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="item-id" type="xsd:string"/>
+                          <xsd:element name="itemAcl" type="xsd:string"/>
+                          <xsd:element name="lastModifiedDate" type="xsd:string"/>
+                          <xsd:element name="endDate" type="xsd:string"/>
+                          <xsd:element name="displayName" type="xsd:string"/>
+                          <xsd:element name="description" type="xsd:string"/>
+                          <xsd:element name="id" type="xsd:string"/>
+                          <xsd:element name="creationDate" type="xsd:string"/>
+                          <xsd:element name="locale" type="xsd:string"/>
+                          <xsd:element name="version" type="xsd:integer"/>
+                          <xsd:element name="startDate" type="xsd:string"/>
+                          <xsd:element name="basePriceList" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="currency">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="symbol" type="xsd:string"/>
+                          <xsd:element name="displayName" type="xsd:string"/>
+                          <xsd:element name="fractionalDigits" type="xsd:integer"/>
+                          <xsd:element name="currencyCode" type="xsd:string"/>
+                          <xsd:element name="numericCode" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="id" type="xsd:string"/>
+                    <xsd:element name="locale" type="xsd:string"/>
+                    <xsd:element name="shippingSurchargePriceList">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="item-id" type="xsd:string"/>
+                          <xsd:element name="itemAcl" type="xsd:string"/>
+                          <xsd:element name="lastModifiedDate" type="xsd:string"/>
+                          <xsd:element name="endDate" type="xsd:string"/>
+                          <xsd:element name="displayName" type="xsd:string"/>
+                          <xsd:element name="description" type="xsd:string"/>
+                          <xsd:element name="id" type="xsd:string"/>
+                          <xsd:element name="creationDate" type="xsd:string"/>
+                          <xsd:element name="locale" type="xsd:string"/>
+                          <xsd:element name="version" type="xsd:integer"/>
+                          <xsd:element name="startDate" type="xsd:string"/>
+                          <xsd:element name="basePriceList" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="startDate" type="xsd:string"/>
                   </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="type" type="xsd:string"/>
-         </xsd:sequence>
-      </xsd:complexType>
-   </xsd:element>
-<xsd:annotation xmlns="">
-      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
-      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
-   </xsd:annotation>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="decIsento" type="xsd:string"/>
+              <xsd:element name="inscEstadual" type="xsd:integer"/>
+              <xsd:element name="lastName" type="xsd:string"/>
+              <xsd:element name="gender" type="xsd:string"/>
+              <xsd:element name="relativeTo">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="roles">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="function" type="xsd:string"/>
+                    <xsd:element name="repositoryId" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="razSocial" type="xsd:string"/>
+              <xsd:element name="telContacto" type="xsd:string"/>
+              <xsd:element name="locale" type="xsd:string"/>
+              <xsd:element name="login" type="xsd:string"/>
+              <xsd:element name="shippingSurchargePriceList">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="item-id" type="xsd:string"/>
+                    <xsd:element name="itemAcl" type="xsd:string"/>
+                    <xsd:element name="lastModifiedDate" type="xsd:string"/>
+                    <xsd:element name="endDate" type="xsd:string"/>
+                    <xsd:element name="displayName" type="xsd:string"/>
+                    <xsd:element name="description" type="xsd:string"/>
+                    <xsd:element name="id" type="xsd:string"/>
+                    <xsd:element name="creationDate" type="xsd:string"/>
+                    <xsd:element name="locale" type="xsd:string"/>
+                    <xsd:element name="version" type="xsd:integer"/>
+                    <xsd:element name="startDate" type="xsd:string"/>
+                    <xsd:element name="basePriceList" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="sitePropertiesList">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="site">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="id" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="properties">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="receiveEmail" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="inscMunicipal" type="xsd:integer"/>
+              <xsd:element name="profileType" type="xsd:string"/>
+              <xsd:element name="loyaltyPrograms">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="programName" type="xsd:string"/>
+                    <xsd:element name="repositoryId" type="xsd:string"/>
+                    <xsd:element name="membershipId" type="xsd:string"/>
+                    <xsd:element name="programId" type="xsd:string"/>
+                    <xsd:element name="status" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="registrationDate" type="xsd:string"/>
+              <xsd:element name="sessionOrganization">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="id" type="xsd:string"/>
+              <xsd:element name="email" type="xsd:string"/>
+              <xsd:element name="derivedSalePriceList">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="item-id" type="xsd:string"/>
+                    <xsd:element name="itemAcl" type="xsd:string"/>
+                    <xsd:element name="lastModifiedDate" type="xsd:string"/>
+                    <xsd:element name="endDate" type="xsd:string"/>
+                    <xsd:element name="displayName" type="xsd:string"/>
+                    <xsd:element name="description" type="xsd:string"/>
+                    <xsd:element name="id" type="xsd:string"/>
+                    <xsd:element name="creationDate" type="xsd:string"/>
+                    <xsd:element name="locale" type="xsd:string"/>
+                    <xsd:element name="version" type="xsd:integer"/>
+                    <xsd:element name="startDate" type="xsd:string"/>
+                    <xsd:element name="basePriceList" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="homeAddress">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="lastName" type="xsd:string"/>
+                    <xsd:element name="country" type="xsd:string"/>
+                    <xsd:element name="address3" type="xsd:string"/>
+                    <xsd:element name="address2" type="xsd:string"/>
+                    <xsd:element name="city" type="xsd:string"/>
+                    <xsd:element name="address1" type="xsd:string"/>
+                    <xsd:element name="prefix" type="xsd:string"/>
+                    <xsd:element name="companyName" type="xsd:string"/>
+                    <xsd:element name="postalCode" type="xsd:string"/>
+                    <xsd:element name="county" type="xsd:string"/>
+                    <xsd:element name="suffix" type="xsd:string"/>
+                    <xsd:element name="firstName" type="xsd:string"/>
+                    <xsd:element name="phoneNumber" type="xsd:string"/>
+                    <xsd:element name="item-id" type="xsd:string"/>
+                    <xsd:element name="repositoryId" type="xsd:string"/>
+                    <xsd:element name="faxNumber" type="xsd:string"/>
+                    <xsd:element name="middleName" type="xsd:string"/>
+                    <xsd:element name="state" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="daytimeTelephoneNumber" type="xsd:string"/>
+              <xsd:element name="taxExempt" type="xsd:string"/>
+              <xsd:element name="comments">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="owner" type="xsd:string"/>
+                    <xsd:element name="agent" type="xsd:string"/>
+                    <xsd:element name="item-id" type="xsd:string"/>
+                    <xsd:element name="comment" type="xsd:string"/>
+                    <xsd:element name="id" type="xsd:string"/>
+                    <xsd:element name="creationDate" type="xsd:string"/>
+                    <xsd:element name="version" type="xsd:integer"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="priceListGroup">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="deleted" type="xsd:string"/>
+                    <xsd:element name="endDate" type="xsd:string"/>
+                    <xsd:element name="displayName" type="xsd:string"/>
+                    <xsd:element name="listPriceList">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="item-id" type="xsd:string"/>
+                          <xsd:element name="itemAcl" type="xsd:string"/>
+                          <xsd:element name="lastModifiedDate" type="xsd:string"/>
+                          <xsd:element name="endDate" type="xsd:string"/>
+                          <xsd:element name="displayName" type="xsd:string"/>
+                          <xsd:element name="description" type="xsd:string"/>
+                          <xsd:element name="id" type="xsd:string"/>
+                          <xsd:element name="creationDate" type="xsd:string"/>
+                          <xsd:element name="locale" type="xsd:string"/>
+                          <xsd:element name="version" type="xsd:integer"/>
+                          <xsd:element name="startDate" type="xsd:string"/>
+                          <xsd:element name="basePriceList" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="active" type="xsd:string"/>
+                    <xsd:element name="salePriceList">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="item-id" type="xsd:string"/>
+                          <xsd:element name="itemAcl" type="xsd:string"/>
+                          <xsd:element name="lastModifiedDate" type="xsd:string"/>
+                          <xsd:element name="endDate" type="xsd:string"/>
+                          <xsd:element name="displayName" type="xsd:string"/>
+                          <xsd:element name="description" type="xsd:string"/>
+                          <xsd:element name="id" type="xsd:string"/>
+                          <xsd:element name="creationDate" type="xsd:string"/>
+                          <xsd:element name="locale" type="xsd:string"/>
+                          <xsd:element name="version" type="xsd:integer"/>
+                          <xsd:element name="startDate" type="xsd:string"/>
+                          <xsd:element name="basePriceList" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="currency">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="symbol" type="xsd:string"/>
+                          <xsd:element name="displayName" type="xsd:string"/>
+                          <xsd:element name="fractionalDigits" type="xsd:integer"/>
+                          <xsd:element name="currencyCode" type="xsd:string"/>
+                          <xsd:element name="numericCode" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="id" type="xsd:string"/>
+                    <xsd:element name="locale" type="xsd:string"/>
+                    <xsd:element name="shippingSurchargePriceList">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="item-id" type="xsd:string"/>
+                          <xsd:element name="itemAcl" type="xsd:string"/>
+                          <xsd:element name="lastModifiedDate" type="xsd:string"/>
+                          <xsd:element name="endDate" type="xsd:string"/>
+                          <xsd:element name="displayName" type="xsd:string"/>
+                          <xsd:element name="description" type="xsd:string"/>
+                          <xsd:element name="id" type="xsd:string"/>
+                          <xsd:element name="creationDate" type="xsd:string"/>
+                          <xsd:element name="locale" type="xsd:string"/>
+                          <xsd:element name="version" type="xsd:integer"/>
+                          <xsd:element name="startDate" type="xsd:string"/>
+                          <xsd:element name="basePriceList" type="xsd:string"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="startDate" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="receiveEmail" type="xsd:string"/>
+              <xsd:element name="active" type="xsd:string"/>
+              <xsd:element name="dateOfBirth" type="xsd:string"/>
+              <xsd:element name="version" type="xsd:integer"/>
+              <xsd:element name="birthDate" type="xsd:string"/>
+              <xsd:element name="giftwraps" type="xsd:string"/>
+              <xsd:element name="abandonedOrderCount" type="xsd:integer"/>
+              <xsd:element name="firstName" type="xsd:string"/>
+              <xsd:element name="cellphoneNotifications" type="xsd:string"/>
+              <xsd:element name="CPF" type="xsd:string"/>
+              <xsd:element name="siteId" type="xsd:string"/>
+              <xsd:element name="shippingAddress">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="lastName" type="xsd:string"/>
+                    <xsd:element name="country" type="xsd:string"/>
+                    <xsd:element name="address3" type="xsd:string"/>
+                    <xsd:element name="address2" type="xsd:string"/>
+                    <xsd:element name="city" type="xsd:string"/>
+                    <xsd:element name="address1" type="xsd:string"/>
+                    <xsd:element name="prefix" type="xsd:string"/>
+                    <xsd:element name="companyName" type="xsd:string"/>
+                    <xsd:element name="postalCode" type="xsd:string"/>
+                    <xsd:element name="county" type="xsd:string"/>
+                    <xsd:element name="suffix" type="xsd:string"/>
+                    <xsd:element name="firstName" type="xsd:string"/>
+                    <xsd:element name="phoneNumber" type="xsd:string"/>
+                    <xsd:element name="item-id" type="xsd:string"/>
+                    <xsd:element name="repositoryId" type="xsd:string"/>
+                    <xsd:element name="faxNumber" type="xsd:string"/>
+                    <xsd:element name="middleName" type="xsd:string"/>
+                    <xsd:element name="state" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="currentOrganization">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="lastActivity" type="xsd:string"/>
+              <xsd:element name="middleName" type="xsd:string"/>
+              <xsd:element name="CNPJ" type="xsd:string"/>
+              <xsd:element name="billingAddress">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="lastName" type="xsd:string"/>
+                    <xsd:element name="firstName" type="xsd:string"/>
+                    <xsd:element name="country" type="xsd:string"/>
+                    <xsd:element name="phoneNumber" type="xsd:string"/>
+                    <xsd:element name="address2" type="xsd:string"/>
+                    <xsd:element name="city" type="xsd:string"/>
+                    <xsd:element name="address1" type="xsd:string"/>
+                    <xsd:element name="postalCode" type="xsd:string"/>
+                    <xsd:element name="county" type="xsd:string"/>
+                    <xsd:element name="repositoryId" type="xsd:string"/>
+                    <xsd:element name="state" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="derivedShippingSurchargePriceList">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="item-id" type="xsd:string"/>
+                    <xsd:element name="itemAcl" type="xsd:string"/>
+                    <xsd:element name="lastModifiedDate" type="xsd:string"/>
+                    <xsd:element name="endDate" type="xsd:string"/>
+                    <xsd:element name="displayName" type="xsd:string"/>
+                    <xsd:element name="description" type="xsd:string"/>
+                    <xsd:element name="id" type="xsd:string"/>
+                    <xsd:element name="creationDate" type="xsd:string"/>
+                    <xsd:element name="locale" type="xsd:string"/>
+                    <xsd:element name="version" type="xsd:integer"/>
+                    <xsd:element name="startDate" type="xsd:string"/>
+                    <xsd:element name="basePriceList" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="secondaryOrganizations">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="telCelular" type="xsd:string"/>
+              <xsd:element name="shippingAddresses">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="lastName" type="xsd:string"/>
+                    <xsd:element name="country" type="xsd:string"/>
+                    <xsd:element name="address3" type="xsd:string"/>
+                    <xsd:element name="address2" type="xsd:string"/>
+                    <xsd:element name="city" type="xsd:string"/>
+                    <xsd:element name="address1" type="xsd:string"/>
+                    <xsd:element name="prefix" type="xsd:string"/>
+                    <xsd:element name="postalCode" type="xsd:string"/>
+                    <xsd:element name="companyName" type="xsd:string"/>
+                    <xsd:element name="county" type="xsd:string"/>
+                    <xsd:element name="suffix" type="xsd:string"/>
+                    <xsd:element name="firstName" type="xsd:string"/>
+                    <xsd:element name="phoneNumber" type="xsd:string"/>
+                    <xsd:element name="item-id" type="xsd:string"/>
+                    <xsd:element name="repositoryId" type="xsd:string"/>
+                    <xsd:element name="faxNumber" type="xsd:string"/>
+                    <xsd:element name="middleName" type="xsd:string"/>
+                    <xsd:element name="state" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="type" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
 </xsd:schema>

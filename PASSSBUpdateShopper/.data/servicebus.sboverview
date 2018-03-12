@@ -3,4 +3,7 @@
     <ns:reference>
         <ns:interface src="BusinessService:PASSSBUpdateShopper/v1/BS/ResponsysUpdateShopperBS"/>
     </ns:reference>
+    <ns:reference>
+        <ns:interface src="ProxyService:PASSSBCommon/V1/TokenManagementPMWeb/proxy/GetTokenPMWeb"/>
+    </ns:reference>
 </ns:composite>
