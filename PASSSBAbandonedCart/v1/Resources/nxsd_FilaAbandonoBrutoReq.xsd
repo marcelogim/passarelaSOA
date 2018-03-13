@@ -5,43 +5,43 @@
             elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
             nxsd:encoding="US-ASCII">
   <xsd:element name="Root-Element">
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="Event">
-          <xsd:complexType>
-            <xsd:sequence>
-              <xsd:element name="EventName" type="xsd:string"/>
-            </xsd:sequence>
-          </xsd:complexType>
-        </xsd:element>
-        <xsd:element name="DataLists" maxOccurs="unbounded">
-          <xsd:complexType>
-            <xsd:sequence>
-              <xsd:element name="TableLists" maxOccurs="unbounded">
-                <xsd:complexType>
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="Event">
+               <xsd:complexType>
                   <xsd:sequence>
-                    <xsd:element name="ApplicationName" type="xsd:string"/>
-                    <xsd:element name="TableKey" type="xsd:string"/>
-                    <xsd:element name="TableType" type="xsd:string"/>
-                    <xsd:element name="Folder" type="xsd:string"/>
-                    <xsd:element name="Elements" maxOccurs="unbounded">
-                      <xsd:complexType>
-                        <xsd:sequence>
-                          <xsd:element name="Name" type="xsd:string"/>
-                          <xsd:element name="Value" type="xsd:string"/>
-                        </xsd:sequence>
-                      </xsd:complexType>
-                    </xsd:element>
+                     <xsd:element name="EventName" type="xsd:string"/>
                   </xsd:sequence>
-                </xsd:complexType>
-              </xsd:element>
-            </xsd:sequence>
-          </xsd:complexType>
-        </xsd:element>
-        <xsd:element name="Token" type="xsd:string"/>
-      </xsd:sequence>
-    </xsd:complexType>
-  </xsd:element>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="DataLists" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="TableLists" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="ApplicationName" type="xsd:string"/>
+                              <xsd:element name="TableKey" type="xsd:string"/>
+                              <xsd:element name="TableType" type="xsd:string"/>
+                              <xsd:element name="Folder" type="xsd:string"/>
+                              <xsd:element name="Elements" maxOccurs="unbounded">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Name" type="xsd:string"/>
+                                       <xsd:element name="Value" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Token" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
   <xsd:annotation xmlns="">
     <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
     <xsd:appinfo>USEHEADER=false</xsd:appinfo>
