@@ -12,6 +12,9 @@
         <xsd:element name="gender" type="xsd:string"/>
         <xsd:element name="catalog" type="xsd:string"/>
         <xsd:element name="CPF" type="xsd:string"/>
+        <xsd:element name="nationality" type="xsd:string"/>
+        <xsd:element name="valorFraude" type="xsd:string"/>
+        <xsd:element name="firstVisitDate" type="xsd:string"/>
         <xsd:element name="roles">
           <xsd:complexType>
             <xsd:sequence>

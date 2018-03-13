@@ -84,17 +84,31 @@
           <xsl:value-of disable-output-escaping="yes"
                         select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.sku>')"/>
           <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.upc>')"/>
+          <xsl:value-of select="ns1:catalogRefId"/>
+          <xsl:value-of disable-output-escaping="yes"
+                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.upc>')"/>
+          <xsl:value-of disable-output-escaping="yes"
                         select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.quantity>')"/>
           <xsl:value-of select="ns1:quantity"/>
           <xsl:value-of disable-output-escaping="yes"
                         select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.quantity>')"/>
         </xsl:for-each>
-        <tns:riskdata.deliveryMethod>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingMethod"/>
-        </tns:riskdata.deliveryMethod>
-        <tns:riskdata.origin>
-          <xsl:value-of select="/ns0:Root-Element/ns0:channel"/>
-        </tns:riskdata.origin>
+        <xsl:if test="$profileOrder/ns1:Root-Element/ns1:firstVisitDate">
+          <tns:riskdata.shopperAccountCreationDate>
+            <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:firstVisitDate"/>
+          </tns:riskdata.shopperAccountCreationDate>
+        </xsl:if>
+        <xsl:if test="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingMethod">
+          <tns:riskdata.deliveryMethod>
+            <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingMethod"/>
+          </tns:riskdata.deliveryMethod>
+        </xsl:if>
+        <xsl:if test="/ns0:Root-Element/ns0:channel">
+          <tns:riskdata.origin>
+            <xsl:value-of select="/ns0:Root-Element/ns0:channel"/>
+          </tns:riskdata.origin>
+        </xsl:if>
       </tns:additionalData>
       <xsl:if test="/ns0:Root-Element/ns0:amount">
         <tns:amount>
@@ -139,7 +153,7 @@
           <tns:country>
             <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:country"/>
           </tns:country>
-          <tns:houseNumberOrName>1</tns:houseNumberOrName>
+          <tns:houseNumberOrName><xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:address2"/></tns:houseNumberOrName>
           <tns:postalCode>
             <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:postalCode"/>
           </tns:postalCode>
@@ -176,16 +190,36 @@
           <xsl:value-of select="translate(/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber, '-', '' )"/>
         </tns:telephoneNumber>
       </xsl:if>
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:valorFraude">
+        <tns:fraudOffset>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:valorFraude"/>
+        </tns:fraudOffset>
+      </xsl:if>
       <tns:deliveryDate>
         <xsl:value-of select="xp20:current-dateTime ( )"/>
       </tns:deliveryDate>
       <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'invoice'">
         <tns:selectedBrand>boletobancario_santander</tns:selectedBrand>
       </xsl:if>
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:BrowserInfo">
+        <tns:browserInfo>
+          <tns:acceptHeader>
+            <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:BrowserInfo"/>
+          </tns:acceptHeader>
+          <tns:userAgent>
+            <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:BrowserInfo"/>
+          </tns:userAgent>
+        </tns:browserInfo>
+      </xsl:if>
       <xsl:if test="$profileOrder/ns1:Root-Element/ns1:dateOfBirth">
         <tns:dateOfBirth>
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:dateOfBirth"/>
         </tns:dateOfBirth>
+      </xsl:if>
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:nationality">
+        <tns:nationality>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:nationality"/>
+        </tns:nationality>
       </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:billingAddress/ns0:firstName">
         <tns:shopperName>

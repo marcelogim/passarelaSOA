@@ -50,20 +50,46 @@
           <tns:TableKey>DATAABANDONO;CUSTOMERID;SKU</tns:TableKey>
           <tns:TableType>S</tns:TableType>
           <tns:Folder>Sandbox_API</tns:Folder>
-          <tns:Elements>
-            <tns:Name>DATAABANDONO</tns:Name>
-            <tns:Value>
-              <xsl:value-of select="/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate"/>
-            </tns:Value>
-            <tns:Name>CUSTOMERID</tns:Name>
-            <tns:Value>
-              <xsl:value-of select="/ns0:Root-Element/ns0:idleCart/ns0:profile/ns0:id"/>
-            </tns:Value>
-            <tns:Name>SKU</tns:Name>
-            <tns:Value>
-              <xsl:value-of select="/ns0:Root-Element/ns0:idleCart/ns0:orderId"/>
-            </tns:Value>
-          </tns:Elements>
+          <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate != ''">
+            <tns:Elements>
+              <tns:Name>DATAABANDONO</tns:Name>
+              <tns:Value>
+                <xsl:value-of select="xp20:format-dateTime (/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate, '[Y0001]-[M01]-[D01] 00:00:00.0')"/>
+              </tns:Value>
+            </tns:Elements>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:profile/ns0:id != ''">
+            <tns:Elements>
+              <tns:Name>CUSTOMERID</tns:Name>
+              <tns:Value>
+                <xsl:value-of select="/ns0:Root-Element/ns0:idleCart/ns0:profile/ns0:id"/>
+              </tns:Value>
+            </tns:Elements>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:orderId != ''">
+            <tns:Elements>
+              <tns:Name>SKU</tns:Name>
+              <tns:Value>
+                <xsl:value-of select="/ns0:Root-Element/ns0:idleCart/ns0:orderId"/>
+              </tns:Value>
+            </tns:Elements>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:creationDate != ''">
+            <tns:Elements>
+              <tns:Name>CREATED_DATE_</tns:Name>
+              <tns:Value>
+                <xsl:value-of select="xp20:format-dateTime (/ns0:Root-Element/ns0:idleCart/ns0:creationDate, '[Y0001]-[M01]-[D01] 00:00:00.0')"/>
+              </tns:Value>
+            </tns:Elements>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate != ''">
+            <tns:Elements>
+              <tns:Name>MODIFIED_DATE_</tns:Name>
+              <tns:Value>
+                <xsl:value-of select="xp20:format-dateTime (/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate, '[Y0001]-[M01]-[D01] 00:00:00.0')"/>
+              </tns:Value>
+            </tns:Elements>
+          </xsl:if>
         </tns:TableLists>
       </tns:DataLists>
       <tns:Token>

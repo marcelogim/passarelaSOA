@@ -28,7 +28,7 @@
               <xsd:element name="riskdata.shopperAccountCreationDate" type="xsd:string"/>
               <xsd:element name="riskdata.deliveryMethod" type="xsd:string"/>
               <xsd:element name="riskdata.origin" type="xsd:string"/>
-              <xsd:element name="riskdata.cpf" type="xsd:string"/>
+            
               
             </xsd:sequence>
           </xsd:complexType>

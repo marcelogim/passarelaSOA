@@ -12,6 +12,10 @@
         <xsd:element name="gender" type="xsd:string"/>
         <xsd:element name="catalog" type="xsd:string"/>
         <xsd:element name="CPF" type="xsd:string"/>
+        <xsd:element name="nationality" type="xsd:string"/>
+        <xsd:element name="valorFraude" type="xsd:string"/>
+        <xsd:element name="firstVisitDate" type="xsd:string"/>
+          <xsd:element name="BrowserInfo" type="xsd:string"/>
         <xsd:element name="roles">
           <xsd:complexType>
             <xsd:sequence>
@@ -524,10 +528,11 @@
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
-              <xsd:element name="catalogKey"/>
+              <xsd:element name="catalogKey" type="xsd:string"/>
               <xsd:element name="productDisplayName" type="xsd:string"/>
               <xsd:element name="activationDate" type="xsd:string"/>
               <xsd:element name="backOrderQuantity" type="xsd:integer"/>
+             
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>

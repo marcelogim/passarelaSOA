@@ -52,6 +52,9 @@
          <tns:CPF>
             <xsl:value-of select="$profile/ns1:Root-Element/ns1:CPF"/>
          </tns:CPF>
+         <tns:firstVisitDate>
+            <xsl:value-of select="$profile/ns1:Root-Element/ns1:firstVisitDate"/>
+         </tns:firstVisitDate>
          <tns:dateOfBirth>
             <xsl:value-of select="$profile/ns1:Root-Element/ns1:dateOfBirth"/>
          </tns:dateOfBirth>

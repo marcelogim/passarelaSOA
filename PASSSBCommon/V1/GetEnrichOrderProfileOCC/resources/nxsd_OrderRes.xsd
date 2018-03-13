@@ -104,6 +104,7 @@
         <xsd:element name="lastModifiedTime" type="xsd:integer"/>
         <xsd:element name="creationTime" type="xsd:integer"/>
         <xsd:element name="sourceSystem" type="xsd:string"/>
+         <xsd:element name="BrowserInfo" type="xsd:string"/>
         <xsd:element name="profile">
           <xsd:complexType>
             <xsd:sequence>
@@ -440,10 +441,11 @@
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
-              <xsd:element name="catalogKey"/>
+              <xsd:element name="catalogKey" type="xsd:string"/>
               <xsd:element name="productDisplayName" type="xsd:string"/>
               <xsd:element name="activationDate" type="xsd:string"/>
               <xsd:element name="backOrderQuantity" type="xsd:integer"/>
+             
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>
