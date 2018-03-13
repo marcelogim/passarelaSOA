@@ -1,11 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
 <application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request" xmlns="http://wadl.dev.java.net/2009/02">
    <doc title="UpdateShoppersPS">RestService</doc>
    <grammars>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_request" schemaLocation="nxsd_ProfileReq.xsd"/>
         </xsd:schema>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperPS_profile_response" schemaLocation="nxsd_ProfileRes.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/ResponsysUpdateShopperBS_PutEvent_request" schemaLocation="nxsd_FilaContactsReq.xsd"/>
         </xsd:schema>
    </grammars>
    <resources>
