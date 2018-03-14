@@ -175,48 +175,46 @@
           <tns:contract>ONECLICK</tns:contract>
         </tns:recurring>
       </xsl:if>
-      <xsl:if test="/ns0:Root-Element/ns0:billingAddress">
-        <tns:billingAddress>
-          <tns:city>
-            <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:city"/>
-          </tns:city>
-          <tns:country>
-            <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:country"/>
-          </tns:country>
-          <tns:houseNumberOrName>
-            <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:address2"/>
-          </tns:houseNumberOrName>
-          <tns:postalCode>
-            <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:postalCode"/>
-          </tns:postalCode>
-          <tns:stateOrProvince>
-            <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:state"/>
-          </tns:stateOrProvince>
-          <tns:street>
-            <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:address1"/>
-          </tns:street>
-        </tns:billingAddress>
-      </xsl:if>
-      <xsl:if test="/ns0:Root-Element/ns0:shippingAddress">
-        <tns:deliveryAddress>
-          <tns:city>
-            <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:city"/>
-          </tns:city>
-          <tns:country>
-            <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:country"/>
-          </tns:country>
-          <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:address2"/>
-          <tns:postalCode>
-            <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:postalCode"/>
-          </tns:postalCode>
-          <tns:stateOrProvince>
-            <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:state"/>
-          </tns:stateOrProvince>
-          <tns:street>
-            <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:address1"/>
-          </tns:street>
-        </tns:deliveryAddress>
-      </xsl:if>
+      <tns:billingAddress>
+        <tns:city>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:city"/>
+        </tns:city>
+        <tns:country>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:country"/>
+        </tns:country>
+        <tns:houseNumberOrName>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:address2"/>
+        </tns:houseNumberOrName>
+        <tns:postalCode>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:postalCode"/>
+        </tns:postalCode>
+        <tns:stateOrProvince>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:state"/>
+        </tns:stateOrProvince>
+        <tns:street>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:address1"/>
+        </tns:street>
+      </tns:billingAddress>
+      <tns:deliveryAddress>
+        <tns:city>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:city"/>
+        </tns:city>
+        <tns:country>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:country"/>
+        </tns:country>
+        <tns:houseNumberOrName>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:address2"/>
+        </tns:houseNumberOrName>
+        <tns:postalCode>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:postalCode"/>
+        </tns:postalCode>
+        <tns:stateOrProvince>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:state"/>
+        </tns:stateOrProvince>
+        <tns:street>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:address1"/>
+        </tns:street>
+      </tns:deliveryAddress>
       <xsl:if test="$profileOrder/ns1:Root-Element/ns1:telCelular != ''">
         <tns:telephoneNumber>
           <xsl:value-of select="translate(translate(translate(translate($profileOrder/ns1:Root-Element/ns1:telCelular, '-', ''), '(',''), ')',''),' ','')"/>
@@ -255,6 +253,9 @@
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:nationality"/>
         </tns:nationality>
       </xsl:if>
+      <tns:countryCode>
+        <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:country"/>
+      </tns:countryCode>
       <xsl:if test="/ns0:Root-Element/ns0:billingAddress/ns0:firstName">
         <tns:shopperName>
           <tns:firstName>
