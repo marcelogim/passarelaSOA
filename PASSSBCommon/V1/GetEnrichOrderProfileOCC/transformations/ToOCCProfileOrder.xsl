@@ -52,12 +52,24 @@
          <tns:CPF>
             <xsl:value-of select="$profile/ns1:Root-Element/ns1:CPF"/>
          </tns:CPF>
+         <tns:nationality>
+            <xsl:value-of select="$profile/ns1:Root-Element/ns1:nationality"/>
+         </tns:nationality>
+         <tns:valorFraude>
+            <xsl:value-of select="$profile/ns1:Root-Element/ns1:valorFraude"/>
+         </tns:valorFraude>
          <tns:firstVisitDate>
             <xsl:value-of select="$profile/ns1:Root-Element/ns1:firstVisitDate"/>
          </tns:firstVisitDate>
-         <tns:dateOfBirth>
-            <xsl:value-of select="$profile/ns1:Root-Element/ns1:dateOfBirth"/>
-         </tns:dateOfBirth>
+         <tns:birthDate>
+            <xsl:value-of select="$profile/ns1:Root-Element/ns1:birthDate"/>
+         </tns:birthDate>
+         <tns:telCelular>
+            <xsl:value-of select="$profile/ns1:Root-Element/ns1:telCelular"/>
+         </tns:telCelular>
+         <tns:email>
+            <xsl:value-of select="$profile/ns1:Root-Element/ns1:email"/>
+         </tns:email>
          <tns:shippingGroups>
             <tns:shippingMethod>
                <xsl:value-of select="/ns0:Root-Element/ns0:shippingGroups/ns0:shippingMethod"/>
@@ -65,9 +77,21 @@
             <tns:description>
                <xsl:value-of select="/ns0:Root-Element/ns0:shippingGroups/ns0:description"/>
             </tns:description>
+            <tns:shipOnDate>
+               <xsl:value-of select="/ns0:Root-Element/ns0:shippingGroups/ns0:shipOnDate"/>
+            </tns:shipOnDate>
          </tns:shippingGroups>
+         <tns:profileId>
+            <xsl:value-of select="$profile/ns1:Root-Element/ns1:id"/>
+         </tns:profileId>
          <xsl:for-each select="/ns0:Root-Element/ns0:commerceItems">
             <tns:commerceItems>
+               <tns:brand>
+                  <xsl:value-of select="ns0:brand"/>
+               </tns:brand>
+               <tns:collection1Subcategoria>
+                  <xsl:value-of select="ns0:collection1Subcategoria"/>
+               </tns:collection1Subcategoria>
                <tns:priceInfo>
                   <tns:amount>
                      <xsl:value-of select="ns0:priceInfo/ns0:amount"/>

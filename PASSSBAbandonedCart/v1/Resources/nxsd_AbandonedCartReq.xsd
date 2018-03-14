@@ -96,7 +96,7 @@
                         </xsd:sequence>
                       </xsd:complexType>
                     </xsd:element>
-                    <xsd:element name="items">
+                    <xsd:element name="items" >
                       <xsd:complexType>
                         <xsd:sequence>
                           <xsd:element name="unitPrice" type="xsd:integer"/>
@@ -255,7 +255,7 @@
                 <xsd:complexType>
                   <xsd:sequence>
                     <xsd:element name="numberOfItems" type="xsd:integer"/>
-                    <xsd:element name="items">
+                    <xsd:element name="items" maxOccurs="unbounded">
                       <xsd:complexType>
                         <xsd:sequence>
                           <xsd:element name="unitPrice" type="xsd:integer"/>

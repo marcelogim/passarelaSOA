@@ -45,37 +45,46 @@
         <tns:EventName>FILA_ABANDONOBRUTO</tns:EventName>
       </tns:Event>
       <tns:DataLists>
-        <tns:TableLists>
-          <tns:ApplicationName>SANDBOX_SUP_ABANDONOBRUTO</tns:ApplicationName>
-          <tns:TableKey>DATAABANDONO;CUSTOMERID;SKU</tns:TableKey>
-          <tns:TableType>S</tns:TableType>
-          <tns:Folder>Sandbox_API</tns:Folder>
-          <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate != ''">
-            <tns:Elements>
-              <tns:Name>DATAABANDONO</tns:Name>
-              <tns:Value>
-                <xsl:value-of select="xp20:format-dateTime (/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate, '[Y0001]-[M01]-[D01] 00:00:00.0' )"/>
-              </tns:Value>
-            </tns:Elements>
-          </xsl:if>
-          <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:profile/ns0:id != ''">
-            <tns:Elements>
-              <tns:Name>CUSTOMERID</tns:Name>
-              <tns:Value>
-                <xsl:value-of select="/ns0:Root-Element/ns0:idleCart/ns0:profile/ns0:id"/>
-              </tns:Value>
-            </tns:Elements>
-          </xsl:if>
-          <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:orderId != ''">
-            <tns:Elements>
-              <tns:Name>SKU</tns:Name>
-              <tns:Value>
-                <xsl:value-of select="/ns0:Root-Element/ns0:idleCart/ns0:orderId"/>
-              </tns:Value>
-            </tns:Elements>
-          </xsl:if>
-         
-        </tns:TableLists>
+        <xsl:for-each select="/ns0:Root-Element/ns0:idleCart/ns0:shoppingCart/ns0:items">
+          <tns:TableLists>
+            <tns:ApplicationName>SANDBOX_SUP_ABANDONOBRUTO</tns:ApplicationName>
+            <tns:TableKey>DATAABANDONO;CUSTOMERID;SKU</tns:TableKey>
+            <tns:TableType>S</tns:TableType>
+            <tns:Folder>Sandbox_API</tns:Folder>
+            <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate != ''">
+              <tns:Elements>
+                <tns:Name>DATAABANDONO</tns:Name>
+                <tns:Value>
+                  <xsl:value-of select="xp20:format-dateTime (/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate, '[Y0001]-[M01]-[D01] 00:00:00.0' )"/>
+                </tns:Value>
+              </tns:Elements>
+            </xsl:if>
+            <xsl:if test="/ns0:Root-Element/ns0:idleCart/ns0:profile/ns0:id != ''">
+              <tns:Elements>
+                <tns:Name>CUSTOMERID</tns:Name>
+                <tns:Value>
+                  <xsl:value-of select="/ns0:Root-Element/ns0:idleCart/ns0:profile/ns0:id"/>
+                </tns:Value>
+              </tns:Elements>
+            </xsl:if>
+            <xsl:if test='ns0:catRefId != ""'>
+              <tns:Elements>
+                <tns:Name>TAMANHO</tns:Name>
+                <tns:Value>
+                  <xsl:value-of select="substring (ns0:catRefId, 11, 2 )"/>
+                </tns:Value>
+              </tns:Elements>
+            </xsl:if>
+            <xsl:if test='ns0:catRefId != ""'>
+              <tns:Elements>
+                <tns:Name>SKU</tns:Name>
+                <tns:Value>
+                  <xsl:value-of select="ns0:catRefId"/>
+                </tns:Value>
+              </tns:Elements>
+            </xsl:if>
+          </tns:TableLists>
+        </xsl:for-each>
       </tns:DataLists>
       <tns:Token>
         <xsl:value-of select="$TokenPMWeb"/>

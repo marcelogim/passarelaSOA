@@ -277,8 +277,24 @@
                                                     </con2:xsltTransform>
                                                 </con3:expr>
                                             </con3:replace>
+                                            <con3:log>
+                                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N778b</con2:id>
+                                                <con3:logLevel>error</con3:logLevel>
+                                                <con3:expr>
+                                                    <con2:xqueryText>$body</con2:xqueryText>
+                                                </con3:expr>
+                                                <con3:message>Adyen Req</con3:message>
+                                            </con3:log>
                                         </con1:outboundTransform>
                                         <con1:responseTransform>
+                                            <con3:log>
+                                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7757</con2:id>
+                                                <con3:logLevel>error</con3:logLevel>
+                                                <con3:expr>
+                                                    <con2:xqueryText>$body</con2:xqueryText>
+                                                </con3:expr>
+                                                <con3:message>Adyen Resp</con3:message>
+                                            </con3:log>
                                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                                 <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N6e68</con2:id>
                                                 <con3:location>

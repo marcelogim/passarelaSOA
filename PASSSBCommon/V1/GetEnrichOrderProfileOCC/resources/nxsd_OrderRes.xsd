@@ -104,7 +104,7 @@
         <xsd:element name="lastModifiedTime" type="xsd:integer"/>
         <xsd:element name="creationTime" type="xsd:integer"/>
         <xsd:element name="sourceSystem" type="xsd:string"/>
-         <xsd:element name="BrowserInfo" type="xsd:string"/>
+        <xsd:element name="BrowserInfo" type="xsd:string"/>
         <xsd:element name="profile">
           <xsd:complexType>
             <xsd:sequence>
@@ -256,7 +256,7 @@
         <xsd:element name="totalCommerceItemCount" type="xsd:integer"/>
         <xsd:element name="state" type="xsd:string"/>
         <xsd:element name="id" type="xsd:string"/>
-         <xsd:element name="commerceItems" maxOccurs="unbounded" >
+        <xsd:element name="commerceItems" maxOccurs="unbounded">
           <xsd:complexType>
             <xsd:sequence>
               <xsd:element name="deactivationDate" type="xsd:string"/>
@@ -265,6 +265,8 @@
               <xsd:element name="billingAccountId" type="xsd:string"/>
               <xsd:element name="preOrderQuantity" type="xsd:integer"/>
               <xsd:element name="configuratorId" type="xsd:integer"/>
+              <xsd:element name="brand" type="xsd:string"/>
+              <xsd:element name="collection1Subcategoria" type="xsd:string"/>
               <xsd:element name="priceInfo">
                 <xsd:complexType>
                   <xsd:sequence>
@@ -445,7 +447,6 @@
               <xsd:element name="productDisplayName" type="xsd:string"/>
               <xsd:element name="activationDate" type="xsd:string"/>
               <xsd:element name="backOrderQuantity" type="xsd:integer"/>
-             
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>

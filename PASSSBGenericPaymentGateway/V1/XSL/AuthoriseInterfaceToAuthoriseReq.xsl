@@ -58,43 +58,71 @@
           <tns:executeThreeD>true</tns:executeThreeD>
         </xsl:if>
         <xsl:for-each select="$profileOrder/ns1:Root-Element/ns1:commerceItems">
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.itemID>')"/>
-          <xsl:value-of select="ns1:productId"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.itemID>')"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.productTitle>')"/>
-          <xsl:value-of select="ns1:productDisplayName"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.productTitle>')"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.amountPerItem>')"/>
-          <xsl:value-of select="ns1:priceInfo/ns1:amount"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.amountPerItem>')"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.currency>')"/>
-          <xsl:value-of select="ns1:priceInfo/ns1:currencyCode"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.currency>')"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.sku>')"/>
-          <xsl:value-of select="ns1:catalogRefId"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.sku>')"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.upc>')"/>
-          <xsl:value-of select="ns1:catalogRefId"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.upc>')"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.quantity>')"/>
-          <xsl:value-of select="ns1:quantity"/>
-          <xsl:value-of disable-output-escaping="yes"
-                        select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.quantity>')"/>
+          <xsl:if test="ns1:productId != ''">
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.itemID>')"/>
+            <xsl:value-of select="ns1:productId"/>
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.itemID>')"/>
+          </xsl:if>
+          <xsl:if test="ns1:productDisplayName != ''">
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.productTitle>')"/>
+            <xsl:value-of select="ns1:productDisplayName"/>
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.productTitle>')"/>
+          </xsl:if>
+          <xsl:if test="ns1:priceInfo/ns1:amount != ''">
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.amountPerItem>')"/>
+            <xsl:value-of select="ns1:priceInfo/ns1:amount"/>
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.amountPerItem>')"/>
+          </xsl:if>
+          <xsl:if test="ns1:priceInfo/ns1:currencyCode != ''">
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.currency>')"/>
+            <xsl:value-of select="ns1:priceInfo/ns1:currencyCode"/>
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.currency>')"/>
+          </xsl:if>
+          <xsl:if test="ns1:catalogRefId != ''">
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.sku>')"/>
+            <xsl:value-of select="ns1:catalogRefId"/>
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.sku>')"/>
+          </xsl:if>
+          <xsl:if test="ns1:catalogRefId != ''">
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.upc>')"/>
+            <xsl:value-of select="ns1:catalogRefId"/>
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.upc>')"/>
+          </xsl:if>
+          <xsl:if test="ns1:quantity != ''">
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.quantity>')"/>
+            <xsl:value-of select="ns1:quantity"/>
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.quantity>')"/>
+          </xsl:if>
+          <xsl:if test="ns1:collection1Subcategoria != ''">
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.category>')"/>
+            <xsl:value-of select="ns1:collection1Subcategoria"/>
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.category>')"/>
+          </xsl:if>
+          <xsl:if test="ns1:brand != ''">
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;tns:riskdata.basket.', 'item', position(),'.brand>')"/>
+            <xsl:value-of select="ns1:brand"/>
+            <xsl:value-of disable-output-escaping="yes"
+                          select="concat('&lt;/tns:riskdata.basket.', 'item', position(),'.brand>')"/>
+          </xsl:if>
         </xsl:for-each>
-        <xsl:if test="$profileOrder/ns1:Root-Element/ns1:firstVisitDate">
+        <xsl:if test="$profileOrder/ns1:Root-Element/ns1:firstVisitDate != ''">
           <tns:riskdata.shopperAccountCreationDate>
             <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:firstVisitDate"/>
           </tns:riskdata.shopperAccountCreationDate>
@@ -129,14 +157,16 @@
           <xsl:value-of select="/ns0:Root-Element/ns0:transactionId"/>
         </tns:reference>
       </xsl:if>
-      <xsl:if test="/ns0:Root-Element/ns0:billingAddress/ns0:email">
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:email">
         <tns:shopperEmail>
-          <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:email"/>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:email"/>
         </tns:shopperEmail>
       </xsl:if>
-      <tns:shopperReference>
-        <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:profileId"/>
-      </tns:shopperReference>
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:profileId != ''">
+        <tns:shopperReference>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:profileId"/>
+        </tns:shopperReference>
+      </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'oneclick'">
         <tns:selectedRecurringDetailReference>LATEST</tns:selectedRecurringDetailReference>
       </xsl:if>
@@ -153,7 +183,9 @@
           <tns:country>
             <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:country"/>
           </tns:country>
-          <tns:houseNumberOrName><xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:address2"/></tns:houseNumberOrName>
+          <tns:houseNumberOrName>
+            <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:address2"/>
+          </tns:houseNumberOrName>
           <tns:postalCode>
             <xsl:value-of select="/ns0:Root-Element/ns0:billingAddress/ns0:postalCode"/>
           </tns:postalCode>
@@ -173,7 +205,7 @@
           <tns:country>
             <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:country"/>
           </tns:country>
-          <tns:houseNumberOrName>1</tns:houseNumberOrName>
+          <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:address2"/>
           <tns:postalCode>
             <xsl:value-of select="/ns0:Root-Element/ns0:shippingAddress/ns0:postalCode"/>
           </tns:postalCode>
@@ -185,19 +217,21 @@
           </tns:street>
         </tns:deliveryAddress>
       </xsl:if>
-      <xsl:if test="/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber">
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:telCelular != ''">
         <tns:telephoneNumber>
-          <xsl:value-of select="translate(/ns0:Root-Element/ns0:billingAddress/ns0:phoneNumber, '-', '' )"/>
+          <xsl:value-of select="translate(translate(translate(translate($profileOrder/ns1:Root-Element/ns1:telCelular, '-', ''), '(',''), ')',''),' ','')"/>
         </tns:telephoneNumber>
       </xsl:if>
-      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:valorFraude">
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:valorFraude != ''">
         <tns:fraudOffset>
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:valorFraude"/>
         </tns:fraudOffset>
       </xsl:if>
-      <tns:deliveryDate>
-        <xsl:value-of select="xp20:current-dateTime ( )"/>
-      </tns:deliveryDate>
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shipOnDate != ''">
+        <tns:deliveryDate>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shipOnDate"/>
+        </tns:deliveryDate>
+      </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:paymentMethod = 'invoice'">
         <tns:selectedBrand>boletobancario_santander</tns:selectedBrand>
       </xsl:if>
@@ -211,12 +245,12 @@
           </tns:userAgent>
         </tns:browserInfo>
       </xsl:if>
-      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:dateOfBirth">
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:birthDate != ''">
         <tns:dateOfBirth>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:dateOfBirth"/>
+          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:birthDate"/>
         </tns:dateOfBirth>
       </xsl:if>
-      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:nationality">
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:nationality != ''">
         <tns:nationality>
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:nationality"/>
         </tns:nationality>
@@ -255,9 +289,11 @@
         <tns:shopperStatement>Aceitar o pagamento até 15 dias após o vencimento; Não cobrar juros. Não aceitar o
                               pagamento com cheque</tns:shopperStatement>
       </xsl:if>
-      <tns:socialSecurityNumber>
-        <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:CPF"/>
-      </tns:socialSecurityNumber>
+      <xsl:if test="$profileOrder/ns1:Root-Element/ns1:CPF">
+        <tns:socialSecurityNumber>
+          <xsl:value-of select="translate(translate($profileOrder/ns1:Root-Element/ns1:CPF,'.',''),'-', '')"/>
+        </tns:socialSecurityNumber>
+      </xsl:if>
       <tns:merchantAccount>
         <xsl:value-of select="$merchantAccount"/>
       </tns:merchantAccount>
