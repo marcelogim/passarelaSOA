@@ -3,7 +3,7 @@
             xmlns="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request"
             targetNamespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request"
             elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
-            nxsd:encoding="US-ASCII">
+            nxsd:encoding="UTF-8">
   <xsd:element name="Root-Element">
     <xsd:complexType>
       <xsd:sequence>
