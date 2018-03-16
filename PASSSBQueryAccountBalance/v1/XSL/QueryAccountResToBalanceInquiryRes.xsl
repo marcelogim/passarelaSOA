@@ -47,7 +47,9 @@
   <xsl:param name="currentTimestampMiliseconds"/>
   <xsl:template match="/">
     <tns:Root-Element>
-      <tns:totalAvailableAmount>200</tns:totalAvailableAmount>
+      <tns:totalAvailableAmount>
+        <xsl:value-of select="/ns0:Root-Element/ns0:valocredito"/>
+      </tns:totalAvailableAmount>
       <tns:transactionType>0600</tns:transactionType>
       <tns:orderId>
         <xsl:value-of select="$BalanceInquiryReq/ns1:Root-Element/ns1:orderId"/>
@@ -76,7 +78,9 @@
           <tns:storeCreditNumber>
             <xsl:value-of select="$BalanceInquiryReq/ns1:Root-Element/ns1:CPF"/>
           </tns:storeCreditNumber>
-          <tns:availableAamount>200</tns:availableAamount>
+          <tns:availableAamount>
+            <xsl:value-of select="/ns0:Root-Element/ns0:valocredito"/>
+          </tns:availableAamount>
         </tns:storeCredits>
         <tns:responseDescription>inquireBalanceResponseDescription</tns:responseDescription>
         <tns:merchantTransactionId>

@@ -1,16 +1,12 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns="http://TargetNamespace.com/ERPPassarelaQueryAccountBalance_query_response"
-            targetNamespace="http://TargetNamespace.com/ERPPassarelaQueryAccountBalance_query_response"
+            xmlns="http://TargetNamespace.com/QueryAccount_CPF_request"
+            targetNamespace="http://TargetNamespace.com/QueryAccount_CPF_request"
             elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
-            nxsd:encoding="US-ASCII">
+            nxsd:encoding="UTF-8">
   <xsd:element name="Root-Element">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="valocredito" type="xsd:string"/>
-        <xsd:element name="email" type="xsd:string"/>
-        <xsd:element name="idprofileatg" type="xsd:string"/>
-        <xsd:element name="idprofileocc" type="xsd:string"/>
         <xsd:element name="cpf" type="xsd:string"/>
       </xsd:sequence>
     </xsd:complexType>

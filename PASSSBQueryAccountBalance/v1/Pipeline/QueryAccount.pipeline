@@ -12,79 +12,136 @@
             <con:snippetVersion>1.0</con:snippetVersion>
         </con:xqConfiguration>
     </con:coreEntry>
-    <con:router>
-        <con:pipeline type="request" name="request-N3f57c7ff.N5423a216.0.162018d8197.N7f3b">
-            <con:stage id="_StageId-N3f57c7ff.N5423a216.0.162018d8197.N7f39" name="Stage1">
-                <con:context/>
-                <con:actions>
-                    <con2:assign varName="bodyRequest">
-                        <con1:id>_ActionId-N3f57c7ff.N5423a216.0.162018d8197.N7efa</con1:id>
-                        <con2:expr>
-                            <con1:xqueryText>$body</con1:xqueryText>
-                        </con2:expr>
-                    </con2:assign>
-                    <con3:log>
-                        <con1:id>_ActionId-N3f57c7ff.N5423a216.0.162018d8197.N7efd</con1:id>
-                        <con3:logLevel>error</con3:logLevel>
-                        <con3:expr>
-                            <con1:xqueryText>$body</con1:xqueryText>
-                        </con3:expr>
-                        <con3:message>request</con3:message>
-                    </con3:log>
-                </con:actions>
-            </con:stage>
-        </con:pipeline>
-        <con:pipeline type="response" name="response-N3f57c7ff.N5423a216.0.162018d8197.N7f3a">
-            <con:stage id="_StageId-N3f57c7ff.N5423a216.0.162018d8197.N7f38" name="Stage1">
+    <con:router errorHandler="error-N3f57c7ff.N74338c7c.0.162077fcd2e.N7482">
+        <con:pipeline type="error" name="error-N3f57c7ff.N74338c7c.0.162077fcd2e.N7482">
+            <con:stage id="_StageId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7481" name="Erro Query Ballance">
                 <con:context>
-                    <con1:userNsDecl prefix="quer" namespace="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_response"/>
-                    <con1:userNsDecl prefix="quer1" namespace="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_request"/>
+                    <con1:userNsDecl prefix="err" namespace="http://www.bea.com/wli/sb/errors"/>
                 </con:context>
                 <con:actions>
-                    <con2:replace varName="body" contents-only="true">
-                        <con1:id>_ActionId-N3f57c7ff.N5423a216.0.162018d8197.N7f35</con1:id>
-                        <con2:location>
-                            <con1:xpathText>.</con1:xpathText>
-                        </con2:location>
-                        <con2:expr>
-                            <con1:xsltTransform>
-                                <con1:resource ref="PASSSBQueryAccountBalance/v1/XSL/QueryAccountResToBalanceInquiryRes"/>
-                                <con1:input>&lt;xml/></con1:input>
-                                <con1:param name="BalanceInquiryReq">
-                                    <con1:path>$bodyRequest/quer1:Root-Element</con1:path>
-                                </con1:param>
-                                <con1:param name="currentTimestampMiliseconds">
-                                    <con1:path>xs:long((fn:current-dateTime() - xs:dateTime("1970-01-01T00:00:00-00:00")) div xs:dayTimeDuration("PT0.001S"))</con1:path>
-                                </con1:param>
-                            </con1:xsltTransform>
-                        </con2:expr>
-                    </con2:replace>
-                    <con3:log>
-                        <con1:id>_ActionId-N3f57c7ff.N5423a216.0.162018d8197.N7f31</con1:id>
-                        <con3:logLevel>error</con3:logLevel>
-                        <con3:expr>
-                            <con1:xqueryText>$body</con1:xqueryText>
-                        </con3:expr>
-                        <con3:message>response</con3:message>
-                    </con3:log>
+                    <con4:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con4="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N744d</con2:id>
+                        <con1:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xsltTransform>
+                                <con2:resource ref="PASSSBQueryAccountBalance/v1/XSL/ToFault"/>
+                                <con2:input>&lt;xml>&lt;/xml></con2:input>
+                                <con2:param name="status">
+                                    <con2:path>if (exists($body//ctx:status)) then
+ $body//ctx:status
+else("500")</con2:path>
+                                </con2:param>
+                                <con2:param name="type">
+                                    <con2:path>$fault/ctx:errorCode/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="text">
+                                    <con2:path>$fault/ctx:reason/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="key">
+                                    <con2:path>$fault//err:text/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="time">
+                                    <con2:path>fn:current-dateTime()</con2:path>
+                                </con2:param>
+                                <con2:param name="timezone">
+                                    <con2:path>"BRT"</con2:path>
+                                </con2:param>
+                                <con2:param name="locale">
+                                    <con2:path>"pt_br"</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con4:replace>
+                    <con2:resume xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                        <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N744a</con2:id>
+                    </con2:resume>
                 </con:actions>
             </con:stage>
         </con:pipeline>
         <con:flow>
-            <con:pipeline-node name="Pipeline Pair Node1">
-                <con:request>request-N3f57c7ff.N5423a216.0.162018d8197.N7f3b</con:request>
-                <con:response>response-N3f57c7ff.N5423a216.0.162018d8197.N7f3a</con:response>
-            </con:pipeline-node>
             <con:route-node name="RouteERPPassarela" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
-                <con:context/>
+                <con:context>
+                    <con2:userNsDecl prefix="erp" namespace="http://TargetNamespace.com/ERPPassarelaQueryAccountBalance_query_response"/>
+                    <con2:userNsDecl prefix="ns0" namespace="https://apipassarela.azurewebsites.net/connect/token"/>
+                    <con2:userNsDecl prefix="quer1" namespace="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_request"/>
+                </con:context>
                 <con:actions>
                     <con1:route>
                         <con2:id>_ActionId-N3f57c7ff.N5423a216.0.162018d8197.N8000</con2:id>
-                        <con2:disabled>true</con2:disabled>
-                        <con1:service ref="PASSSBQueryAccountBalance/v1/BS/ERPPassarelaQueryAccountBalance" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-                        <con1:operation passThrough="true"/>
-                        <con1:outboundTransform/>
-                        <con1:responseTransform/>
+                        <con1:service ref="PASSSBQueryAccountBalance/v1/BS/ERPPassarelaQueryAccountBalancePS" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>profileErp</con1:operation>
+                        <con1:outboundTransform>
+                            <con3:assign varName="bodyOriginal" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7583</con2:id>
+                                <con3:expr>
+                                    <con2:xqueryText>$body</con2:xqueryText>
+                                </con3:expr>
+                            </con3:assign>
+                            <con4:wsCallout xmlns:con4="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N75ba</con2:id>
+                                <con4:service ref="PASSSBCommon/V1/TokenManagementERP/proxy/GetTokenERP" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                <con4:operation>getToken</con4:operation>
+                                <con4:request>
+                                    <con4:body wrapped="false">body</con4:body>
+                                </con4:request>
+                                <con4:response>
+                                    <con4:body wrapped="false">token</con4:body>
+                                </con4:response>
+                                <con4:requestTransform/>
+                                <con4:responseTransform/>
+                            </con4:wsCallout>
+                            <con5:transport-headers copy-all="false" xmlns:con4="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con1="http://www.bea.com/wli/sb/typesystem/config" xmlns:con3="http://www.bea.com/wli/sb/stages/config">
+                                <con3:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7580</con3:id>
+                                <con4:header-set>outbound-request</con4:header-set>
+                                <con4:header value="expression" name="Authorization">
+                                    <con3:xqueryText>fn:concat("Bearer ", $token//ns0:access_token/text())</con3:xqueryText>
+                                </con4:header>
+                                <con4:header value="expression" name="Content-Type">
+                                    <con3:xqueryText>'application/json'</con3:xqueryText>
+                                </con4:header>
+                            </con5:transport-headers>
+                            <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N73ae</con2:id>
+                                <con3:location>
+                                    <con2:xpathText>.</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xqueryText>&lt;quer:Root-Element xmlns:quer="http://TargetNamespace.com/QueryAccount_CPF_request">
+    &lt;quer:cpf>{$bodyOriginal/quer1:Root-Element/quer1:CPF/text()}&lt;/quer:cpf>
+&lt;/quer:Root-Element></con2:xqueryText>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:outboundTransform>
+                        <con1:responseTransform>
+                            <con3:log xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N73b2</con4:id>
+                                <con3:logLevel>error</con3:logLevel>
+                                <con3:expr>
+                                    <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">$body</con4:xqueryText>
+                                </con3:expr>
+                                <con3:message>body Resp Query</con3:message>
+                            </con3:log>
+                            <con2:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7548</con4:id>
+                                <con2:location>
+                                    <con1:xpathText xmlns:con4="http://www.bea.com/wli/sb/stages/config">.</con1:xpathText>
+                                </con2:location>
+                                <con2:expr>
+                                    <con4:xsltTransform xmlns:con4="http://www.bea.com/wli/sb/stages/config">
+                                        <con4:resource ref="PASSSBQueryAccountBalance/v1/XSL/QueryAccountResToBalanceInquiryRes"/>
+                                        <con4:input>$body/erp:Root-Element</con4:input>
+                                        <con4:param name="BalanceInquiryReq">
+                                            <con4:path>$bodyOriginal</con4:path>
+                                        </con4:param>
+                                        <con4:param name="currentTimestampMiliseconds">
+                                            <con4:path>xs:long((fn:current-dateTime() - xs:dateTime("1970-01-01T00:00:00-00:00")) div xs:dayTimeDuration("PT0.001S"))</con4:path>
+                                        </con4:param>
+                                    </con4:xsltTransform>
+                                </con2:expr>
+                            </con2:replace>
+                        </con1:responseTransform>
                     </con1:route>
                 </con:actions>
             </con:route-node>

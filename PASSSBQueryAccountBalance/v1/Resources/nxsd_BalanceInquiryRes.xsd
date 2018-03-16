@@ -1,48 +1,65 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_response" targetNamespace="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_response" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
-   <xsd:element name="Root-Element">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="totalAvailableAmount" type="xsd:integer"/>
-            <xsd:element name="transactionType" type="xsd:integer"/>
-            <xsd:element name="orderId" type="xsd:string"/>
-            <xsd:element name="paymentId" type="xsd:string"/>
-            <xsd:element name="channel" type="xsd:string"/>
-            <xsd:element name="paymentMethod" type="xsd:string"/>
-            <xsd:element name="siteId" type="xsd:string"/>
-            <xsd:element name="locale" type="xsd:string"/>
-            <xsd:element name="inquireBalanceResponse">
-               <xsd:complexType>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_response"
+            targetNamespace="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_response"
+            elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
+            nxsd:encoding="US-ASCII">
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="status" type="xsd:string"/>
+        <xsd:element name="messages" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="type" type="xsd:string"/>
+              <xsd:element name="text" type="xsd:string"/>
+              <xsd:element name="key" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="time" type="xsd:string"/>
+        <xsd:element name="timezone" type="xsd:string"/>
+        <xsd:element name="locale" type="xsd:string"/>
+        <xsd:element name="totalAvailableAmount" type="xsd:integer"/>
+        <xsd:element name="transactionType" type="xsd:integer"/>
+        <xsd:element name="orderId" type="xsd:string"/>
+        <xsd:element name="paymentId" type="xsd:string"/>
+        <xsd:element name="channel" type="xsd:string"/>
+        <xsd:element name="paymentMethod" type="xsd:string"/>
+        <xsd:element name="siteId" type="xsd:string"/>
+        <xsd:element name="locale" type="xsd:string"/>
+        <xsd:element name="inquireBalanceResponse">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="hostTransactionTimestamp" type="xsd:integer"/>
+              <xsd:element name="responseReason" type="xsd:string"/>
+              <xsd:element name="storeCredits" maxOccurs="unbounded">
+                <xsd:complexType>
                   <xsd:sequence>
-                     <xsd:element name="hostTransactionTimestamp" type="xsd:integer"/>
-                     <xsd:element name="responseReason" type="xsd:string"/>
-                     <xsd:element name="storeCredits" maxOccurs="unbounded">
-                        <xsd:complexType>
-                           <xsd:sequence>
-                              <xsd:element name="storeCreditNumber" type="xsd:integer"/>
-                              <xsd:element name="availableAamount" type="xsd:integer"/>
-                           </xsd:sequence>
-                        </xsd:complexType>
-                     </xsd:element>
-                     <xsd:element name="customPaymentProperties" maxOccurs="unbounded" type="xsd:string"/>
-                     <xsd:element name="responseDescription" type="xsd:string"/>
-                     <xsd:element name="merchantTransactionId" type="xsd:string"/>
-                     <xsd:element name="hostTransactionId" type="xsd:string"/>
-                     <xsd:element name="additionalProperties"/>
-                     <xsd:element name="responseCode" type="xsd:integer"/>
-                     <xsd:element name="merchantTransactionTimestamp" type="xsd:integer"/>
+                    <xsd:element name="storeCreditNumber" type="xsd:integer"/>
+                    <xsd:element name="availableAamount" type="xsd:integer"/>
                   </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="currencyCode" type="xsd:string"/>
-            <xsd:element name="transactionId" type="xsd:string"/>
-            <xsd:element name="transactionTimestamp" type="xsd:string"/>
-            <xsd:element name="gatewayId" type="xsd:string"/>
-         </xsd:sequence>
-      </xsd:complexType>
-   </xsd:element>
-<xsd:annotation xmlns="">
-      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
-      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
-   </xsd:annotation>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="customPaymentProperties" maxOccurs="unbounded" type="xsd:string"/>
+              <xsd:element name="responseDescription" type="xsd:string"/>
+              <xsd:element name="merchantTransactionId" type="xsd:string"/>
+              <xsd:element name="hostTransactionId" type="xsd:string"/>
+              <xsd:element name="additionalProperties"/>
+              <xsd:element name="responseCode" type="xsd:integer"/>
+              <xsd:element name="merchantTransactionTimestamp" type="xsd:integer"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="currencyCode" type="xsd:string"/>
+        <xsd:element name="transactionId" type="xsd:string"/>
+        <xsd:element name="transactionTimestamp" type="xsd:string"/>
+        <xsd:element name="gatewayId" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
 </xsd:schema>

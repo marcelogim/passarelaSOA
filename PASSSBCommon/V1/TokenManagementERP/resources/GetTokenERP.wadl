@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="https://apipassarela.azurewebsites.net/connect/token" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="GetTokenERP">RestReference</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="https://apipassarela.azurewebsites.net/connect/token" schemaLocation="../schemas/GetTokenERP.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/connect/token">
+         <method name="POST" soa:wsdlOperation="getToken">
+            <request>
+               <representation mediaType="application/x-www-form-urlencoded" element="cns:GetTokenERPRequest" xmlns:cns="https://apipassarela.azurewebsites.net/connect/token"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:GetTokenERPResponse" xmlns:cns="https://apipassarela.azurewebsites.net/connect/token"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

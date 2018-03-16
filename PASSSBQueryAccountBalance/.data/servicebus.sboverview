@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ns:composite xmlns:ns="http://xmlns.oracle.com/sca/1.0">
     <ns:reference>
-        <ns:interface src="BusinessService:PASSSBQueryAccountBalance/v1/BS/ERPPassarelaQueryAccountBalance"/>
+        <ns:interface src="BusinessService:PASSSBQueryAccountBalance/v1/BS/ERPPassarelaQueryAccountBalancePS"/>
     </ns:reference>
 </ns:composite>
