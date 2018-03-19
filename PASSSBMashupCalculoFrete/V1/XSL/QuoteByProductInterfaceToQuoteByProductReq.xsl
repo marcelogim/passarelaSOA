@@ -20,13 +20,13 @@
         <tns:Root-Element>
             <tns:origin_zip_code>13213070</tns:origin_zip_code>
             <tns:destination_zip_code>
-                <xsl:value-of select="/ns0:Root-Element/ns0:request/ns0:address/ns0:postalCode"/>
+                <xsl:value-of select="translate(/ns0:Root-Element/ns0:request/ns0:address/ns0:postalCode, '-', '')"/>
             </tns:destination_zip_code>
             <tns:quoting_mode>DYNAMIC_BOX_ALL_ITEMS</tns:quoting_mode>
             <xsl:for-each select="/ns0:Root-Element/ns0:request/ns0:items">
                 <tns:products>
                     <tns:weight>
-                        <xsl:value-of select="ns0:product/ns0:weight * 1000"/>
+                        <xsl:value-of select="ns0:product/ns0:weight"/>
                     </tns:weight>
                     <tns:cost_of_goods>
                         <xsl:value-of select="ns0:amount"/>

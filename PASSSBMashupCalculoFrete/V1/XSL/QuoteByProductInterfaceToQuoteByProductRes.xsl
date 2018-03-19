@@ -37,10 +37,7 @@
   <!--User Editing allowed BELOW this line - DO NOT DELETE THIS LINE-->
   <xsl:template match="/">
     <tns:Root-Element>
-      <tns:error>
-        <tns:code>1</tns:code>
-        <tns:message>a</tns:message>
-      </tns:error>
+     
       <!--<tns:status>
                 <xsl:value-of select="/ns0:Root-Element/ns0:status"/>
             </tns:status>

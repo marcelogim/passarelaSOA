@@ -9,6 +9,7 @@
       <xsd:sequence>
         <xsd:element name="amount" type="xsd:integer"/>
         <xsd:element name="orderId" type="xsd:string"/>
+        <xsd:element name="CPF" type="xsd:string"/>
         <xsd:element name="profile">
           <xsd:complexType>
             <xsd:sequence>

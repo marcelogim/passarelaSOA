@@ -55,7 +55,7 @@
               <tns:Elements>
                 <tns:Name>DATAABANDONO</tns:Name>
                 <tns:Value>
-                  <xsl:value-of select="xp20:format-dateTime (/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate, '[Y0001]-[M01]-[D01] 00:00:00.0' )"/>
+                  <xsl:value-of select="xp20:format-dateTime (/ns0:Root-Element/ns0:idleCart/ns0:lastModifiedDate, '[Y0001]-[M01]-[D01] [H01]:[m01]:[s01].0' )"/>
                 </tns:Value>
               </tns:Elements>
             </xsl:if>

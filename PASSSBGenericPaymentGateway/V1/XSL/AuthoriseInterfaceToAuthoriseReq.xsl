@@ -186,7 +186,7 @@
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:address2"/>
         </tns:houseNumberOrName>
         <tns:postalCode>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:postalCode"/>
+          <xsl:value-of select="translate($profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:postalCode, '-', '')"/>
         </tns:postalCode>
         <tns:stateOrProvince>
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:state"/>
@@ -206,7 +206,7 @@
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:address2"/>
         </tns:houseNumberOrName>
         <tns:postalCode>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:postalCode"/>
+          <xsl:value-of select="translate($profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:postalCode, '-', '')"/>
         </tns:postalCode>
         <tns:stateOrProvince>
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:state"/>

@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/ERPPassarelaPaymentBalanceCredit_payment_balance_credit_request" targetNamespace="http://TargetNamespace.com/ERPPassarelaPaymentBalanceCredit_payment_balance_credit_request" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/ERPPassarelaCreditBalance_paymentBalance_request" targetNamespace="http://TargetNamespace.com/ERPPassarelaCreditBalance_paymentBalance_request" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
    <xsd:element name="Root-Element">
       <xsd:complexType>
          <xsd:sequence>
