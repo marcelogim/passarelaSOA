@@ -12,9 +12,56 @@
             <con:snippetVersion>1.0</con:snippetVersion>
         </con:xqConfiguration>
     </con:coreEntry>
-    <con:router>
+    <con:router errorHandler="error-N3f57c7ff.N24b4dd51.0.1623e9b200e.N7e5c">
+        <con:pipeline type="error" name="error-N3f57c7ff.N24b4dd51.0.1623e9b200e.N7e5c">
+            <con:stage id="_StageId-N3f57c7ff.N24b4dd51.0.1623e9b200e.N7e25" name="Erro Payment Balance Credit" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config">
+                <con:context>
+                    <con1:userNsDecl prefix="err" namespace="http://www.bea.com/wli/sb/errors"/>
+                </con:context>
+                <con:actions>
+                    <con4:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con4="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id>_ActionId-N3f57c7ff.N24b4dd51.0.1623e9b200e.N7e24</con2:id>
+                        <con1:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xsltTransform>
+                                <con2:resource ref="PASSSBPaymentBalanceCredit/v1/XSL/ToFault"/>
+                                <con2:input>&lt;xml>&lt;/xml></con2:input>
+                                <con2:param name="status">
+                                    <con2:path>if (exists($body//ctx:status)) then
+ $body//ctx:status
+else("500")</con2:path>
+                                </con2:param>
+                                <con2:param name="type">
+                                    <con2:path>$fault/ctx:errorCode/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="text">
+                                    <con2:path>$fault/ctx:reason/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="key">
+                                    <con2:path>$fault//err:text/text()</con2:path>
+                                </con2:param>
+                                <con2:param name="time">
+                                    <con2:path>fn:current-dateTime()</con2:path>
+                                </con2:param>
+                                <con2:param name="timezone">
+                                    <con2:path>"BRT"</con2:path>
+                                </con2:param>
+                                <con2:param name="locale">
+                                    <con2:path>"pt_br"</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con1:expr>
+                    </con4:replace>
+                    <con2:resume xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                        <con2:id>_ActionId-N3f57c7ff.N24b4dd51.0.1623e9b200e.N7e23</con2:id>
+                    </con2:resume>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
         <con:flow>
-            <con:route-node name="RouteNode1" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+            <con:route-node name="Payment Balance Credit" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
                 <con:context>
                     <con2:userNsDecl prefix="pay" namespace="http://TargetNamespace.com/PaymentCreditBalancePS_payment_credit_request"/>
                     <con2:userNsDecl prefix="ns0" namespace="https://apipassarela.azurewebsites.net/connect/token"/>
@@ -103,7 +150,7 @@
                                 </con2:location>
                                 <con2:expr>
                                     <con1:xsltTransform>
-                                        <con1:resource ref="PASSSBPaymentBalanceCredit/v1/XSL/PaymentBalanceToPaymentCreditStore1"/>
+                                        <con1:resource ref="PASSSBPaymentBalanceCredit/v1/XSL/PaymentBalanceToPaymentCreditStore"/>
                                         <con1:input>$body/pay1:Root-Element</con1:input>
                                         <con1:param name="currentTimestamp">
                                             <con1:path>xs:long((fn:current-dateTime() - xs:dateTime("1970-01-01T00:00:00-00:00")) div xs:dayTimeDuration("PT0.001S"))</con1:path>
