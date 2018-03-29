@@ -238,6 +238,16 @@
               <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:boletobancario.dueDate"/>
             </tns:boletobancario.dueDate>
           </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:fraudResultType">
+            <n2:fraudResultType>
+              <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:fraudResultType"/>
+            </n2:fraudResultType>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:additionalData/ns0:fraudManualReview">
+            <n2:fraudManualReview>
+              <xsl:value-of select="/ns0:Root-Element/ns0:additionalData/ns0:fraudManualReview"/>
+            </n2:fraudManualReview>
+          </xsl:if>
         </tns:additionalProperties>
       </xsl:if>
     </tns:Root-Element>

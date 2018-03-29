@@ -67,6 +67,8 @@
               <xsd:element name="boletobancario.barCodeReference" type="xsd:string"/>
               <xsd:element name="boletobancario.expirationDate" type="xsd:string"/>
               <xsd:element name="boletobancario.dueDate" type="xsd:string"/>
+              <xsd:element name="fraudResultType" type="xsd:string"/>
+              <xsd:element name="fraudManualReview" type="xsd:string"/>
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>
