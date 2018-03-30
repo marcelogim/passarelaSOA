@@ -30,12 +30,12 @@
                               <xsd:element name="lead_time_business_days" type="xsd:integer"/>
                               <xsd:element name="free_shipping"/>
                               <xsd:element name="extra_cost_percentage"/>
-                              <xsd:element name="tax_id"/>
+                              <xsd:element name="tax_id" type="xsd:string"/>
                               <xsd:element name="client_type" type="xsd:string"/>
                               <xsd:element name="sales_channel" type="xsd:string"/>
-                              <xsd:element name="payment_type"/>
+                              <xsd:element name="payment_type" type="xsd:string"/>
                               <xsd:element name="is_state_tax_payer"/>
-                              <xsd:element name="shipped_date"/>
+                              <xsd:element name="shipped_date"  type="xsd:string" />
                               <xsd:element name="calculate_estimated_date_exact"/>
                            </xsd:sequence>
                         </xsd:complexType>
