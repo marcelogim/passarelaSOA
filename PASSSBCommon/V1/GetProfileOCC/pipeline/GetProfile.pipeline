@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="PASSSBCommon/V1/GetProfileOCC/resources/GetProfilePS"/>
+            <con:binding>
+                <con:name>GetEnrichOrderProfilePS_ptt-binding</con:name>
+                <con:namespace>http://xmlns.oracle.com/SBAplPassarela/PASSSBCommon/GetEnrichOrderProfilePS</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:flow>
+            <con:route-node name="RouteToOCC">
+                <con:context>
+                    <con1:userNsDecl prefix="get" namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request"/>
+                    <con1:userNsDecl prefix="ns0" namespace="https://ccadmin-test-z9da.oracleoutsourcing.com/ccadmin/v1/login"/>
+                    <con1:userNsDecl prefix="get1" namespace="http://TargetNamespace.com/OCCGetProfileOrder_orderRequest_response"/>
+                    <con1:userNsDecl prefix="get2" namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_response"/>
+                    <con1:userNsDecl prefix="prof" namespace="http://TargetNamespace.com/OCCGetProfileOrder_profileRequest_response"/>
+                    <con1:userNsDecl prefix="get3" namespace="http://TargetNamespace.com/OCCGetProfileOrder_products_response"/>
+                </con:context>
+                <con:actions>
+                    <con1:route xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                        <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b90</con2:id>
+                        <con1:service ref="PASSSBCommon/V1/GetProfileOCC/business/OCCGetProfile" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>profile</con1:operation>
+                        <con1:outboundTransform>
+                            <con3:wsCallout xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b8f</con2:id>
+                                <con3:service ref="PASSSBCommon/V1/TokenManagement/proxy/GetTokenCommerceLocal" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                <con3:operation>getTokenCommerce</con3:operation>
+                                <con3:request>
+                                    <con3:body wrapped="true">body</con3:body>
+                                </con3:request>
+                                <con3:response>
+                                    <con3:body wrapped="true">token</con3:body>
+                                </con3:response>
+                                <con3:requestTransform/>
+                                <con3:responseTransform>
+                                    <con3:assign varName="token">
+                                        <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b8e</con2:id>
+                                        <con3:expr>
+                                            <con2:xqueryText>$token//ns0:access_token/text()</con2:xqueryText>
+                                        </con3:expr>
+                                    </con3:assign>
+                                </con3:responseTransform>
+                            </con3:wsCallout>
+                            <con5:transport-headers copy-all="false" xmlns:con4="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con1="http://www.bea.com/wli/sb/typesystem/config" xmlns:con3="http://www.bea.com/wli/sb/stages/config">
+                                <con3:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b88</con3:id>
+                                <con4:header-set>outbound-request</con4:header-set>
+                                <con4:header value="expression" name="Authorization">
+                                    <con3:xqueryText>fn:concat("Bearer ", $token)</con3:xqueryText>
+                                </con4:header>
+                                <con4:header value="expression" name="Content-Type">
+                                    <con3:xqueryText>'application/json'</con3:xqueryText>
+                                </con4:header>
+                                <con4:header value="expression" name="x-ccasset-language">
+                                    <con3:xqueryText>'pt-BR'</con3:xqueryText>
+                                </con4:header>
+                            </con5:transport-headers>
+                            <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b4b</con2:id>
+                                <con3:location>
+                                    <con2:xpathText>./get:Root-Element/get:id</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xqueryText>$body/get:Root-Element/get:id</con2:xqueryText>
+                                </con3:expr>
+                            </con3:replace>
+                            <con4:log xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b4e</con2:id>
+                                <con4:logLevel>error</con4:logLevel>
+                                <con4:expr>
+                                    <con2:xqueryText>$body/get:Root-Element/get:id</con2:xqueryText>
+                                </con4:expr>
+                                <con4:message>idProfile</con4:message>
+                            </con4:log>
+                        </con1:outboundTransform>
+                        <con1:responseTransform>
+                            <con4:log xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b48</con2:id>
+                                <con4:logLevel>error</con4:logLevel>
+                                <con4:expr>
+                                    <con2:xqueryText>$body</con2:xqueryText>
+                                </con4:expr>
+                                <con4:message>profile</con4:message>
+                            </con4:log>
+                            <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b85</con2:id>
+                                <con2:disabled>true</con2:disabled>
+                                <con3:location>
+                                    <con2:xpathText>.</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xsltTransform>
+                                        <con2:resource ref="PASSSBCommon/V1/GetProfileOCC/transformations/ToOCCProfile"/>
+                                        <con2:input>$bodyResponse/get1:Root-Element</con2:input>
+                                        <con2:param name="profile">
+                                            <con2:path>$body</con2:path>
+                                        </con2:param>
+                                    </con2:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:responseTransform>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

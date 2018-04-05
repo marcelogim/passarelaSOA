@@ -35,6 +35,7 @@
         <xsd:element name="channel" type="xsd:string"/>
         <xsd:element name="merchantTransactionTimestamp" type="xsd:string"/>
         <xsd:element name="merchantTransactionId" type="xsd:string"/>
+        <xsd:element name="totalAvailableAmount" type="xsd:string"/>
         <xsd:element name="authorizationResponse">
           <xsd:complexType>
             <xsd:sequence>
@@ -69,6 +70,29 @@
               <xsd:element name="boletobancario.dueDate" type="xsd:string"/>
               <xsd:element name="fraudResultType" type="xsd:string"/>
               <xsd:element name="fraudManualReview" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="inquireBalanceResponse">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="hostTransactionTimestamp" type="xsd:integer"/>
+              <xsd:element name="responseReason" type="xsd:string"/>
+              <xsd:element name="storeCredits" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="storeCreditNumber" type="xsd:integer"/>
+                    <xsd:element name="availableAamount" type="xsd:integer"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="customPaymentProperties" maxOccurs="unbounded" type="xsd:string"/>
+              <xsd:element name="responseDescription" type="xsd:string"/>
+              <xsd:element name="merchantTransactionId" type="xsd:string"/>
+              <xsd:element name="hostTransactionId" type="xsd:string"/>
+              <xsd:element name="additionalProperties"/>
+              <xsd:element name="responseCode" type="xsd:integer"/>
+              <xsd:element name="merchantTransactionTimestamp" type="xsd:integer"/>
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>

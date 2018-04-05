@@ -18,8 +18,7 @@
                 xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
                 xmlns:ns1="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"
                 xmlns:n2="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"
-                 xmlns:xs1="http://www.w3.org/2001/XMLSchema">
-
+                xmlns:xs1="http://www.w3.org/2001/XMLSchema">
   <oracle-xsl-mapper:schema>
     <!--SPECIFICATION OF MAP SOURCES AND TARGETS, DO NOT MODIFY.-->
     <oracle-xsl-mapper:mapSources>
@@ -55,9 +54,9 @@
         </tns:locale>
       </xsl:if>
       <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:referenceNumber">
-      <tns:referenceNumber>
-        <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:referenceNumber"/>
-      </tns:referenceNumber>
+        <tns:referenceNumber>
+          <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:referenceNumber"/>
+        </tns:referenceNumber>
       </xsl:if>
       <xsl:if test="$bodyRequest/ns1:Root-Element/ns1:orderId">
         <tns:orderId>
@@ -89,7 +88,6 @@
           <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:transactionType"/>
         </tns:transactionType>
       </xsl:if>
-   
       <!--<tns:hostTransactionTimestamp>
         <xsl:value-of select='xp20:format-dateTime (xp20:current-dateTime ( ), "[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01]+0000" )'/>
       </tns:hostTransactionTimestamp>-->
@@ -126,7 +124,12 @@
       </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:pspReference">
         <tns:authorizationResponse>
-          <tns:responseCode>1000</tns:responseCode>
+          <xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Authorised' ">
+            <tns:responseCode>1000</tns:responseCode>
+          </xsl:if>
+          <xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Refused' ">
+            <tns:responseCode>9000</tns:responseCode>
+          </xsl:if>
           <!--<xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Authorised' and not($bodyRequest/ns1:Root-Element/ns1:gatewayId)">
             <tns:responseCode>1000</tns:responseCode>
           </xsl:if>-->

@@ -28,9 +28,9 @@
         <xsd:element name="shippingMethods" maxOccurs="unbounded">
           <xsd:complexType>
             <xsd:sequence>
-              <xsd:element name="shippingCost" type="xsd:integer"/>
-              <xsd:element name="shippingTax" type="xsd:integer"/>
-              <xsd:element name="shippingTotal" type="xsd:integer"/>
+              <xsd:element name="shippingCost" type="xsd:double"/>
+              <xsd:element name="shippingTax" type="xsd:double"/>
+              <xsd:element name="shippingTotal" type="xsd:double"/>
               <xsd:element name="internationalDutiesTaxesFees" type="xsd:integer"/>
               <xsd:element name="eligibleForProductWithSurcharges" minOccurs="0" type="xsd:boolean"/>
               <xsd:element name="deliveryDays" type="xsd:integer"/>

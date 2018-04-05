@@ -43,6 +43,11 @@
               <xsd:element name="boletobancario.dueDate" type="xsd:string"/>
               <xsd:element name="fraudResultType" type="xsd:string"/>
               <xsd:element name="fraudManualReview" type="xsd:string"/>
+              <xsd:element name="acquirerCode" type="xsd:string"/>
+              <xsd:element name="acquirerReference" type="xsd:string"/>
+              <xsd:element name="authorisationMid" type="xsd:string"/>
+              <xsd:element name="accountScore" type="xsd:string"/>
+             
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>

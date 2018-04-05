@@ -64,11 +64,11 @@
       <xsl:for-each select="/ns0:Root-Element/ns0:content/ns0:delivery_options">
         <tns:shippingMethods>
           <tns:shippingCost>
-            <xsl:value-of select="translate(ns0:provider_shipping_cost, '.','')"/>
+            <xsl:value-of select="ns0:provider_shipping_cost"/>
           </tns:shippingCost>
           <tns:shippingTax>0</tns:shippingTax>
           <tns:shippingTotal>
-            <xsl:value-of select="translate(ns0:provider_shipping_cost, '.','')"/>
+            <xsl:value-of select="ns0:provider_shipping_cost"/>
           </tns:shippingTotal>
           <tns:internationalDutiesTaxesFees>0</tns:internationalDutiesTaxesFees>
           <tns:eligibleForProductWithSurcharges>true</tns:eligibleForProductWithSurcharges>

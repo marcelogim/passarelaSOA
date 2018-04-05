@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ns:composite xmlns:ns="http://xmlns.oracle.com/sca/1.0">
     <ns:reference>
-        <ns:interface src="BusinessService:PASSSBGenericPaymentGateway/V1/BS/AdyenPaymentGatewayGeneric"/>
+        <ns:interface src="ProxyService:PASSSBCommon/V1/GetProfileOCC/proxy/GetProfilePS"/>
+    </ns:reference>
+    <ns:reference>
+        <ns:interface src="ProxyService:PASSSBPaymentBalanceCredit/v1/PS/PaymentCreditBalance"/>
     </ns:reference>
     <ns:reference>
         <ns:interface src="ProxyService:PASSSBCommon/V1/GetEnrichOrderProfileOCC/proxy/GetEnrichOrderProfilePS"/>
+    </ns:reference>
+    <ns:reference>
+        <ns:interface src="BusinessService:PASSSBGenericPaymentGateway/V1/BS/AdyenPaymentGatewayGeneric"/>
+    </ns:reference>
+    <ns:reference>
+        <ns:interface src="ProxyService:PASSSBQueryAccountBalance/v1/PS/QueryAccount"/>
     </ns:reference>
 </ns:composite>

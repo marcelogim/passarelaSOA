@@ -1,0 +1,348 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://TargetNamespace.com/OCCGetProfileOrder_products_response"
+            targetNamespace="http://TargetNamespace.com/OCCGetProfileOrder_products_response"
+            elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
+            nxsd:encoding="UTF-8">
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="dynamicPropertyMapLong"/>
+        <xsd:element name="largeImage">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="repositoryId" type="xsd:string"/>
+              <xsd:element name="url" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="keywords" maxOccurs="unbounded" type="xsd:string"/>
+        <xsd:element name="orderable"/>
+        <xsd:element name="relatedProducts">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="primaryThumbImageURL" type="xsd:string"/>
+              <xsd:element name="largeImage"/>
+              <xsd:element name="listVolumePrice"/>
+              <xsd:element name="nonreturnable" type="xsd:string"/>
+              <xsd:element name="displayName" type="xsd:string"/>
+              <xsd:element name="description" type="xsd:string"/>
+              <xsd:element name="primaryFullImageURL" type="xsd:string"/>
+              <xsd:element name="type" type="xsd:integer"/>
+              <xsd:element name="largeImageURLs" type="xsd:string"/>
+              <xsd:element name="listVolumePrices"/>
+              <xsd:element name="primaryLargeImageURL" type="xsd:string"/>
+              <xsd:element name="smallImageURLs" type="xsd:string"/>
+              <xsd:element name="id" type="xsd:string"/>
+              <xsd:element name="brand" type="xsd:string"/>
+              <xsd:element name="salePriceEndDate"/>
+              <xsd:element name="clonedFrom"/>
+              <xsd:element name="childSKUs">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="dynamicPropertyMapLong">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="sku-WomensApparel_color" type="xsd:integer"/>
+                          <xsd:element name="sku-WomensApparel_size" type="xsd:integer"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="primaryThumbImageURL"/>
+                    <xsd:element name="largeImage"/>
+                    <xsd:element name="smallImage"/>
+                    <xsd:element name="color" type="xsd:string"/>
+                    <xsd:element name="listVolumePrice"/>
+                    <xsd:element name="nonreturnable" type="xsd:string"/>
+                    <xsd:element name="listPrices">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="defaultPriceGroup" type="xsd:integer"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="primaryFullImageURL"/>
+                    <xsd:element name="productListingSku"/>
+                    <xsd:element name="listVolumePrices"/>
+                    <xsd:element name="primaryLargeImageURL"/>
+                    <xsd:element name="thumbnailImage"/>
+                    <xsd:element name="saleVolumePrices"/>
+                    <xsd:element name="salePriceEndDate"/>
+                    <xsd:element name="saleVolumePrice"/>
+                    <xsd:element name="salePriceStartDate"/>
+                    <xsd:element name="quantity"/>
+                    <xsd:element name="salePrice"/>
+                    <xsd:element name="primaryMediumImageURL"/>
+                    <xsd:element name="active" type="xsd:string"/>
+                    <xsd:element name="size" type="xsd:string"/>
+                    <xsd:element name="repositoryId" type="xsd:string"/>
+                    <xsd:element name="shippingSurcharge"/>
+                    <xsd:element name="primarySourceImageURL"/>
+                    <xsd:element name="primarySmallImageURL"/>
+                    <xsd:element name="listPrice" type="xsd:integer"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="salePriceStartDate"/>
+              <xsd:element name="primaryMediumImageURL" type="xsd:string"/>
+              <xsd:element name="salePrice"/>
+              <xsd:element name="fullImageURLs" type="xsd:string"/>
+              <xsd:element name="active" type="xsd:string"/>
+              <xsd:element name="thumbImageURLs" type="xsd:string"/>
+              <xsd:element name="route" type="xsd:string"/>
+              <xsd:element name="mediumImageURLs" type="xsd:string"/>
+              <xsd:element name="repositoryId" type="xsd:string"/>
+              <xsd:element name="shippingSurcharge"/>
+              <xsd:element name="primarySourceImageURL" type="xsd:string"/>
+              <xsd:element name="primarySmallImageURL" type="xsd:string"/>
+              <xsd:element name="sourceImageURLs" type="xsd:string"/>
+              <xsd:element name="listPrice" type="xsd:integer"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="orderLimit"/>
+        <xsd:element name="onlineOnly" type="xsd:string"/>
+        <xsd:element name="listPrices">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="UsDollar" type="xsd:integer"/>
+              <xsd:element name="CaDollar" type="xsd:integer"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="type"/>
+        <xsd:element name="seoMetaInfo">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="seoDescription" type="xsd:string"/>
+              <xsd:element name="repositoryId" type="xsd:integer"/>
+              <xsd:element name="seoTitle" type="xsd:string"/>
+              <xsd:element name="seoKeywords" type="xsd:string"/>
+              <xsd:element name="seoUrlSlug" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="largeImageURLs" type="xsd:string"/>
+        <xsd:element name="listVolumePrices"/>
+        <xsd:element name="primaryImageAltText" type="xsd:string"/>
+        <xsd:element name="id" type="xsd:string"/>
+        <xsd:element name="brand" type="xsd:string"/>
+        <xsd:element name="collection1Subcategoria" type="xsd:string"/>
+        <xsd:element name="parentCategories">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="repositoryId" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="salePriceEndDate"/>
+        <xsd:element name="height"/>
+        <xsd:element name="defaultProductListingSku"/>
+        <xsd:element name="primaryMediumImageURL" type="xsd:string"/>
+        <xsd:element name="seoKeywordsDerived" type="xsd:string"/>
+        <xsd:element name="seoUrlSlugDerived" type="xsd:string"/>
+        <xsd:element name="dynamicPropertyMapBigString"/>
+        <xsd:element name="active" type="xsd:string"/>
+        <xsd:element name="weight"/>
+        <xsd:element name="thumbImageURLs" type="xsd:string"/>
+        <xsd:element name="creationDate" type="xsd:string"/>
+        <xsd:element name="taxCode" type="xsd:string"/>
+        <xsd:element name="arrivalDate"/>
+        <xsd:element name="route" type="xsd:string"/>
+        <xsd:element name="mediumImageURLs" type="xsd:string"/>
+        <xsd:element name="parentCategory"/>
+        <xsd:element name="primarySourceImageURL" type="xsd:string"/>
+        <xsd:element name="primarySmallImageURL" type="xsd:string"/>
+        <xsd:element name="sourceImageURLs" type="xsd:string"/>
+        <xsd:element name="longDescription" type="xsd:string"/>
+        <xsd:element name="primaryThumbImageURL" type="xsd:string"/>
+        <xsd:element name="nonreturnable" type="xsd:string"/>
+        <xsd:element name="displayName" type="xsd:string"/>
+        <xsd:element name="seoDescriptionDerived" type="xsd:string"/>
+        <xsd:element name="description" type="xsd:string"/>
+        <xsd:element name="primaryFullImageURL" type="xsd:string"/>
+        <xsd:element name="salePrices">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="UsDollar"/>
+              <xsd:element name="CaDollar"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="seoTitleDerived" type="xsd:string"/>
+        <xsd:element name="primaryLargeImageURL" type="xsd:string"/>
+        <xsd:element name="smallImageURLs" type="xsd:string"/>
+        <xsd:element name="shippingSurcharges">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="UsDollar" type="xsd:integer"/>
+              <xsd:element name="CaDollar" type="xsd:integer"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="dynamicPropertyMapString"/>
+        <xsd:element name="saleVolumePrices">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="UsDollar">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="bulkPrice">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="numLevels" type="xsd:integer"/>
+                          <xsd:element name="levels" maxOccurs="unbounded">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="price" type="xsd:double"/>
+                                <xsd:element name="levelMinimum" type="xsd:integer"/>
+                                <xsd:element name="levelMaximum" minOccurs="0" type="xsd:integer"/>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="CaDollar">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="bulkPrice">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="numLevels" type="xsd:integer"/>
+                          <xsd:element name="levels" maxOccurs="unbounded">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="price" type="xsd:double"/>
+                                <xsd:element name="levelMinimum" type="xsd:integer"/>
+                                <xsd:element name="levelMaximum" minOccurs="0" type="xsd:integer"/>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="childSKUs">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="dynamicPropertyMapLong"/>
+              <xsd:element name="primaryThumbImageURL"/>
+              <xsd:element name="bundleLinks">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="repositoryId" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="largeImage"/>
+              <xsd:element name="smallImage"/>
+              <xsd:element name="listVolumePrice"/>
+              <xsd:element name="nonreturnable" type="xsd:string"/>
+              <xsd:element name="listPrices"/>
+              <xsd:element name="salePrices"/>
+              <xsd:element name="primaryFullImageURL"/>
+              <xsd:element name="productListingSku"/>
+              <xsd:element name="listVolumePrices"/>
+              <xsd:element name="primaryLargeImageURL"/>
+              <xsd:element name="thumbnailImage"/>
+              <xsd:element name="saleVolumePrices"/>
+              <xsd:element name="salePriceEndDate"/>
+              <xsd:element name="saleVolumePrice"/>
+              <xsd:element name="salePriceStartDate"/>
+              <xsd:element name="quantity" type="xsd:integer"/>
+              <xsd:element name="salePrice"/>
+              <xsd:element name="primaryMediumImageURL"/>
+              <xsd:element name="active" type="xsd:string"/>
+              <xsd:element name="repositoryId" type="xsd:string"/>
+              <xsd:element name="shippingSurcharge" type="xsd:integer"/>
+              <xsd:element name="primarySourceImageURL"/>
+              <xsd:element name="primarySmallImageURL"/>
+              <xsd:element name="listPrice" type="xsd:integer"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="primaryImageTitle" type="xsd:string"/>
+        <xsd:element name="saleVolumePrice">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="bulkPrice">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="numLevels" type="xsd:integer"/>
+                    <xsd:element name="levels" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="price" type="xsd:double"/>
+                          <xsd:element name="levelMinimum" type="xsd:integer"/>
+                          <xsd:element name="levelMaximum" minOccurs="0" type="xsd:integer"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="salePriceStartDate"/>
+        <xsd:element name="salePrice"/>
+        <xsd:element name="fullImageURLs" type="xsd:string"/>
+        <xsd:element name="length"/>
+        <xsd:element name="productImagesMetaData">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="altText" type="xsd:string"/>
+              <xsd:element name="titleText" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="productImages">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="path" type="xsd:string"/>
+              <xsd:element name="metadata">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="altText" type="xsd:string"/>
+                    <xsd:element name="titleText" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="name" type="xsd:string"/>
+              <xsd:element name="repositoryId" type="xsd:string"/>
+              <xsd:element name="url" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="variantValuesOrder">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="color" maxOccurs="unbounded" type="xsd:string"/>
+              <xsd:element name="size" maxOccurs="unbounded" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="dateAvailable" type="xsd:string"/>
+        <xsd:element name="repositoryId" type="xsd:string"/>
+        <xsd:element name="width"/>
+        <xsd:element name="shippingSurcharge" type="xsd:integer"/>
+        <xsd:element name="daysAvailable" type="xsd:integer"/>
+        <xsd:element name="dynamicPropertyMapDouble"/>
+        <xsd:element name="listPrice" type="xsd:integer"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

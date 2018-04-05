@@ -9,7 +9,7 @@
             <xsd:element name="products" maxOccurs="unbounded">
                <xsd:complexType>
                   <xsd:sequence>
-                     <xsd:element name="weight" type="xsd:integer"/>
+                     <xsd:element name="weight" type="xsd:double"/>
                      <xsd:element name="cost_of_goods" type="xsd:double"/>
                      <xsd:element name="width" type="xsd:double"/>
                      <xsd:element name="height" type="xsd:double"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config">
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con4="http://www.bea.com/wli/sb/stages/routing/config">
     <con:coreEntry>
         <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
             <con:wsdl ref="PASSSBGenericPaymentGateway/V1/Resources/Generic/AdyenPaymentGatewayGeneric"/>
@@ -77,6 +77,14 @@
                             <con2:xqueryText>$body</con2:xqueryText>
                         </con3:expr>
                     </con4:assign>
+                    <con3:log xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                        <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7ffe</con2:id>
+                        <con3:logLevel>error</con3:logLevel>
+                        <con3:expr>
+                            <con2:xqueryText>$bodyRequest</con2:xqueryText>
+                        </con3:expr>
+                        <con3:message>bodyRequest</con3:message>
+                    </con3:log>
                 </con:actions>
             </con:stage>
             <con:stage id="_StageId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b12" name="GetOrderProfile">
@@ -84,31 +92,68 @@
                     <con2:userNsDecl prefix="ady" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
                 </con:context>
                 <con:actions>
-                    <con1:wsCallout>
-                        <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7add</con2:id>
-                        <con1:service ref="PASSSBCommon/V1/GetEnrichOrderProfileOCC/proxy/GetEnrichOrderProfilePS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-                        <con1:operation>orderProfile</con1:operation>
-                        <con1:request>
-                            <con1:body wrapped="true">body</con1:body>
-                        </con1:request>
-                        <con1:response>
-                            <con1:body wrapped="true">bodyRes</con1:body>
-                        </con1:response>
-                        <con1:requestTransform>
-                            <con1:replace varName="body" contents-only="true">
-                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7ad7</con2:id>
-                                <con1:location>
-                                    <con2:xpathText>.</con2:xpathText>
-                                </con1:location>
-                                <con1:expr>
-                                    <con2:xqueryText>&lt;get:Root-Element xmlns:get="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request">
+                    <con1:ifThenElse>
+                        <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7e91</con2:id>
+                        <con1:case id="_BranchId-N3f57c7ff.N75b826a0.0.162975affc7.N7e90">
+                            <con1:condition>
+                                <con2:xqueryText>$bodyRequest/ady:Root-Element/ady:transactionType = '0600'</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions>
+                                <con1:wsCallout>
+                                    <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7f31</con2:id>
+                                    <con1:service ref="PASSSBCommon/V1/GetProfileOCC/proxy/GetProfilePS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                    <con1:operation>orderProfile</con1:operation>
+                                    <con1:request>
+                                        <con1:body wrapped="true">body</con1:body>
+                                    </con1:request>
+                                    <con1:response>
+                                        <con1:body wrapped="true">bodyRes</con1:body>
+                                    </con1:response>
+                                    <con1:requestTransform>
+                                        <con1:replace varName="body" contents-only="true">
+                                            <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7efd</con2:id>
+                                            <con1:location>
+                                                <con2:xpathText>.</con2:xpathText>
+                                            </con1:location>
+                                            <con1:expr>
+                                                <con2:xqueryText>&lt;get:Root-Element 	xmlns:get="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request">
+&lt;get:id>{$bodyRequest/ady:Root-Element/ady:profile/ady:id/text()}&lt;/get:id>
+&lt;/get:Root-Element></con2:xqueryText>
+                                            </con1:expr>
+                                        </con1:replace>
+                                    </con1:requestTransform>
+                                    <con1:responseTransform/>
+                                </con1:wsCallout>
+                            </con1:actions>
+                        </con1:case>
+                        <con1:default>
+                            <con1:wsCallout>
+                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7add</con2:id>
+                                <con1:service ref="PASSSBCommon/V1/GetEnrichOrderProfileOCC/proxy/GetEnrichOrderProfilePS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                <con1:operation>orderProfile</con1:operation>
+                                <con1:request>
+                                    <con1:body wrapped="true">body</con1:body>
+                                </con1:request>
+                                <con1:response>
+                                    <con1:body wrapped="true">bodyRes</con1:body>
+                                </con1:response>
+                                <con1:requestTransform>
+                                    <con1:replace varName="body" contents-only="true">
+                                        <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7ad7</con2:id>
+                                        <con1:location>
+                                            <con2:xpathText>.</con2:xpathText>
+                                        </con1:location>
+                                        <con1:expr>
+                                            <con2:xqueryText>&lt;get:Root-Element xmlns:get="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request">
     &lt;get:id>{$body/ady:Root-Element/ady:orderId/text()}&lt;/get:id>
 &lt;/get:Root-Element></con2:xqueryText>
-                                </con1:expr>
-                            </con1:replace>
-                        </con1:requestTransform>
-                        <con1:responseTransform/>
-                    </con1:wsCallout>
+                                        </con1:expr>
+                                    </con1:replace>
+                                </con1:requestTransform>
+                                <con1:responseTransform/>
+                            </con1:wsCallout>
+                        </con1:default>
+                    </con1:ifThenElse>
                 </con:actions>
             </con:stage>
         </con:pipeline>
@@ -122,7 +167,7 @@
                 <con:context>
                     <con2:userNsDecl prefix="ady" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
                 </con:context>
-                <con:branch-table variable="body">
+                <con:branch-table variable="bodyRequest">
                     <con:xpath>
                         <con2:xpathText>./ady:Root-Element/ady:paymentMethod</con2:xpathText>
                     </con:xpath>
@@ -215,6 +260,143 @@
                             </con:route-node>
                         </con:flow>
                     </con:branch>
+                    <con:branch name="StoreCredit">
+                        <con:operator>equals</con:operator>
+                        <con:value>'storeCredit'</con:value>
+                        <con:flow>
+                            <con:route-node name="StoreCreditRouting">
+                                <con:context>
+                                    <con2:userNsDecl prefix="paym" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"/>
+                                    <con2:userNsDecl prefix="ady" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
+                                    <con2:userNsDecl prefix="balan" namespace="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_response"/>
+                                    <con2:userNsDecl prefix="prof" namespace="http://TargetNamespace.com/OCCGetProfileOrder_profileRequest_response"/>
+                                </con:context>
+                                <con:actions>
+                                    <con1:ifThenElse>
+                                        <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7c53</con2:id>
+                                        <con1:case id="_BranchId-N3f57c7ff.N75b826a0.0.162975affc7.N7c52">
+                                            <con1:condition>
+                                                <con2:xqueryText>$bodyRequest/ady:Root-Element/ady:transactionType = '0600'</con2:xqueryText>
+                                            </con1:condition>
+                                            <con1:actions>
+                                                <con4:route>
+                                                    <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7f64</con2:id>
+                                                    <con4:service ref="PASSSBQueryAccountBalance/v1/PS/QueryAccount" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                                    <con4:operation>balance_inquiry</con4:operation>
+                                                    <con4:outboundTransform>
+                                                        <con1:replace varName="body" contents-only="true">
+                                                            <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7efa</con2:id>
+                                                            <con1:location>
+                                                                <con2:xpathText>.</con2:xpathText>
+                                                            </con1:location>
+                                                            <con1:expr>
+                                                                <con2:xqueryText>&lt;quer:Root-Element xmlns:quer="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_request">
+    &lt;quer:CPF>{$bodyRes//prof:CPF/text()}&lt;/quer:CPF>
+&lt;/quer:Root-Element></con2:xqueryText>
+                                                            </con1:expr>
+                                                        </con1:replace>
+                                                        <con3:log xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                                                            <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7cf6</con2:id>
+                                                            <con3:logLevel>error</con3:logLevel>
+                                                            <con3:expr>
+                                                                <con2:xqueryText>$body</con2:xqueryText>
+                                                            </con3:expr>
+                                                            <con3:message>query dentro generic Req</con3:message>
+                                                        </con3:log>
+                                                    </con4:outboundTransform>
+                                                    <con4:responseTransform>
+                                                        <con5:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+                                                            <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7ec6</con2:id>
+                                                            <con3:location>
+                                                                <con2:xpathText>.</con2:xpathText>
+                                                            </con3:location>
+                                                            <con3:expr>
+                                                                <con2:xsltTransform>
+                                                                    <con2:resource ref="PASSSBGenericPaymentGateway/V1/XSL/QueryAccountBalanceToAuthoriseRes"/>
+                                                                    <con2:input>$body/balan:Root-Element</con2:input>
+                                                                    <con2:param name="bodyRequest">
+                                                                        <con2:path>$bodyRequest</con2:path>
+                                                                    </con2:param>
+                                                                    <con2:param name="currentMileseconds">
+                                                                        <con2:path>xs:long((fn:current-dateTime() - xs:dateTime("1970-01-01T00:00:00-00:00")) div xs:dayTimeDuration("PT0.001S"))</con2:path>
+                                                                    </con2:param>
+                                                                </con2:xsltTransform>
+                                                            </con3:expr>
+                                                        </con5:replace>
+                                                        <con3:log xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                                                            <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7cf9</con2:id>
+                                                            <con3:logLevel>error</con3:logLevel>
+                                                            <con3:expr>
+                                                                <con2:xqueryText>$body</con2:xqueryText>
+                                                            </con3:expr>
+                                                            <con3:message>query dentro do generic Resp</con3:message>
+                                                        </con3:log>
+                                                    </con4:responseTransform>
+                                                </con4:route>
+                                            </con1:actions>
+                                        </con1:case>
+                                        <con1:default>
+                                            <con4:route>
+                                                <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7bb8</con2:id>
+                                                <con4:service ref="PASSSBPaymentBalanceCredit/v1/PS/PaymentCreditBalance" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                                <con4:operation>credit_payment_store</con4:operation>
+                                                <con4:outboundTransform>
+                                                    <con1:replace varName="body" contents-only="true">
+                                                        <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7b84</con2:id>
+                                                        <con1:location>
+                                                            <con2:xpathText>.</con2:xpathText>
+                                                        </con1:location>
+                                                        <con1:expr>
+                                                            <con2:xqueryText><![CDATA[<pay:Root-Element xmlns:pay="http://TargetNamespace.com/PaymentCreditBalancePS_payment_credit_request">
+    <pay:amount>{$bodyRequest/ady:Root-Element/ady:amount/text()}</pay:amount>
+    <pay:CPF>{$bodyRes//prof:CPF/text()}</pay:CPF>  
+</pay:Root-Element>]]></con2:xqueryText>
+                                                        </con1:expr>
+                                                    </con1:replace>
+                                                    <con3:log xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                                                        <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7b4d</con2:id>
+                                                        <con3:logLevel>error</con3:logLevel>
+                                                        <con3:expr>
+                                                            <con2:xqueryText>$body</con2:xqueryText>
+                                                        </con3:expr>
+                                                        <con3:message>payment dentro generic Req</con3:message>
+                                                    </con3:log>
+                                                </con4:outboundTransform>
+                                                <con4:responseTransform>
+                                                    <con5:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+                                                        <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7b50</con2:id>
+                                                        <con3:location>
+                                                            <con2:xpathText>.</con2:xpathText>
+                                                        </con3:location>
+                                                        <con3:expr>
+                                                            <con2:xsltTransform>
+                                                                <con2:resource ref="PASSSBGenericPaymentGateway/V1/XSL/PaymentBalanceToAuthoriseRes"/>
+                                                                <con2:input>$body/paym:Root-Element</con2:input>
+                                                                <con2:param name="bodyRequest">
+                                                                    <con2:path>$bodyRequest</con2:path>
+                                                                </con2:param>
+                                                                <con2:param name="currentMileseconds">
+                                                                    <con2:path>xs:long((fn:current-dateTime() - xs:dateTime("1970-01-01T00:00:00-00:00")) div xs:dayTimeDuration("PT0.001S"))</con2:path>
+                                                                </con2:param>
+                                                            </con2:xsltTransform>
+                                                        </con3:expr>
+                                                    </con5:replace>
+                                                    <con3:log xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                                                        <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7b4a</con2:id>
+                                                        <con3:logLevel>error</con3:logLevel>
+                                                        <con3:expr>
+                                                            <con2:xqueryText>$body</con2:xqueryText>
+                                                        </con3:expr>
+                                                        <con3:message>payment dentro do generic Resp</con3:message>
+                                                    </con3:log>
+                                                </con4:responseTransform>
+                                            </con4:route>
+                                        </con1:default>
+                                    </con1:ifThenElse>
+                                </con:actions>
+                            </con:route-node>
+                        </con:flow>
+                    </con:branch>
                     <con:default-branch>
                         <con:flow>
                             <con:route-node name="AdyenPaymentGatewayGeneric" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
@@ -287,14 +469,6 @@
                                             </con3:log>
                                         </con1:outboundTransform>
                                         <con1:responseTransform>
-                                            <con3:log>
-                                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7757</con2:id>
-                                                <con3:logLevel>error</con3:logLevel>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$body</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:message>Adyen Resp</con3:message>
-                                            </con3:log>
                                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                                 <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N6e68</con2:id>
                                                 <con3:location>
@@ -313,6 +487,14 @@
                                                     </con2:xsltTransform>
                                                 </con3:expr>
                                             </con3:replace>
+                                            <con3:log>
+                                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7757</con2:id>
+                                                <con3:logLevel>error</con3:logLevel>
+                                                <con3:expr>
+                                                    <con2:xqueryText>$body</con2:xqueryText>
+                                                </con3:expr>
+                                                <con3:message>Adyen Resp</con3:message>
+                                            </con3:log>
                                         </con1:responseTransform>
                                     </con1:route>
                                 </con:actions>

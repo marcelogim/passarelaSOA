@@ -26,7 +26,7 @@
             <xsl:for-each select="/ns0:Root-Element/ns0:request/ns0:items">
                 <tns:products>
                     <tns:weight>
-                        <xsl:value-of select="ns0:product/ns0:weight"/>
+                        <xsl:value-of select="ns0:product/ns0:weight div 1000"/>
                     </tns:weight>
                     <tns:cost_of_goods>
                         <xsl:value-of select="ns0:amount"/>
