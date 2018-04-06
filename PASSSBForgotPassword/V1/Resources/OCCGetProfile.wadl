@@ -3,10 +3,12 @@
    <doc title="OCCGetProfile">RestReference</doc>
    <grammars>
       <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/OCCGetProfile_query_response" schemaLocation="nxsd_profileRes.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/OCCGetProfile_query_response"
+                        schemaLocation="nxsd_profileRes.xsd"/>
         </xsd:schema>
       <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/ForgotPassword_queryProfileAll_request" schemaLocation="nxsd_interfaceProdileReq.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/ForgotPassword_queryProfileAll_request"
+                        schemaLocation="nxsd_interfaceProdileReq.xsd"/>
         </xsd:schema>
    </grammars>
    <resources>

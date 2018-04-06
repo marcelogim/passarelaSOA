@@ -3,12 +3,12 @@
     <con:coreEntry>
         <con:description>This service was created by the REST adapter</con:description>
         <con1:binding type="REST" xsi:type="con:RestBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config" xmlns:con1="http://xmlns.oracle.com/servicebus/business/config">
-            <con:wsdl ref="PASSSBForgotPassword/Resources/OCCGetProfile"/>
+            <con:wsdl ref="PASSSBForgotPassword/V1/Resources/OCCGetProfile"/>
             <con:binding>
                 <con:name>OCCGetProfile_ptt-binding</con:name>
                 <con:namespace>http://xmlns.oracle.com/SBAplPassarela/PASSSBForgotPassword/OCCGetProfile</con:namespace>
             </con:binding>
-            <con:wadl ref="PASSSBForgotPassword/Resources/OCCGetProfile"/>
+            <con:wadl ref="PASSSBForgotPassword/V1/Resources/OCCGetProfile"/>
         </con1:binding>
         <oper:operations enabled="true">
             <oper:throttling enabled="false"/>
