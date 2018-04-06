@@ -21,6 +21,7 @@
         <module>PASSSBPaymentBalanceCredit</module>
         <module>PASSSBAbandonedCart</module>
         <module>PASSSBWebhookOrderSubmit</module>
+        <module>PASSSBForgotPassword</module>
     </modules>
     <build>
         <plugins>

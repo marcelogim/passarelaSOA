@@ -1,0 +1,97 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="OCCGetProfile"
+     targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBForgotPassword/OCCGetProfile"
+     xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBForgotPassword/OCCGetProfile"
+     xmlns:inp1="http://TargetNamespace.com/OCCGetProfile_query_response"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:inp2="http://TargetNamespace.com/ForgotPassword_queryProfileAll_request"
+    >
+    <plnk:partnerLinkType name="OCCGetProfile">
+        <plnk:role name="OCCGetProfileProvider" portType="tns:OCCGetProfile_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/OCCGetProfile_query_response" schemaLocation="nxsd_profileRes.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/ForgotPassword_queryProfileAll_request"
+                 schemaLocation="nxsd_interfaceProdileReq.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="Rest_EmptyMessage"/>
+    <wsdl:message name="queryCNPJ_outputMessage">
+        <wsdl:part name="reply" element="inp1:Root-Element"/>
+    </wsdl:message>
+    <wsdl:message name="queryCPF_outputMessage">
+        <wsdl:part name="reply" element="inp1:Root-Element"/>
+    </wsdl:message>
+    <wsdl:message name="queryEmail_outputMessage">
+        <wsdl:part name="reply" element="inp1:Root-Element"/>
+    </wsdl:message>
+    <wsdl:message name="queryAllAtt_inputMessage">
+        <wsdl:part name="request" element="inp2:Root-Element"/>
+    </wsdl:message>
+    <wsdl:message name="queryAllAtt_outputMessage">
+        <wsdl:part name="reply" element="inp1:Root-Element"/>
+    </wsdl:message>
+    <wsdl:portType name="OCCGetProfile_ptt">
+        <wsdl:operation name="queryCNPJ">
+            <wsdl:input message="tns:Rest_EmptyMessage"/>
+            <wsdl:output message="tns:queryCNPJ_outputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryCPF">
+            <wsdl:input message="tns:Rest_EmptyMessage"/>
+            <wsdl:output message="tns:queryCPF_outputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryEmail">
+            <wsdl:input message="tns:Rest_EmptyMessage"/>
+            <wsdl:output message="tns:queryEmail_outputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryAllAtt">
+            <wsdl:input message="tns:queryAllAtt_inputMessage"/>
+            <wsdl:output message="tns:queryAllAtt_outputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="OCCGetProfile_ptt-binding" type="tns:OCCGetProfile_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="queryCNPJ">
+            <soap:operation soapAction="queryCNPJ"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryCPF">
+            <soap:operation soapAction="queryCPF"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryEmail">
+            <soap:operation soapAction="queryEmail"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="queryAllAtt">
+            <soap:operation soapAction="queryAllAtt"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

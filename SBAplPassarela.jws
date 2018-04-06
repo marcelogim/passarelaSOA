@@ -29,6 +29,7 @@
    <list n="listOfChildren">
       <hash><url n="URL" path="PASSSBAbandonedCart/PASSSBAbandonedCart.jpr"/></hash>
       <hash><url n="URL" path="PASSSBCommon/PASSSBCommon.jpr"/></hash>
+      <hash><url n="URL" path="PASSSBForgotPassword/PASSSBForgotPassword.jpr"/></hash>
       <hash><url n="URL" path="PASSSBGenericPaymentGateway/PASSSBGenericPaymentGateway.jpr"/></hash>
       <hash><url n="URL" path="PASSSBMashupCalculoFrete/PASSSBMashupCalculoFrete.jpr"/></hash>
       <hash><url n="URL" path="PASSSBPaymentBalanceCredit/PASSSBPaymentBalanceCredit.jpr"/></hash>
@@ -60,6 +61,6 @@
       </hash>
    </hash>
    <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
-      <value n="configContextSessionName" v="OSB-IDE_build_1522951446345"/>
+      <value n="configContextSessionName" v="OSB-IDE_build_1522975450140"/>
    </hash>
 </jws:workspace>
