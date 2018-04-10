@@ -123,9 +123,6 @@
                                     <con2:xsltTransform>
                                         <con2:resource ref="PASSSBMashupCalculoFrete/V1/XSL/QuoteByProductInterfaceToQuoteByProductRes"/>
                                         <con2:input>$body/res:Root-Element</con2:input>
-                                        <con2:param name="request">
-                                            <con2:path>$bodyOriginal</con2:path>
-                                        </con2:param>
                                     </con2:xsltTransform>
                                 </con3:expr>
                             </con3:replace>
