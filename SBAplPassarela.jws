@@ -28,6 +28,7 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="PASSSBAbandonedCart/PASSSBAbandonedCart.jpr"/></hash>
+      <hash><url n="URL" path="PASSSBClassifyImages/PASSSBClassifyImages.jpr"/></hash>
       <hash><url n="URL" path="PASSSBCommon/PASSSBCommon.jpr"/></hash>
       <hash><url n="URL" path="PASSSBForgotPassword/PASSSBForgotPassword.jpr"/></hash>
       <hash><url n="URL" path="PASSSBGenericPaymentGateway/PASSSBGenericPaymentGateway.jpr"/></hash>

@@ -22,6 +22,7 @@
         <module>PASSSBAbandonedCart</module>
         <module>PASSSBWebhookOrderSubmit</module>
         <module>PASSSBForgotPassword</module>
+        <module>PASSSBClassifyImages</module>
     </modules>
     <build>
         <plugins>
