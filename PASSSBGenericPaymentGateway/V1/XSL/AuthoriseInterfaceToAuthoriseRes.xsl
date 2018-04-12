@@ -114,6 +114,9 @@
           <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:channel"/>
         </tns:channel>
       </xsl:if>
+      <tns:PONumber>
+        <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:PONumber"/>
+      </tns:PONumber>
       <tns:merchantTransactionTimestamp>
         <xsl:value-of select="$currentMileseconds"/>
       </tns:merchantTransactionTimestamp>
@@ -124,7 +127,7 @@
       </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:pspReference">
         <tns:authorizationResponse>
-          <xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Authorised' ">
+          <xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Authorised' or /ns0:Root-Element/ns0:resultCode = 'Received' ">
             <tns:responseCode>1000</tns:responseCode>
           </xsl:if>
           <xsl:if test="/ns0:Root-Element/ns0:resultCode = 'Refused' ">

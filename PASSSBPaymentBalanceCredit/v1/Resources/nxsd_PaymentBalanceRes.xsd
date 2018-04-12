@@ -7,8 +7,7 @@
   <xsd:element name="Root-Element">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="message" type="xsd:string"/>
-        <xsd:element name="transactionIdCredit" type="xsd:string"/>
+        <xsd:element name="transactionId" type="xsd:string"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>

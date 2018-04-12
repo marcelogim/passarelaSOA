@@ -40,6 +40,8 @@
             <http:inbound-properties>
                 <http:use-https>true</http:use-https>
             </http:inbound-properties>
+            <http:request-encoding>utf-8</http:request-encoding>
+            <http:response-encoding>utf-8</http:response-encoding>
             <http:compression>
                 <http:compression-support>false</http:compression-support>
             </http:compression>

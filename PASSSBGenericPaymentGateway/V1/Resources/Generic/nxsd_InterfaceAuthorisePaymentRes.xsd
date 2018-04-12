@@ -19,6 +19,7 @@
         </xsd:element>
         <xsd:element name="time" type="xsd:string"/>
         <xsd:element name="timezone" type="xsd:string"/>
+        <xsd:element name="PONumber" type="xsd:string"/>
         <xsd:element name="locale" type="xsd:string"/>
         <xsd:element name="referenceNumber" type="xsd:string"/>
         <xsd:element name="orderId" type="xsd:string"/>
@@ -33,6 +34,7 @@
         <xsd:element name="gatewayId" type="xsd:string"/>
         <xsd:element name="siteId" type="xsd:string"/>
         <xsd:element name="channel" type="xsd:string"/>
+        <xsd:element name="PONumber" type="xsd:string"/>
         <xsd:element name="merchantTransactionTimestamp" type="xsd:string"/>
         <xsd:element name="merchantTransactionId" type="xsd:string"/>
         <xsd:element name="totalAvailableAmount" type="xsd:string"/>
@@ -70,6 +72,7 @@
               <xsd:element name="boletobancario.dueDate" type="xsd:string"/>
               <xsd:element name="fraudResultType" type="xsd:string"/>
               <xsd:element name="fraudManualReview" type="xsd:string"/>
+              <xsd:element name="transactionIdCredit" type="xsd:string"/>
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>

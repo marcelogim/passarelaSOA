@@ -10,6 +10,8 @@
         <xsd:element name="transactionId" type="xsd:string"/>
         <xsd:element name="currencyCode" type="xsd:string"/>
         <xsd:element name="paymentId" type="xsd:string"/>
+          <xsd:element name="PONumber" type="xsd:string"/>
+        
         <xsd:element name="locale" type="xsd:string"/>
         <xsd:element name="referenceNumber" type="xsd:string"/>
         <xsd:element name="gatewaySettings">

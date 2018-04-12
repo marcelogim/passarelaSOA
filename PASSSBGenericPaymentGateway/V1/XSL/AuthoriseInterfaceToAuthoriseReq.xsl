@@ -177,13 +177,13 @@
       </xsl:if>
       <tns:billingAddress>
         <tns:city>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:city"/>
+          <xsl:value-of select="substring-before ($profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:city, '@' )"/>
         </tns:city>
         <tns:country>
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:country"/>
         </tns:country>
         <tns:houseNumberOrName>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:address2"/>
+          <xsl:value-of select="substring-after ($profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:address1, '@')"/>
         </tns:houseNumberOrName>
         <tns:postalCode>
           <xsl:value-of select="translate($profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:postalCode, '-', '')"/>
@@ -192,18 +192,18 @@
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:state"/>
         </tns:stateOrProvince>
         <tns:street>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:address1"/>
+          <xsl:value-of select="substring-before ($profileOrder/ns1:Root-Element/ns1:paymentGroups/ns1:billingAddress/ns1:address1,'@')"/>
         </tns:street>
       </tns:billingAddress>
       <tns:deliveryAddress>
         <tns:city>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:city"/>
+          <xsl:value-of select="substring-before ($profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:city, '@' )"/>
         </tns:city>
         <tns:country>
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:country"/>
         </tns:country>
         <tns:houseNumberOrName>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:address2"/>
+          <xsl:value-of select="substring-after ($profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:address1, '@' )"/>
         </tns:houseNumberOrName>
         <tns:postalCode>
           <xsl:value-of select="translate($profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:postalCode, '-', '')"/>
@@ -212,7 +212,7 @@
           <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:state"/>
         </tns:stateOrProvince>
         <tns:street>
-          <xsl:value-of select="$profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:address1"/>
+          <xsl:value-of select="substring-before ($profileOrder/ns1:Root-Element/ns1:shippingGroups/ns1:shippingAddress/ns1:address1, '@' )"/>
         </tns:street>
       </tns:deliveryAddress>
       <xsl:if test="$profileOrder/ns1:Root-Element/ns1:telCelular != ''">

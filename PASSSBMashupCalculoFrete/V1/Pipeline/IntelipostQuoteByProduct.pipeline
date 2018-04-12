@@ -79,6 +79,7 @@
                             </con4:assign>
                             <con3:log>
                                 <con2:id>_ActionId-N3f57c7ff.1db9da05.0.161fc928e0d.N7f90</con2:id>
+                                <con2:disabled>true</con2:disabled>
                                 <con3:logLevel>error</con3:logLevel>
                                 <con3:expr>
                                     <con2:xqueryText>$body</con2:xqueryText>
@@ -108,6 +109,7 @@
                         <con1:responseTransform>
                             <con3:log>
                                 <con2:id>_ActionId-N3f57c7ff.1db9da05.0.161fc928e0d.N7f8a</con2:id>
+                                <con2:disabled>true</con2:disabled>
                                 <con3:logLevel>error</con3:logLevel>
                                 <con3:expr>
                                     <con2:xqueryText>$body</con2:xqueryText>
@@ -128,6 +130,7 @@
                             </con3:replace>
                             <con3:log>
                                 <con2:id>_ActionId-N3f57c7ff.1db9da05.0.161fc928e0d.N7f87</con2:id>
+                                <con2:disabled>true</con2:disabled>
                                 <con3:logLevel>error</con3:logLevel>
                                 <con3:expr>
                                     <con2:xqueryText>$body</con2:xqueryText>

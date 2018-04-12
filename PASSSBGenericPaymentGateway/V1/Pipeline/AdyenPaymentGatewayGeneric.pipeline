@@ -267,7 +267,9 @@
                             <con:route-node name="StoreCreditRouting">
                                 <con:context>
                                     <con2:userNsDecl prefix="paym" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"/>
+                                    <con2:userNsDecl prefix="balan1" namespace="http://TargetNamespace.com/PaymentCreditBalancePS_payment_credit_response"/>
                                     <con2:userNsDecl prefix="ady" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
+                                    <con2:userNsDecl prefix="prof1" namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_response"/>
                                     <con2:userNsDecl prefix="balan" namespace="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_response"/>
                                     <con2:userNsDecl prefix="prof" namespace="http://TargetNamespace.com/OCCGetProfileOrder_profileRequest_response"/>
                                 </con:context>
@@ -341,6 +343,14 @@
                                                 <con4:service ref="PASSSBPaymentBalanceCredit/v1/PS/PaymentCreditBalance" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                                                 <con4:operation>credit_payment_store</con4:operation>
                                                 <con4:outboundTransform>
+                                                    <con3:log xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                                                        <con2:id>_ActionId-N3f57c7ff.N27a4cc5f.0.162b642473c.N7fcd</con2:id>
+                                                        <con3:logLevel>error</con3:logLevel>
+                                                        <con3:expr>
+                                                            <con2:xqueryText>$bodyRes</con2:xqueryText>
+                                                        </con3:expr>
+                                                        <con3:message>body Response profile</con3:message>
+                                                    </con3:log>
                                                     <con1:replace varName="body" contents-only="true">
                                                         <con2:id>_ActionId-N3f57c7ff.N75b826a0.0.162975affc7.N7b84</con2:id>
                                                         <con1:location>
@@ -349,7 +359,7 @@
                                                         <con1:expr>
                                                             <con2:xqueryText><![CDATA[<pay:Root-Element xmlns:pay="http://TargetNamespace.com/PaymentCreditBalancePS_payment_credit_request">
     <pay:amount>{$bodyRequest/ady:Root-Element/ady:amount/text()}</pay:amount>
-    <pay:CPF>{$bodyRes//prof:CPF/text()}</pay:CPF>  
+    <pay:CPF>{$bodyRes//prof1:CPF/text()}</pay:CPF>  
 </pay:Root-Element>]]></con2:xqueryText>
                                                         </con1:expr>
                                                     </con1:replace>
@@ -371,7 +381,7 @@
                                                         <con3:expr>
                                                             <con2:xsltTransform>
                                                                 <con2:resource ref="PASSSBGenericPaymentGateway/V1/XSL/PaymentBalanceToAuthoriseRes"/>
-                                                                <con2:input>$body/paym:Root-Element</con2:input>
+                                                                <con2:input>$body/balan1:Root-Element</con2:input>
                                                                 <con2:param name="bodyRequest">
                                                                     <con2:path>$bodyRequest</con2:path>
                                                                 </con2:param>

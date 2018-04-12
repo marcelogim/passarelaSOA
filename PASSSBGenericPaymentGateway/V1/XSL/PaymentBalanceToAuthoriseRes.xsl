@@ -136,6 +136,11 @@
           <xsl:value-of select="$bodyRequest/ns1:Root-Element/ns1:amount"/>
         </tns:amount>
       </tns:authorizationResponse>
-      </tns:Root-Element>
+      <tns:additionalProperties>
+        <tns:transactionIdCredit>
+          <xsl:value-of select="/ns0:Root-Element/ns0:paymentId"/>
+        </tns:transactionIdCredit>
+      </tns:additionalProperties>
+    </tns:Root-Element>
    </xsl:template>
 </xsl:stylesheet>

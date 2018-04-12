@@ -111,6 +111,7 @@ else("")</con2:path>
                             </con3:wsCallout>
                             <con4:log>
                                 <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7aa0</con1:id>
+                                <con1:disabled>true</con1:disabled>
                                 <con4:logLevel>error</con4:logLevel>
                                 <con4:expr>
                                     <con1:xqueryText>$bodyResponse/pm:AuthenticationToken/text()</con1:xqueryText>
@@ -134,6 +135,7 @@ else("")</con2:path>
                             </con3:replace>
                             <con4:log>
                                 <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7a9d</con1:id>
+                                <con1:disabled>true</con1:disabled>
                                 <con4:logLevel>error</con4:logLevel>
                                 <con4:expr>
                                     <con1:xqueryText>$body</con1:xqueryText>
@@ -144,6 +146,7 @@ else("")</con2:path>
                         <con2:responseTransform>
                             <con4:log>
                                 <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7a69</con1:id>
+                                <con1:disabled>true</con1:disabled>
                                 <con4:logLevel>error</con4:logLevel>
                                 <con4:expr>
                                     <con1:xqueryText>$body</con1:xqueryText>
@@ -160,27 +163,6 @@ else("")</con2:path>
                                         <con1:resource ref="PASSSBUpdateShopper/v1/XSL/ToProfileUpdate"/>
                                         <con1:input>&lt;xml/></con1:input>
                                     </con1:xsltTransform>
-                                </con3:expr>
-                            </con3:replace>
-                            <con3:nxsdTranslation>
-                                <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N79eb</con1:id>
-                                <con1:disabled>true</con1:disabled>
-                                <con3:type>XML-To-Native</con3:type>
-                                <con3:sourceExpr>
-                                    <con1:xqueryText>$body/req:Root-Element</con1:xqueryText>
-                                </con3:sourceExpr>
-                                <con3:nxsd ref="PASSSBUpdateShopper/v1/Resources/nxsd_FilaContactsReq"/>
-                                <con3:schemaElement xmlns:res="http://TargetNamespace.com/ResponsysUpdateShopperBS_PutEvent_request">res:Root-Element</con3:schemaElement>
-                                <con3:assign-variable>body2</con3:assign-variable>
-                            </con3:nxsdTranslation>
-                            <con3:replace varName="body" contents-only="true">
-                                <con1:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N79e8</con1:id>
-                                <con1:disabled>true</con1:disabled>
-                                <con3:location>
-                                    <con1:xpathText>.</con1:xpathText>
-                                </con3:location>
-                                <con3:expr>
-                                    <con1:xqueryText>$body2/*</con1:xqueryText>
                                 </con3:expr>
                             </con3:replace>
                         </con2:responseTransform>

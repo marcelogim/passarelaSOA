@@ -41,9 +41,7 @@
                <xsl:value-of select="$currentTimestamp"/>
             </tns:hostTransactionTimestamp>
             <tns:responseReason>authResponseReason</tns:responseReason>
-            <tns:responseDescription>
-               <xsl:value-of select="/ns0:Root-Element/ns0:message"/>
-            </tns:responseDescription>
+            <tns:responseDescription>paymentStoreCredits</tns:responseDescription>
             <tns:merchantTransactionId>
                <xsl:value-of select="$request/ns1:Root-Element/ns1:transactionId"/>
             </tns:merchantTransactionId>
@@ -68,7 +66,7 @@
             <xsl:value-of select="$request/ns1:Root-Element/ns1:transactionType"/>
          </tns:transactionType>
          <tns:paymentId>
-            <xsl:value-of select="$request/ns1:Root-Element/ns1:paymentId"/>
+            <xsl:value-of select="/ns0:Root-Element/ns0:transactionId"/>
          </tns:paymentId>
          <tns:paymentMethod>
             <xsl:value-of select="$request/ns1:Root-Element/ns1:paymentMethod"/>
