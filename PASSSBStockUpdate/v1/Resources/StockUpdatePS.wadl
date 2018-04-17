@@ -1,14 +1,13 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
 <application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:inp1="http://TargetNamespace.com/OCCStockUpdate_updateInventory_request" xmlns="http://wadl.dev.java.net/2009/02">
    <doc title="StockUpdatePS">RestService</doc>
    <grammars>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/OCCStockUpdate_updateInventory_request" schemaLocation="nxsd_updateInventoryReq.xsd"/>
         </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/OCCStockUpdate_updateInventory_response" schemaLocation="nxsd_%20updateInventoryRes.xsd"/>
         </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/OCCStokUpdate_stokUpdate_fault1" schemaLocation="nxsd_FaultOCC.xsd"/>
         </xsd:schema>
    </grammars>

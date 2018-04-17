@@ -4,12 +4,10 @@
   </plnk:partnerLinkType>
   <wsdl:types>
     <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request"
-                  schemaLocation="nxsd_ProfileOCCReq.xsd"/>
+      <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request" schemaLocation="nxsd_ProfileOCCReq.xsd"/>
     </xsd:schema>
     <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_response"
-                  schemaLocation="nxsd_ProfileOCCRes.xsd"/>
+      <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_response" schemaLocation="nxsd_ProfileOCCRes.xsd"/>
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="orderProfile_inputMessage">

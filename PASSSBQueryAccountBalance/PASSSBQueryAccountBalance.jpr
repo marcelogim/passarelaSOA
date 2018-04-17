@@ -106,7 +106,6 @@
          <string v="WSDL"/>
          <string v="WSPolicy"/>
          <string v="XML"/>
-         <string v="XML_SCHEMA"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
@@ -114,13 +113,13 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="PASSSBQueryAccountBalance">
+         <hash n="Project1">
             <value n="profileClass" v="SbProjectDeployProfile"/>
-            <value n="profileName" v="PASSSBQueryAccountBalance"/>
+            <value n="profileName" v="Project1"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="PASSSBQueryAccountBalance"/>
+         <string v="Project1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
@@ -202,5 +201,4 @@
          </list>
       </hash>
    </hash>
-   <value n="SOA_TRANSFORMATION_FOLDER_NAME" v="v1/XSL/"/>
 </jpr:project>

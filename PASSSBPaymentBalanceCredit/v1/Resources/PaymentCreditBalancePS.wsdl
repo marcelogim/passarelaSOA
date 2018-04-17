@@ -4,12 +4,10 @@
     </plnk:partnerLinkType>
     <wsdl:types>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/PaymentCreditBalancePS_payment_credit_request"
-                        schemaLocation="nxsd_PaymentCreditStoreReq.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/PaymentCreditBalancePS_payment_credit_request" schemaLocation="nxsd_PaymentCreditStoreReq.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/PaymentCreditBalancePS_payment_credit_response"
-                        schemaLocation="nxsd_PaymentCreditStoreRes.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/PaymentCreditBalancePS_payment_credit_response" schemaLocation="nxsd_PaymentCreditStoreRes.xsd"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="credit_payment_store_inputMessage">

@@ -2,12 +2,10 @@
   <doc title="GetEnrichOrderProfilePS">RestService</doc>
   <grammars>
     <xsd:schema>
-      <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request"
-                  schemaLocation="nxsd_ProfileOCCReq.xsd"/>
+      <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request" schemaLocation="nxsd_ProfileOCCReq.xsd"/>
     </xsd:schema>
     <xsd:schema>
-      <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_response"
-                  schemaLocation="nxsd_ProfileOCCRes.xsd"/>
+      <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_response" schemaLocation="nxsd_ProfileOCCRes.xsd"/>
     </xsd:schema>
   </grammars>
   <resources>

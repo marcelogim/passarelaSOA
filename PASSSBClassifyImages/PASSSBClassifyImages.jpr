@@ -103,6 +103,8 @@
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ServiceBusTechnology"/>
+         <string v="WSDL"/>
+         <string v="WSPolicy"/>
          <string v="XML"/>
       </list>
    </hash>
@@ -111,13 +113,13 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="PASSSBClassifyImages">
+         <hash n="Project1">
             <value n="profileClass" v="SbProjectDeployProfile"/>
-            <value n="profileName" v="PASSSBClassifyImages"/>
+            <value n="profileName" v="Project1"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="PASSSBClassifyImages"/>
+         <string v="Project1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">

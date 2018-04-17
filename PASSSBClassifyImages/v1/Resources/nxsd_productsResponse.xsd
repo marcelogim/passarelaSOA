@@ -1,0 +1,338 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://TargetNamespace.com/OCCClassifyImagesBS_getProducts_response"
+            targetNamespace="http://TargetNamespace.com/OCCClassifyImagesBS_getProducts_response"
+            elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON"
+            nxsd:encoding="US-ASCII">
+  <xsd:element name="Root-Element">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="estampa"/>
+        <xsd:element name="brinde"/>
+        <xsd:element name="orderable"/>
+        <xsd:element name="orderLimit"/>
+        <xsd:element name="listPrices">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="rEAL"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="type" type="xsd:string"/>
+        <xsd:element name="collection4Lancamento"/>
+        <xsd:element name="primaryImageAltText"/>
+        <xsd:element name="id" type="xsd:integer"/>
+        <xsd:element name="disponivelPor"/>
+        <xsd:element name="brand"/>
+        <xsd:element name="parentCategories">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="repositoryId" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="height" type="xsd:integer"/>
+        <xsd:element name="defaultProductListingSku"/>
+        <xsd:element name="detalhe"/>
+        <xsd:element name="unitOfMeasure"/>
+        <xsd:element name="alturaSalto"/>
+        <xsd:element name="seoKeywordsDerived" type="xsd:string"/>
+        <xsd:element name="seoUrlSlugDerived" type="xsd:string"/>
+        <xsd:element name="active" type="xsd:string"/>
+        <xsd:element name="thumbImageURLs" maxOccurs="unbounded" type="xsd:string"/>
+        <xsd:element name="modelo"/>
+        <xsd:element name="entreguePor"/>
+        <xsd:element name="route" type="xsd:string"/>
+        <xsd:element name="subcategoria"/>
+        <xsd:element name="mediumImageURLs" maxOccurs="unbounded" type="xsd:string"/>
+        <xsd:element name="preVenda" type="xsd:string"/>
+        <xsd:element name="primarySourceImageURL" type="xsd:string"/>
+        <xsd:element name="collection3Outlet"/>
+        <xsd:element name="sourceImageURLs" maxOccurs="unbounded" type="xsd:string"/>
+        <xsd:element name="primaryThumbImageURL" type="xsd:string"/>
+        <xsd:element name="cintura"/>
+        <xsd:element name="nonreturnable" type="xsd:string"/>
+        <xsd:element name="displayName"/>
+        <xsd:element name="seoDescriptionDerived" type="xsd:string"/>
+        <xsd:element name="primaryFullImageURL" type="xsd:string"/>
+        <xsd:element name="seoTitleDerived" type="xsd:string"/>
+        <xsd:element name="circunferencia"/>
+        <xsd:element name="primaryLargeImageURL" type="xsd:string"/>
+        <xsd:element name="personagem"/>
+        <xsd:element name="filteredSKUs" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="dynamicPropertyMapLong">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="sku-Passarela_cor" type="xsd:integer"/>
+                    <xsd:element name="sku-Passarela_tamanho" type="xsd:integer"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="largeImage"/>
+              <xsd:element name="smallImage"/>
+              <xsd:element name="listVolumePrice"/>
+              <xsd:element name="cor" type="xsd:string"/>
+              <xsd:element name="listPrices">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="rEAL"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="statusGrade"/>
+              <xsd:element name="productLine"/>
+              <xsd:element name="palavrachave2"/>
+              <xsd:element name="listVolumePrices">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="rEAL"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="tamanho" type="xsd:integer"/>
+              <xsd:element name="model"/>
+              <xsd:element name="barcode"/>
+              <xsd:element name="salePriceEndDate"/>
+              <xsd:element name="markup"/>
+              <xsd:element name="unitOfMeasure"/>
+              <xsd:element name="primaryMediumImageURL"/>
+              <xsd:element name="dynamicPropertyMapBigString"/>
+              <xsd:element name="active" type="xsd:string"/>
+              <xsd:element name="primarySourceImageURL"/>
+              <xsd:element name="primarySmallImageURL"/>
+              <xsd:element name="productFamily"/>
+              <xsd:element name="primaryThumbImageURL"/>
+              <xsd:element name="nonreturnable" type="xsd:string"/>
+              <xsd:element name="displayName"/>
+              <xsd:element name="conversao"/>
+              <xsd:element name="corPrincipal"/>
+              <xsd:element name="salePrices">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="rEAL"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="primaryFullImageURL"/>
+              <xsd:element name="porcentDesconto"/>
+              <xsd:element name="productListingSku"/>
+              <xsd:element name="valorEstoque"/>
+              <xsd:element name="primaryLargeImageURL"/>
+              <xsd:element name="thumbnailImage"/>
+              <xsd:element name="saleVolumePrices">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="rEAL"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="saleVolumePrice"/>
+              <xsd:element name="salePriceStartDate"/>
+              <xsd:element name="quantity" type="xsd:integer"/>
+              <xsd:element name="salePrice"/>
+              <xsd:element name="dataDeReposicao"/>
+              <xsd:element name="diasDisponiveis"/>
+              <xsd:element name="variantValuesOrder"/>
+              <xsd:element name="statusGiro"/>
+              <xsd:element name="repositoryId" type="xsd:integer"/>
+              <xsd:element name="configurable" type="xsd:string"/>
+              <xsd:element name="listPrice"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="tabelaDeTamanhos"/>
+        <xsd:element name="saleVolumePrices">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="rEAL"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="childSKUs" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="dynamicPropertyMapLong">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="sku-Passarela_cor" type="xsd:integer"/>
+                    <xsd:element name="sku-Passarela_tamanho" type="xsd:integer"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="largeImage"/>
+              <xsd:element name="smallImage"/>
+              <xsd:element name="listVolumePrice"/>
+              <xsd:element name="cor" type="xsd:string"/>
+              <xsd:element name="listPrices">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="rEAL"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="statusGrade"/>
+              <xsd:element name="productLine"/>
+              <xsd:element name="palavrachave2"/>
+              <xsd:element name="listVolumePrices">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="rEAL"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="tamanho" type="xsd:integer"/>
+              <xsd:element name="model"/>
+              <xsd:element name="barcode"/>
+              <xsd:element name="salePriceEndDate"/>
+              <xsd:element name="markup"/>
+              <xsd:element name="unitOfMeasure"/>
+              <xsd:element name="primaryMediumImageURL"/>
+              <xsd:element name="dynamicPropertyMapBigString"/>
+              <xsd:element name="active" type="xsd:string"/>
+              <xsd:element name="primarySourceImageURL"/>
+              <xsd:element name="primarySmallImageURL"/>
+              <xsd:element name="productFamily"/>
+              <xsd:element name="primaryThumbImageURL"/>
+              <xsd:element name="nonreturnable" type="xsd:string"/>
+              <xsd:element name="displayName"/>
+              <xsd:element name="conversao"/>
+              <xsd:element name="corPrincipal"/>
+              <xsd:element name="salePrices">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="rEAL"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="primaryFullImageURL"/>
+              <xsd:element name="porcentDesconto"/>
+              <xsd:element name="productListingSku"/>
+              <xsd:element name="valorEstoque"/>
+              <xsd:element name="primaryLargeImageURL"/>
+              <xsd:element name="thumbnailImage"/>
+              <xsd:element name="saleVolumePrices">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="rEAL"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="saleVolumePrice"/>
+              <xsd:element name="salePriceStartDate"/>
+              <xsd:element name="quantity" type="xsd:integer"/>
+              <xsd:element name="salePrice"/>
+              <xsd:element name="dataDeReposicao"/>
+              <xsd:element name="diasDisponiveis"/>
+              <xsd:element name="statusGiro"/>
+              <xsd:element name="repositoryId" type="xsd:integer"/>
+              <xsd:element name="configurable" type="xsd:string"/>
+              <xsd:element name="listPrice"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="salePriceStartDate"/>
+        <xsd:element name="salePrice"/>
+        <xsd:element name="gola"/>
+        <xsd:element name="collection2Brand"/>
+        <xsd:element name="notForIndividualSale" type="xsd:string"/>
+        <xsd:element name="dateAvailable" type="xsd:string"/>
+        <xsd:element name="width" type="xsd:integer"/>
+        <xsd:element name="daysAvailable" type="xsd:integer"/>
+        <xsd:element name="listPrice"/>
+        <xsd:element name="largeImage"/>
+        <xsd:element name="listVolumePrice"/>
+        <xsd:element name="excludeFromSitemap" type="xsd:string"/>
+        <xsd:element name="alcaSecundaria"/>
+        <xsd:element name="relatedProducts"/>
+        <xsd:element name="onlineOnly" type="xsd:string"/>
+        <xsd:element name="seoMetaInfo"/>
+        <xsd:element name="largeImageURLs" maxOccurs="unbounded" type="xsd:string"/>
+        <xsd:element name="solado"/>
+        <xsd:element name="listVolumePrices">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="rEAL"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="faixaEtaria"/>
+        <xsd:element name="genero"/>
+        <xsd:element name="collection1Subcategoria"/>
+        <xsd:element name="links">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="rel" type="xsd:string"/>
+              <xsd:element name="href" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="salePriceEndDate"/>
+        <xsd:element name="disponibilidade"/>
+        <xsd:element name="primaryMediumImageURL" type="xsd:string"/>
+        <xsd:element name="weight" type="xsd:integer"/>
+        <xsd:element name="creationDate" type="xsd:string"/>
+        <xsd:element name="taxCode"/>
+        <xsd:element name="arrivalDate"/>
+        <xsd:element name="cano"/>
+        <xsd:element name="modalidadeEsportiva"/>
+        <xsd:element name="parentCategory"/>
+        <xsd:element name="primarySmallImageURL" type="xsd:string"/>
+        <xsd:element name="longDescription"/>
+        <xsd:element name="ocasiao"/>
+        <xsd:element name="description"/>
+        <xsd:element name="salePrices">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="rEAL"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="videoURL2"/>
+        <xsd:element name="videoURL1"/>
+        <xsd:element name="smallImageURLs" maxOccurs="unbounded" type="xsd:string"/>
+        <xsd:element name="pisada"/>
+        <xsd:element name="shippingSurcharges">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="rEAL"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="bico"/>
+        <xsd:element name="primaryImageTitle"/>
+        <xsd:element name="saleVolumePrice"/>
+        <xsd:element name="alca"/>
+        <xsd:element name="fullImageURLs" maxOccurs="unbounded" type="xsd:string"/>
+        <xsd:element name="length" type="xsd:integer"/>
+        <xsd:element name="profundidade"/>
+        <xsd:element name="categoriaPai"/>
+        <xsd:element name="productImages" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="path" type="xsd:string"/>
+              <xsd:element name="metadata"/>
+              <xsd:element name="repositoryId" type="xsd:string"/>
+              <xsd:element name="name" type="xsd:string"/>
+              <xsd:element name="url" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="variantValuesOrder"/>
+        <xsd:element name="estacao"/>
+        <xsd:element name="material"/>
+        <xsd:element name="formatoSalto"/>
+        <xsd:element name="repositoryId" type="xsd:integer"/>
+        <xsd:element name="shippingSurcharge"/>
+        <xsd:element name="productImagesMetadata" maxOccurs="unbounded"/>
+        <xsd:element name="configurable" type="xsd:string"/>
+        <xsd:element name="categoriaFilho"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:annotation xmlns="">
+    <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+    <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+  </xsd:annotation>
+</xsd:schema>

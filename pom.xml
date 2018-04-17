@@ -11,48 +11,18 @@
 
     <modules>
         <module>System</module>
-        <module>PASSSBGenericPaymentGateway</module>
-        <module>PASSSBMashupCalculoFrete</module>
         <module>PASSSBCommon</module>
+        <module>PASSSBStatusChange</module>
+        <module>PASSSBMashupCalculoFrete</module>
+        <module>PASSSBPaymentBalanceCredit</module>
+        <module>PASSSBForgotPassword</module>
+        <module>PASSSBGenericPaymentGateway</module>
+        <module>PASSSBWebhookOrderSubmit</module>
         <module>PASSSBStockUpdate</module>
         <module>PASSSBQueryAccountBalance</module>
-        <module>PASSSBStatusChange</module>
-        <module>PASSSBUpdateShopper</module>
-        <module>PASSSBPaymentBalanceCredit</module>
         <module>PASSSBAbandonedCart</module>
-        <module>PASSSBWebhookOrderSubmit</module>
-        <module>PASSSBForgotPassword</module>
+        <module>PASSSBUpdateShopper</module>
         <module>PASSSBClassifyImages</module>
     </modules>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.oracle.adf.plugin</groupId>
-                <artifactId>ojdeploy</artifactId>
-                <version>12.2.1-2-0</version>
-                <configuration>
-                    <ojdeploy>
-                        ${oracleHome}/jdeveloper/jdev/bin/ojdeploy.exe
-                    </ojdeploy>
-                    <workspace>
-                        ${basedir}/SBAplPassarela.jws
-                    </workspace>
-                    <profile>
-                        SBAplPassarela
-                    </profile>
-                    <outputfile>
-                        ${project.build.directory}/${project.build.finalName}.${project.packaging}
-                    </outputfile>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+
 </project>

@@ -1,11 +1,10 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
 <application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://TargetNamespace.com/GetTokenPMWeb_Authenticate_request" xmlns="http://wadl.dev.java.net/2009/02">
    <doc title="GetTokenPMWeb">RestReference</doc>
    <grammars>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/GetTokenPMWeb_Authenticate_request" schemaLocation="nxsd_AuthenticateReq.xsd"/>
         </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/GetTokenPMWeb_Authenticate_response" schemaLocation="nxsd_AuthenticateRes.xsd"/>
         </xsd:schema>
    </grammars>

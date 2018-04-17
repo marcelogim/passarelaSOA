@@ -42,10 +42,6 @@
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="Project1">
-            <value n="profileClass" v="SbProjectDeployProfile"/>
-            <value n="profileName" v="Project1"/>
-         </hash>
          <hash n="SBAplPassarela">
             <value n="profileClass" v="SbAppDeployProfile"/>
             <value n="profileName" v="SBAplPassarela"/>
@@ -53,7 +49,6 @@
       </hash>
       <list n="profileList">
          <string v="SBAplPassarela"/>
-         <string v="Project1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
@@ -62,6 +57,6 @@
       </hash>
    </hash>
    <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
-      <value n="configContextSessionName" v="OSB-IDE_build_1523471654730"/>
+      <value n="configContextSessionName" v="OSB-IDE_build_1519672084872"/>
    </hash>
 </jws:workspace>

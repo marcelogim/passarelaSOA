@@ -10,8 +10,7 @@
             <xsd:import namespace="http://TargetNamespace.com/OCCGetProfileOrder_profileRequest_response" schemaLocation="nxsd_ProfileRes.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request"
-                        schemaLocation="nxsd_ProfileOCCReq.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request" schemaLocation="nxsd_ProfileOCCReq.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/OCCGetProfileOrder_products_response" schemaLocation="nxsd_ProductRes.xsd"/>

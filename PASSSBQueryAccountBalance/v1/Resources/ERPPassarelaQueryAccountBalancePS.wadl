@@ -1,11 +1,10 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
 <application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://TargetNamespace.com/QueryAccount_CPF_request" xmlns="http://wadl.dev.java.net/2009/02">
    <doc title="ERPPassarelaQueryAccountBalancePS">RestReference</doc>
    <grammars>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/QueryAccount_CPF_request" schemaLocation="nxsd_ERPCpfReq.xsd"/>
         </xsd:schema>
-      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:schema>
             <xsd:import namespace="http://TargetNamespace.com/ERPPassarelaQueryAccountBalance_query_response" schemaLocation="nxsd_QueryAccountRes.xsd"/>
         </xsd:schema>
    </grammars>
