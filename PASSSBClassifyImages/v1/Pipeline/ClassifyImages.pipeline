@@ -241,12 +241,7 @@
                 </con:actions>
             </con:stage>
         </con:pipeline>
-        <con:pipeline type="response" name="response-N3f57c7ff.N27a4cc5f.0.162b642473c.N7f00">
-            <con:stage id="_StageId-N3f57c7ff.N27a4cc5f.0.162b642473c.N7efe" name="Stage1">
-                <con:context/>
-                <con:actions/>
-            </con:stage>
-        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f57c7ff.N27a4cc5f.0.162b642473c.N7f00"></con:pipeline>
         <con:flow>
             <con:pipeline-node name="Pipeline Classify Images">
                 <con:request>request-N3f57c7ff.N27a4cc5f.0.162b642473c.N7f01</con:request>
