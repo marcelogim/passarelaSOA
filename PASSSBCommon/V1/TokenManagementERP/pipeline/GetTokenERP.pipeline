@@ -64,14 +64,12 @@
                                         <con4:param name="client_id">
                                             <con4:path>dvm:lookup('PASSSBCommon/V1/DVM/KeysPassarelaERP', 'key', 'ERPKey', 'client_idValue', '0')</con4:path>
                                         </con4:param>
-                                        <con4:param name="username">
-                                            <con4:path>$UsernamePasswordCredential//user:username/text()</con4:path>
-                                        </con4:param>
-                                        <con4:param name="password">
-                                            <con4:path>$UsernamePasswordCredential//user:password/text()</con4:path>
-                                        </con4:param>
+                                       
                                         <con4:param name="client_secret">
                                             <con4:path>dvm:lookup('PASSSBCommon/V1/DVM/KeysPassarelaERP', 'key', 'ERPKey', 'client_secretValue', '0')</con4:path>
+                                        </con4:param>
+                                        <con4:param name="scope">
+                                            <con4:path>dvm:lookup('PASSSBCommon/V1/DVM/KeysPassarelaERP', 'key', 'ERPKey', 'scopesValue', '0')</con4:path>
                                         </con4:param>
                                     </con4:xsltTransform>
                                 </con3:expr>
