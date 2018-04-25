@@ -1,15 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
 <application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://TargetNamespace.com/ERPPassarelaPaymentBalanceCredit_payment_balance_credit_request" xmlns="http://wadl.dev.java.net/2009/02" xmlns:inp2="http://TargetNamespace.com/ERPPassarelaCreditBalance_paymentBalance_request">
    <doc title="ERPPassarelaCreditBalance">RestReference</doc>
    <grammars>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/ERPPassarelaCreditBalance_paymentBalance_request" schemaLocation="nxsd_PaymentBalanceReq.xsd"/>
         </xsd:schema>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/ERPPassarelaCreditBalance_paymentBalance_response" schemaLocation="nxsd_PaymentBalanceRes.xsd"/>
         </xsd:schema>
    </grammars>
    <resources>
-      <resource path="/payment/{cpf}">
+      <resource path="/Profile/payment/{cpf}">
          <method name="POST" soa:wsdlOperation="paymentBalance">
             <request>
                <param name="cpf" style="template" soa:expression="$property.cpf" type="xsd:string"/>

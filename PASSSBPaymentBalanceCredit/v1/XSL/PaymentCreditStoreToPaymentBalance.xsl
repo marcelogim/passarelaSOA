@@ -18,9 +18,9 @@
    <!--User Editing allowed BELOW this line - DO NOT DELETE THIS LINE-->
    <xsl:template match="/">
       <tns:Root-Element>
-         <tns:valorcredito>
+         <tns:valorCredito>
             <xsl:value-of select="/ns0:Root-Element/ns0:amount"/>
-         </tns:valorcredito>
+         </tns:valorCredito>
       </tns:Root-Element>
    </xsl:template>
 </xsl:stylesheet>

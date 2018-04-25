@@ -7,7 +7,7 @@
   <xsd:element name="Root-Element">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="valocredito" type="xsd:string"/>
+        <xsd:element name="valorCredito" type="xsd:string"/>
         <xsd:element name="email" type="xsd:string"/>
         <xsd:element name="idprofileatg" type="xsd:string"/>
         <xsd:element name="idprofileocc" type="xsd:string"/>

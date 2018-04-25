@@ -26,7 +26,7 @@
   <xsl:template match="/">
     <tns:Root-Element>
       <tns:totalAvailableAmount>
-        <xsl:value-of select="/ns0:Root-Element/ns0:valocredito"/>
+        <xsl:value-of select="/ns0:Root-Element/ns0:valorCredito"/>
       </tns:totalAvailableAmount>
       <tns:transactionType>0600</tns:transactionType>
       <tns:orderId>

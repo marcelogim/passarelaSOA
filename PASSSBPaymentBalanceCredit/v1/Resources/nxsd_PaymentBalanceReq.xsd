@@ -3,7 +3,7 @@
    <xsd:element name="Root-Element">
       <xsd:complexType>
          <xsd:sequence>
-            <xsd:element name="valorcredito" type="xsd:string"/>
+            <xsd:element name="valorCredito" type="xsd:string"/>
          </xsd:sequence>
       </xsd:complexType>
    </xsd:element>
