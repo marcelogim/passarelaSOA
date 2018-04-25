@@ -1,15 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
 <application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://TargetNamespace.com/QueryAccount_CPF_request" xmlns="http://wadl.dev.java.net/2009/02">
    <doc title="ERPPassarelaQueryAccountBalancePS">RestReference</doc>
    <grammars>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/QueryAccount_CPF_request" schemaLocation="nxsd_ERPCpfReq.xsd"/>
         </xsd:schema>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/ERPPassarelaQueryAccountBalance_query_response" schemaLocation="nxsd_QueryAccountRes.xsd"/>
         </xsd:schema>
    </grammars>
    <resources>
-      <resource path="/profile/{cpf}">
+      <resource path="/Profile/{cpf}">
          <method name="GET" soa:wsdlOperation="profileErp">
             <request soa:paramElement="pns:Root-Element" xmlns:pns="http://TargetNamespace.com/QueryAccount_CPF_request">
                <param name="cpf" style="template" soa:expression="$msg.request/ns0:cpf" type="xsd:string"/>

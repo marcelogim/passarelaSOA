@@ -1,4 +1,14 @@
-<wsdl:definitions name="ERPPassarelaQueryAccountBalancePS" targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBQueryAccountBalance/ERPPassarelaQueryAccountBalancePS" xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBQueryAccountBalance/ERPPassarelaQueryAccountBalancePS" xmlns:inp1="http://TargetNamespace.com/QueryAccount_CPF_request" xmlns:inp2="http://TargetNamespace.com/ERPPassarelaQueryAccountBalance_query_response" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="ERPPassarelaQueryAccountBalancePS"
+     targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBQueryAccountBalance/ERPPassarelaQueryAccountBalancePS"
+     xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBQueryAccountBalance/ERPPassarelaQueryAccountBalancePS"
+     xmlns:inp1="http://TargetNamespace.com/QueryAccount_CPF_request"
+     xmlns:inp2="http://TargetNamespace.com/ERPPassarelaQueryAccountBalance_query_response"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
     <plnk:partnerLinkType name="ERPPassarelaQueryAccountBalancePS">
         <plnk:role name="ERPPassarelaQueryAccountBalancePSProvider" portType="tns:ERPPassarelaQueryAccountBalancePS_ptt"/>
     </plnk:partnerLinkType>
@@ -7,7 +17,8 @@
             <xsd:import namespace="http://TargetNamespace.com/QueryAccount_CPF_request" schemaLocation="nxsd_ERPCpfReq.xsd"/>
         </xsd:schema>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://TargetNamespace.com/ERPPassarelaQueryAccountBalance_query_response" schemaLocation="nxsd_QueryAccountRes.xsd"/>
+            <xsd:import namespace="http://TargetNamespace.com/ERPPassarelaQueryAccountBalance_query_response"
+                 schemaLocation="nxsd_QueryAccountRes.xsd"/>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="profileErp_inputMessage">

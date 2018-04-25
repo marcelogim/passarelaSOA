@@ -83,7 +83,7 @@
                         <con3:expr>
                             <con2:xqueryText>$bodyRequest</con2:xqueryText>
                         </con3:expr>
-                        <con3:message>bodyRequest</con3:message>
+                        <con3:message>bodyRequest aaaa</con3:message>
                     </con3:log>
                 </con:actions>
             </con:stage>
