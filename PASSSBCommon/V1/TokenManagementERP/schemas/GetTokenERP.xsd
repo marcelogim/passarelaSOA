@@ -14,10 +14,10 @@
   <xsd:element name="GetTokenERPRequest">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="Grant_type" type="xsd:string"/>
-        <xsd:element name="ClientId" type="xsd:string"/>
-        <xsd:element name="Secret" type="xsd:string"/>
-        <xsd:element name="Scope" type="xsd:string"/>
+        <xsd:element name="grant_type" type="xsd:string"/>
+        <xsd:element name="client_id" type="xsd:string"/>
+        <xsd:element name="client_secret" type="xsd:string"/>
+        <xsd:element name="scope" type="xsd:string"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>

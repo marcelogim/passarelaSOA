@@ -43,12 +43,6 @@
                                     <con2:xqueryText>'application/x-www-form-urlencoded'</con2:xqueryText>
                                 </con3:header>
                             </con3:transport-headers>
-                            <con3:assign varName="UsernamePasswordCredential" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
-                                <con2:id>_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N7620</con2:id>
-                                <con3:expr>
-                                    <con2:xqueryText>fn-bea:lookupBasicCredentials("PASSSBCommon/V1/Account/ServiceAccountERP")</con2:xqueryText>
-                                </con3:expr>
-                            </con3:assign>
                             <con3:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                 <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57c7ff.N74338c7c.0.162077fcd2e.N771f</con4:id>
                                 <con3:location>
@@ -64,7 +58,6 @@
                                         <con4:param name="client_id">
                                             <con4:path>dvm:lookup('PASSSBCommon/V1/DVM/KeysPassarelaERP', 'key', 'ERPKey', 'client_idValue', '0')</con4:path>
                                         </con4:param>
-                                       
                                         <con4:param name="client_secret">
                                             <con4:path>dvm:lookup('PASSSBCommon/V1/DVM/KeysPassarelaERP', 'key', 'ERPKey', 'client_secretValue', '0')</con4:path>
                                         </con4:param>

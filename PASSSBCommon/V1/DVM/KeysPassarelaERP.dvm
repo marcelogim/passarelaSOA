@@ -5,17 +5,17 @@
   <columns>
     <column name="key"/>
     <column name="grant_typeValue"/>
-	 <column name="client_idValue"/>
-	      <column name="client_secretValue"/>
-		        <column name="scopesValue"/>
+	<column name="client_idValue"/>
+	<column name="client_secretValue"/>
+	<column name="scopesValue"/>
   </columns>
   <rows>
     <row>
       <cell>ERPKey</cell>
-      <cell>cliente_credentials</cell>
-	    <cell>occ</cell>
-			  <cell>secret</cell>
-			  	  <cell>ordering profile</cell>
+      <cell>client_credentials</cell>
+	  <cell>occ</cell>
+	  <cell>secret</cell>
+  	  <cell>ordering profile</cell>
     </row>
   </rows>
 </dvm>

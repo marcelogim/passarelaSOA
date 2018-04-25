@@ -20,7 +20,7 @@
     <oracle-xsl-mapper:mapSources>
       <oracle-xsl-mapper:source/>
     </oracle-xsl-mapper:mapSources>
-    <oracle-xsl-mapper:mapTargets>
+    <oracle-xsl-mapper:mapTargets> 
       <oracle-xsl-mapper:target type="XSD">
         <oracle-xsl-mapper:schema location="../schemas/GetTokenERP.xsd"/>
         <oracle-xsl-mapper:rootElement name="GetTokenERPRequest"
@@ -36,18 +36,18 @@
   <xsl:param name="scope"/>
   <xsl:template match="/">
     <tns:GetTokenERPRequest>
-      <tns:Grant_type>
+      <tns:grant_type>
         <xsl:value-of select="$grant_type"/>
-      </tns:Grant_type>
-      <tns:ClientId>
+      </tns:grant_type>
+      <tns:client_id>
         <xsl:value-of select="$client_id"/>
-      </tns:ClientId>
-      <tns:Secret>
+      </tns:client_id>
+      <tns:client_secret>
         <xsl:value-of select="$client_secret"/>
-      </tns:Secret>
-      <tns:Scope>
+      </tns:client_secret>
+      <tns:scope>
         <xsl:value-of select="$scope"/>
-      </tns:Scope>
+      </tns:scope>
     </tns:GetTokenERPRequest>
   </xsl:template>
 </xsl:stylesheet>
