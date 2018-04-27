@@ -54,7 +54,7 @@
             <xsl:value-of select="xp20:current-dateTime ( )"/>
           </tns:estimatedDeliveryDate>
           <tns:displayName>
-            <xsl:value-of select="ns0:description"/>
+            <xsl:value-of select="ns0:delivery_method_name"/>
           </tns:displayName>
           <tns:carrierId>
             <xsl:value-of select="ns0:logistic_provider_name"/>
