@@ -1,0 +1,154 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://passarela.com.br/ErpSubmitReq" targetNamespace="http://passarela.com.br/ErpSubmitReq" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="ErpSubmitReq">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="Order">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="DsDispId" type="xsd:string"/>
+                     <xsd:element name="DtOrder" type="xsd:string"/>
+                     <xsd:element name="IdSite" type="xsd:string"/>
+                     <xsd:element name="DsSalesChannel" type="xsd:string"/>
+                     <xsd:element name="InfoPrice">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="VlTotalOrder" type="xsd:integer"/>
+                              <xsd:element name="VlTotalProduct" type="xsd:integer"/>
+                              <xsd:element name="VlTotalShipCost"/>
+                              <xsd:element name="VlOrderDiscount" type="xsd:integer"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="Status">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="DsStatusOrder" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="Televendas">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="IDTelemarketingUser" type="xsd:integer"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="CupomGroup">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Cupom">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="VlGiftPayment"/>
+                                       <xsd:element name="NuGiftPayment"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="Payment" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="DsFraudResultType" type="xsd:string"/>
+                              <xsd:element name="fraudManualReview" type="xsd:string"/>
+                              <xsd:element name="accountScore" type="xsd:integer"/>
+                              <xsd:element name="DsacquirerCode" type="xsd:string"/>
+                              <xsd:element name="acquirerReference" type="xsd:string"/>
+                              <xsd:element name="authorisationMid" type="xsd:integer"/>
+                              <xsd:element name="IdPayMethod" type="xsd:string"/>
+                              <xsd:element name="NuParcelsNumber" type="xsd:integer"/>
+                              <xsd:element name="VlValue" type="xsd:integer"/>
+                              <xsd:element name="TransactionId" type="xsd:integer"/>
+                              <xsd:element name="AuthorizationStatus" type="xsd:string"/>
+                              <xsd:element name="TransactionIdCredit"/>
+                              <xsd:element name="DsFlag" type="xsd:string"/>
+                              <xsd:element name="DsCardNumber" type="xsd:integer"/>
+                              <xsd:element name="cardBin" type="xsd:integer"/>
+                              <xsd:element name="boletodueDate"/>
+                              <xsd:element name="boletobarCodeReference"/>
+                              <xsd:element name="boletourl"/>
+                              <xsd:element name="boletoexpirationDate"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="ShippingInfo">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="idquote"/>
+                              <xsd:element name="firstname" type="xsd:string"/>
+                              <xsd:element name="lastname" type="xsd:string"/>
+                              <xsd:element name="DsAddress" type="xsd:string"/>
+                              <xsd:element name="DsDistrict" type="xsd:string"/>
+                              <xsd:element name="DsNumber" type="xsd:integer"/>
+                              <xsd:element name="DsComplement" type="xsd:string"/>
+                              <xsd:element name="DsZip" type="xsd:integer"/>
+                              <xsd:element name="DsCity" type="xsd:string"/>
+                              <xsd:element name="DsPhone" type="xsd:integer"/>
+                              <xsd:element name="IdState" type="xsd:string"/>
+                              <xsd:element name="IdCountry" type="xsd:string"/>
+                              <xsd:element name="IdShippingMethod" type="xsd:string"/>
+                              <xsd:element name="DsMethodType" type="xsd:string"/>
+                              <xsd:element name="DsShippingMethod" type="xsd:string"/>
+                              <xsd:element name="Dsshippinginfo" type="xsd:string"/>
+                              <xsd:element name="DtDeliveryDay"/>
+                              <xsd:element name="DsReferenceAddress" type="xsd:string"/>
+                              <xsd:element name="DtDeliverySchedule" type="xsd:string"/>
+                              <xsd:element name="IdPeriodSchedule" type="xsd:string"/>
+                              <xsd:element name="DsLogistic" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="ReceiptItems" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="IdProduct" type="xsd:integer"/>
+                              <xsd:element name="NuQuantity" type="xsd:integer"/>
+                              <xsd:element name="VlOriginalSalePrice" type="xsd:integer"/>
+                              <xsd:element name="VlFinalSalePrice" type="xsd:integer"/>
+                              <xsd:element name="FgGift"/>
+                              <xsd:element name="IdGiftCard"/>
+                              <xsd:element name="DsGifitBilletMessage"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="Customer">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="IdCustomer" type="xsd:integer"/>
+                              <xsd:element name="DsEmail" type="xsd:string"/>
+                              <xsd:element name="firstname" type="xsd:string"/>
+                              <xsd:element name="lastname" type="xsd:string"/>
+                              <xsd:element name="FgReceiveEmail" type="xsd:string"/>
+                              <xsd:element name="DsCNPJ"/>
+                              <xsd:element name="DsIM"/>
+                              <xsd:element name="DsIE"/>
+                              <xsd:element name="DsCpf" type="xsd:integer"/>
+                              <xsd:element name="DtBirthDate" type="xsd:string"/>
+                              <xsd:element name="DsSex" type="xsd:string"/>
+                              <xsd:element name="DsPhone"/>
+                              <xsd:element name="DsCelularPhone" type="xsd:integer"/>
+                              <xsd:element name="DsAddress" type="xsd:string"/>
+                              <xsd:element name="DsNumber" type="xsd:integer"/>
+                              <xsd:element name="DsComplement" type="xsd:string"/>
+                              <xsd:element name="DsDistrict" type="xsd:string"/>
+                              <xsd:element name="DsZip" type="xsd:integer"/>
+                              <xsd:element name="DsCity" type="xsd:string"/>
+                              <xsd:element name="IdState" type="xsd:string"/>
+                              <xsd:element name="IdCountry" type="xsd:string"/>
+                              <xsd:element name="DsReferenceAddress" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

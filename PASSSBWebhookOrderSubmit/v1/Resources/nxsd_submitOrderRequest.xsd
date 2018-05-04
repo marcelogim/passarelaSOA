@@ -1,0 +1,386 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://passarela.com.br/SubmitOrderRequest" targetNamespace="http://passarela.com.br/SubmitOrderRequest" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="SubmitOrderRequest">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="site">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="siteURL" type="xsd:string"/>
+                     <xsd:element name="siteName" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="discountInfo">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="unclaimedCouponMultiPromotions"/>
+                     <xsd:element name="orderCouponsMap"/>
+                     <xsd:element name="orderDiscount" type="xsd:integer"/>
+                     <xsd:element name="shippingDiscount" type="xsd:integer"/>
+                     <xsd:element name="orderImplicitDiscountList">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="promotionLongDesc"/>
+                              <xsd:element name="promotionName" type="xsd:string"/>
+                              <xsd:element name="promotionLevel" type="xsd:string"/>
+                              <xsd:element name="totalAdjustment" type="xsd:double"/>
+                              <xsd:element name="promotionDesc" type="xsd:string"/>
+                              <xsd:element name="promotionId" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="unclaimedCouponsMap"/>
+                     <xsd:element name="claimedCouponMultiPromotions"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="order">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="gwp" type="xsd:string"/>
+                     <xsd:element name="secondaryCurrencyCode"/>
+                     <xsd:element name="submittedDate" type="xsd:string"/>
+                     <xsd:element name="salesChannel" type="xsd:string"/>
+                     <xsd:element name="configuratorId"/>
+                     <xsd:element name="organizationId"/>
+                     <xsd:element name="parcelas"/>
+                     <xsd:element name="relationships">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="paymentGroupId" type="xsd:string"/>
+                              <xsd:element name="amount" type="xsd:integer"/>
+                              <xsd:element name="relationshipType" type="xsd:string"/>
+                              <xsd:element name="id" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="exchangeRate"/>
+                     <xsd:element name="id" type="xsd:string"/>
+                     <xsd:element name="state" type="xsd:string"/>
+                     <xsd:element name="taxCalculated" type="xsd:string"/>
+                     <xsd:element name="commerceItems">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="deactivationDate"/>
+                              <xsd:element name="returnedQuantity" type="xsd:integer"/>
+                              <xsd:element name="availabilityDate"/>
+                              <xsd:element name="billingAccountId"/>
+                              <xsd:element name="preOrderQuantity" type="xsd:integer"/>
+                              <xsd:element name="priceInfo">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="discounted" type="xsd:string"/>
+                                       <xsd:element name="amount" type="xsd:integer"/>
+                                       <xsd:element name="rawTotalPrice" type="xsd:double"/>
+                                       <xsd:element name="salePrice" type="xsd:double"/>
+                                       <xsd:element name="priceListId" type="xsd:string"/>
+                                       <xsd:element name="quantityDiscounted" type="xsd:integer"/>
+                                       <xsd:element name="amountIsFinal" type="xsd:string"/>
+                                       <xsd:element name="onSale" type="xsd:string"/>
+                                       <xsd:element name="shippingSurcharge" type="xsd:integer"/>
+                                       <xsd:element name="discountable" type="xsd:string"/>
+                                       <xsd:element name="currentPriceDetailsSorted">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="secondaryCurrencyTaxAmount" type="xsd:integer"/>
+                                                <xsd:element name="discounted" type="xsd:string"/>
+                                                <xsd:element name="amount" type="xsd:integer"/>
+                                                <xsd:element name="quantity" type="xsd:integer"/>
+                                                <xsd:element name="amountIsFinal" type="xsd:string"/>
+                                                <xsd:element name="range">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="lowBound" type="xsd:integer"/>
+                                                         <xsd:element name="highBound" type="xsd:integer"/>
+                                                         <xsd:element name="size" type="xsd:integer"/>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="tax" type="xsd:integer"/>
+                                                <xsd:element name="orderDiscountShare" type="xsd:integer"/>
+                                                <xsd:element name="detailedUnitPrice" type="xsd:integer"/>
+                                                <xsd:element name="currencyCode" type="xsd:string"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="currencyCode" type="xsd:string"/>
+                                       <xsd:element name="listPrice" type="xsd:double"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="catalogId"/>
+                              <xsd:element name="assetId"/>
+                              <xsd:element name="externalRecurringChargeDetails"/>
+                              <xsd:element name="externalPriceDetails"/>
+                              <xsd:element name="actionCode"/>
+                              <xsd:element name="giftPaper" type="xsd:integer"/>
+                              <xsd:element name="id" type="xsd:string"/>
+                              <xsd:element name="serviceId"/>
+                              <xsd:element name="giftText" type="xsd:string"/>
+                              <xsd:element name="serviceAccountId"/>
+                              <xsd:element name="quantity" type="xsd:integer"/>
+                              <xsd:element name="productId" type="xsd:integer"/>
+                              <xsd:element name="externalId"/>
+                              <xsd:element name="catalogRefId" type="xsd:integer"/>
+                              <xsd:element name="customerAccountId"/>
+                              <xsd:element name="recurringChargePriceInfo"/>
+                              <xsd:element name="catalogKey"/>
+                              <xsd:element name="productDisplayName" type="xsd:string"/>
+                              <xsd:element name="giftCard" type="xsd:integer"/>
+                              <xsd:element name="activationDate"/>
+                              <xsd:element name="backOrderQuantity" type="xsd:integer"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="shippingGroups">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="shippingMethod" type="xsd:integer"/>
+                              <xsd:element name="description" type="xsd:string"/>
+                              <xsd:element name="submittedDate"/>
+                              <xsd:element name="priceInfo">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="secondaryCurrencyTaxAmount" type="xsd:integer"/>
+                                       <xsd:element name="discounted" type="xsd:string"/>
+                                       <xsd:element name="shippingTax" type="xsd:integer"/>
+                                       <xsd:element name="amount" type="xsd:integer"/>
+                                       <xsd:element name="rawShipping" type="xsd:integer"/>
+                                       <xsd:element name="amountIsFinal" type="xsd:string"/>
+                                       <xsd:element name="currencyCode" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="shipOnDate"/>
+                              <xsd:element name="actualShipDate"/>
+                              <xsd:element name="specialInstructions"/>
+                              <xsd:element name="shippingAddress">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="lastName" type="xsd:string"/>
+                                       <xsd:element name="country" type="xsd:string"/>
+                                       <xsd:element name="address3"/>
+                                       <xsd:element name="address2" type="xsd:string"/>
+                                       <xsd:element name="city" type="xsd:string"/>
+                                       <xsd:element name="prefix"/>
+                                       <xsd:element name="address1" type="xsd:string"/>
+                                       <xsd:element name="postalCode" type="xsd:integer"/>
+                                       <xsd:element name="companyName"/>
+                                       <xsd:element name="jobTitle"/>
+                                       <xsd:element name="county"/>
+                                       <xsd:element name="suffix"/>
+                                       <xsd:element name="ownerId"/>
+                                       <xsd:element name="firstName" type="xsd:string"/>
+                                       <xsd:element name="phoneNumber" type="xsd:integer"/>
+                                       <xsd:element name="faxNumber"/>
+                                       <xsd:element name="middleName"/>
+                                       <xsd:element name="state" type="xsd:string"/>
+                                       <xsd:element name="email" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="commerceItemRelationships">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="commerceItemId" type="xsd:string"/>
+                                       <xsd:element name="amount" type="xsd:integer"/>
+                                       <xsd:element name="quantity" type="xsd:integer"/>
+                                       <xsd:element name="relationshipType" type="xsd:string"/>
+                                       <xsd:element name="returnedQuantity" type="xsd:integer"/>
+                                       <xsd:element name="range">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="lowBound" type="xsd:integer"/>
+                                                <xsd:element name="highBound" type="xsd:integer"/>
+                                                <xsd:element name="size" type="xsd:integer"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="commerceItemExternalId"/>
+                                       <xsd:element name="state" type="xsd:string"/>
+                                       <xsd:element name="id" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="state" type="xsd:string"/>
+                              <xsd:element name="id" type="xsd:string"/>
+                              <xsd:element name="stateDetail"/>
+                              <xsd:element name="trackingNumber"/>
+                              <xsd:element name="shippingGroupClassType" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="freezeDate"/>
+                     <xsd:element name="IdTelemarketingUser"/>
+                     <xsd:element name="taxExempt" type="xsd:string"/>
+                     <xsd:element name="fraudManualReview"/>
+                     <xsd:element name="profile">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="lastName" type="xsd:string"/>
+                              <xsd:element name="firstName" type="xsd:string"/>
+                              <xsd:element name="shippingAddress">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="country" type="xsd:string"/>
+                                       <xsd:element name="phoneNumber" type="xsd:integer"/>
+                                       <xsd:element name="address3"/>
+                                       <xsd:element name="address2" type="xsd:string"/>
+                                       <xsd:element name="city" type="xsd:string"/>
+                                       <xsd:element name="address1" type="xsd:string"/>
+                                       <xsd:element name="postalCode" type="xsd:integer"/>
+                                       <xsd:element name="county"/>
+                                       <xsd:element name="state" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="middleName"/>
+                              <xsd:element name="parentOrganization"/>
+                              <xsd:element name="email" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="paymentInitiatedEmailSent" type="xsd:string"/>
+                     <xsd:element name="shippingGroupCount" type="xsd:integer"/>
+                     <xsd:element name="taxExemptionCode"/>
+                     <xsd:element name="profileId" type="xsd:integer"/>
+                     <xsd:element name="notaFiscal"/>
+                     <xsd:element name="activeQuoteOrderId"/>
+                     <xsd:element name="BackofficeOrderStatus"/>
+                     <xsd:element name="agentId" type="xsd:string"/>
+                     <xsd:element name="lastModifiedTime" type="xsd:integer"/>
+                     <xsd:element name="priceGroupId" type="xsd:string"/>
+                     <xsd:element name="creationTime" type="xsd:integer"/>
+                     <xsd:element name="sourceSystem" type="xsd:string"/>
+                     <xsd:element name="locale" type="xsd:string"/>
+                     <xsd:element name="paymentGroups">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="expirationYear" type="xsd:integer"/>
+                              <xsd:element name="amountAuthorized" type="xsd:integer"/>
+                              <xsd:element name="amount" type="xsd:integer"/>
+                              <xsd:element name="gatewayName" type="xsd:string"/>
+                              <xsd:element name="paymentProps"/>
+                              <xsd:element name="expirationMonth" type="xsd:integer"/>
+                              <xsd:element name="submittedDate" type="xsd:string"/>
+                              <xsd:element name="authorizationStatus">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="amount" type="xsd:integer"/>
+                                       <xsd:element name="statusProps">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="authorizationCode" type="xsd:integer"/>
+                                                <xsd:element name="responseDescription" type="xsd:string"/>
+                                                <xsd:element name="hostTransactionId" type="xsd:integer"/>
+                                                <xsd:element name="currencyCode" type="xsd:string"/>
+                                                <xsd:element name="occs_tx_id" type="xsd:string"/>
+                                                <xsd:element name="responseCode" type="xsd:integer"/>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="transactionSuccess" type="xsd:string"/>
+                                       <xsd:element name="errorMessage"/>
+                                       <xsd:element name="transactionId" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="IIN" type="xsd:integer"/>
+                              <xsd:element name="paymentGroupClassType" type="xsd:string"/>
+                              <xsd:element name="creditCardNumber" type="xsd:integer"/>
+                              <xsd:element name="paymentMethod" type="xsd:string"/>
+                              <xsd:element name="state" type="xsd:string"/>
+                              <xsd:element name="id" type="xsd:string"/>
+                              <xsd:element name="billingAddress">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="lastName" type="xsd:string"/>
+                                       <xsd:element name="country" type="xsd:string"/>
+                                       <xsd:element name="address3"/>
+                                       <xsd:element name="address2" type="xsd:string"/>
+                                       <xsd:element name="city" type="xsd:string"/>
+                                       <xsd:element name="prefix"/>
+                                       <xsd:element name="address1" type="xsd:string"/>
+                                       <xsd:element name="postalCode" type="xsd:integer"/>
+                                       <xsd:element name="companyName"/>
+                                       <xsd:element name="jobTitle"/>
+                                       <xsd:element name="county"/>
+                                       <xsd:element name="suffix"/>
+                                       <xsd:element name="ownerId"/>
+                                       <xsd:element name="firstName" type="xsd:string"/>
+                                       <xsd:element name="phoneNumber" type="xsd:integer"/>
+                                       <xsd:element name="faxNumber"/>
+                                       <xsd:element name="middleName"/>
+                                       <xsd:element name="state" type="xsd:string"/>
+                                       <xsd:element name="email" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="currencyCode" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="scheduledDeliveryDate"/>
+                     <xsd:element name="priceInfo">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="discounted" type="xsd:string"/>
+                              <xsd:element name="frequencyAmountTotals"/>
+                              <xsd:element name="amount" type="xsd:integer"/>
+                              <xsd:element name="total" type="xsd:integer"/>
+                              <xsd:element name="shipping" type="xsd:integer"/>
+                              <xsd:element name="manualAdjustmentTotal" type="xsd:integer"/>
+                              <xsd:element name="amountIsFinal" type="xsd:string"/>
+                              <xsd:element name="discountAmount" type="xsd:integer"/>
+                              <xsd:element name="tax" type="xsd:integer"/>
+                              <xsd:element name="rawSubtotal" type="xsd:integer"/>
+                              <xsd:element name="frequencyTaxTotals"/>
+                              <xsd:element name="currencyCode" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="catalogId"/>
+                     <xsd:element name="scheduledDeliveryPeriod"/>
+                     <xsd:element name="totalCommerceItemCount" type="xsd:integer"/>
+                     <xsd:element name="externalContext" type="xsd:string"/>
+                     <xsd:element name="quoteInfo"/>
+                     <xsd:element name="taxPriceInfo">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="secondaryCurrencyTaxAmount" type="xsd:integer"/>
+                              <xsd:element name="discounted" type="xsd:string"/>
+                              <xsd:element name="valueAddedTax" type="xsd:integer"/>
+                              <xsd:element name="amount" type="xsd:integer"/>
+                              <xsd:element name="countyTax" type="xsd:integer"/>
+                              <xsd:element name="isTaxIncluded" type="xsd:string"/>
+                              <xsd:element name="miscTax" type="xsd:integer"/>
+                              <xsd:element name="districtTax" type="xsd:integer"/>
+                              <xsd:element name="stateTax" type="xsd:integer"/>
+                              <xsd:element name="miscTaxInfo"/>
+                              <xsd:element name="countryTax" type="xsd:integer"/>
+                              <xsd:element name="cityTax" type="xsd:integer"/>
+                              <xsd:element name="amountIsFinal" type="xsd:string"/>
+                              <xsd:element name="currencyCode" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                     <xsd:element name="fraudResultType"/>
+                     <xsd:element name="lastModifiedDate" type="xsd:string"/>
+                     <xsd:element name="BrowserInfo"/>
+                     <xsd:element name="giftwraps"/>
+                     <xsd:element name="paymentGroupCount" type="xsd:integer"/>
+                     <xsd:element name="recurringChargePriceInfo"/>
+                     <xsd:element name="organization"/>
+                     <xsd:element name="siteId" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

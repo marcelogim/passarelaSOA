@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://passarela.com.br/SubmitOrderRequest" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="SubmitOrder">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://passarela.com.br/SubmitOrderRequest" schemaLocation="../v1/Resources/nxsd_submitOrderRequest.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/WebhookOrderSubmitPS_submit_order_response" schemaLocation="../v1/Resources/nxsd_submitOrderRes.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="POST" soa:wsdlOperation="submit_order">
+            <request>
+               <representation mediaType="application/json" element="cns:SubmitOrderRequest" xmlns:cns="http://passarela.com.br/SubmitOrderRequest"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/WebhookOrderSubmitPS_submit_order_response"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

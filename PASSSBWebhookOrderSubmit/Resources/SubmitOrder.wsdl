@@ -1,0 +1,37 @@
+<wsdl:definitions name="SubmitOrder" targetNamespace="http://xmlns.oracle.com/SBAplPassarela/PASSSBWebhookOrderSubmit/SubmitOrder" xmlns:tns="http://xmlns.oracle.com/SBAplPassarela/PASSSBWebhookOrderSubmit/SubmitOrder" xmlns:inp1="http://passarela.com.br/SubmitOrderRequest" xmlns:inp2="http://TargetNamespace.com/WebhookOrderSubmitPS_submit_order_response" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <plnk:partnerLinkType name="SubmitOrder">
+        <plnk:role name="SubmitOrderProvider" portType="tns:SubmitOrder_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://passarela.com.br/SubmitOrderRequest" schemaLocation="../v1/Resources/nxsd_submitOrderRequest.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://TargetNamespace.com/WebhookOrderSubmitPS_submit_order_response" schemaLocation="../v1/Resources/nxsd_submitOrderRes.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="submit_order_inputMessage">
+        <wsdl:part name="request" element="inp1:SubmitOrderRequest"/>
+    </wsdl:message>
+    <wsdl:message name="submit_order_outputMessage">
+        <wsdl:part name="reply" element="inp2:Root-Element"/>
+    </wsdl:message>
+    <wsdl:portType name="SubmitOrder_ptt">
+        <wsdl:operation name="submit_order">
+            <wsdl:input message="tns:submit_order_inputMessage"/>
+            <wsdl:output message="tns:submit_order_outputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SubmitOrder_ptt-binding" type="tns:SubmitOrder_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="submit_order">
+            <soap:operation soapAction="submit_order"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
