@@ -25,7 +25,7 @@
         <tran:provider-id>http</tran:provider-id>
         <tran:inbound>false</tran:inbound>
         <tran:URI>
-            <env:value>http://ec2-52-67-140-78.sa-east-1.compute.amazonaws.com:5113/api/v1</env:value>
+            <env:value>http://ec2-18-228-24-173.sa-east-1.compute.amazonaws.com:5113/api/v1</env:value>
         </tran:URI>
         <tran:outbound-properties>
             <tran:load-balancing-algorithm>round-robin</tran:load-balancing-algorithm>

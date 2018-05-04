@@ -40,7 +40,9 @@ else("500")</con2:path>
                                     <con2:path>$fault/ctx:reason/text()</con2:path>
                                 </con2:param>
                                 <con2:param name="key">
-                                    <con2:path>$fault//err:text/text()</con2:path>
+                                    <con2:path>if (exists($fault//err:text/text())) then
+$fault//err:text/text()
+else("")</con2:path>
                                 </con2:param>
                                 <con2:param name="time">
                                     <con2:path>fn:current-dateTime()</con2:path>
