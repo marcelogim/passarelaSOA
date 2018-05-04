@@ -158,6 +158,40 @@
             </con:stage>
         </con:pipeline>
         <con:pipeline type="response" name="response-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b13"/>
+        <con:pipeline type="request" name="request-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f9e"/>
+        <con:pipeline type="response" name="response-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f9d">
+            <con:stage id="_StageId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f9b" name="Response">
+                <con:context/>
+                <con:actions>
+                    <con5:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f36</con2:id>
+                        <con3:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con3:location>
+                        <con3:expr>
+                            <con2:xsltTransform>
+                                <con2:resource ref="PASSSBGenericPaymentGateway/V1/XSL/AuthoriseInterfaceToAuthoriseResSafetyPay"/>
+                                <con2:input>&lt;xml/></con2:input>
+                                <con2:param name="bodyRequest">
+                                    <con2:path>$bodyRequest</con2:path>
+                                </con2:param>
+                                <con2:param name="currentMileseconds">
+                                    <con2:path>xs:long((fn:current-dateTime() - xs:dateTime("1970-01-01T00:00:00-00:00")) div xs:dayTimeDuration("PT0.001S"))</con2:path>
+                                </con2:param>
+                            </con2:xsltTransform>
+                        </con3:expr>
+                    </con5:replace>
+                    <con3:log xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                        <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f24</con2:id>
+                        <con3:logLevel>error</con3:logLevel>
+                        <con3:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con3:expr>
+                        <con3:message>safateypay Resp</con3:message>
+                    </con3:log>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
         <con:flow>
             <con:pipeline-node name="GetAdditionalDataOCC">
                 <con:request>request-N3f57c7ff.N74338c7c.0.162077fcd2e.N7b14</con:request>
@@ -169,7 +203,7 @@
                 </con:context>
                 <con:branch-table variable="bodyRequest">
                     <con:xpath>
-                        <con2:xpathText>./ady:Root-Element/ady:paymentMethod</con2:xpathText>
+                        <con2:xpathText>./ady:Root-Element/ady:customProperties/ady:paymentType</con2:xpathText>
                     </con:xpath>
                     <con:branch name="3Security">
                         <con:operator>equals</con:operator>
@@ -407,6 +441,16 @@
                             </con:route-node>
                         </con:flow>
                     </con:branch>
+                    <con:branch name="Safetpay">
+                        <con:operator>equals</con:operator>
+                        <con:value>'safetyPay'</con:value>
+                        <con:flow>
+                            <con:pipeline-node name="Response Fixo">
+                                <con:request>request-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f9e</con:request>
+                                <con:response>response-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f9d</con:response>
+                            </con:pipeline-node>
+                        </con:flow>
+                    </con:branch>
                     <con:default-branch>
                         <con:flow>
                             <con:route-node name="AdyenPaymentGatewayGeneric" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
@@ -414,8 +458,10 @@
                                     <con2:userNsDecl prefix="ady3" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_response"/>
                                     <con2:userNsDecl prefix="ady2" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorise_int_request"/>
                                     <con2:userNsDecl prefix="orpr" namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_response"/>
+                                    <con2:userNsDecl prefix="rec" namespace="http://TargetNamespace.com/AdyenPaymentGatewayRecurring_listRecurringDetails_response"/>
                                     <con2:userNsDecl prefix="ady1" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_response"/>
                                     <con2:userNsDecl prefix="ady" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authorize_int_response"/>
+                                    <con2:userNsDecl prefix="tns" namespace="http://TargetNamespace.com/AdyenPaymentGateway_authoriseGeneric_request"/>
                                 </con:context>
                                 <con:actions>
                                     <con1:route>
@@ -423,31 +469,49 @@
                                         <con1:service ref="PASSSBGenericPaymentGateway/V1/BS/AdyenPaymentGatewayGeneric" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
                                         <con1:operation>authorise</con1:operation>
                                         <con1:outboundTransform>
-                                            <con3:javaCallout varName="encripedData" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
-                                                <con2:id>_ActionId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7ffe</con2:id>
-                                                <con3:archive ref="PASSSBCommon/V1/Jar/com.adyen.pojo-1.0-SNAPSHOT-jar-with-dependencies"/>
-                                                <con3:className>com.adyen.pojo.Card</con3:className>
-                                                <con3:method>public static java.lang.String getEncyptedData(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</con3:method>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:number/text()</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:expirationMonth/text()</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:expirationYear/text()</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:holderName/text()</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:expr>
-                                                    <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:cvv/text()</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:expr>
-                                                    <con2:xqueryText>dvm:lookup('PASSSBCommon/V1/DVM/PublicKeyPassarelaAdyen', 'key', 'chave', 'value', '0')</con2:xqueryText>
-                                                </con3:expr>
-                                                <con3:return-param-as-ref>false</con3:return-param-as-ref>
-                                            </con3:javaCallout>
+                                            <con5:ifThenElse xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+                                                <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f2c</con2:id>
+                                                <con5:case id="_BranchId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f2b">
+                                                    <con5:condition>
+                                                        <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:customProperties/ady2:encryptedCard/text() != ''</con2:xqueryText>
+                                                    </con5:condition>
+                                                    <con5:actions>
+                                                        <con5:assign varName="encripedData">
+                                                            <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7f27</con2:id>
+                                                            <con5:expr>
+                                                                <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:customProperties/ady2:encryptedCard/text()</con2:xqueryText>
+                                                            </con5:expr>
+                                                        </con5:assign>
+                                                    </con5:actions>
+                                                </con5:case>
+                                                <con5:default>
+                                                    <con3:javaCallout varName="encripedData" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                                        <con2:id>_ActionId-N3f57c7ff.4d4a7fa1.0.161d3758410.N7ffe</con2:id>
+                                                        <con3:archive ref="PASSSBCommon/V1/Jar/com.adyen.pojo-1.0-SNAPSHOT-jar-with-dependencies"/>
+                                                        <con3:className>com.adyen.pojo.Card</con3:className>
+                                                        <con3:method>public static java.lang.String getEncyptedData(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)</con3:method>
+                                                        <con3:expr>
+                                                            <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:number/text()</con2:xqueryText>
+                                                        </con3:expr>
+                                                        <con3:expr>
+                                                            <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:expirationMonth/text()</con2:xqueryText>
+                                                        </con3:expr>
+                                                        <con3:expr>
+                                                            <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:expirationYear/text()</con2:xqueryText>
+                                                        </con3:expr>
+                                                        <con3:expr>
+                                                            <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:holderName/text()</con2:xqueryText>
+                                                        </con3:expr>
+                                                        <con3:expr>
+                                                            <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:cardDetails/ady2:cvv/text()</con2:xqueryText>
+                                                        </con3:expr>
+                                                        <con3:expr>
+                                                            <con2:xqueryText>dvm:lookup('PASSSBCommon/V1/DVM/PublicKeyPassarelaAdyen', 'key', 'chave', 'value', '0')</con2:xqueryText>
+                                                        </con3:expr>
+                                                        <con3:return-param-as-ref>false</con3:return-param-as-ref>
+                                                    </con3:javaCallout>
+                                                </con5:default>
+                                            </con5:ifThenElse>
                                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                                 <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N6e9c</con2:id>
                                                 <con3:location>
@@ -477,8 +541,95 @@
                                                 </con3:expr>
                                                 <con3:message>Adyen Req</con3:message>
                                             </con3:log>
+                                            <con5:assign varName="shopperRef" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+                                                <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7a4c</con2:id>
+                                                <con5:expr>
+                                                    <con2:xqueryText>$body//tns:shopperReference/text()</con2:xqueryText>
+                                                </con5:expr>
+                                            </con5:assign>
                                         </con1:outboundTransform>
                                         <con1:responseTransform>
+                                            <con5:assign varName="bodyResponse" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+                                                <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7a53</con2:id>
+                                                <con5:expr>
+                                                    <con2:xqueryText>$body</con2:xqueryText>
+                                                </con5:expr>
+                                            </con5:assign>
+                                            <con5:ifThenElse xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+                                                <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7e2a</con2:id>
+                                                <con5:case id="_BranchId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7e29">
+                                                    <con5:condition>
+                                                        <con2:xqueryText>$bodyRequest/ady2:Root-Element/ady2:customProperties/ady2:storeOneClick = 'true'</con2:xqueryText>
+                                                    </con5:condition>
+                                                    <con5:actions>
+                                                        <con5:wsCallout>
+                                                            <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7e24</con2:id>
+                                                            <con5:service ref="PASSSBGenericPaymentGateway/V1/BS/AdyenPaymentGatewayRecurring" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                                            <con5:operation>listRecurringDetails</con5:operation>
+                                                            <con5:request>
+                                                                <con5:body wrapped="true">body</con5:body>
+                                                            </con5:request>
+                                                            <con5:response>
+                                                                <con5:body wrapped="true">bodyRes</con5:body>
+                                                            </con5:response>
+                                                            <con5:requestTransform>
+                                                                <con5:replace varName="body" contents-only="true">
+                                                                    <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7a4f</con2:id>
+                                                                    <con5:location>
+                                                                        <con2:xpathText>.</con2:xpathText>
+                                                                    </con5:location>
+                                                                    <con5:expr>
+                                                                        <con2:xqueryText><![CDATA[<ady:Root-Element xmlns:ady="http://TargetNamespace.com/AdyenPaymentGatewayRecurring_listRecurringDetails_request">
+    <ady:recurring>
+        <ady:contract>ONECLICK</ady:contract>
+    </ady:recurring>
+    <ady:shopperReference>{$shopperRef}</ady:shopperReference>
+    <ady:merchantAccount>PassarelaCOM</ady:merchantAccount>
+</ady:Root-Element>]]></con2:xqueryText>
+                                                                    </con5:expr>
+                                                                </con5:replace>
+                                                            </con5:requestTransform>
+                                                            <con5:responseTransform>
+                                                                <con3:log>
+                                                                    <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7a19</con2:id>
+                                                                    <con3:logLevel>error</con3:logLevel>
+                                                                    <con3:expr>
+                                                                        <con2:xqueryText>$bodyRes/rec:Root-Element//rec:recurringDetailReference/text()</con2:xqueryText>
+                                                                    </con3:expr>
+                                                                    <con3:message>listRecurring bodyRes</con3:message>
+                                                                </con3:log>
+                                                            </con5:responseTransform>
+                                                        </con5:wsCallout>
+                                                        <con5:wsCallout>
+                                                            <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N79b4</con2:id>
+                                                            <con5:service ref="PASSSBCommon/V1/GetProfileOCC/proxy/GetProfilePS" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                                            <con5:operation>orderProfile</con5:operation>
+                                                            <con5:request>
+                                                                <con5:body wrapped="true">body</con5:body>
+                                                            </con5:request>
+                                                            <con5:response>
+                                                                <con5:body wrapped="true">bodyRe</con5:body>
+                                                            </con5:response>
+                                                            <con5:requestTransform>
+                                                                <con5:replace varName="body" contents-only="true">
+                                                                    <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N79b1</con2:id>
+                                                                    <con5:location>
+                                                                        <con2:xpathText>.</con2:xpathText>
+                                                                    </con5:location>
+                                                                    <con5:expr>
+                                                                        <con2:xqueryText><![CDATA[<get:Root-Element xmlns:get="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request">
+    <get:id>{$shopperRef}</get:id>
+    <get:compraRapidaToken>{$bodyRes/rec:Root-Element//rec:recurringDetailReference/text()}</get:compraRapidaToken>
+</get:Root-Element>]]></con2:xqueryText>
+                                                                    </con5:expr>
+                                                                </con5:replace>
+                                                            </con5:requestTransform>
+                                                            <con5:responseTransform/>
+                                                        </con5:wsCallout>
+                                                    </con5:actions>
+                                                </con5:case>
+                                                <con5:default/>
+                                            </con5:ifThenElse>
                                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
                                                 <con2:id>_ActionId-N3f57c7ff.N3dd1711e.0.16199cd8b9f.N6e68</con2:id>
                                                 <con3:location>
@@ -487,7 +638,7 @@
                                                 <con3:expr>
                                                     <con2:xsltTransform>
                                                         <con2:resource ref="PASSSBGenericPaymentGateway/V1/XSL/AuthoriseInterfaceToAuthoriseRes"/>
-                                                        <con2:input>$body/ady1:Root-Element</con2:input>
+                                                        <con2:input>$bodyResponse/ady1:Root-Element</con2:input>
                                                         <con2:param name="bodyRequest">
                                                             <con2:path>$bodyRequest</con2:path>
                                                         </con2:param>
@@ -514,5 +665,10 @@
                 </con:branch-table>
             </con:branch-node>
         </con:flow>
+        <con:partner-links>
+            <con:partner-link>
+                <con:service ref="PASSSBGenericPaymentGateway/AdyenPaymentGatewayRecurring" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            </con:partner-link>
+        </con:partner-links>
     </con:router>
 </con:pipelineEntry>

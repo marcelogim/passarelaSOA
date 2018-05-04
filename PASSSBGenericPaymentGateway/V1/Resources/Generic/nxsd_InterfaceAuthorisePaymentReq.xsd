@@ -10,8 +10,7 @@
         <xsd:element name="transactionId" type="xsd:string"/>
         <xsd:element name="currencyCode" type="xsd:string"/>
         <xsd:element name="paymentId" type="xsd:string"/>
-          <xsd:element name="PONumber" type="xsd:string"/>
-        
+        <xsd:element name="PONumber" type="xsd:string"/>
         <xsd:element name="locale" type="xsd:string"/>
         <xsd:element name="referenceNumber" type="xsd:string"/>
         <xsd:element name="gatewaySettings">
@@ -90,6 +89,10 @@
               <xsd:element name="md" type="xsd:string"/>
               <xsd:element name="paResponse" type="xsd:string"/>
               <xsd:element name="shopperCPF" type="xsd:string"/>
+              <xsd:element name="paymentType" type="xsd:string"/>
+              <xsd:element name="encryptedCard" type="xsd:string"/>
+              <xsd:element name="storeOneClick" type="xsd:string"/>
+              <xsd:element name="tokenOneClick" type="xsd:string"/>
             </xsd:sequence>
           </xsd:complexType>
         </xsd:element>

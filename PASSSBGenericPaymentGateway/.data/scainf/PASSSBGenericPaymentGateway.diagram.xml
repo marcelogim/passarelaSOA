@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
+    <dgm:gService name="AdyenPaymentGateway">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="195" width="137" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="11" Y="188" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:outputPort name="AdyenPaymentGateway" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="7" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gService>
+    <dgm:gReference name="GetProfilePS">
+        <dgm:body borderWidth="2" arcRad="20" X="632" Y="26" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="622" Y="19" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="GetProfilePS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="AdyenPaymentGatewayRecurring">
+        <dgm:body borderWidth="2" arcRad="20" X="632" Y="114" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="622" Y="107" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="AdyenPaymentGatewayRecurring" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="QueryAccount">
+        <dgm:body borderWidth="2" arcRad="20" X="632" Y="202" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="622" Y="195" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="QueryAccount" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="PaymentCreditBalance">
+        <dgm:body borderWidth="2" arcRad="20" X="632" Y="290" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="622" Y="283" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="PaymentCreditBalance" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="GetEnrichOrderProfilePS">
+        <dgm:body borderWidth="2" arcRad="20" X="632" Y="378" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="622" Y="371" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="GetEnrichOrderProfilePS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_local_20x20.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="AdyenPaymentGatewayGeneric2">
+        <dgm:body borderWidth="2" arcRad="20" X="632" Y="466" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="622" Y="459" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="AdyenPaymentGatewayGeneric2" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/RestAdapterService20x20px.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gComponent name="AdyenPaymentGatewayGeneric">
+        <dgm:body borderWidth="2" arcRad="20" X="330" Y="180" width="130" height="186">
+            <dgm:borderColor r="109" g="136" b="65"/>
+            <dgm:lightBgColor r="201" g="224" b="155"/>
+            <dgm:darkBgColor r="157" g="195" b="93"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="320" Y="173" width="150" height="202">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="proxyservice.1832881675.GetProfilePS" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="businessservice.1569816203.AdyenPaymentGatewayRecurring" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="proxyservice.-1594113377.QueryAccount" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="proxyservice.-1123813673.PaymentCreditBalance" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="proxyservice.1589862696.GetEnrichOrderProfilePS" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="businessservice.1569816203.AdyenPaymentGatewayGeneric" X="120" Y="140" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gWireLink source="AdyenPaymentGateway" target="AdyenPaymentGatewayGeneric/__service__" width="2">
+        <dgm:gSegment X1="168" Y1="205" X2="320" Y2="205"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="AdyenPaymentGatewayGeneric/proxyservice.1832881675.GetProfilePS" target="GetProfilePS" width="2">
+        <dgm:gSegment X1="470" Y1="205" X2="494" Y2="205"/>
+        <dgm:gSegment X1="494" Y1="205" X2="494" Y2="36"/>
+        <dgm:gSegment X1="494" Y1="36" X2="622" Y2="36"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="AdyenPaymentGatewayGeneric/businessservice.1569816203.AdyenPaymentGatewayRecurring" target="AdyenPaymentGatewayRecurring" width="2">
+        <dgm:gSegment X1="470" Y1="230" X2="509" Y2="230"/>
+        <dgm:gSegment X1="509" Y1="230" X2="509" Y2="124"/>
+        <dgm:gSegment X1="509" Y1="124" X2="622" Y2="124"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="AdyenPaymentGatewayGeneric/proxyservice.-1594113377.QueryAccount" target="QueryAccount" width="2">
+        <dgm:gSegment X1="470" Y1="255" X2="524" Y2="255"/>
+        <dgm:gSegment X1="524" Y1="255" X2="524" Y2="212"/>
+        <dgm:gSegment X1="524" Y1="212" X2="622" Y2="212"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="AdyenPaymentGatewayGeneric/proxyservice.-1123813673.PaymentCreditBalance" target="PaymentCreditBalance" width="2">
+        <dgm:gSegment X1="470" Y1="280" X2="524" Y2="280"/>
+        <dgm:gSegment X1="524" Y1="280" X2="524" Y2="300"/>
+        <dgm:gSegment X1="524" Y1="300" X2="622" Y2="300"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="AdyenPaymentGatewayGeneric/proxyservice.1589862696.GetEnrichOrderProfilePS" target="GetEnrichOrderProfilePS" width="2">
+        <dgm:gSegment X1="470" Y1="305" X2="509" Y2="305"/>
+        <dgm:gSegment X1="509" Y1="305" X2="509" Y2="388"/>
+        <dgm:gSegment X1="509" Y1="388" X2="622" Y2="388"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="AdyenPaymentGatewayGeneric/businessservice.1569816203.AdyenPaymentGatewayGeneric" target="AdyenPaymentGatewayGeneric2" width="2">
+        <dgm:gSegment X1="470" Y1="330" X2="494" Y2="330"/>
+        <dgm:gSegment X1="494" Y1="330" X2="494" Y2="476"/>
+        <dgm:gSegment X1="494" Y1="476" X2="622" Y2="476"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+</dgm:gDiagram>

@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/AdyenPaymentGatewayRecurring_listRecurringDetails_response" targetNamespace="http://TargetNamespace.com/AdyenPaymentGatewayRecurring_listRecurringDetails_response" elementFormDefault="qualified" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="US-ASCII">
+   <xsd:element name="Root-Element">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="creationDate" type="xsd:string"/>
+            <xsd:element name="details" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="RecurringDetail">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="acquirer" type="xsd:string"/>
+                              <xsd:element name="acquirerAccount" type="xsd:string"/>
+                              <xsd:element name="additionalData">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="cardBin" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="alias" type="xsd:string"/>
+                              <xsd:element name="aliasType" type="xsd:string"/>
+                              <xsd:element name="card">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="expiryMonth" type="xsd:string"/>
+                                       <xsd:element name="expiryYear" type="xsd:string"/>
+                                       <xsd:element name="holderName" type="xsd:string"/>
+                                       <xsd:element name="number" type="xsd:string"/>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="contractTypes" maxOccurs="unbounded" type="xsd:string"/>
+                              <xsd:element name="creationDate" type="xsd:string"/>
+                              <xsd:element name="firstPspReference" type="xsd:integer"/>
+                              <xsd:element name="paymentMethodVariant" type="xsd:string"/>
+                              <xsd:element name="recurringDetailReference" type="xsd:string"/>
+                              <xsd:element name="variant" type="xsd:string"/>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="lastKnownShopperEmail" type="xsd:string"/>
+            <xsd:element name="shopperReference" type="xsd:integer"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+<xsd:annotation xmlns="">
+      <xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+      <xsd:appinfo>USEHEADER=false</xsd:appinfo>
+   </xsd:annotation>
+</xsd:schema>

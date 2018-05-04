@@ -1,16 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
 <application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://wadl.dev.java.net/2009/02" xmlns:ns0="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request">
    <doc title="OCCGetProfileOrder">RestReference</doc>
    <grammars>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/OCCGetProfileOrder_orderRequest_response" schemaLocation="nxsd_OrderRes.xsd"/>
         </xsd:schema>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/OCCGetProfileOrder_profileRequest_response" schemaLocation="nxsd_ProfileRes.xsd"/>
         </xsd:schema>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request" schemaLocation="nxsd_ProfileOCCReq.xsd"/>
         </xsd:schema>
-      <xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:import namespace="http://TargetNamespace.com/OCCGetProfileOrder_products_response" schemaLocation="nxsd_ProductRes.xsd"/>
         </xsd:schema>
    </grammars>
@@ -33,6 +34,13 @@
             <response status="200">
                <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/OCCGetProfileOrder_profileRequest_response"/>
             </response>
+         </method>
+         <method name="PUT" soa:wsdlOperation="profilePut">
+            <request>
+               <param name="idProfile" style="template" soa:expression="$property.idProfile" type="xsd:string"/>
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/GetEnrichOrderProfile_OrderProfileOCC_request"/>
+            </request>
+            <response status="204"/>
          </method>
       </resource>
       <resource path="/products/{idProduct}">
