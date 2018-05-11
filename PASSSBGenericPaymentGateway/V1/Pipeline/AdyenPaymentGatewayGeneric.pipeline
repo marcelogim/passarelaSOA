@@ -154,6 +154,37 @@
                             </con1:wsCallout>
                         </con1:default>
                     </con1:ifThenElse>
+                    <con1:ifThenElse>
+                        <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7bc1</con2:id>
+                        <con1:case id="_BranchId-N3f57c7ff.7be0a07.0.1633c720741.N7bc0">
+                            <con1:condition>
+                                <con2:xqueryText>exists($bodyRequest/ady:Root-Element/ady:customProperties/ady:paymentType)</con2:xqueryText>
+                            </con1:condition>
+                            <con1:actions/>
+                        </con1:case>
+                        <con1:default>
+                            <con1:insert varName="bodyRequest">
+                                <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7bcb</con2:id>
+                                <con1:location>
+                                    <con2:xpathText>./ady:Root-Element/ady:customProperties</con2:xpathText>
+                                </con1:location>
+                                <con1:where>first-child</con1:where>
+                                <con1:expr>
+                                    <con2:xqueryText>&lt;ady:paymentType>
+{$bodyRequest//ady:paymentMethod/text()}
+&lt;/ady:paymentType></con2:xqueryText>
+                                </con1:expr>
+                            </con1:insert>
+                        </con1:default>
+                    </con1:ifThenElse>
+                    <con3:log>
+                        <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7bce</con2:id>
+                        <con3:logLevel>error</con3:logLevel>
+                        <con3:expr>
+                            <con2:xqueryText>$bodyRequest</con2:xqueryText>
+                        </con3:expr>
+                        <con3:message>xxxxxxxxxxxxxxxxxx</con3:message>
+                    </con3:log>
                 </con:actions>
             </con:stage>
         </con:pipeline>
@@ -327,7 +358,7 @@
                                                             </con1:location>
                                                             <con1:expr>
                                                                 <con2:xqueryText>&lt;quer:Root-Element xmlns:quer="http://TargetNamespace.com/QueryAccountPS_balance_inquiry_request">
-    &lt;quer:CPF>{$bodyRes//prof:CPF/text()}&lt;/quer:CPF>
+    &lt;quer:CPF>{$bodyRes//prof1:CPF/text()}&lt;/quer:CPF>
 &lt;/quer:Root-Element></con2:xqueryText>
                                                             </con1:expr>
                                                         </con1:replace>
@@ -544,7 +575,7 @@
                                             <con5:assign varName="shopperRef" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
                                                 <con2:id>_ActionId-N3f57c7ff.6d9ebf6f.0.1632b94c2c2.N7a4c</con2:id>
                                                 <con5:expr>
-                                                    <con2:xqueryText>$body//tns:shopperReference/text()</con2:xqueryText>
+                                                    <con2:xqueryText>$bodyRequest/ady:Root-Element/ady:profile/ady:id/text()</con2:xqueryText>
                                                 </con5:expr>
                                             </con5:assign>
                                         </con1:outboundTransform>

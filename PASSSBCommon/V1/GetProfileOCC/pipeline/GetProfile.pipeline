@@ -207,7 +207,7 @@
                                                 <con3:expr>
                                                     <con2:xsltTransform>
                                                         <con2:resource ref="PASSSBCommon/V1/GetProfileOCC/transformations/ToOCCProfile"/>
-                                                        <con2:input>$bodyResponse/get1:Root-Element</con2:input>
+                                                        <con2:input>&lt;xml/></con2:input>
                                                         <con2:param name="profile">
                                                             <con2:path>$body</con2:path>
                                                         </con2:param>

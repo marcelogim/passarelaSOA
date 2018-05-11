@@ -1,0 +1,26 @@
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns0="http://TargetNamespace.com/ERPOrderSubmit_orderSumit_request" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="ERPOrderSubmit">RestReference</doc>
+   <grammars>
+      <xsd:schema>
+            <xsd:import namespace="http://TargetNamespace.com/ERPOrderSubmit_orderSumit_request" schemaLocation="nxsd_orderSubmitERPReq.xsd"/>
+        </xsd:schema>
+      <xsd:schema>
+            <xsd:import namespace="http://TargetNamespace.com/ERPOrderSubmit_orderSumit_response" schemaLocation="nxsd_orderSubmitERPRes.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/Orders">
+         <method name="POST" soa:wsdlOperation="orderSubmit">
+            <request>
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/ERPOrderSubmit_orderSumit_request"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/ERPOrderSubmit_orderSumit_response"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault1">
+               <representation mediaType="application/json" element="cns:Root-Element" xmlns:cns="http://TargetNamespace.com/ERPOrderSubmit_orderSumit_response"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

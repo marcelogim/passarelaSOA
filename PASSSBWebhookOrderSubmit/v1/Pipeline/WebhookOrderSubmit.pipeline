@@ -12,54 +12,121 @@
             <con:snippetVersion>1.0</con:snippetVersion>
         </con:xqConfiguration>
     </con:coreEntry>
-    <con:router>
-        <con:pipeline type="request" name="request-N3f57c7ff.N272c0a79.0.16201c57e2c.N7cf7">
-            <con:stage id="_StageId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7cf5" name="Stage1">
+    <con:router errorHandler="error-N3f57c7ff.7be0a07.0.1633c720741.N7a8e">
+        <con:pipeline type="error" name="error-N3f57c7ff.7be0a07.0.1633c720741.N7a8e">
+            <con:stage id="_StageId-N3f57c7ff.7be0a07.0.1633c720741.N7a8d" name="ErrorOderSubmit">
                 <con:context/>
                 <con:actions>
                     <con1:log>
-                        <con2:id>_ActionId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7cbe</con2:id>
+                        <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7a20</con2:id>
                         <con1:logLevel>error</con1:logLevel>
                         <con1:expr>
-                            <con2:xqueryText>$body</con2:xqueryText>
+                            <con2:xqueryText>$fault</con2:xqueryText>
                         </con1:expr>
-                        <con1:message>request b ody</con1:message>
                     </con1:log>
-                </con:actions>
-            </con:stage>
-        </con:pipeline>
-        <con:pipeline type="response" name="response-N3f57c7ff.N272c0a79.0.16201c57e2c.N7cf6">
-            <con:stage id="_StageId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7cf4" name="Stage1">
-                <con:context/>
-                <con:actions>
-                    <con3:replace varName="body" contents-only="true">
-                        <con2:id>_ActionId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7c87</con2:id>
-                        <con3:location>
-                            <con2:xpathText>.</con2:xpathText>
-                        </con3:location>
-                        <con3:expr>
-                            <con2:xsltTransform>
-                                <con2:resource ref="PASSSBWebhookOrderSubmit/v1/XSL/TosubmitOrderRes"/>
-                                <con2:input>&lt;xml/></con2:input>
-                            </con2:xsltTransform>
-                        </con3:expr>
-                    </con3:replace>
-                    <con1:log>
-                        <con2:id>_ActionId-N3f57c7ff.N272c0a79.0.16201c57e2c.N7c8a</con2:id>
-                        <con1:logLevel>error</con1:logLevel>
-                        <con1:expr>
-                            <con2:xqueryText>$body</con2:xqueryText>
-                        </con1:expr>
-                        <con1:message>response t b ody</con1:message>
-                    </con1:log>
+                    <con2:resume>
+                        <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7a5a</con2:id>
+                    </con2:resume>
                 </con:actions>
             </con:stage>
         </con:pipeline>
         <con:flow>
-            <con:pipeline-node name="Pipeline Pair Node1">
-                <con:request>request-N3f57c7ff.N272c0a79.0.16201c57e2c.N7cf7</con:request>
-                <con:response>response-N3f57c7ff.N272c0a79.0.16201c57e2c.N7cf6</con:response>
-            </con:pipeline-node>
+            <con:route-node name="RouteToERPOrderSubmit" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                <con:context>
+                    <con2:userNsDecl prefix="web" namespace="http://TargetNamespace.com/WebhookOrderSubmitPS_submit_order_request"/>
+                    <con2:userNsDecl prefix="ns0" namespace="https://apipassarela.azurewebsites.net/connect/token"/>
+                </con:context>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7de1</con2:id>
+                        <con1:service ref="PASSSBWebhookOrderSubmit/v1/BS/ERPOrderSubmit" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>orderSubmit</con1:operation>
+                        <con1:outboundTransform>
+                            <con1:log xmlns:con1="http://www.bea.com/wli/sb/stages/logging/config">
+                                <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7af1</con2:id>
+                                <con1:logLevel>error</con1:logLevel>
+                                <con1:expr>
+                                    <con2:xqueryText>$body</con2:xqueryText>
+                                </con1:expr>
+                                <con1:message>request body order submit</con1:message>
+                            </con1:log>
+                            <con3:assign varName="bodyOriginal">
+                                <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7d48</con2:id>
+                                <con3:expr>
+                                    <con2:xqueryText>$body</con2:xqueryText>
+                                </con3:expr>
+                            </con3:assign>
+                            <con5:wsCallout xmlns:con4="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7d7c</con2:id>
+                                <con4:service ref="PASSSBCommon/V1/TokenManagementERP/proxy/GetTokenERP" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                <con4:operation>getToken</con4:operation>
+                                <con4:request>
+                                    <con4:body wrapped="false">body</con4:body>
+                                </con4:request>
+                                <con4:response>
+                                    <con4:body wrapped="false">token</con4:body>
+                                </con4:response>
+                                <con4:requestTransform/>
+                                <con4:responseTransform/>
+                            </con5:wsCallout>
+                            <con4:transport-headers copy-all="false" xmlns:con4="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con1="http://www.bea.com/wli/sb/typesystem/config" xmlns:con3="http://www.bea.com/wli/sb/stages/config">
+                                <con3:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7d14</con3:id>
+                                <con4:header-set>outbound-request</con4:header-set>
+                                <con4:header value="expression" name="Authorization">
+                                    <con3:xqueryText>fn:concat("Bearer ", $token//ns0:access_token/text())</con3:xqueryText>
+                                </con4:header>
+                                <con4:header value="expression" name="Content-Type">
+                                    <con3:xqueryText>'application/json'</con3:xqueryText>
+                                </con4:header>
+                            </con4:transport-headers>
+                            <con3:replace varName="body" contents-only="true">
+                                <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7d10</con2:id>
+                                <con3:location>
+                                    <con2:xpathText>.</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xsltTransform>
+                                        <con2:resource ref="PASSSBWebhookOrderSubmit/v1/XSL/OrderSubmitOCCToSubmitOrderERP"/>
+                                        <con2:input>$body/web:Root-Element</con2:input>
+                                    </con2:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                            <con1:log xmlns:con1="http://www.bea.com/wli/sb/stages/logging/config">
+                                <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7a23</con2:id>
+                                <con1:logLevel>error</con1:logLevel>
+                                <con1:expr>
+                                    <con2:xqueryText>$body</con2:xqueryText>
+                                </con1:expr>
+                                <con1:message>request body qapossssss</con1:message>
+                            </con1:log>
+                        </con1:outboundTransform>
+                        <con1:responseTransform>
+                            <con1:log xmlns:con1="http://www.bea.com/wli/sb/stages/logging/config">
+                                <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7a26</con2:id>
+                                <con1:logLevel>error</con1:logLevel>
+                                <con1:expr>
+                                    <con2:xqueryText>$body</con2:xqueryText>
+                                </con1:expr>
+                                <con1:message>response t b ody order sumit</con1:message>
+                            </con1:log>
+                            <con3:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/logging/config">
+                                <con2:id>_ActionId-N3f57c7ff.7be0a07.0.1633c720741.N7b8a</con2:id>
+                                <con2:disabled>true</con2:disabled>
+                                <con3:location>
+                                    <con2:xpathText>.</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xsltTransform>
+                                        <con2:resource ref="PASSSBWebhookOrderSubmit/v1/XSL/TosubmitOrderRes"/>
+                                        <con2:input>&lt;xml/></con2:input>
+                                    </con2:xsltTransform>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:responseTransform>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
         </con:flow>
+        <con:partner-links/>
     </con:router>
 </con:pipelineEntry>

@@ -154,7 +154,7 @@
       </xsl:if>
       <xsl:if test="/ns0:Root-Element/ns0:transactionId">
         <tns:reference>
-          <xsl:value-of select="/ns0:Root-Element/ns0:transactionId"/>
+          <xsl:value-of select="substring(/ns0:Root-Element/ns0:transactionId,0, 78)"/>
         </tns:reference>
       </xsl:if>
       <xsl:if test="$profileOrder/ns1:Root-Element/ns1:email">
